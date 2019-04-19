@@ -1,0 +1,12 @@
+theme:
+    name: 'material'
+    logo: 'images/umd_logo.png'
+    feature:
+        tabs: true
+
+pages:
+    - DCB:
+        - DCB assembly: doc/dcb/dcb_assembly.md
+
+markdown_extensions:
+    - admonition
