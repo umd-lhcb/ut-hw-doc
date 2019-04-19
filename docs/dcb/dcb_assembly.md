@@ -81,7 +81,7 @@ To cut the graphite:
 3. Cut along the short end of the heat pipe which still has graphite protruding
    from underneath.
 
-![Graphite gap filler]!(graphite_thermal_gap_filler.jpg)
+![Graphite gap filler](graphite_thermal_gap_filler.jpg)
 
 !!! note
     The last cut along the short end of the heat pipe can be tedious as the
