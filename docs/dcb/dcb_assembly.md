@@ -143,20 +143,20 @@ For final assembly of the board:
    sit on top of the DCB. Again fix opposite diagonal screws first.
 
     !!! warning
-        The nuts on top of the DCB should not be rotated as they will damage the
-        surface of the DCB. In order to prevent this have one person use a socket
-        wrench to hold the nut in place while the other person uses a screwdriver
-        to secure the screw.
+        The nuts on top of the DCB **should not be rotated** as they will
+        damage the surface of the DCB. In order to prevent this have one person
+        use a socket wrench to hold the nut in place while the other person
+        uses a screwdriver to secure the screw.
 
 3. Use 4 M.3 flat head screws along with 4 short M.3 hexagonal nuts to secure
    the master GBTx side of the DCB to the backplate. The flat head screws will
    sit on top of the DCB while the nuts will be placed on the backplate side.
 
     !!! warning
-        The screws on top of the DCB should not be rotated as they will damage the
-        surface of the DCB. In order to prevent this have one person use an allen
-        wrench to hold the screw in place while the other person uses a socket
-        wrench to secure the nut.
+        The screws on top of the DCB **should not be rotated** as they will
+        damage the surface of the DCB. In order to prevent this have one person
+        use an allen wrench to hold the screw in place while the other person
+        uses a socket wrench to secure the nut.
 
 4. Finally, install the optical mezzanines back.
 
