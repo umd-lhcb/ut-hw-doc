@@ -6,8 +6,7 @@ sudo: true
 cache: pip
 
 branches:
-    only:
-        master
+  only: master
 
 install:
     - pip install -r ./requirements.txt
@@ -21,7 +20,6 @@ script:
 
 after_success:
     - mkdocs gh-deploy -v --clean --remote-name gh-token
-
 env:
     global:
-        secure: "NxUPoRe7/pqW7xwo9S6YdIJZNmBI421CI+bWLkrPL0ARHUFhVz0gr5FGfflphTK2G56kqLvZqDXOIIj/Td55zI+Ta+GjKRHfgqs5htSVX7xGXRwL8Gij4pkOZbyjfrvEl36yxiWlnOenn4unSIwQLKMEk1Sn0mKnChkdZ5B29XNYBkjY1QvmFCuqlLsQveAeEvD+drReBN5RT7BTyTH9SEDI5pwNITbc4R4aGfruU/Zo22ybPU7BUJ15I0ZdXKxIAMyJUgd0jje2k6pfEOW8hxUQJ0kN0JT0VHJUuU2Bqfya76lYlDuA9amZy1xJiQW7s883ynSWZPg3ql5KkshI2xyVi2jhUJ3v8k5Qo0lpNxBAVe3X6l1LahmZQXfe5sJ/IXiL9vKCqeaztU0rdgQR/lzhi3LllT6J+wXqWpc+QtgkS4TgjCoWyjD5tbDgG5CYvVT9LtNdJiv7M9As3zTugzNWvCifcNcDWpp1ab2u+ugWAZpGFS9mTnL9B1+I9+wPfQPWGP9rY6pDeDcbLQjflHFlF5sWZaulUA9ZQ39Prf8ATSvr0qJDFdYLVHBGA2joGdkPR+xOgNQC7D6pUiGjQq5t2Qsru6VcS/+5MEAaIyDx2fCX6mjK1KdGkLuYV3tiSsWxg9UT4coM8oQYnzGQ6JwAhCg2lvdzEwvnju8l9lk="
+        secure: LOrhmot9sQ5rEh/Qhfm7pj6jC/gtIkNZipIdPk2bCkAL8d2mMqtiDjCXUxb/6OdTVVJyjFEPKG2+z02PBkhU6qtOTKOhpKAEPUEgmOmL05IxFRte8ME6sr8OpR+q8n22Lu6CiWnZa4cjxH08+Y6QlkcdG123hajyk/GQgO88ouplsZyJo9E4mptLGhnJkYKb11lk1VxZAcWfGxhTGkU8YFpgt3lpAURkO288/cfIhH6tKzLVmvqo9dG3criZQ1vgbnUgBehK8ht3cQMIEj5aJY/T0hq/eWle+VpCw19DY7y0zdLuFgqIGb3VFaqjx9Y6oqdu/cRCJvUvFwVxhc3aRULJg/pEAoPzaWmkXVNPj704M7+0c1VeT7gwADKacTsRNzYTeMFCZge06trURn0nRXXhnBXm9pQbvIAX3wubWrzIn/QHlGf4FV1R+Yv9kmz9X6Fh/96utJ+L5TPlna53tio+Y93Zn4JzdRV9c4tCgqIZPWT5xXg7/ocReQwaV+NsZwQLI+InfQTRSd9a1cYOohXZoYRdS9FZ4J6uyrjrfwmz0gXYzGnq3wwnNmUXGwASSLwSeJ4WevaYoGOEVBJe0ooE2DKO2HAzaqCh7JSXNt4nCyOQuvn6m/6sjOtn73852GNlLWEUkuIZoFJk4wILRyNdebgt0lhbqPppH0JlC5Q=
