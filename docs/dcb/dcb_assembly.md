@@ -1,23 +1,40 @@
 ## Install screws with washers on VTXx-optical mezzanine
-For each optical mezzanine, there's a VTTx (for data GBTx) or VTRx (for master GBTx) installed. The VTXx component is fixed on optical mezzanine with 2 M.1.4 screws and 2 M.1.4 washers:
+For each optical mezzanine, there's a VTTx (for data GBTx) or VTRx (for master
+GBTx) installed. The VTXx component is fixed on optical mezzanine with 2 M.1.4
+screws and 2 M.1.4 washers:
 
 [[https://github.com/umd-lhcb/lab-notes/blob/master/dcb/vtxx_screws_and_washers.jpg]]
 
 !!! note
-    Note that it is very hard to install these screws with the optical
-    mezzanine plugged in the DCB mainboard. So remove these optical mezzanines
-    from the DCB mainboard first.
+    It is very hard to install these screws with the optical mezzanine plugged
+    in the DCB mainboard. So remove these optical mezzanines from the DCB
+    mainboard first.
 
-To install these screws,
-1. Place the washer on the screw and then place the screw upside down on the screwdriver while holding the screw in place with your thumb and index finger. This takes some practice but once you find what works then it will become much easier.
-2. Turn the optical mezzanine upside down and then attempt to attach the screw into the hole until the screw will hold on its own.
-3. Once the screw has started to tighten then flip the board over and attempt to screw the rest of the way.
+To install these screws:
+1. Place the washer on the screw and then place the screw upside down on the
+   screwdriver while holding the screw in place with your thumb and index
+   finger. This takes some practice but once you find what works then it will
+   become much easier.
+2. Turn the optical mezzanine upside down and then attempt to attach the screw
+   into the hole until the screw will hold on its own.
+3. Once the screw has started to tighten then flip the board over and attempt
+   to screw the rest of the way.
 
-When tightening the screw be careful not to apply too much pressure to the board. In order to avoid breaking the mezzanine apply most of the pressure to the plastic piece that the screws fit into instead of to the board itself.
+!!! warning
+    When tightening the screw be careful not to apply too much pressure to the
+    board. In order to avoid breaking the mezzanine apply most of the pressure
+    to the plastic piece that the screws fit into instead of to the board
+    itself.
 
-> Make sure that the washers sit on top of the board on both sides of each screw. Note that the screws should not be too tight. They should be tight enough that the washers do not move very much but also loose enough that the pressure from the washers will not damage the mezzanines.
+!!! warning
+    Make sure that the washers sit on top of the board on both sides of each
+    screw. Note that the screws should not be too tight. They should be tight
+    enough that the washers do not move very much but also loose enough that
+    the pressure from the washers will not damage the mezzanines.
 
-> Note that the optical mezzanines should not be placed back on the DCB at this time as they need to remain off of the board for final assembly.
+!!! note
+    The optical mezzanines should not be placed back on the DCB at this time as
+    they need to remain off of the board for final assembly.
 
 
 ## Install thermal gap filler on the DCB backplate
