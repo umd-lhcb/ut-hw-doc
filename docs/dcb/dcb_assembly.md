@@ -3,10 +3,13 @@ For each optical mezzanine, there's a VTTx (for data GBTx) or VTRx (for master G
 
 [[https://github.com/umd-lhcb/lab-notes/blob/master/dcb/vtxx_screws_and_washers.jpg]]
 
-> Note that it is very hard to install these screws with the optical mezzanine plugged in the DCB mainboard. So remove these optical mezzanines from the DCB mainboard first.
+!!! note
+    Note that it is very hard to install these screws with the optical
+    mezzanine plugged in the DCB mainboard. So remove these optical mezzanines
+    from the DCB mainboard first.
 
 To install these screws,
-1. Place the washer on the screw and then place the screw upside down on the screwdriver while holding the screw in place with your thumb and index finger. This takes some practice but once you find what works then it will become much easier. 
+1. Place the washer on the screw and then place the screw upside down on the screwdriver while holding the screw in place with your thumb and index finger. This takes some practice but once you find what works then it will become much easier.
 2. Turn the optical mezzanine upside down and then attempt to attach the screw into the hole until the screw will hold on its own.
 3. Once the screw has started to tighten then flip the board over and attempt to screw the rest of the way.
 
@@ -32,14 +35,14 @@ Once the thermal gap filler looks straight then use a screw to take out any left
 ## Cut graphite thermal gap filler for the heat spreaders
 We need to install 2 heat spreaders for each DCB backplate. CERN provides us some graphite film to fill the gap between the DCB backplate and the heat spreaders. As little graphite as possible should protrude from the sides.
 
-To cut the graphite, 
+To cut the graphite,
 1. Place the heat pipe on top of the graphite film as close to one of the edges as possible without letting any part of the underside be exposed. Make sure that the short edge of the heat pipe is also aligned with the edge of the graphite film.
 2. Use an X-Acto knife to cut the graphite film along both sides of the heat pipe. Make sure to apply a large amount of pressure to the heat pipe as it will easily slip on the graphite.
 3. Cut along the short end of the heat pipe which still has graphite protruding from underneath.
 
 > Note that the last cut along the short end of the heat pipe can be tedious as the heat pipe can block the cutting path.
 
-> A box cutter can also be used to cut the graphite film however an X-Acto knife may be easier. This is just personal preference. 
+> A box cutter can also be used to cut the graphite film however an X-Acto knife may be easier. This is just personal preference.
 
 [[https://github.com/umd-lhcb/lab-notes/blob/master/dcb/graphite_thermal_gap_filler.jpg]]
 
