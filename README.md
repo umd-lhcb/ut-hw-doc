@@ -1,5 +1,6 @@
 # ut-hw-doc [![Build status](https://travis-ci.com/umd-lhcb/ut-hw-doc.svg?build)](https://travis-ci.com/umd-lhcb)
-Documentation for hardware designed by UMD LHCb group
+Documentation for hardware designed by UMD LHCb group. The website is available
+at https://umd-lhcb.github.io/ut-hw-doc
 
 
 ## Test the site locally
@@ -13,4 +14,4 @@ Then build the site with the following command:
 mkdocs serve
 ```
 
-The website will be avaliable at http:127.0.0.1:8000
+The website will be avaliable at http://127.0.0.1:8000
