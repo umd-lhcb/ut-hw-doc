@@ -3,7 +3,7 @@ For each optical mezzanine, there's a VTTx (for data GBTx) or VTRx (for master
 GBTx) installed. The VTXx component is fixed on optical mezzanine with 2 M.1.4
 screws and 2 M.1.4 washers:
 
-[[https://github.com/umd-lhcb/lab-notes/blob/master/dcb/vtxx_screws_and_washers.jpg]]
+![VTXx with screws and washers](vtxx_screws_and_washers.jpg)
 
 !!! note
     It is very hard to install these screws with the optical mezzanine plugged
@@ -11,12 +11,15 @@ screws and 2 M.1.4 washers:
     mainboard first.
 
 To install these screws:
+
 1. Place the washer on the screw and then place the screw upside down on the
    screwdriver while holding the screw in place with your thumb and index
    finger. This takes some practice but once you find what works then it will
    become much easier.
+
 2. Turn the optical mezzanine upside down and then attempt to attach the screw
    into the hole until the screw will hold on its own.
+
 3. Once the screw has started to tighten then flip the board over and attempt
    to screw the rest of the way.
 
