@@ -1,0 +1,27 @@
+language: python
+python: 3.7.3
+dist: xenial
+sudo: true
+
+cache: pip
+
+branches:
+    only:
+        master
+
+install:
+    - pip install -r ./requirements.txt
+
+script:
+    - git clean -f -d -x
+    - git config --global user.name "Travis CI"
+    - git config --global user.email "travis@travis-ci.com"
+    - git remote add gh-token "https://${GH_TOKEN}@github.com/umd-lhcb/ut-hw-doc.git"
+    - git fetch gh-token && git fetch gh-token gh-pages:gh-pages
+
+after_success:
+    - mkdocs gh-deploy -v --clean --remote-name gh-token
+
+env:
+    global:
+        secure: "NxUPoRe7/pqW7xwo9S6YdIJZNmBI421CI+bWLkrPL0ARHUFhVz0gr5FGfflphTK2G56kqLvZqDXOIIj/Td55zI+Ta+GjKRHfgqs5htSVX7xGXRwL8Gij4pkOZbyjfrvEl36yxiWlnOenn4unSIwQLKMEk1Sn0mKnChkdZ5B29XNYBkjY1QvmFCuqlLsQveAeEvD+drReBN5RT7BTyTH9SEDI5pwNITbc4R4aGfruU/Zo22ybPU7BUJ15I0ZdXKxIAMyJUgd0jje2k6pfEOW8hxUQJ0kN0JT0VHJUuU2Bqfya76lYlDuA9amZy1xJiQW7s883ynSWZPg3ql5KkshI2xyVi2jhUJ3v8k5Qo0lpNxBAVe3X6l1LahmZQXfe5sJ/IXiL9vKCqeaztU0rdgQR/lzhi3LllT6J+wXqWpc+QtgkS4TgjCoWyjD5tbDgG5CYvVT9LtNdJiv7M9As3zTugzNWvCifcNcDWpp1ab2u+ugWAZpGFS9mTnL9B1+I9+wPfQPWGP9rY6pDeDcbLQjflHFlF5sWZaulUA9ZQ39Prf8ATSvr0qJDFdYLVHBGA2joGdkPR+xOgNQC7D6pUiGjQq5t2Qsru6VcS/+5MEAaIyDx2fCX6mjK1KdGkLuYV3tiSsWxg9UT4coM8oQYnzGQ6JwAhCg2lvdzEwvnju8l9lk="
