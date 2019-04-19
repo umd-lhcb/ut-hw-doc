@@ -1,12 +1,20 @@
+site_name: 'UMD UT hardware documentation'
+site_url: https://umd-lhcb.github.io/ut-hw-doc
+
+repo_name: umd-lhcb/ut-hw-doc
+repo_url: https://github.com/umd-lhcb/ut-hw-doc
+
 theme:
     name: 'material'
-    logo: 'images/umd_logo.png'
+    logo: images/umd_logo.png
+    include_search_page: false
     feature:
         tabs: true
 
-pages:
+nav:
+    - Home: index.md
     - DCB:
-        - DCB assembly: doc/dcb/dcb_assembly.md
+        - DCB assembly: dcb/dcb_assembly.md
 
 markdown_extensions:
     - admonition
