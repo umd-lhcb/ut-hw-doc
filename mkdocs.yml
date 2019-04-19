@@ -12,7 +12,9 @@ theme:
         tabs: true
 
 nav:
-    - Home: index.md
+    - Home:
+        - Getting started: index.md
+        - license.md
     - DCB:
         - DCB assembly: dcb/dcb_assembly.md
 
