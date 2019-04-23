@@ -16,7 +16,7 @@ nav:
         - Getting started: index.md
         - license.md
     - DCB:
-        - DCB assembly: dcb/dcb_assembly.md
+        - DCB assembly: dcb/dcb_assembly/dcb_assembly.md
     - LVR:
         - LVR QA: lvr/lvr_qa.md
         - Other LVR breakout boards:
