@@ -9,7 +9,7 @@ services:
 cache: pip
 
 branches:
-  only: master
+    only: master
 
 install:
     - pip install -r ./requirements.txt
