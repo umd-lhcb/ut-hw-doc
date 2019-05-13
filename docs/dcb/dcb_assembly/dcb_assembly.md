@@ -1,8 +1,8 @@
 ## Install screws with washers on VTXx-optical mezzanine
 
 For each optical mezzanine, there's a VTTx (for data GBTx) or VTRx (for master
-GBTx) installed. The VTXx component is fixed on optical mezzanine with 2 M.1.4
-screws and 2 M.1.4 washers:
+GBTx) installed. The VTXx component is fixed on optical mezzanine with 2
+{==M.1.4==} screws and 2 {==M.1.4==} washers:
 
 ![VTXx with screws and washers](vtxx_screws_and_washers.jpg)
 
@@ -105,9 +105,9 @@ To install the heat pipes:
    heat pipe is aligned to sit over the flat end of the backplate. (Note the
    pictures below).
 
-2. Use 10 M.3 countersunk screws to secure the heat pipe to the backplate. Note
-   that it is easiest to screw in opposite diagonal screws first to fix the
-   heat pipe.
+2. Use 10 {==M.3==} countersunk screws to secure the heat pipe to the
+   backplate. Note that it is easiest to screw in opposite diagonal screws
+   first to fix the heat pipe.
 
 3. Repeat for the second heat pipe.
 
@@ -137,10 +137,11 @@ For final assembly of the board:
 
 1. Remove the optical mezzanines from the DCB if they were not already removed.
 
-2. Use 16 M.2.5 countersunk screws along with 16 long M.2.5 hexagonal nuts to
-   install the DCB backplate onto the DCB. The screws should be placed on the
-   backplate side and should fit into the countersunk holes while the nuts will
-   sit on top of the DCB. Again fix opposite diagonal screws first.
+2. Use 16 {==M.2.5==} countersunk screws along with 16 long {==M.2.5==}
+   hexagonal nuts to install the DCB backplate onto the DCB. The screws should
+   be placed on the backplate side and should fit into the countersunk holes
+   while the nuts will sit on top of the DCB. Again fix opposite diagonal
+   screws first.
 
     !!! warning
         The nuts on top of the DCB **should not be rotated** as they will
@@ -148,9 +149,10 @@ For final assembly of the board:
         use a socket wrench to hold the nut in place while the other person
         uses a screwdriver to secure the screw.
 
-3. Use 4 M.3 flat head screws along with 4 short M.3 hexagonal nuts to secure
-   the master GBTx side of the DCB to the backplate. The flat head screws will
-   sit on top of the DCB while the nuts will be placed on the backplate side.
+3. Use 4 {==M.3==} flat head screws along with 4 short {==M.3==} hexagonal nuts
+   to secure the master GBTx side of the DCB to the backplate. The flat head
+   screws will sit on top of the DCB while the nuts will be placed on the
+   backplate side.
 
     !!! warning
         The screws on top of the DCB **should not be rotated** as they will
