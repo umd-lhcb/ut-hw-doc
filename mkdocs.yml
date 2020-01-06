@@ -16,12 +16,14 @@ nav:
         - Getting started: index.md
         - license.md
     - DCB:
-        - DCB assembly: dcb/dcb_assembly/dcb_assembly.md
+        - DCB mechanical assembly: dcb/dcb_assembly/dcb_assembly.md
     - LVR:
         - LVR QA: lvr/lvr_qa.md
         - Other LVR breakout boards:
             - LVR power input breakout board assembly: lvr/lvr_pwr_input_brkout_brd_assembly.md
             - LVR power input breakout board QA: lvr/lvr_pwr_input_brkout_brd_qa.md
+    - MiniDAQ:
+        - MiniDAQ usage: minidaq/minidaq_usage.md
 
 markdown_extensions:
     - admonition
