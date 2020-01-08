@@ -24,6 +24,7 @@ nav:
             - LVR power input breakout board QA: lvr/lvr_pwr_input_brkout_brd_qa.md
     - MiniDAQ:
         - MiniDAQ usage: minidaq/minidaq_usage.md
+        - CentOS tips: minidaq/centos_tips.md
 
 markdown_extensions:
     - admonition
