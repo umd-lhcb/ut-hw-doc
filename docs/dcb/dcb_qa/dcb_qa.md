@@ -139,7 +139,7 @@ clicking **TELL40** until the following panel shows up, with the tab for
 
 1. In nanoDAQ, type in the command `./dcbutil.py gpio --reset 0 1 2 3 4 5 
    --final_state low` 
-	- Now type `./saltutil.py * read 0 0 1` replacing the asterisk with 3, 4, 
+	- Now type `./saltutil.py [I2C] read 0 0 1` replacing the \[I2C\] with 3, 4, 
 	  and 5 if the DCB is in slot JD10.
 	- Replace with 0, 1, 2 if the DCB is in slot JD11
 	- You have to enter this command 3 times, once for each number.
@@ -148,9 +148,10 @@ clicking **TELL40** until the following panel shows up, with the tab for
    but change the final state to high. You should get a result.
 	- `./dcbutil.py gpio --reset 0 1 2 3 4 5 --final_state high` 
 	
+
 3. The following is for a DCB in slot JD10 only
-	1. Start with `./saltutil.py 4 init`
-	2. Type `./dcbutil.py init ~/bin/tmp_0.xml -s 1`
+	1. Start with `./saltutil.py 4 init` for I2C 4
+	2. Type `./dcbutil.py init ~/bin/tmp_0.xml -s 1` to work with GBT 1
 	3. Go to the memory monitoring panel and select link 22 at the top
 		- Verify that **Write Address Memory** on the right changes values every
 		  couple seconds.
@@ -165,10 +166,22 @@ clicking **TELL40** until the following panel shows up, with the tab for
 	6. Repeat again with `./saltutil.py 5 init` followed by 
 	   `./dcbutil.py init ~/bin/tmp_0.xml -s 6`
 		- Link Selection must be on 13
-		
+
+!!!note
+	Refer to this table if instructions are unclear as to what numbers you 
+	should be using.  
+| Slot 	| GBT	| I2C	| Link Selection |
+| :--:	| :--:	| :--:	| :--:	|
+| JD10	|	1	|	4	|	22	| 
+| JD10	|	2	|	3	|	12	|
+| JD11	|	3	|	2	|	23	|
+| JD11 	|	4	|	1	|	21	|
+| JD11 	|	5	|	0	|	14	|
+| JD10	|	6	|	5	|	13	|
+
 4. The following is for a DCB in slot JD11 only
-	1. Start with `./saltutil.py 2 init`
-	2. Type `./dcbutil.py init ~/bin/tmp_0.xml -s 3`
+	1. Start with `./saltutil.py 2 init` for I2C 2
+	2. Type `./dcbutil.py init ~/bin/tmp_0.xml -s 3` to work with GBT 3
 	3. Go to the memory monitoring panel and select link 23 at the top
 		- Verify that **Write Address Memory** on the right changes values every
 		  couple seconds.
@@ -184,9 +197,12 @@ clicking **TELL40** until the following panel shows up, with the tab for
 	   `./dcbutil.py init ~/bin/tmp_0.xml -s 5`
 		- Link Selection must be on 14
 		
+		
+
+		
 ## TFC Test
 
-1. Type `./saltutil.py * ser_src tfc` replacing the asterisk with 3, 4, and 5 
+1. Type `./saltutil.py [I2C] ser_src tfc` replacing the \[I2C\] with 3, 4, and 5 
    if the DCB is in slot JD10.
 	- Replace with 0, 1, 2 if the DCB is in slot JD11
 	

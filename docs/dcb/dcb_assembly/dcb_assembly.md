@@ -1,7 +1,7 @@
 ## Visual inspection of new DCB
 
 Record serial number from sticker on the DCB to the 
-[database](https://docs.google.com/spreadsheets/d/1KjXGhOFzi0SZPsozpKzxGjVtfr4kkS_Hv5EigUwKOj8/edit){target=_blank}
+[database](https://docs.google.com/spreadsheets/d/1KjXGhOFzi0SZPsozpKzxGjVtfr4kkS_Hv5EigUwKOj8/edit "Database")
 and put a new label on the board.
 
 !!! warning
@@ -26,7 +26,7 @@ and put a new label on the board.
 		labeled "R500", with faint white lines on one side. That side also 
 		points to a white dot on the DCB
 		
-	- Insert pics of of each component that has to match with a white dot
+	![Dot Example](white_dot.jpg)
 
 
 3. Now look at the 4 mezzanine connectors (the connectors inside the outline).
@@ -128,7 +128,9 @@ For final assembly of the board:
         The standoff/screw on the DCB side **should not be rotated** to avoid
         damages to the surface of the DCB.
 
-Input a picture of the final setup here.
+![Final Assembly Front](New_DCB_mechanics_5.jpg)
+![Final Assembly Back](New_DCB_mechanics_6.jpg)
+
 
 
 ## Continuity check
