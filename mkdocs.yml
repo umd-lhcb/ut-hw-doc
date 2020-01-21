@@ -17,6 +17,7 @@ nav:
         - license.md
     - DCB:
         - DCB mechanical assembly: dcb/dcb_assembly/dcb_assembly.md
+        - DCB QA: dcb/dcb_qa/dcb_qa.md
     - LVR:
         - LVR QA: lvr/lvr_qa.md
         - Other LVR breakout boards:

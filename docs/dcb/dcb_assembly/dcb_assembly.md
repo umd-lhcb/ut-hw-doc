@@ -1,44 +1,46 @@
-## Install screws with washers on VTXx-optical mezzanine
+## Visual inspection of new DCB
 
-For each optical mezzanine, there's a VTTx (for data GBTx) or VTRx (for master
-GBTx) installed. The VTXx component is fixed on optical mezzanine with 2
-{==M.1.4==} screws and 2 {==M.1.4==} washers:
-
-![VTXx with screws and washers](vtxx_screws_and_washers.jpg)
-
-!!! note
-    It is very hard to install these screws with the optical mezzanine plugged
-    in the DCB mainboard. So remove these optical mezzanines from the DCB
-    mainboard first.
-
-To install these screws:
-
-1. Place the washer on the screw and then place the screw upside down on the
-   screwdriver while holding the screw in place with your thumb and index
-   finger. This takes some practice but once you find what works then it will
-   become much easier.
-
-2. Turn the optical mezzanine upside down and then attempt to attach the screw
-   into the hole until the screw will hold on its own.
-
-3. Once the screw has started to tighten then flip the board over and attempt
-   to screw the rest of the way.
+Record serial number from sticker on the DCB to the 
+[database](https://docs.google.com/spreadsheets/d/1KjXGhOFzi0SZPsozpKzxGjVtfr4kkS_Hv5EigUwKOj8/edit){target=_blank}
+and put a new label on the board.
 
 !!! warning
-    When tightening the screw be careful not to apply too much pressure to the
-    board. In order to avoid breaking the mezzanine apply most of the pressure
-    to the plastic piece that the screws fit into instead of to the board
-    itself.
+	Make sure you are grounded at all times when handling the DCB!
 
-!!! warning
-    Make sure that the washers sit on top of the board on both sides of each
-    screw. Note that the screws should not be too tight. They should be tight
-    enough that the washers do not move very much but also loose enough that
-    the pressure from the washers will not damage the mezzanines.
+1. Look for scratches, gouges, and any other signs of obvious damage on the 
+   surface of the DCB.
+   
+2. Inspect more thoroughly by focusing on 1 GBTx cluster at a time. All clusters
+   should be the same and include the same components. If a piece appears to be 
+   missing, compare to the other groups. If they are all the same, it is likely 
+   correct
+	- Look for any pieces that are bent, broken, or otherwise askew within each
+	  cluster.
+	   
+    !!! note
+		Each GBTx has a marked corner which must match a white dot on the DCB. 
+		The black SCA also has marked corner and dot.
+		
+	!!! note
+		There are also a couple small components, the ones next to pieces 
+		labeled "R500", with faint white lines on one side. That side also 
+		points to a white dot on the DCB
+		
+	- Insert pics of of each component that has to match with a white dot
 
-!!! note
-    The optical mezzanines should not be placed back on the DCB at this time as
-    they need to remain off of the board for final assembly.
+
+3. Now look at the 4 mezzanine connectors (the connectors inside the outline).
+   Angle the DCB to see each pin clearly and confirm there are no globs of 
+   solder possibly connecting two pins. Also confirm that no pins are bent or 
+   broken.
+
+4. Finally examine the large backplane connecter on the other end of the DCB.
+	- Look into the connector at the pins and make sure they are all uniform.
+	  A bent pin could break a backplane.
+	- Tilt the DCB to look between the board and the connector. It is attached
+	  by many small solder pads so must lay flat and straight. Any angle or
+	  disconnected pads should be noted.
+   
 
 
 ## Install thermal gap filler on the DCB backplate
@@ -62,70 +64,32 @@ off. This will ensure that the backplate will connect smoothly to the DCB and
 that no residue from the thermal gap filler will attach to the DCB.
 
 
-## Cut graphite thermal gap filler for the heat spreaders
-We need to install 2 heat spreaders for each DCB backplate. CERN provides us
-some graphite film to fill the gap between the DCB backplate and the heat
-spreaders. As little graphite as possible should protrude from the sides.
-
-To cut the graphite:
-
-1. Place the heat pipe on top of the graphite film as close to one of the edges
-   as possible without letting any part of the underside be exposed. Make sure
-   that the short edge of the heat pipe is also aligned with the edge of the
-   graphite film.
-
-2. Use an X-Acto knife to cut the graphite film along both sides of the heat
-   pipe. Make sure to apply a large amount of pressure to the heat pipe as it
-   will easily slip on the graphite.
-
-3. Cut along the short end of the heat pipe which still has graphite protruding
-   from underneath.
-
-![Graphite gap filler](graphite_thermal_gap_filler.jpg)
-
-!!! note
-    The last cut along the short end of the heat pipe can be tedious as the
-    heat pipe can block the cutting path.
-
-!!! note
-    A box cutter can also be used to cut the graphite film however an X-Acto
-    knife may be easier. This is just personal preference.
-
-!!! warning
-    Make sure the size of graphite gap filler is slightly smaller than that of
-    the heatsink, to prevent graphite falling off to the electronic boards.
-
-
-## Install the heat spreaders on the DCB backplate
+## Install the heat pipe on the DCB backplate
 
 To install the heat pipes:
 
-1. Place the graphite film directly underneath the heat pipe and place the heat
-   pipe on the backplate. Make sure that the long protruding copper part of the
-   heat pipe is aligned to sit over the flat end of the backplate. (Note the
-   pictures below).
+1. Put a thin line of thermal grease on the pipes using a spreader, not going 
+   all the way to the edges. The grease squeezes out when the pipes are 
+   installed and tightened.
 
-2. Use 10 {==M.3==} countersunk screws to secure the heat pipe to the
-   backplate. Note that it is easiest to screw in opposite diagonal screws
+2. Use 10 {==M.3==} countersunk bolts to secure the heat pipe to the
+   backplate. Note that it is easiest to screw in opposite diagonal bolts
    first to fix the heat pipe.
+   
+4. Wipe away excess grease along the sides of the heat pipe. Can use Isopropyl
+   Alchohol to clean residue if needed (above 70% IPA).
 
 3. Repeat for the second heat pipe.
 
-!!! note
-    Correctly aligning the graphite film underneath of the heat pipe is tedious and usually takes some time.
+!!! warning
+    Pay attention to the direction of the heat pipe! The long end should point 
+	toward the flat side of the backplate and the short piping toward the 
+	notched side.
 
 Follow the pictures below for further guidance or if anything is not clear.
 
-![Assembled DCB plate, frontal](assembled_dcb_backplate_front.jpg)
-![Assembled DCB plate, side](assembled_dcb_backplate_side.jpg)
-
-!!! warning
-    Pay attention to the direction of the heat pipe!
-
-    Graphite is highly conductive, both **thermally** and **electronically**.
-    On the second picture, there is graphite sticking out. This is dangerous!
-    Make sure to cut the graphite as close to the edge as possible. Kapton tape
-    can be used but it is easiest to just be precise in the cutting.
+![Assembled DCB plate, frontal](OLD_assembled_dcb_backplate_front.jpg)
+![Assembled DCB plate, side](OLD_assembled_dcb_backplate_side.jpg)
 
 
 ## Final assembly
@@ -135,32 +99,30 @@ Follow the pictures below for further guidance or if anything is not clear.
 
 For final assembly of the board:
 
-1. Remove the optical mezzanines from the DCB if they were not already removed.
-
-2. Use 16 {==M.2.5==} countersunk screws along with 16 long {==M.2.5==}
-   hexagonal nuts to install the DCB backplate onto the DCB. The screws should
-   be placed on the backplate side and should fit into the countersunk holes
-   while the nuts will sit on top of the DCB. Again fix opposite diagonal
-   screws first.
+1. Use 16 {==M.2.5==} countersunk bolts along with 16 long {==M.2.5==}
+   hexagonal nuts to install the DCB backplate onto the DCB and provide 
+   supports for the optical mezzanines. The bolts should be placed on the 
+   backplate side and should fit into the countersunk holes while the nuts will
+   sit on top of the DCB. Again fix opposite diagonal bolts first.
+   
+    !!! note
+		This is for the flat edge/long pipe side of the assembly.
 
     !!! warning
         The nuts on top of the DCB **should not be rotated** as they will
-        damage the surface of the DCB. In order to prevent this have one person
-        use a socket wrench to hold the nut in place while the other person
-        uses a screwdriver to secure the screw.
+        damage the surface of the DCB. In order to prevent this secure the nut 
+		using pliers or a socket wrench and use a screwdriver to tighten.
 
-3. Use 4 {==M.3==} flat head screws along with 4 short {==M.3==} hexagonal nuts
-   to secure the master GBTx side of the DCB to the backplate. The flat head
-   screws will sit on top of the DCB while the nuts will be placed on the
-   backplate side.
+2. Use 8 {==M.3==} countersunk bolts along with 8 short {==M.3==} hexagonal nuts
+   and Kapton washers to secure the notched side of the backplate. The washers 
+   should be placed on the DCB to protect it from the hex nut.
 
     !!! warning
-        The screws on top of the DCB **should not be rotated** as they will
-        damage the surface of the DCB. In order to prevent this have one person
-        use an allen wrench to hold the screw in place while the other person
-        uses a socket wrench to secure the nut.
+        The nuts on top of the DCB **should not be rotated** as they will
+        damage the surface of the DCB. In order to prevent this secure the nut 
+		using pliers or a socket wrench and use a screwdriver to tighten.
 
-4. Finally, install the optical mezzanines back.
+3. Finally, install the optical mezzanines. (To be added)
 
     !!! warning
         The standoff/screw on the DCB side **should not be rotated** to avoid
