@@ -1,0 +1,1149 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+        <link rel="canonical" href="https://umd-lhcb.github.io/ut-hw-doc/dcb/dcb_qa/dcb_qa/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>DCB QA - UMD UT hardware documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#setting-up-dcb" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://umd-lhcb.github.io/ut-hw-doc" title="UMD UT hardware documentation" class="md-header-nav__button md-logo">
+          
+            <img src="../../../images/umd_logo.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              UMD UT hardware documentation
+            </span>
+            <span class="md-header-nav__topic">
+              
+                DCB QA
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/umd-lhcb/ut-hw-doc/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    umd-lhcb/ut-hw-doc
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../.." class="md-tabs__link">
+          Home
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../dcb_assembly/dcb_assembly/" class="md-tabs__link md-tabs__link--active">
+          DCB
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../lvr/lvr_qa/" class="md-tabs__link">
+          LVR
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../minidaq/minidaq_usage/" class="md-tabs__link">
+          MiniDAQ
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://umd-lhcb.github.io/ut-hw-doc" title="UMD UT hardware documentation" class="md-nav__button md-logo">
+      
+        <img src="../../../images/umd_logo.png" width="48" height="48">
+      
+    </a>
+    UMD UT hardware documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/umd-lhcb/ut-hw-doc/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    umd-lhcb/ut-hw-doc
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Home
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Home
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Getting started" class="md-nav__link">
+      Getting started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../license/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      DCB
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        DCB
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../dcb_assembly/dcb_assembly/" title="DCB mechanical assembly" class="md-nav__link">
+      DCB mechanical assembly
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        DCB QA
+      </label>
+    
+    <a href="./" title="DCB QA" class="md-nav__link md-nav__link--active">
+      DCB QA
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-dcb" class="md-nav__link">
+    Setting up DCB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checking-power" class="md-nav__link">
+    Checking Power
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fusing-gbtx" class="md-nav__link">
+    Fusing GBTx
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#programming-data-gbtxs" class="md-nav__link">
+    Programming Data GBTxs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prbs-test" class="md-nav__link">
+    PRBS Test
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#salt-testing" class="md-nav__link">
+    SALT Testing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tfc-test" class="md-nav__link">
+    TFC Test
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adc-read-out" class="md-nav__link">
+    ADC Read Out
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      LVR
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        LVR
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../lvr/lvr_qa/" title="LVR QA" class="md-nav__link">
+      LVR QA
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Other LVR breakout boards
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        Other LVR breakout boards
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../lvr/lvr_pwr_input_brkout_brd_assembly/" title="LVR power input breakout board assembly" class="md-nav__link">
+      LVR power input breakout board assembly
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../lvr/lvr_pwr_input_brkout_brd_qa/" title="LVR power input breakout board QA" class="md-nav__link">
+      LVR power input breakout board QA
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      MiniDAQ
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        MiniDAQ
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../minidaq/minidaq_usage/" title="MiniDAQ usage" class="md-nav__link">
+      MiniDAQ usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../minidaq/centos_tips/" title="CentOS tips" class="md-nav__link">
+      CentOS tips
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-dcb" class="md-nav__link">
+    Setting up DCB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checking-power" class="md-nav__link">
+    Checking Power
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fusing-gbtx" class="md-nav__link">
+    Fusing GBTx
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#programming-data-gbtxs" class="md-nav__link">
+    Programming Data GBTxs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prbs-test" class="md-nav__link">
+    PRBS Test
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#salt-testing" class="md-nav__link">
+    SALT Testing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tfc-test" class="md-nav__link">
+    TFC Test
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adc-read-out" class="md-nav__link">
+    ADC Read Out
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/umd-lhcb/ut-hw-doc/edit/master/docs/dcb/dcb_qa/dcb_qa.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>DCB QA</h1>
+                
+                <p>The DCB has a few purposes; aggregating data, controlling 
+the stave, and monitoring. It has 4 optical mezzanines with 3 VTTxs and 1 VTRx, 
+as well as 1 master GBTx, 1 GBT-SCA, and 6 data GBTxs. The DCB talks to the 
+stave through the Backplane connecter and a computer through the mezzanines.</p>
+<p><img alt="DCB Diagram" src="../dcb_diagram2.png" /> </p>
+<p>The PRBS test checks the DCB ability to get data from the GBTxs to the 
+computer. A psuedo-random bit sequence, or PRBS, is generated in the data GBTxs
+and sent to our computer via the VTTxs. This test verifies the black data lines
+on the image.</p>
+<p>In the SALT test, we tell the stave what data to send to the DCB to check the 
+grey data lines. Each line represents 12 E-links connecting the stave to the 
+GBTxs. For our tests, we have the stave sending "c4" repeated to the DCB. It 
+is easy for this to get out of phase, which is why we accept any stable data 
+in the memory monitor as a success. To see possible out-of-phase responses, 
+you can break "c4" into 8bit binary, shift it one bit left or right, then 
+make it hex again. </p>
+<p>We check the DCB control of the stave using the TFC test. </p>
+<p>There are also ADCs (analog to digital converters) we look at to verify the 
+power and, for the ones attached to thermistors, monitor the temperature on 
+the DCB itself and the stave.</p>
+<h2 id="setting-up-dcb">Setting up DCB</h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Make sure you are grounded at all times when handling the DCB!</p>
+</div>
+<ol>
+<li>
+<p>Verify the backplane connector. Do not plug in if its pins are bent, as it 
+   can break the backplane.</p>
+</li>
+<li>
+<p>Verify optical mezzanines are attached. They should rest on the long hex 
+   nuts, but it is not necessary to screw in the mezzanines to the long hexes.</p>
+</li>
+<li>
+<p>Attach optical fibers to the mezzanines. Two fibers go into each board. They
+   should be sequential except for the two attached fibers which go to the
+   master. </p>
+<ul>
+<li>The order should be something like 1, 2, Masters, 3, 4, 5, 6</li>
+</ul>
+</li>
+<li>
+<p>Correct slot based on stave connection, Not sure if this is a necessary step</p>
+<ul>
+<li>will either be JD10 or JD11</li>
+</ul>
+</li>
+<li>
+<p>Slide DCB into the proper slot using the heat spreader pipes as handles. 
+   Let it gently go down until until the guide rails at the bottom go in and 
+   the DCB sits correctly. Then push until it clicks in.</p>
+</li>
+</ol>
+<h2 id="checking-power">Checking Power</h2>
+<p>There are 3 seperate power lines, for the DCB, the VTTx's, and the Stave. They 
+should not be moved or changed over the course of this QA, but it is good to 
+verify the connections are correct.</p>
+<ul>
+<li>
+<p>DCB</p>
+<ol>
+<li>Power comes to pairs of boards as labeled by the slot they are put in. 0
+   and 1, 2 and 3, etc...</li>
+<li>Cables are labeled <code>DCB-A</code> source &amp; return and <code>DCB-B</code> source &amp; return. A 
+   goes to the even board of a pair, slot JD10, and B goes to the odd board, 
+   JD11.</li>
+<li><code>SRC</code> connects to the hevily labeled wire and <code>RET</code> connects to ground.</li>
+</ol>
+</li>
+<li>
+<p>VTTx  </p>
+<ol>
+<li>Similar power setup to DCB, one set <code>VTTx M</code> and the other just <code>VTTx</code>
+   with each having a <code>SRC</code> and <code>RET</code>.</li>
+<li>It doesn't matter which set gets connected to the inputs, as long as the 
+   sets are kept together.</li>
+<li>Connection is the same as DCB, <code>SRC</code> goes to the heavily labeled wire and
+   <code>RET</code> goes to ground.</li>
+</ol>
+</li>
+<li>
+<p>Stave</p>
+<ol>
+<li>There's P1, P2, P3, and P4 which each have <code>SRC</code> and <code>RET</code>. Make sure 
+   <code>P1 SRC</code> goes to <code>P1 SRC</code> and so on for all 8 wires.</li>
+</ol>
+</li>
+</ul>
+<h2 id="fusing-gbtx">Fusing GBTx</h2>
+<p>First, connect the usb dongle to the master optical mezzanine. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>check this is right, add pic if so</p>
+</div>
+<p><br></p>
+<ol>
+<li>
+<p>Open the <strong>GBTX Programmer</strong> on the windows PC</p>
+</li>
+<li>
+<p>Click <strong>Import Image</strong> and load the config file, it should be called 
+   something like <code>master.txt</code></p>
+</li>
+<li>
+<p>Click <strong>Write GBTX</strong> then click <strong>Read GBTX</strong></p>
+<ul>
+<li>It should return a value similar to <blockquote>
+<p>Idle, 18'h</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol>
+<p><br>
+On the Linux computer, we'll use nanoDAQ which gives some MiniDAQ functions 
+in Python. Go to <code>$HOME/src/nanoDAQ</code> in a command line on the server to use. 
+Also open MiniDAQby going to <strong>Applications</strong>, <strong>WinCC</strong>, 
+<strong>Project Administrator</strong>, then double click on the top project.</p>
+<h2 id="programming-data-gbtxs">Programming Data GBTxs</h2>
+<p>There are 6 data GBTxs on each DCB, and these must be programed everytime the 
+board gets power cycled.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>NanoDAQ has some documentation <a href="https://github.com/umd-lhcb/nanoDAQ/blob/master/README.md">here.</a>
+<br> A pdf that goes over a lot of MiniDAQ and GBTx usage can be downloaded
+<a href="https://github.com/umd-lhcb/gbtx_brds_doc/releases/download/0.8.5/gbtx_brds_doc.pdf">here.</a></p>
+</div>
+<ol>
+<li>
+<p>In the nanoDAQ command prompt, we're going to pull the reset, also called 
+   gpio, low and try to program it then high and try to program it. </p>
+</li>
+<li>
+<p>First, enter <code>./dcbutil.py gpio --reset 0 1 2 3 4 5 6 --final_state low</code> to
+   pull all resets low. Then attempt to program the GBTxs with 
+   <code>./dcbutil.py init ./gbtx_config/slave-Tx-wrong_termination.txt -g 0</code></p>
+<ul>
+<li>You should get an error</li>
+</ul>
+</li>
+<li>
+<p>Now do the reverse by changing --final_state to high to enter 
+   <code>./dcbutil.py gpio --reset 0 1 2 3 4 5 6 --final_state high</code> You should now
+   be able to program the GBTxs with the command you inputted earlier.</p>
+</li>
+</ol>
+<h2 id="prbs-test">PRBS Test</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is the MiniDAQ "Top" panel that is referenced a couple times. Most 
+menus can be found starting from this panel.</p>
+</div>
+<p><img alt="TOP Panel" src="../screenshots/top.png" /></p>
+<ol>
+<li>
+<p>To start PRBS, go to the nanoDAQ command line and enter <code>./dcbutil.py prbs on</code></p>
+</li>
+<li>
+<p>Open the PRBS panel by going to the top MiniDAQ hardware panel and clicking 
+   <strong>PRBS</strong>. </p>
+<ul>
+<li>In the top left of the panel, click in order: <br>
+  Stop All Generators → Stop All Checkers → Reset All Counters →  <br>
+  Start All Generators → Start All Checkers → Start All Counters</li>
+</ul>
+<p><img alt="PRBS Test Panel" src="../screenshots/prbs.png" /></p>
+</li>
+<li>
+<p>Allow test to run for <strong>1-5 minutes</strong>. It passes if there are 6 green channels 
+   shown on the PRBS panel.</p>
+<ul>
+<li>The picture shows 6 red ones. These are the correct channels and should be 
+  green if everything passes</li>
+</ul>
+</li>
+<li>
+<p>Check if the DCB can regain lock by unplugging the master optical fibers then
+   plugging them back in. Remember, master are the ones connected. </p>
+<ul>
+<li>Enter <code>./dcbutil.py prbs off</code> in the nanoDAQ command line. No output is a
+  success, otherwise it will report "Master GBT not locked"</li>
+</ul>
+</li>
+</ol>
+<h2 id="salt-testing">SALT Testing</h2>
+<p>For this step, we need to open the <strong>Memory Monitoring</strong> panel in MiniDAQ. In 
+the Top panel, double click <strong>DAQ</strong> to open a new window, then keep double 
+clicking <strong>TELL40</strong> until the following panel shows up, with the tab for 
+<strong>Memory Monitoring</strong> on the right.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The last <strong>TELL40</strong> has a suffix, it doesn't matter which one you double 
+click.</p>
+</div>
+<p><img alt="Memory Monitoring Panel" src="../screenshots/mem_mon.png" /></p>
+<ol>
+<li>
+<p>In nanoDAQ, type in the command <code>./dcbutil.py gpio --reset 0 1 2 3 4 5 
+   --final_state low</code> </p>
+<ul>
+<li>Now type <code>./saltutil.py [I2C] read 0 0 1</code> replacing the [I2C] with 3, 
+  4, and 5 if the DCB is in slot JD10.</li>
+<li>Replace with 0, 1, 2 if the DCB is in slot JD11</li>
+<li>You have to enter this command 3 times, once for each number.</li>
+</ul>
+</li>
+<li>
+<p>If it is working correctly you'll get an error. Then repeat the process 
+   but change the final state to high. You should get a result.</p>
+<ul>
+<li><code>./dcbutil.py gpio --reset 0 1 2 3 4 5 --final_state high</code> </li>
+</ul>
+</li>
+<li>
+<p>The following is for a DCB in slot JD10 only</p>
+<ol>
+<li>Start with <code>./saltutil.py 4 init</code> for I2C 4</li>
+<li>Type <code>./dcbutil.py init ~/bin/tmp_0.xml -s 1</code> to work with GBT 1</li>
+<li>Go to the memory monitoring panel and select link 22 at the top<ul>
+<li>Verify that <strong>Write Address Memory</strong> on the right changes values every
+  couple seconds and <strong>Write Signal Status</strong> is green.</li>
+</ul>
+</li>
+<li>Now look at the table, focusing on the latter 3 columns. There are 8 
+   digits in each column. If they are NOT stable values, 
+   go to nanoDAQ and type <code>./dcbutil.py init ~/bin/tmp_1.xml -s 1</code><ul>
+<li>keep incrementing the <code>tmp_*.xml</code> until the values are stable.</li>
+</ul>
+</li>
+<li>Repeat this process starting with <code>./saltutil.py 3 init</code> followed by 
+   <code>./dcbutil.py init ~/bin/tmp_0.xml -s 2</code><ul>
+<li>Link Selection must be on 12 now</li>
+<li>When incrementing <code>tmp_*.xml</code> keep using "-s 2"</li>
+</ul>
+</li>
+<li>Repeat again with <code>./saltutil.py 5 init</code> followed by 
+   <code>./dcbutil.py init ~/bin/tmp_0.xml -s 6</code><ul>
+<li>Link Selection must be on 13</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Refer to this table if instructions are unclear as to what numbers you 
+should be using.  </p>
+</div>
+<table>
+<thead>
+<tr>
+<th align="center">Slot</th>
+<th align="center">GBT</th>
+<th align="center">I2C</th>
+<th align="center">Link Selection</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">JD10</td>
+<td align="center">1</td>
+<td align="center">4</td>
+<td align="center">22</td>
+</tr>
+<tr>
+<td align="center">JD10</td>
+<td align="center">2</td>
+<td align="center">3</td>
+<td align="center">12</td>
+</tr>
+<tr>
+<td align="center">JD11</td>
+<td align="center">3</td>
+<td align="center">2</td>
+<td align="center">23</td>
+</tr>
+<tr>
+<td align="center">JD11</td>
+<td align="center">4</td>
+<td align="center">1</td>
+<td align="center">21</td>
+</tr>
+<tr>
+<td align="center">JD11</td>
+<td align="center">5</td>
+<td align="center">0</td>
+<td align="center">14</td>
+</tr>
+<tr>
+<td align="center">JD10</td>
+<td align="center">6</td>
+<td align="center">5</td>
+<td align="center">13</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>The following is for a DCB in slot JD11 only<ol>
+<li>Start with <code>./saltutil.py 2 init</code> for I2C 2</li>
+<li>Type <code>./dcbutil.py init ~/bin/tmp_0.xml -s 3</code> to work with GBT 3</li>
+<li>Go to the memory monitoring panel and select link 23 at the top<ul>
+<li>Verify that <strong>Write Address Memory</strong> on the right changes values every
+  couple seconds and <strong>Write Signal Status</strong> is green.</li>
+</ul>
+</li>
+<li>Now look at the table, focusing on the latter 3 columns. There are 8 
+   digits in each column. If they are NOT stable values, 
+   go to nanoDAQ and type <code>./dcbutil.py init ~/bin/tmp_1.xml -s 3</code><ul>
+<li>keep incrementing the <code>tmp_*.xml</code> until the values are stable.</li>
+</ul>
+</li>
+<li>Repeat this process starting with <code>./saltutil.py 1 init</code> followed by 
+   <code>./dcbutil.py init ~/bin/tmp_0.xml -s 4</code><ul>
+<li>Link Selection must be on 21 now</li>
+<li>When incrementing <code>tmp_*.xml</code> keep using "-s 4"</li>
+</ul>
+</li>
+<li>Repeat again with <code>./saltutil.py 0 init</code> followed by 
+   <code>./dcbutil.py init ~/bin/tmp_0.xml -s 5</code><ul>
+<li>Link Selection must be on 14</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="tfc-test">TFC Test</h2>
+<ol>
+<li>
+<p>Type <code>./saltutil.py [I2C] ser_src tfc</code> replacing the [I2C] with 3, 4, and 5 
+   if the DCB is in slot JD10.</p>
+<ul>
+<li>Replace with 0, 1, 2 if the DCB is in slot JD11</li>
+</ul>
+</li>
+<li>
+<p>Look in memory monitoring again and select links based on slot</p>
+<ul>
+<li>Same as SALT. JD10 gets links 22, 12, and 13. JD11 gets links 23, 21, and 
+  14</li>
+</ul>
+</li>
+<li>
+<p>The values in the table should be something similar to 01, 02, 04, or 08
+   repeating </p>
+</li>
+</ol>
+<h2 id="adc-read-out">ADC Read Out</h2>
+<p>If there is no MiniDAQ panel called <strong>GBT Client</strong> already open, open it by
+going back to the MiniDAQ UI (the one with "Gedi" in its title) and under 
+<strong>LHCB Framework</strong>, click <strong>GBT Client</strong>. Choose GBT under Communication on 
+the top left. Now navigate to the <strong>ADC</strong> tab.</p>
+<p><img alt="Therm Readout Panel" src="../gbt_client_adc_readout_readchannel.png" /></p>
+<ol>
+<li>
+<p>Configure settings as follows - PC: UMDlab, GBT ID: 0, SCA ID: 0, Version: 2</p>
+<ul>
+<li>For now, set address to "Read Channel" and line to 24 then 25. Clicking 
+  read on the right updates the "Data out" field.</li>
+<li>Line 24 should be around 0.5 and line 25 should be around 0.</li>
+<li>If you're getting an error, try clicking "Activate Channel" then try again</li>
+</ul>
+</li>
+<li>
+<p>When looking in slot JD10</p>
+<ul>
+<li>Also read out lines 5, 6, and 7. They should all be 0.55</li>
+</ul>
+</li>
+<li>
+<p>When looking in slot JD11</p>
+<ul>
+<li>Also read out lines 2, 3, and 4. They should all be 0.55</li>
+</ul>
+</li>
+<li>
+<p>Change address to "Current Source" and put <code>FFFFFFFF</code> (8 Fs) in "Data in", 
+   then click read/write</p>
+</li>
+<li>
+<p>Put address back to "Read Channel" and check lines 0, 1, 16, 17, and 18 by 
+   clicking read and looking at "Data in"</p>
+<ul>
+<li>Line 0 expected value is 0.53</li>
+<li>Other lines expected value 0.15</li>
+</ul>
+</li>
+</ol>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../dcb_assembly/dcb_assembly/" title="DCB mechanical assembly" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                DCB mechanical assembly
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../../lvr/lvr_qa/" title="LVR QA" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                LVR QA
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.808e90bb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+    
+  </body>
+</html>
