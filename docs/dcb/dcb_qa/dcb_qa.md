@@ -1,3 +1,29 @@
+The DCB has a few purposes; aggregating data, controlling 
+the stave, and monitoring. It has 4 optical mezzanines with 3 VTTxs and 1 VTRx, 
+as well as 1 master GBTx, 1 GBT-SCA, and 6 data GBTxs. The DCB talks to the 
+stave through the Backplane connecter and a computer through the mezzanines.
+
+![DCB Diagram](dcb_diagram2.png) 
+
+The PRBS test checks the DCB ability to get data from the GBTxs to the 
+computer. A psuedo-random bit sequence, or PRBS, is generated in the data GBTxs
+and sent to our computer via the VTTxs. This test verifies the black data lines
+on the image.
+
+In the SALT test, we tell the stave what data to send to the DCB to check the 
+grey data lines. Each line represents 12 E-links connecting the stave to the 
+GBTxs. For our tests, we have the stave sending "c4" repeated to the DCB. It 
+is easy for this to get out of phase, which is why we accept any stable data 
+in the memory monitor as a success. To see possible out-of-phase responses, 
+you can break "c4" into 8bit binary, shift it one bit left or right, then 
+make it hex again. 
+
+We check the DCB control of the stave using the TFC test. 
+
+There are also ADCs (analog to digital converters) we look at to verify the 
+power and, for the ones attached to thermistors, monitor the temperature on 
+the DCB itself and the stave.
+
 ## Setting up DCB
 
 !!! warning
@@ -15,20 +41,24 @@
 	- The order should be something like 1, 2, Masters, 3, 4, 5, 6
 	
 4. Correct slot based on stave connection, Not sure if this is a necessary step
+	- will either be JD10 or JD11
 
 5. Slide DCB into the proper slot using the heat spreader pipes as handles. 
    Let it gently go down until until the guide rails at the bottom go in and 
    the DCB sits correctly. Then push until it clicks in.
    
-## Attaching Power
+## Checking Power
 
-There are 3 seperate power lines, for the DCB, the VTTx's, and the Stave.
+There are 3 seperate power lines, for the DCB, the VTTx's, and the Stave. They 
+should not be moved or changed over the course of this QA, but it is good to 
+verify the connections are correct.
 
 - DCB
 	1. Power comes to pairs of boards as labeled by the slot they are put in. 0
 	   and 1, 2 and 3, etc...
 	2. Cables are labeled `DCB-A` source & return and `DCB-B` source & return. A 
-	   goes to the even board of a pair and B goes to the odd board.
+	   goes to the even board of a pair, slot JD10, and B goes to the odd board, 
+	   JD11.
 	3. `SRC` connects to the hevily labeled wire and `RET` connects to ground.
 
 - VTTx	
@@ -50,10 +80,27 @@ First, connect the usb dongle to the master optical mezzanine.
 !!!note 
 	check this is right, add pic if so
 <br>
-We'll use nanoDAQ which gives some MiniDAQ functions in Python. Go to 
-`$HOME/src/nanoDAQ` in a command line on the server to use. Also open MiniDAQ
-by going to **Applications**, **WinCC**, **Project Administrator**, then 
-double click on the top project.
+
+1. Open the **GBTX Programmer** on the windows PC
+
+2. Click **Import Image** and load the config file, it should be called 
+   something like `master.txt`
+
+3. Click **Write GBTX** then click **Read GBTX**
+	- It should return a value similar to 
+	> Idle, 18'h
+
+<br>
+On the Linux computer, we'll use nanoDAQ which gives some MiniDAQ functions 
+in Python. Go to `$HOME/src/nanoDAQ` in a command line on the server to use. 
+Also open MiniDAQby going to **Applications**, **WinCC**, 
+**Project Administrator**, then double click on the top project.
+
+
+## Programming Data GBTxs
+
+There are 6 data GBTxs on each DCB, and these must be programed everytime the 
+board gets power cycled.
 
 !!!note
 	NanoDAQ has some documentation [here.](https://github.com/umd-lhcb/nanoDAQ/blob/master/README.md)
@@ -90,39 +137,13 @@ double click on the top project.
 
 3. Allow test to run for **1-5 minutes**. It passes if there are 6 green channels 
    shown on the PRBS panel.
+	- The picture shows 6 red ones. These are the correct channels and should be 
+	  green if everything passes
    
 4. Check if the DCB can regain lock by unplugging the master optical fibers then
    plugging them back in. Remember, master are the ones connected. 
 	- Enter `./dcbutil.py prbs off` in the nanoDAQ command line. No output is a
 	  success, otherwise it will report "Master GBT not locked"
-	  
-## Thermistor Read Out
-
-If there is no MiniDAQ panel called **GBT Client** already open, open it by
-going back to the MiniDAQ UI and under **LHCB Framework**, click 
-**GBT Client**. Choose GBT under Communication on the top left. Now navigate 
-to the **ADC** tab.
-
-![Therm Readout Panel](gbt_client_adc_readout_readchannel.png)
-
-1. Configure settings as follows - PC: UMDlab, GBT ID: 0, SCA ID: 0, Version: 2
-	- For now, set address to "Read Channel" and line to 24 then 25. Clicking 
-	  read on the right updates the "Data out" field.
-	- Line 24 should be around 0.5 and line 25 should be around 0.
-	
-2. When looking in slot JD10
-	- Also read out lines 5, 6, and 7. They should all be 0.55
-
-3. When looking in slot JD11
-	- Also read out lines 2, 3, and 4. They should all be 0.55
-	
-4. Change address to "Current Source" and put `FFFFFFFF` (8 Fs) in "Data in". 
-	- Click activate channel, then read/write 
-
-5. Put address back to "Read Channel" and check lines 0, 1, 16, 17, and 18 by 
-   clicking read and looking at "Data in"
-	- Line 0 expected value is 0.53
-	- Other lines expected value 0.
 	
 ## SALT Testing
 
@@ -139,8 +160,8 @@ clicking **TELL40** until the following panel shows up, with the tab for
 
 1. In nanoDAQ, type in the command `./dcbutil.py gpio --reset 0 1 2 3 4 5 
    --final_state low` 
-	- Now type `./saltutil.py [I2C] read 0 0 1` replacing the \[I2C\] with 3, 4, 
-	  and 5 if the DCB is in slot JD10.
+	- Now type `./saltutil.py [I2C] read 0 0 1` replacing the \[I2C\] with 3, 
+	  4, and 5 if the DCB is in slot JD10.
 	- Replace with 0, 1, 2 if the DCB is in slot JD11
 	- You have to enter this command 3 times, once for each number.
 
@@ -154,7 +175,7 @@ clicking **TELL40** until the following panel shows up, with the tab for
 	2. Type `./dcbutil.py init ~/bin/tmp_0.xml -s 1` to work with GBT 1
 	3. Go to the memory monitoring panel and select link 22 at the top
 		- Verify that **Write Address Memory** on the right changes values every
-		  couple seconds.
+		  couple seconds and **Write Signal Status** is green.
 	4. Now look at the table, focusing on the latter 3 columns. There are 8 
 	   digits in each column. If they are NOT stable values, 
 	   go to nanoDAQ and type `./dcbutil.py init ~/bin/tmp_1.xml -s 1`
@@ -184,7 +205,7 @@ clicking **TELL40** until the following panel shows up, with the tab for
 	2. Type `./dcbutil.py init ~/bin/tmp_0.xml -s 3` to work with GBT 3
 	3. Go to the memory monitoring panel and select link 23 at the top
 		- Verify that **Write Address Memory** on the right changes values every
-		  couple seconds.
+		  couple seconds and **Write Signal Status** is green.
 	4. Now look at the table, focusing on the latter 3 columns. There are 8 
 	   digits in each column. If they are NOT stable values, 
 	   go to nanoDAQ and type `./dcbutil.py init ~/bin/tmp_1.xml -s 3`
@@ -196,10 +217,8 @@ clicking **TELL40** until the following panel shows up, with the tab for
 	6. Repeat again with `./saltutil.py 0 init` followed by 
 	   `./dcbutil.py init ~/bin/tmp_0.xml -s 5`
 		- Link Selection must be on 14
-		
-		
 
-		
+
 ## TFC Test
 
 1. Type `./saltutil.py [I2C] ser_src tfc` replacing the \[I2C\] with 3, 4, and 5 
@@ -213,3 +232,33 @@ clicking **TELL40** until the following panel shows up, with the tab for
 3. The values in the table should be something similar to 01, 02, 04, or 08
    repeating 
 
+
+
+## ADC Read Out
+
+If there is no MiniDAQ panel called **GBT Client** already open, open it by
+going back to the MiniDAQ UI (the one with "Gedi" in its title) and under 
+**LHCB Framework**, click **GBT Client**. Choose GBT under Communication on 
+the top left. Now navigate to the **ADC** tab.
+
+![Therm Readout Panel](gbt_client_adc_readout_readchannel.png)
+
+1. Configure settings as follows - PC: UMDlab, GBT ID: 0, SCA ID: 0, Version: 2
+	- For now, set address to "Read Channel" and line to 24 then 25. Clicking 
+	  read on the right updates the "Data out" field.
+	- Line 24 should be around 0.5 and line 25 should be around 0.
+	- If you're getting an error, try clicking "Activate Channel" then try again
+	
+2. When looking in slot JD10
+	- Also read out lines 5, 6, and 7. They should all be 0.55
+
+3. When looking in slot JD11
+	- Also read out lines 2, 3, and 4. They should all be 0.55
+	
+4. Change address to "Current Source" and put `FFFFFFFF` (8 Fs) in "Data in", 
+   then click read/write
+
+5. Put address back to "Read Channel" and check lines 0, 1, 16, 17, and 18 by 
+   clicking read and looking at "Data in"
+	- Line 0 expected value is 0.53
+	- Other lines expected value 0.15

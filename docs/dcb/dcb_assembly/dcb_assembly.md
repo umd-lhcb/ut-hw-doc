@@ -25,7 +25,8 @@ and put a new label on the board.
 		There are also a couple small components, the ones next to pieces 
 		labeled "R500", with faint white lines on one side. That side also 
 		points to a white dot on the DCB
-		
+	
+	The dots are on the top left in this example
 	![Dot Example](white_dot.jpg)
 
 
