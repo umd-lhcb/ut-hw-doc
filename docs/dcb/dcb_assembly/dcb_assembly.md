@@ -35,7 +35,18 @@ and put a new label on the board.
    solder possibly connecting two pins. Also confirm that no pins are bent or 
    broken.
 
-4. Finally examine the large backplane connecter on the other end of the DCB.
+4. Next flip the DCB over so that you are looking at the bottom side of the
+   DCB. Check the bottom side near the optical mezzanines to ensure that there
+   are no extra globs os solder protruding through the surface of the DCB.
+
+  !!! note
+    If there are extra globs of solder present then it can short the DCB
+    when assembled to the backplate.
+
+  An example of the extra globs of solder is shown here
+  ![Extra Solder Example](extra_solder_DCB.jpg)
+
+5. Finally examine the large backplane connecter on the other end of the DCB.
 	- Look into the connector at the pins and make sure they are all uniform.
 	  A bent pin could break a backplane.
 	- Tilt the DCB to look between the board and the connector. It is attached
