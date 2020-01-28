@@ -89,8 +89,8 @@ To install the heat pipes:
 
 Follow the pictures below for further guidance or if anything is not clear.
 
-![Assembled DCB plate, frontal](OLD_assembled_dcb_backplate_front.jpg)
-![Assembled DCB plate, side](OLD_assembled_dcb_backplate_side.jpg)
+![Assembled DCB plate, frontal](assembled_dcb_backplate_front.jpg)
+![Assembled DCB plate, side](assembled_dcb_backplate_side.jpg)
 
 
 ## Final assembly

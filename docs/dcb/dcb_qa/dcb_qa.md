@@ -18,7 +18,13 @@ in the memory monitor as a success. To see possible out-of-phase responses,
 you can break "c4" into 8bit binary, shift it one bit left or right, then 
 make it hex again. 
 
-We check the DCB control of the stave using the TFC test. 
+![TFC Diagram](tfc_loopback.png)
+
+We check the DCB control of the stave by testing TFC loopback, where a GBTx 
+sends a header of 04 to the stave. We know the E-links will be good as they have
+just been checked, so we expect to see the stave repeating 04 back to us if 
+everything is working correctly. It is also fine here to see a bit-shift, 
+making it look like the stave is repeating 01, 02, or 08.
 
 There are also ADCs (analog to digital converters) we look at to verify the 
 power and, for the ones attached to thermistors, monitor the temperature on 
@@ -75,20 +81,48 @@ verify the connections are correct.
 	   
 ## Fusing GBTx
 
-First, connect the usb dongle to the master optical mezzanine. 
+Verify the jumper on J2, next to the optical mezzanines, looks like this
+![Fuse Jumper](fuse_jumper.jpg)
 
-!!!note 
-	check this is right, add pic if so
+First, connect the usb dongle to the master optical mezzanine. You have to 
+slide the thin flat wires into the top of the mezzanine, making sure the 
+exposed metal side is facing down toward the DCB. Then connect the U.FL 
+wire from the dongle to `J5` on the mezzanine. The connection is underneath,
+but there is a label for it on the top.
+
+![Dongle Connection](fuse_connection_LI(2).jpg)
+
+On the left of the picture is a different power breakout board that must also 
+be attatched. Its powered by two 1.5 volt connections with amp limit 2.5 and one
+3.3 volt connection with amp limit 0.5. Power on the DCB.
 <br>
 
 1. Open the **GBTX Programmer** on the windows PC
 
-2. Click **Import Image** and load the config file, it should be called 
-   something like `master.txt`
+2. Check the connection is working by clicking **Read GBTX**, the state should
+   change to `pauseForConfig`
+   
+3. Go to the **Fuse my GBTx** tab all the way on the right
+	- click **Import Image**, make sure you can see .txt files, and select 
+	  `master.txt`
+	- click **Write GBTX** then **Read GBTX**, the state should change to 
+	  `waitDESLock`
+	- to the right of table, find and click update view. All of the entries in 
+	  the table should now be green
+	- Now click **select all**, check **enable fusing** and 
+	  **fuse updateConfig**, and click the big **FUSE** button at the bottom
+	  
+4. Shut off power to the DCB and move the right jumper on J2 up one to be inline
+   with the other jumper.
+   
+	!!! note
+		add picture
+	
+5. To verify the fuse was successful, power the DCB back on. 
+	- in the **GBTX Programmer**, read and update view like before. The table 
+	  should still be all green
 
-3. Click **Write GBTX** then click **Read GBTX**
-	- It should return a value similar to 
-	> Idle, 18'h
+
 
 <br>
 On the Linux computer, we'll use nanoDAQ which gives some MiniDAQ functions 
@@ -246,7 +280,7 @@ the top left. Now navigate to the **ADC** tab.
 1. Configure settings as follows - PC: UMDlab, GBT ID: 0, SCA ID: 0, Version: 2
 	- For now, set address to "Read Channel" and line to 24 then 25. Clicking 
 	  read on the right updates the "Data out" field.
-	- Line 24 should be around 0.5 and line 25 should be around 0.
+	- Line 24 should be around 0.5 and line 25 should be around 0.833
 	- If you're getting an error, try clicking "Activate Channel" then try again
 	
 2. When looking in slot JD10
@@ -262,3 +296,23 @@ the top left. Now navigate to the **ADC** tab.
    clicking read and looking at "Data in"
 	- Line 0 expected value is 0.53
 	- Other lines expected value 0.15
+
+
+## Optical to Master GBT
+
+We want to verify that we can communicate to the Master GBTx through the 
+optical fibers. Make sure **GBT Client** is still open, and go to the tab 
+labeled **GBT**.
+
+1. Verify or add a red jumper cable to the first connection from "J4" on the 
+   DCB, directly under an optical mezzanine. It is also labeled "MC 
+   CONFIGSELECT"
+   
+   ![Jumper](Jumper_crop.jpg)
+   
+2. Set up **GBT Client** such that GBT ID:0, Device Address: 7, Register 
+   Address: 28, Size: 1
+	- Click Read on the right and you should see 00 in "Data out"
+	
+3. Put FF in "Data in" and click read/write
+	- "Data out" should now read FF
