@@ -439,6 +439,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#optical-to-master-gbt" class="md-nav__link">
+    Optical to Master GBT
+  </a>
+  
+</li>
+      
       
       
       
@@ -661,6 +668,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#optical-to-master-gbt" class="md-nav__link">
+    Optical to Master GBT
+  </a>
+  
+</li>
+      
       
       
       
@@ -698,7 +712,12 @@ is easy for this to get out of phase, which is why we accept any stable data
 in the memory monitor as a success. To see possible out-of-phase responses, 
 you can break "c4" into 8bit binary, shift it one bit left or right, then 
 make it hex again. </p>
-<p>We check the DCB control of the stave using the TFC test. </p>
+<p><img alt="TFC Diagram" src="../tfc_loopback.png" /></p>
+<p>We check the DCB control of the stave by testing TFC loopback, where a GBTx 
+sends a header of 04 to the stave. We know the E-links will be good as they have
+just been checked, so we expect to see the stave repeating 04 back to us if 
+everything is working correctly. It is also fine here to see a bit-shift, 
+making it look like the stave is repeating 01, 02, or 08.</p>
 <p>There are also ADCs (analog to digital converters) we look at to verify the 
 power and, for the ones attached to thermistors, monitor the temperature on 
 the DCB itself and the stave.</p>
@@ -772,27 +791,52 @@ verify the connections are correct.</p>
 </li>
 </ul>
 <h2 id="fusing-gbtx">Fusing GBTx</h2>
-<p>First, connect the usb dongle to the master optical mezzanine. </p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>check this is right, add pic if so</p>
-</div>
-<p><br></p>
+<p>Verify the jumper on J2, next to the optical mezzanines, looks like this
+<img alt="Fuse Jumper" src="../fuse_jumper.jpg" /></p>
+<p>First, connect the usb dongle to the master optical mezzanine. You have to 
+slide the thin flat wires into the top of the mezzanine, making sure the 
+exposed metal side is facing down toward the DCB. Then connect the U.FL 
+wire from the dongle to <code>J5</code> on the mezzanine. The connection is underneath,
+but there is a label for it on the top.</p>
+<p><img alt="Dongle Connection" src="../fuse_connection_LI(2).jpg" /></p>
+<p>On the left of the picture is a different power breakout board that must also 
+be attatched. Its powered by two 1.5 volt connections with amp limit 2.5 and one
+3.3 volt connection with amp limit 0.5. Power on the DCB.
+<br></p>
 <ol>
 <li>
 <p>Open the <strong>GBTX Programmer</strong> on the windows PC</p>
 </li>
 <li>
-<p>Click <strong>Import Image</strong> and load the config file, it should be called 
-   something like <code>master.txt</code></p>
+<p>Check the connection is working by clicking <strong>Read GBTX</strong>, the state should
+   change to <code>pauseForConfig</code></p>
 </li>
 <li>
-<p>Click <strong>Write GBTX</strong> then click <strong>Read GBTX</strong></p>
+<p>Go to the <strong>Fuse my GBTx</strong> tab all the way on the right</p>
 <ul>
-<li>It should return a value similar to <blockquote>
-<p>Idle, 18'h</p>
-</blockquote>
+<li>click <strong>Import Image</strong>, make sure you can see .txt files, and select 
+  <code>master.txt</code></li>
+<li>click <strong>Write GBTX</strong> then <strong>Read GBTX</strong>, the state should change to 
+  <code>waitDESLock</code></li>
+<li>to the right of table, find and click update view. All of the entries in 
+  the table should now be green</li>
+<li>Now click <strong>select all</strong>, check <strong>enable fusing</strong> and 
+  <strong>fuse updateConfig</strong>, and click the big <strong>FUSE</strong> button at the bottom</li>
+</ul>
 </li>
+<li>
+<p>Shut off power to the DCB and move the right jumper on J2 up one to be inline
+   with the other jumper.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>add picture</p>
+</div>
+</li>
+<li>
+<p>To verify the fuse was successful, power the DCB back on. </p>
+<ul>
+<li>in the <strong>GBTX Programmer</strong>, read and update view like before. The table 
+  should still be all green</li>
 </ul>
 </li>
 </ol>
@@ -1041,7 +1085,7 @@ the top left. Now navigate to the <strong>ADC</strong> tab.</p>
 <ul>
 <li>For now, set address to "Read Channel" and line to 24 then 25. Clicking 
   read on the right updates the "Data out" field.</li>
-<li>Line 24 should be around 0.5 and line 25 should be around 0.</li>
+<li>Line 24 should be around 0.5 and line 25 should be around 0.833</li>
 <li>If you're getting an error, try clicking "Activate Channel" then try again</li>
 </ul>
 </li>
@@ -1067,6 +1111,31 @@ the top left. Now navigate to the <strong>ADC</strong> tab.</p>
 <ul>
 <li>Line 0 expected value is 0.53</li>
 <li>Other lines expected value 0.15</li>
+</ul>
+</li>
+</ol>
+<h2 id="optical-to-master-gbt">Optical to Master GBT</h2>
+<p>We want to verify that we can communicate to the Master GBTx through the 
+optical fibers. Make sure <strong>GBT Client</strong> is still open, and go to the tab 
+labeled <strong>GBT</strong>.</p>
+<ol>
+<li>Verify or add a red jumper cable to the first connection from "J4" on the 
+   DCB, directly under an optical mezzanine. It is also labeled "MC 
+   CONFIGSELECT"</li>
+</ol>
+<p><img alt="Jumper" src="../Jumper_crop.jpg" /></p>
+<ol>
+<li>
+<p>Set up <strong>GBT Client</strong> such that GBT ID:0, Device Address: 7, Register 
+   Address: 28, Size: 1</p>
+<ul>
+<li>Click Read on the right and you should see 00 in "Data out"</li>
+</ul>
+</li>
+<li>
+<p>Put FF in "Data in" and click read/write</p>
+<ul>
+<li>"Data out" should now read FF</li>
 </ul>
 </li>
 </ol>
