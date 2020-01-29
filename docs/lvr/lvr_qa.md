@@ -75,7 +75,7 @@ Full QA Procedure:
 
 6.  Record input current
 
-![A circuit board Description automatically generated](media/d81dbb1f0f749fdaf53d2d696d3f3f66.jpg)
+![LVR with tespoints and pots highlighted](lvrqa1.png)
 
 1.  Place a DVM between TP4 (Vop_rail) and TP7 (GND)
 
@@ -119,7 +119,7 @@ Full QA Procedure:
 
 10. Move jumpers on J22 to connect pins 4&6 and pins 3&5
 
-![A circuit board Description automatically generated](media/1c0eb34e96bc2cd3b6478374c4de0180.jpg)
+![LVR with V_OP_RAIL adjustment indicated](lvrqa2.png)
 
 1.  Set dip switch configuration for undervoltage lockout and overtemp lockout
 
@@ -150,11 +150,11 @@ Full QA Procedure:
     5.  Additionally, note that if you wish the board to be in pulsed duty
         cycle, set SW3 pin 1 to OFF, otherwise keep pin at ON
 
-![](media/73078b26d18324bd7b2f9d18577060c9.jpg)
+![LVR with failsafe controls circled](lvrqa3.png)
 
-![A circuit board Description automatically generated](media/b1109964f2d40fd8ccbe6c2ec3e194dc.jpg)
+![LVR with config switches circled](lvrqa4.png)
 
-![A circuit board Description automatically generated](media/c4ae32b6b64fdeda9113af3f7b4c555c.jpg)
+![](lvrqa5.png)
 
 1.  Undervoltage Lockout test
 
