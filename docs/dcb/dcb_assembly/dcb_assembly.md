@@ -137,12 +137,17 @@ For final assembly of the board:
 3. Install jumpers to the board according to the picture, these are needed to configure the DCB.	
  	![DCB Jumpers](DCB_Jumpers.JPEG)
  
- 	!!! note 
+    !!! note 
 	You should install 10 jumpers to the following connectors: 
+
 	J2 pins 1-3,2-4
+
 	J4 pins 1-2,3-4
+
 	J10 pins 3-4,5-6
+
 	J12 1-2,3-4,5-6
+
 	J13 1-3,2-4
 
 4. Finally, install the optical mezzanines. (To be added)
