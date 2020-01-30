@@ -30,6 +30,51 @@ There are also ADCs (analog to digital converters) we look at to verify the
 power and, for the ones attached to thermistors, monitor the temperature on 
 the DCB itself and the stave.
 
+## Fusing GBTx
+
+Verify the jumper on J2, next to the optical mezzanines, looks like this
+![Fuse Jumper](fuse_jumper.jpg)
+
+First, connect the usb dongle to the master optical mezzanine. You have to 
+slide the thin flat wires into the top of the mezzanine, making sure the 
+exposed metal side is facing down toward the DCB. Then connect the U.FL 
+wire from the dongle to `J5` on the mezzanine. The connection is underneath,
+but there is a label for it on the top.
+
+![Dongle Connection](fuse_connection_LI.jpg)
+
+On the left of the picture is a different power breakout board that must also 
+be attatched. Its powered by two 1.5 volt connections with amp limit 2.5 and one
+3.3 volt connection with amp limit 0.5. Power on the DCB.
+<br>
+
+1. Open the **GBTX Programmer** on the windows PC
+
+2. Check the connection is working by clicking **Read GBTX**, the state should
+   change to `pauseForConfig`
+   
+3. Go to the **Fuse my GBTx** tab all the way on the right
+	- click **Import Image**, make sure you can see .txt files, and select 
+	  `master.txt`
+	- click **Write GBTX** then **Read GBTX**, the state should change to 
+	  `waitDESLock`
+	- to the right of table, find and click update view. All of the entries in 
+	  the table should now be green
+	- Now click **select all**, check **enable fusing** and 
+	  **fuse updateConfig**, and click the big **FUSE** button at the bottom
+	  
+4. Shut off power to the DCB and move the right jumper on J2 up one to be inline
+   with the other jumper.
+   
+	![DCB Jumper After Fuse](Jumper_after_fuse_LI.jpg)
+	
+5. To verify the fuse was successful, power the DCB back on. 
+	- in the **GBTX Programmer**, read and update view like before. The table 
+	  should still be all green
+	  
+6. Add a red jumper to connector J4 as shown 
+![Jumper J4](Jumper_crop.jpg)
+
 ## Setting up DCB
 
 !!! warning
@@ -79,48 +124,7 @@ verify the connections are correct.
 	1. There's P1, P2, P3, and P4 which each have `SRC` and `RET`. Make sure 
 	   `P1 SRC` goes to `P1 SRC` and so on for all 8 wires.
 	   
-## Fusing GBTx
 
-Verify the jumper on J2, next to the optical mezzanines, looks like this
-![Fuse Jumper](fuse_jumper.jpg)
-
-First, connect the usb dongle to the master optical mezzanine. You have to 
-slide the thin flat wires into the top of the mezzanine, making sure the 
-exposed metal side is facing down toward the DCB. Then connect the U.FL 
-wire from the dongle to `J5` on the mezzanine. The connection is underneath,
-but there is a label for it on the top.
-
-![Dongle Connection](fuse_connection_LI(2).jpg)
-
-On the left of the picture is a different power breakout board that must also 
-be attatched. Its powered by two 1.5 volt connections with amp limit 2.5 and one
-3.3 volt connection with amp limit 0.5. Power on the DCB.
-<br>
-
-1. Open the **GBTX Programmer** on the windows PC
-
-2. Check the connection is working by clicking **Read GBTX**, the state should
-   change to `pauseForConfig`
-   
-3. Go to the **Fuse my GBTx** tab all the way on the right
-	- click **Import Image**, make sure you can see .txt files, and select 
-	  `master.txt`
-	- click **Write GBTX** then **Read GBTX**, the state should change to 
-	  `waitDESLock`
-	- to the right of table, find and click update view. All of the entries in 
-	  the table should now be green
-	- Now click **select all**, check **enable fusing** and 
-	  **fuse updateConfig**, and click the big **FUSE** button at the bottom
-	  
-4. Shut off power to the DCB and move the right jumper on J2 up one to be inline
-   with the other jumper.
-   
-	!!! note
-		add picture
-	
-5. To verify the fuse was successful, power the DCB back on. 
-	- in the **GBTX Programmer**, read and update view like before. The table 
-	  should still be all green
 
 
 
@@ -157,7 +161,7 @@ board gets power cycled.
 !!!note
 	This is the MiniDAQ "Top" panel that is referenced a couple times. Most 
 	menus can be found starting from this panel.
-![TOP Panel](screenshots/top.png)
+![TOP Panel](more_pictures/top.png)
 
 1. To start PRBS, go to the nanoDAQ command line and enter `./dcbutil.py prbs on`
 
@@ -167,7 +171,7 @@ board gets power cycled.
 	  Stop All Generators → Stop All Checkers → Reset All Counters →  <br>
 	  Start All Generators → Start All Checkers → Start All Counters
 
-	![PRBS Test Panel](screenshots/prbs.png)
+	![PRBS Test Panel](more_pictures/prbs.png)
 
 3. Allow test to run for **1-5 minutes**. It passes if there are 6 green channels 
    shown on the PRBS panel.
@@ -190,7 +194,7 @@ clicking **TELL40** until the following panel shows up, with the tab for
 	The last **TELL40** has a suffix, it doesn't matter which one you double 
 	click.
 
-![Memory Monitoring Panel](screenshots/mem_mon.png)
+![Memory Monitoring Panel](more_pictures/mem_mon.png)
 
 1. In nanoDAQ, type in the command `./dcbutil.py gpio --reset 0 1 2 3 4 5 
    --final_state low` 

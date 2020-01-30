@@ -39,12 +39,12 @@ and put a new label on the board.
    DCB. Check the bottom side near the optical mezzanines to ensure that there
    are no extra globs os solder protruding through the surface of the DCB.
 
-  !!! note
-    If there are extra globs of solder present then it can short the DCB
-    when assembled to the backplate.
+	!!! note
+		If there are extra globs of solder present then it can short the DCB 
+		when assembled to the backplate.
 
-  An example of the extra globs of solder is shown here
-  ![Extra Solder Example](extra_solder_DCB.jpg)
+	An example of the extra globs of solder is shown here
+	![Extra Solder Example](extra_solder_DCB.jpg)
 
 5. Finally examine the large backplane connecter on the other end of the DCB.
 	- Look into the connector at the pins and make sure they are all uniform.
@@ -134,16 +134,19 @@ For final assembly of the board:
         damage the surface of the DCB. In order to prevent this secure the nut 
 		using pliers or a socket wrench and use a screwdriver to tighten.
 		
-3. Install jumpers to the board according to the picture, these are needed to configure the DCB.	
- 	![DCB Jumpers](DCB_Jumpers.JPEG)
+3. Install jumpers to the board according to the picture, these are needed 
+   to configure the DCB.
+   
+	Red Lines are where the jumpers go
+	![DCB Jumpers Highlighted](New_DCB_1_LI.jpg)
  
     !!! note 
     	You should install 10 jumpers to the following connectors: 
-	J2 pins 1-3,2-4
-	J4 pins 1-2,3-4
-	J10 pins 3-4,5-6
-	J12 1-2,3-4,5-6
-	J13 1-3,2-4
+	J2 pins 1-3,2-4  
+	J4 pins 3-4  
+	J10 pins 3-4,5-6  
+	J12 1-2,3-4,5-6  
+	J13 1-3,2-4  
 
 4. Finally, install the optical mezzanines. (To be added)
 
