@@ -133,8 +133,19 @@ For final assembly of the board:
         The nuts on top of the DCB **should not be rotated** as they will
         damage the surface of the DCB. In order to prevent this secure the nut 
 		using pliers or a socket wrench and use a screwdriver to tighten.
+		
+3. Install jumpers to the board according to the picture, these are needed to configure the DCB.	
+ 	![DCB Jumpers](DCB_Jumpers.JPEG)
+ 
+ 	!!! note 
+	You should install 10 jumpers to the following connectors: 
+	J2 pins 1-3,2-4
+	J4 pins 1-2,3-4
+	J10 pins 3-4,5-6
+	J12 1-2,3-4,5-6
+	J13 1-3,2-4
 
-3. Finally, install the optical mezzanines. (To be added)
+4. Finally, install the optical mezzanines. (To be added)
 
     !!! warning
         The standoff/screw on the DCB side **should not be rotated** to avoid
