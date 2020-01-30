@@ -79,7 +79,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#setting-up-dcb" tabindex="1" class="md-skip">
+      <a href="#fusing-gbtx" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -384,6 +384,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#fusing-gbtx" class="md-nav__link">
+    Fusing GBTx
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#setting-up-dcb" class="md-nav__link">
     Setting up DCB
   </a>
@@ -393,13 +400,6 @@
         <li class="md-nav__item">
   <a href="#checking-power" class="md-nav__link">
     Checking Power
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fusing-gbtx" class="md-nav__link">
-    Fusing GBTx
   </a>
   
 </li>
@@ -613,6 +613,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#fusing-gbtx" class="md-nav__link">
+    Fusing GBTx
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#setting-up-dcb" class="md-nav__link">
     Setting up DCB
   </a>
@@ -622,13 +629,6 @@
         <li class="md-nav__item">
   <a href="#checking-power" class="md-nav__link">
     Checking Power
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fusing-gbtx" class="md-nav__link">
-    Fusing GBTx
   </a>
   
 </li>
@@ -721,6 +721,57 @@ making it look like the stave is repeating 01, 02, or 08.</p>
 <p>There are also ADCs (analog to digital converters) we look at to verify the 
 power and, for the ones attached to thermistors, monitor the temperature on 
 the DCB itself and the stave.</p>
+<h2 id="fusing-gbtx">Fusing GBTx</h2>
+<p>Verify the jumper on J2, next to the optical mezzanines, looks like this
+<img alt="Fuse Jumper" src="../fuse_jumper.jpg" /></p>
+<p>First, connect the usb dongle to the master optical mezzanine. You have to 
+slide the thin flat wires into the top of the mezzanine, making sure the 
+exposed metal side is facing down toward the DCB. Then connect the U.FL 
+wire from the dongle to <code>J5</code> on the mezzanine. The connection is underneath,
+but there is a label for it on the top.</p>
+<p><img alt="Dongle Connection" src="../fuse_connection_LI.jpg" /></p>
+<p>On the left of the picture is a different power breakout board that must also 
+be attatched. Its powered by two 1.5 volt connections with amp limit 2.5 and one
+3.3 volt connection with amp limit 0.5. Power on the DCB.
+<br></p>
+<ol>
+<li>
+<p>Open the <strong>GBTX Programmer</strong> on the windows PC</p>
+</li>
+<li>
+<p>Check the connection is working by clicking <strong>Read GBTX</strong>, the state should
+   change to <code>pauseForConfig</code></p>
+</li>
+<li>
+<p>Go to the <strong>Fuse my GBTx</strong> tab all the way on the right</p>
+<ul>
+<li>click <strong>Import Image</strong>, make sure you can see .txt files, and select 
+  <code>master.txt</code></li>
+<li>click <strong>Write GBTX</strong> then <strong>Read GBTX</strong>, the state should change to 
+  <code>waitDESLock</code></li>
+<li>to the right of table, find and click update view. All of the entries in 
+  the table should now be green</li>
+<li>Now click <strong>select all</strong>, check <strong>enable fusing</strong> and 
+  <strong>fuse updateConfig</strong>, and click the big <strong>FUSE</strong> button at the bottom</li>
+</ul>
+</li>
+<li>
+<p>Shut off power to the DCB and move the right jumper on J2 up one to be inline
+   with the other jumper.</p>
+<p><img alt="DCB Jumper After Fuse" src="../Jumper_after_fuse_LI.jpg" /></p>
+</li>
+<li>
+<p>To verify the fuse was successful, power the DCB back on. </p>
+<ul>
+<li>in the <strong>GBTX Programmer</strong>, read and update view like before. The table 
+  should still be all green</li>
+</ul>
+</li>
+<li>
+<p>Add a red jumper to connector J4 as shown 
+<img alt="Jumper J4" src="../Jumper_crop.jpg" /></p>
+</li>
+</ol>
 <h2 id="setting-up-dcb">Setting up DCB</h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -790,56 +841,6 @@ verify the connections are correct.</p>
 </ol>
 </li>
 </ul>
-<h2 id="fusing-gbtx">Fusing GBTx</h2>
-<p>Verify the jumper on J2, next to the optical mezzanines, looks like this
-<img alt="Fuse Jumper" src="../fuse_jumper.jpg" /></p>
-<p>First, connect the usb dongle to the master optical mezzanine. You have to 
-slide the thin flat wires into the top of the mezzanine, making sure the 
-exposed metal side is facing down toward the DCB. Then connect the U.FL 
-wire from the dongle to <code>J5</code> on the mezzanine. The connection is underneath,
-but there is a label for it on the top.</p>
-<p><img alt="Dongle Connection" src="../fuse_connection_LI(2).jpg" /></p>
-<p>On the left of the picture is a different power breakout board that must also 
-be attatched. Its powered by two 1.5 volt connections with amp limit 2.5 and one
-3.3 volt connection with amp limit 0.5. Power on the DCB.
-<br></p>
-<ol>
-<li>
-<p>Open the <strong>GBTX Programmer</strong> on the windows PC</p>
-</li>
-<li>
-<p>Check the connection is working by clicking <strong>Read GBTX</strong>, the state should
-   change to <code>pauseForConfig</code></p>
-</li>
-<li>
-<p>Go to the <strong>Fuse my GBTx</strong> tab all the way on the right</p>
-<ul>
-<li>click <strong>Import Image</strong>, make sure you can see .txt files, and select 
-  <code>master.txt</code></li>
-<li>click <strong>Write GBTX</strong> then <strong>Read GBTX</strong>, the state should change to 
-  <code>waitDESLock</code></li>
-<li>to the right of table, find and click update view. All of the entries in 
-  the table should now be green</li>
-<li>Now click <strong>select all</strong>, check <strong>enable fusing</strong> and 
-  <strong>fuse updateConfig</strong>, and click the big <strong>FUSE</strong> button at the bottom</li>
-</ul>
-</li>
-<li>
-<p>Shut off power to the DCB and move the right jumper on J2 up one to be inline
-   with the other jumper.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>add picture</p>
-</div>
-</li>
-<li>
-<p>To verify the fuse was successful, power the DCB back on. </p>
-<ul>
-<li>in the <strong>GBTX Programmer</strong>, read and update view like before. The table 
-  should still be all green</li>
-</ul>
-</li>
-</ol>
 <p><br>
 On the Linux computer, we'll use nanoDAQ which gives some MiniDAQ functions 
 in Python. Go to <code>$HOME/src/nanoDAQ</code> in a command line on the server to use. 
@@ -879,7 +880,7 @@ board gets power cycled.</p>
 <p>This is the MiniDAQ "Top" panel that is referenced a couple times. Most 
 menus can be found starting from this panel.</p>
 </div>
-<p><img alt="TOP Panel" src="../screenshots/top.png" /></p>
+<p><img alt="TOP Panel" src="../more_pictures/top.png" /></p>
 <ol>
 <li>
 <p>To start PRBS, go to the nanoDAQ command line and enter <code>./dcbutil.py prbs on</code></p>
@@ -892,7 +893,7 @@ menus can be found starting from this panel.</p>
   Stop All Generators → Stop All Checkers → Reset All Counters →  <br>
   Start All Generators → Start All Checkers → Start All Counters</li>
 </ul>
-<p><img alt="PRBS Test Panel" src="../screenshots/prbs.png" /></p>
+<p><img alt="PRBS Test Panel" src="../more_pictures/prbs.png" /></p>
 </li>
 <li>
 <p>Allow test to run for <strong>1-5 minutes</strong>. It passes if there are 6 green channels 
@@ -921,7 +922,7 @@ clicking <strong>TELL40</strong> until the following panel shows up, with the ta
 <p>The last <strong>TELL40</strong> has a suffix, it doesn't matter which one you double 
 click.</p>
 </div>
-<p><img alt="Memory Monitoring Panel" src="../screenshots/mem_mon.png" /></p>
+<p><img alt="Memory Monitoring Panel" src="../more_pictures/mem_mon.png" /></p>
 <ol>
 <li>
 <p>In nanoDAQ, type in the command <code>./dcbutil.py gpio --reset 0 1 2 3 4 5 
