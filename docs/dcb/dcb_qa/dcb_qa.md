@@ -1,3 +1,7 @@
+!!! warning
+	Make sure you are grounded at all times when handling the DCB! Failing to 
+	do so could destroy the boards!
+
 The DCB has a few purposes; aggregating data, controlling 
 the stave, and monitoring. It has 4 optical mezzanines with 3 VTTxs and 1 VTRx, 
 as well as 1 master GBTx, 1 GBT-SCA, and 6 data GBTxs. The DCB talks to the 
@@ -30,6 +34,10 @@ There are also ADCs (analog to digital converters) we look at to verify the
 power and, for the ones attached to thermistors, monitor the temperature on 
 the DCB itself and the stave.
 
+!!! note
+	Make sure to keep the [database](https://docs.google.com/spreadsheets/d/1KjXGhOFzi0SZPsozpKzxGjVtfr4kkS_Hv5EigUwKOj8/edit "Database")
+	up to date as you go through the tests.
+
 ## Fusing GBTx
 
 Verify the jumper on J2, next to the optical mezzanines, looks like this
@@ -45,10 +53,15 @@ but there is a label for it on the top.
 
 On the left of the picture is a different power breakout board that must also 
 be attatched. Its powered by two 1.5 volt connections with amp limit 2.5 and one
-3.3 volt connection with amp limit 0.5. Power on the DCB.
+3.3 volt connection with amp limit 0.5, the power setup should look like the 
+picture below. Power on the DCB.  
+
+![Fusing Power](fuse_power_setup.jpg)
 <br>
 
-1. Open the **GBTX Programmer** on the windows PC
+1. Open the **GBTX Programmer** on the windows PC. If it's not already open you
+   can find it under `C:/Users/DT_Rack/GBTx_Programmer` as a jar file called 
+   programmerv2.
 
 2. Check the connection is working by clicking **Read GBTX**, the state should
    change to `pauseForConfig`
@@ -76,9 +89,6 @@ be attatched. Its powered by two 1.5 volt connections with amp limit 2.5 and one
 ![Jumper J4](Jumper_crop.jpg)
 
 ## Setting up DCB
-
-!!! warning
-	Make sure you are grounded at all times when handling the DCB!
 	
 1. Verify the backplane connector. Do not plug in if its pins are bent, as it 
    can break the backplane.
@@ -107,18 +117,21 @@ verify the connections are correct.
 - DCB
 	1. Power comes to pairs of boards as labeled by the slot they are put in. 0
 	   and 1, 2 and 3, etc...
-	2. Cables are labeled `DCB-A` source & return and `DCB-B` source & return. A 
-	   goes to the even board of a pair, slot JD10, and B goes to the odd board, 
-	   JD11.
-	3. `SRC` connects to the hevily labeled wire and `RET` connects to ground.
+	2. A set of 8 cables are split into groups of 4 labeled `DCB-A` and `DCB-B`. 
+	   The sets are broken down into two more sets of two; a master and slave 
+	   (labeled M and S) which each have a source and return. 
+		- A goes to the even board of a pair, slot JD10, and B goes to the odd 
+		  board, JD11.
+		- It does not matter which wire gets the masters and which gets the 
+		  slave
+	3. `SRC` connects to the wire labeled 1v5 and `RET` connects to ground for 
+	   all 4 pairs.
 
 - VTTx	
-	1. Similar power setup to DCB, one set `VTTx M` and the other just `VTTx`
-	   with each having a `SRC` and `RET`.
-	2. It doesn't matter which set gets connected to the inputs, as long as the 
-	   sets are kept together.
-	3. Connection is the same as DCB, `SRC` goes to the heavily labeled wire and
-	   `RET` goes to ground.
+	1. There is a set of power and ground cables labeled `2v5 VTTX CH 3` and 
+	   `RET` that we'll connect to a set of wires with a tag "JD10/11"
+	2. The `2v5 VTTX` cable connects to the wire labeled 2v5 and `RET` goes to 
+	   ground.
 
 - Stave
 	1. There's P1, P2, P3, and P4 which each have `SRC` and `RET`. Make sure 
@@ -217,7 +230,8 @@ clicking **TELL40** until the following panel shows up, with the tab for
 	4. Now look at the table, focusing on the latter 3 columns. There are 8 
 	   digits in each column. If they are NOT stable values, 
 	   go to nanoDAQ and type `./dcbutil.py init ~/bin/tmp_1.xml -s 1`
-		- keep incrementing the `tmp_*.xml` until the values are stable.
+		- keep incrementing the `tmp_*.xml` until the values are a stable bit 
+		  shift of C4.
 	5. Repeat this process starting with `./saltutil.py 3 init` followed by 
 	   `./dcbutil.py init ~/bin/tmp_0.xml -s 2`
 		- Link Selection must be on 12 now
@@ -247,7 +261,8 @@ clicking **TELL40** until the following panel shows up, with the tab for
 	4. Now look at the table, focusing on the latter 3 columns. There are 8 
 	   digits in each column. If they are NOT stable values, 
 	   go to nanoDAQ and type `./dcbutil.py init ~/bin/tmp_1.xml -s 3`
-		- keep incrementing the `tmp_*.xml` until the values are stable.
+		- keep incrementing the `tmp_*.xml` until the values are a stable bit 
+		  shift of C4.
 	5. Repeat this process starting with `./saltutil.py 1 init` followed by 
 	   `./dcbutil.py init ~/bin/tmp_0.xml -s 4`
 		- Link Selection must be on 21 now
