@@ -38,7 +38,7 @@
     
     
       
-        <title>Ccmqa - UMD UT hardware documentation</title>
+        <title>CCM QA - UMD UT hardware documentation</title>
       
     
     
@@ -105,7 +105,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Ccmqa
+                CCM QA
               
             </span>
           
@@ -173,7 +173,9 @@
       
         
 
-<nav class="md-tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
@@ -208,7 +210,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../lvr_qa/" class="md-tabs__link">
+        <a href="../lvrconfig/" class="md-tabs__link md-tabs__link--active">
           LVR
         </a>
       
@@ -372,10 +374,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       LVR
@@ -393,7 +397,19 @@
 
 
   <li class="md-nav__item">
-    <a href="../lvr_qa/" title="LVR QA" class="md-nav__link">
+    <a href="../lvrconfig/" title="LVR Configuration" class="md-nav__link">
+      LVR Configuration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../lvrqa/" title="LVR QA" class="md-nav__link">
       LVR QA
     </a>
   </li>
@@ -403,47 +419,20 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-    <label class="md-nav__link" for="nav-3-2">
-      Other LVR breakout boards
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-2">
-        Other LVR breakout boards
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../lvr_pwr_input_brkout_brd_assembly/" title="LVR power input breakout board assembly" class="md-nav__link">
-      LVR power input breakout board assembly
+      
+    
+    
+    <a href="./" title="CCM QA" class="md-nav__link md-nav__link--active">
+      CCM QA
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../lvr_pwr_input_brkout_brd_qa/" title="LVR power input breakout board QA" class="md-nav__link">
-      LVR power input breakout board QA
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
+    
   </li>
 
         
@@ -554,7 +543,7 @@ pre-built CCM QA setup.</p>
     channels 3 and 4 correspond to the slave.</p>
 </li>
 </ol>
-<p><img alt="" src="https://github.com/umd-lhcb/ut-hw-doc/blob/master/docs/lvr/ccmqa1.png" />
+<p><img alt="" src="../ccmqa1.png" />
 The waveform displayed should be a smooth curve as shown in the figure above.</p>
 <ol>
 <li>
@@ -567,7 +556,7 @@ The waveform displayed should be a smooth curve as shown in the figure above.</p
     a channel reading of \~1.5 V) as shown below for a 1.5 V CCM</p>
 </li>
 </ol>
-<p><img alt="" src="https://github.com/umd-lhcb/ut-hw-doc/blob/master/docs/lvr/ccmqa2.png" /></p>
+<p><img alt="" src="../ccmqa2.png" /></p>
 <ol>
 <li>
 <p>After adjusting the variable resistor, go back to the first
@@ -605,6 +594,41 @@ ii. If after replacing the bottom curve is not smooth, this
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../lvrqa/" title="LVR QA" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                LVR QA
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../minidaq/minidaq_usage/" title="MiniDAQ usage" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                MiniDAQ usage
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

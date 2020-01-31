@@ -38,7 +38,7 @@
     
     
       
-        <title>Lvrqa - UMD UT hardware documentation</title>
+        <title>LVR QA - UMD UT hardware documentation</title>
       
     
     
@@ -105,7 +105,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Lvrqa
+                LVR QA
               
             </span>
           
@@ -173,7 +173,9 @@
       
         
 
-<nav class="md-tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
@@ -208,7 +210,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../lvr_qa/" class="md-tabs__link">
+        <a href="../lvrconfig/" class="md-tabs__link md-tabs__link--active">
           LVR
         </a>
       
@@ -372,10 +374,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       LVR
@@ -393,40 +397,30 @@
 
 
   <li class="md-nav__item">
-    <a href="../lvr_qa/" title="LVR QA" class="md-nav__link">
+    <a href="../lvrconfig/" title="LVR Configuration" class="md-nav__link">
+      LVR Configuration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="LVR QA" class="md-nav__link md-nav__link--active">
       LVR QA
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
-    
-    <label class="md-nav__link" for="nav-3-2">
-      Other LVR breakout boards
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-2">
-        Other LVR breakout boards
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../lvr_pwr_input_brkout_brd_assembly/" title="LVR power input breakout board assembly" class="md-nav__link">
-      LVR power input breakout board assembly
-    </a>
   </li>
 
         
@@ -436,14 +430,9 @@
 
 
   <li class="md-nav__item">
-    <a href="../lvr_pwr_input_brkout_brd_qa/" title="LVR power input breakout board QA" class="md-nav__link">
-      LVR power input breakout board QA
+    <a href="../ccmqa/" title="CCM QA" class="md-nav__link">
+      CCM QA
     </a>
-  </li>
-
-        
-      </ul>
-    </nav>
   </li>
 
         
@@ -595,7 +584,7 @@ b.  3.3V x 110% = 3.63V
 <p>11) Re-verify both the 3.3v and 1.5v rails are correct. σ~V~ should be
     at most 0.01 V.</p>
 <p>12) Record input current</p>
-<p><img alt="" src="https://github.com/umd-lhcb/ut-hw-doc/blob/master/docs/lvr/lvrqa1.png" /></p>
+<p><img alt="" src="../lvrqa1.png" /></p>
 <p>13) Place a DVM between TP4 (Vop_rail) and TP7 (GND)</p>
 <p>14) Slowly increase the input voltage to 7V until EITHER the Vop_rail
     stops increasing or hits 5.5V.</p>
@@ -606,7 +595,7 @@ b.  Adjust P5 whilst increasing the input voltage
 c.  The Vop\_rail will clamp at a maximum of 5.5V when properly
     adjusted.
 </code></pre>
-<p><img alt="" src="https://github.com/umd-lhcb/ut-hw-doc/blob/master/docs/lvr/lvrqa2.png" />
+<p><img alt="" src="../lvrqa2.png" />
 <strong>Note you can also use the monitor to view Op Rail voltage (denoted as
 V_OPAMP_RAIL)</strong></p>
 <p>15) PROGRAM THE FPGA</p>
@@ -674,9 +663,9 @@ g.  Move jumpers on J22 to connect pins 4&amp;6 and pins 3&amp;5
     e.  Additionally, note that if you wish the board to be in pulsed
         duty cycle, set SW3 pin 1 to OFF, otherwise keep pin at ON
 
-![](https://github.com/umd-lhcb/ut-hw-doc/blob/master/docs/lvr/lvrqa3.png)
-![](https://github.com/umd-lhcb/ut-hw-doc/blob/master/docs/lvr/lvrqa4.png)
-![](https://github.com/umd-lhcb/ut-hw-doc/blob/master/docs/lvr/lvrqa5.png)
+![](lvrqa3.png)
+![](lvrqa4.png)
+![](lvrqa5.png)
 
 17) Undervoltage Lockout test
 
@@ -790,6 +779,41 @@ g.  Move jumpers on J22 to connect pins 4&amp;6 and pins 3&amp;5
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../lvrconfig/" title="LVR Configuration" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                LVR Configuration
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../ccmqa/" title="CCM QA" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                CCM QA
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

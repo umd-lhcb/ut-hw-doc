@@ -38,7 +38,7 @@
     
     
       
-        <title>Lvrconfig - UMD UT hardware documentation</title>
+        <title>LVR Configuration - UMD UT hardware documentation</title>
       
     
     
@@ -105,7 +105,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Lvrconfig
+                LVR Configuration
               
             </span>
           
@@ -173,7 +173,9 @@
       
         
 
-<nav class="md-tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
@@ -208,7 +210,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../lvr_qa/" class="md-tabs__link">
+        <a href="./" class="md-tabs__link md-tabs__link--active">
           LVR
         </a>
       
@@ -372,10 +374,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       LVR
@@ -391,9 +395,30 @@
           
           
 
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="LVR Configuration" class="md-nav__link md-nav__link--active">
+      LVR Configuration
+    </a>
+    
+  </li>
+
+        
+          
+          
+          
+
 
   <li class="md-nav__item">
-    <a href="../lvr_qa/" title="LVR QA" class="md-nav__link">
+    <a href="../lvrqa/" title="LVR QA" class="md-nav__link">
       LVR QA
     </a>
   </li>
@@ -404,46 +429,10 @@
           
 
 
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
-    
-    <label class="md-nav__link" for="nav-3-2">
-      Other LVR breakout boards
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-2">
-        Other LVR breakout boards
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
   <li class="md-nav__item">
-    <a href="../lvr_pwr_input_brkout_brd_assembly/" title="LVR power input breakout board assembly" class="md-nav__link">
-      LVR power input breakout board assembly
+    <a href="../ccmqa/" title="CCM QA" class="md-nav__link">
+      CCM QA
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../lvr_pwr_input_brkout_brd_qa/" title="LVR power input breakout board QA" class="md-nav__link">
-      LVR power input breakout board QA
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
   </li>
 
         
@@ -667,12 +656,12 @@ single masters</p>
 </ul>
 <p>Note that when setting up master/slave CCM pairs, slave CCMs should
 always be on even numbered CCMs.</p>
-<p><img alt="" src="https://github.com/umd-lhcb/ut-hw-doc/blob/master/docs/lvr/lvrconfig1.png" />
-<img alt="" src="https://github.com/umd-lhcb/ut-hw-doc/blob/master/docs/lvr/lvrconfig2.png" />
-Note: In the current firmware, SW5 contains enables for CH1-4, CH5-8 and a
+<p><img alt="" src="../lvrconfig1.png" /></p>
+<p><img alt="" src="../lvrconfig2.png" /></p>
+<p>Note: In the current firmware, SW5 contains enables for CH1-4, CH5-8 and a
 global standby. To operate the regulator SW5 must be set as: (OFF, OFF,
 ON, OFF)</p>
-<p><img alt="" src="https://github.com/umd-lhcb/ut-hw-doc/blob/master/docs/lvr/lvrconfig3.png" />
+<p><img alt="" src="../lvrconfig3.png" />
 Tom\'s notes on the configuration switches for the LVR, including
 master/slave and general enables. <strong>**IMPORTANT** THE CONVENTION
 HERE IS OPPOSITE WHAT YOU EXPECT BECAUSE THESE ARE SHORTING PULL-UPS.
@@ -745,6 +734,41 @@ only consider switcher 1-3:</p>
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../dcb/dcb_qa/dcb_qa/" title="DCB QA" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                DCB QA
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../lvrqa/" title="LVR QA" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                LVR QA
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
