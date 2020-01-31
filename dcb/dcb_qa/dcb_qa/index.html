@@ -672,7 +672,12 @@
                 
                   <h1>DCB QA</h1>
                 
-                <p>The DCB has a few purposes; aggregating data, controlling 
+                <div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Make sure you are grounded at all times when handling the DCB! Failing to 
+do so could destroy the boards!</p>
+</div>
+<p>The DCB has a few purposes; aggregating data, controlling 
 the stave, and monitoring. It has 4 optical mezzanines with 3 VTTxs and 1 VTRx, 
 as well as 1 master GBTx, 1 GBT-SCA, and 6 data GBTxs. The DCB talks to the 
 stave through the Backplane connecter and a computer through the mezzanines.</p>
@@ -697,6 +702,11 @@ making it look like the stave is repeating 01, 02, or 08.</p>
 <p>There are also ADCs (analog to digital converters) we look at to verify the 
 power and, for the ones attached to thermistors, monitor the temperature on 
 the DCB itself and the stave.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure to keep the <a href="https://docs.google.com/spreadsheets/d/1KjXGhOFzi0SZPsozpKzxGjVtfr4kkS_Hv5EigUwKOj8/edit" title="Database">database</a>
+up to date as you go through the tests.</p>
+</div>
 <h2 id="fusing-gbtx">Fusing GBTx</h2>
 <p>Verify the jumper on J2, next to the optical mezzanines, looks like this
 <img alt="Fuse Jumper" src="../fuse_jumper.jpg" /></p>
@@ -708,11 +718,15 @@ but there is a label for it on the top.</p>
 <p><img alt="Dongle Connection" src="../fuse_connection_LI.jpg" /></p>
 <p>On the left of the picture is a different power breakout board that must also 
 be attatched. Its powered by two 1.5 volt connections with amp limit 2.5 and one
-3.3 volt connection with amp limit 0.5. Power on the DCB.
+3.3 volt connection with amp limit 0.5, the power setup should look like the 
+picture below. Power on the DCB.  </p>
+<p><img alt="Fusing Power" src="../fuse_power_setup.jpg" />
 <br></p>
 <ol>
 <li>
-<p>Open the <strong>GBTX Programmer</strong> on the windows PC</p>
+<p>Open the <strong>GBTX Programmer</strong> on the windows PC. If it's not already open you
+   can find it under <code>C:/Users/DT_Rack/GBTx_Programmer</code> as a jar file called 
+   programmerv2.</p>
 </li>
 <li>
 <p>Check the connection is working by clicking <strong>Read GBTX</strong>, the state should
@@ -749,10 +763,6 @@ be attatched. Its powered by two 1.5 volt connections with amp limit 2.5 and one
 </li>
 </ol>
 <h2 id="setting-up-dcb">Setting up DCB</h2>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Make sure you are grounded at all times when handling the DCB!</p>
-</div>
 <ol>
 <li>
 <p>Verify the backplane connector. Do not plug in if its pins are bent, as it 
@@ -792,21 +802,26 @@ verify the connections are correct.</p>
 <ol>
 <li>Power comes to pairs of boards as labeled by the slot they are put in. 0
    and 1, 2 and 3, etc...</li>
-<li>Cables are labeled <code>DCB-A</code> source &amp; return and <code>DCB-B</code> source &amp; return. A 
-   goes to the even board of a pair, slot JD10, and B goes to the odd board, 
-   JD11.</li>
-<li><code>SRC</code> connects to the hevily labeled wire and <code>RET</code> connects to ground.</li>
+<li>A set of 8 cables are split into groups of 4 labeled <code>DCB-A</code> and <code>DCB-B</code>. 
+   The sets are broken down into two more sets of two; a master and slave 
+   (labeled M and S) which each have a source and return. <ul>
+<li>A goes to the even board of a pair, slot JD10, and B goes to the odd 
+  board, JD11.</li>
+<li>It does not matter which wire gets the masters and which gets the 
+  slave</li>
+</ul>
+</li>
+<li><code>SRC</code> connects to the wire labeled 1v5 and <code>RET</code> connects to ground for 
+   all 4 pairs.</li>
 </ol>
 </li>
 <li>
 <p>VTTx  </p>
 <ol>
-<li>Similar power setup to DCB, one set <code>VTTx M</code> and the other just <code>VTTx</code>
-   with each having a <code>SRC</code> and <code>RET</code>.</li>
-<li>It doesn't matter which set gets connected to the inputs, as long as the 
-   sets are kept together.</li>
-<li>Connection is the same as DCB, <code>SRC</code> goes to the heavily labeled wire and
-   <code>RET</code> goes to ground.</li>
+<li>There is a set of power and ground cables labeled <code>2v5 VTTX CH 3</code> and 
+   <code>RET</code> that we'll connect to a set of wires with a tag "JD10/11"</li>
+<li>The <code>2v5 VTTX</code> cable connects to the wire labeled 2v5 and <code>RET</code> goes to 
+   ground.</li>
 </ol>
 </li>
 <li>
@@ -930,7 +945,8 @@ click.</p>
 <li>Now look at the table, focusing on the latter 3 columns. There are 8 
    digits in each column. If they are NOT stable values, 
    go to nanoDAQ and type <code>./dcbutil.py init ~/bin/tmp_1.xml -s 1</code><ul>
-<li>keep incrementing the <code>tmp_*.xml</code> until the values are stable.</li>
+<li>keep incrementing the <code>tmp_*.xml</code> until the values are a stable bit 
+  shift of C4.</li>
 </ul>
 </li>
 <li>Repeat this process starting with <code>./saltutil.py 3 init</code> followed by 
@@ -1012,7 +1028,8 @@ should be using.  </p>
 <li>Now look at the table, focusing on the latter 3 columns. There are 8 
    digits in each column. If they are NOT stable values, 
    go to nanoDAQ and type <code>./dcbutil.py init ~/bin/tmp_1.xml -s 3</code><ul>
-<li>keep incrementing the <code>tmp_*.xml</code> until the values are stable.</li>
+<li>keep incrementing the <code>tmp_*.xml</code> until the values are a stable bit 
+  shift of C4.</li>
 </ul>
 </li>
 <li>Repeat this process starting with <code>./saltutil.py 1 init</code> followed by 
