@@ -20,7 +20,7 @@ pre-built CCM QA setup.
     a.  Note that channels 1 and 2 correspond to the master, where
         channels 3 and 4 correspond to the slave.
 
-![](https://github.com/umd-lhcb/ut-hw-doc/blob/master/docs/lvr/ccmqa1.png)
+![](ccmqa1.png)
 The waveform displayed should be a smooth curve as shown in the figure above.
 
 7.  Locate the variable resistor on the master CCM, and note the voltage
@@ -30,7 +30,7 @@ The waveform displayed should be a smooth curve as shown in the figure above.
     corresponds to the voltage of the CCM (i.e. a 1.5 V CCM should have
     a channel reading of \~1.5 V) as shown below for a 1.5 V CCM
 
-![](https://github.com/umd-lhcb/ut-hw-doc/blob/master/docs/lvr/ccmqa2.png)
+![](ccmqa2.png)
 
 9.  After adjusting the variable resistor, go back to the first
     oscilloscope readings

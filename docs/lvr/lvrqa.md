@@ -85,7 +85,7 @@ Full QA Procedure:
 
 12) Record input current
 
-![](https://github.com/umd-lhcb/ut-hw-doc/blob/master/docs/lvr/lvrqa1.png)
+![](lvrqa1.png)
 
 13) Place a DVM between TP4 (Vop\_rail) and TP7 (GND)
 
@@ -98,7 +98,7 @@ Full QA Procedure:
 
     c.  The Vop\_rail will clamp at a maximum of 5.5V when properly
         adjusted.
-![](https://github.com/umd-lhcb/ut-hw-doc/blob/master/docs/lvr/lvrqa2.png)
+![](lvrqa2.png)
 **Note you can also use the monitor to view Op Rail voltage (denoted as
 V\_OPAMP\_RAIL)**
 
@@ -169,9 +169,9 @@ g.  Move jumpers on J22 to connect pins 4&6 and pins 3&5
     e.  Additionally, note that if you wish the board to be in pulsed
         duty cycle, set SW3 pin 1 to OFF, otherwise keep pin at ON
 
-![](https://github.com/umd-lhcb/ut-hw-doc/blob/master/docs/lvr/lvrqa3.png)
-![](https://github.com/umd-lhcb/ut-hw-doc/blob/master/docs/lvr/lvrqa4.png)
-![](https://github.com/umd-lhcb/ut-hw-doc/blob/master/docs/lvr/lvrqa5.png)
+![](lvrqa3.png)
+![](lvrqa4.png)
+![](lvrqa5.png)
 
 17) Undervoltage Lockout test
 

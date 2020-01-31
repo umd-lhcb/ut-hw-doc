@@ -155,13 +155,15 @@ single masters
 Note that when setting up master/slave CCM pairs, slave CCMs should
 always be on even numbered CCMs.
 
-![](https://github.com/umd-lhcb/ut-hw-doc/blob/master/docs/lvr/lvrconfig1.png)
-![](https://github.com/umd-lhcb/ut-hw-doc/blob/master/docs/lvr/lvrconfig2.png)
+![](lvrconfig1.png)
+
+![](lvrconfig2.png)
+
 Note: In the current firmware, SW5 contains enables for CH1-4, CH5-8 and a
 global standby. To operate the regulator SW5 must be set as: (OFF, OFF,
 ON, OFF)
 
-![](https://github.com/umd-lhcb/ut-hw-doc/blob/master/docs/lvr/lvrconfig3.png)
+![](lvrconfig3.png)
 Tom\'s notes on the configuration switches for the LVR, including
 master/slave and general enables. **\*\*IMPORTANT\*\* THE CONVENTION
 HERE IS OPPOSITE WHAT YOU EXPECT BECAUSE THESE ARE SHORTING PULL-UPS.

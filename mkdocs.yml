@@ -19,10 +19,9 @@ nav:
         - DCB mechanical assembly: dcb/dcb_assembly/dcb_assembly.md
         - DCB QA: dcb/dcb_qa/dcb_qa.md
     - LVR:
-        - LVR QA: lvr/lvr_qa.md
-        - Other LVR breakout boards:
-            - LVR power input breakout board assembly: lvr/lvr_pwr_input_brkout_brd_assembly.md
-            - LVR power input breakout board QA: lvr/lvr_pwr_input_brkout_brd_qa.md
+        - LVR Configuration: lvr/lvrconfig.md
+        - LVR QA: lvr/lvrqa.md
+        - CCM QA: lvr/ccmqa.md
     - MiniDAQ:
         - MiniDAQ usage: minidaq/minidaq_usage.md
         - CentOS tips: minidaq/centos_tips.md
