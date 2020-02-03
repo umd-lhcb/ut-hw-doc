@@ -12,6 +12,9 @@ pre-built CCM QA setup.
 
 3.  Install the CCM master-slave pair on channels 1 & 2 of the LVR.
 
+    a. Note that in the case of a master-slave pair, you CANNOT install 2 masters or 2 slaves 
+    on the same 2-channel pair
+
 4.  Set the input voltage of the power supply to \~5.5 V
 
 5.  Note the wave pattern on the first oscilloscope displaying 4
@@ -21,6 +24,7 @@ pre-built CCM QA setup.
         channels 3 and 4 correspond to the slave.
 
 ![](ccmqa1.png)
+
 The waveform displayed should be a smooth curve as shown in the figure above.
 
 7.  Locate the variable resistor on the master CCM, and note the voltage
