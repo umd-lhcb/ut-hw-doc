@@ -43,11 +43,9 @@ the DCB itself and the stave.
 Verify the jumper on J2, next to the optical mezzanines, looks like this
 ![Fuse Jumper](fuse_jumper.jpg)
 
-First, connect the usb dongle to the master optical mezzanine. You have to 
-slide the thin flat wires into the top of the mezzanine, making sure the 
-exposed metal side is facing down toward the DCB. Then connect the U.FL 
-wire from the dongle to `J5` on the mezzanine. The connection is underneath,
-but there is a label for it on the top.
+There will already be an optical mezzanine connected to a dongle that you need 
+to attach to the DCB. It goes over the outline with the label "OMDBMC". Don't 
+worry about srewing it in, this is a temporary setup.
 
 ![Dongle Connection](fuse_connection_LI.jpg)
 
@@ -86,7 +84,11 @@ picture below. Power on the DCB.
 	  should still be all green
 	  
 6. Add a red jumper to connector J4 as shown 
-![Jumper J4](Jumper_crop.jpg)
+	![Jumper J4](Jumper_crop.jpg)
+
+7. Take off the mezzanine with the dongle and attach all 4 of the mezzanines 
+   that came with the DCB. Make sure the red VTRx mezzanine goes on the 
+   connector "OMDBMC"
 
 ## Setting up DCB
 	
@@ -94,7 +96,7 @@ picture below. Power on the DCB.
    can break the backplane.
 
 2. Verify optical mezzanines are attached. They should rest on the long hex 
-   nuts, but it is not necessary to screw in the mezzanines to the long hexes.
+   nuts.
    
 3. Attach optical fibers to the mezzanines. Two fibers go into each board. They
    should be sequential except for the two attached fibers which go to the

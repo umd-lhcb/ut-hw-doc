@@ -37,7 +37,7 @@ and put a new label on the board.
 
 4. Next flip the DCB over so that you are looking at the bottom side of the
    DCB. Check the bottom side near the optical mezzanines to ensure that there
-   are no extra globs os solder protruding through the surface of the DCB.
+   are no extra globs of solder protruding through the surface of the DCB.
 
 	!!! note
 		If there are extra globs of solder present then it can short the DCB 
@@ -104,6 +104,37 @@ Follow the pictures below for further guidance or if anything is not clear.
 ![Assembled DCB plate, side](assembled_dcb_backplate_side.jpg)
 
 
+## Optical Mezzanines
+
+Each DCB needs 4 optical mezzanines, 3 with VTTxs and 1 with a VTRx. An 
+assembled mezzanine will look like this, where the yellow component in a VTTx.
+![Assembled Mezzanine Back](New_opt_mezz_VTTx_05.jpg)
+![Assembled Mezzanine Front](New_opt_mezz_VTTx_11.jpg)
+
+!!! note
+	A VTTx is **yellow** while a VTRx is **red**. They look the exact same 
+	otherwise.
+	
+1. The VTT/Rxs have nubs on top that don't fit into the slot on the mezzanines.
+   Take a pair of wire cutters and clip them off to be flush with the rest of 
+   the plastic casing.
+	- this can cause the holes to close over with plastic. Take a metal pick 
+	  and carefully clear out the residual plastic to make a clean hole.
+	![Snipped VTTx](New_opt_mezz_VTTx_14.jpg)
+	
+2. Plug in a VTT/Rx and make sure the holes are aligned with the slot on the 
+   mezzanines front
+   
+3. Screw in 2 {==M1.4==} bolts to attach the mezzanine and the VTT/Rx, tighten 
+   gently.
+	- It can be really hard to get the tiny bolts to work. If you're having 
+	  trouble, use tweezers to hold the bolt in place while putting a decent 
+	  amount of force into the hole while you start to screw it in
+	  
+4. Repeat for 4 total mezzanines. Make sure one has a red VTRX while the rest 
+   have VTTxs
+
+
 ## Final assembly
 
 !!! note
@@ -147,12 +178,6 @@ For final assembly of the board:
 	J10 pins 3-4,5-6  
 	J12 1-2,3-4,5-6  
 	J13 1-3,2-4  
-
-4. Finally, install the optical mezzanines. (To be added)
-
-    !!! warning
-        The standoff/screw on the DCB side **should not be rotated** to avoid
-        damages to the surface of the DCB.
 
 ![Final Assembly Front](New_DCB_mechanics_5.jpg)
 ![Final Assembly Back](New_DCB_mechanics_6.jpg)
