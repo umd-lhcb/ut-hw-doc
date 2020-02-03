@@ -417,9 +417,52 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        CCM Identification Guide
+      </label>
+    
     <a href="./" title="CCM Identification Guide" class="md-nav__link md-nav__link--active">
       CCM Identification Guide
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#identifying-output-level" class="md-nav__link">
+    Identifying Output Level
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identifying-the-ccm-role" class="md-nav__link">
+    Identifying the CCM Role
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-ccm" class="md-nav__link">
+    Example CCM
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -518,6 +561,36 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#identifying-output-level" class="md-nav__link">
+    Identifying Output Level
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identifying-the-ccm-role" class="md-nav__link">
+    Identifying the CCM Role
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-ccm" class="md-nav__link">
+    Example CCM
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -532,34 +605,32 @@
                 
                 
                 <h1 id="ccm-identification-field-guide">CCM identification field guide</h1>
-<p>To identify the type of an unknown CCM, first inspect closely the potentiometer (POT-1). There is a 'B' logo, several arrows for benchmark points, and a 3-digit number (see picture). The three digit number may be used to identify the intended output voltage:
-<img alt="Picture of trimmer pot" src="trimmer.png" /></p>
-<ol>
-<li>
-<p>104 = 1.2V output</p>
-</li>
-<li>
-<p>203 = 1.5V output</p>
-</li>
-<li>
-<p>502 = 2.5V output</p>
-</li>
-</ol>
+<p>Identification of a CCM of unknown configuration can be broken down into two parts: identifying the intended output voltage (1.2, 1.5, or 2.5 Volts = 12, 15, 25) and identifying whether it is a stand-alone single master (A), a master with support for a slave (M), or a slave (S). Here we'll call these Output Level and Role, respectively.</p>
+<h2 id="identifying-output-level">Identifying Output Level</h2>
+<p>To identify the output voltage of an unknown CCM, first inspect closely the potentiometer (POT-1). There is a 'B' logo, several arrows for benchmark points, and a 3-digit number (see picture). The three digit number may be used to identify the intended output voltage:</p>
+<p><img alt="Picture of trimmer pot" src="../trimmer.PNG" /></p>
+<ul>
+<li>104 = 1.2V output</li>
+<li>203 = 1.5V output</li>
+<li>502 = 2.5V output</li>
+</ul>
+<h2 id="identifying-the-ccm-role">Identifying the CCM Role</h2>
 <p>To identify whether the type is (M)aster, (S)lave or (A)lone (a.k.a. single master), inspect the 6 resistors on the bottom of the CCM (bottom here defined when the CCM is oriented such that the text is readable). From left to right, if we denote an empty pad by 0 and a populated resistor by 1, we have:</p>
-<ol>
+<ul>
 <li>
 <p>Subtype A, single master - [0,0,0,1,1,0]
-<img alt="Sense configuration resistors for xxA CCMs" src="ccm_id_00A.png" /></p>
+  <img alt="Sense configuration resistors for xxA CCMs" src="../ccm_id_00A.PNG" /></p>
 </li>
 <li>
 <p>Subtype M, master - [0,1,0,1,1,0]
-<img alt="Sense configuration resistors for xxM CCMs" src="ccm_id_00M.png" /></p>
+  <img alt="Sense configuration resistors for xxM CCMs" src="../ccm_id_00M.PNG" /></p>
 </li>
 <li>
 <p>Subtype S, slave - [1,0,1,0,0,1]
-<img alt="Sense configuration resistors for xxS CCMs" src="ccm_id_00A.png" /></p>
+  <img alt="Sense configuration resistors for xxS CCMs" src="../ccm_id_00S.PNG" /></p>
 </li>
-</ol>
+</ul>
+<h2 id="example-ccm">Example CCM</h2>
 <p>An example identification is shown in the picture.</p>
 <p><img alt="Example of identifying features on 15M CCM" src="../ccm_id.jpeg" /></p>
                 
