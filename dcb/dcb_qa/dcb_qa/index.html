@@ -710,11 +710,9 @@ up to date as you go through the tests.</p>
 <h2 id="fusing-gbtx">Fusing GBTx</h2>
 <p>Verify the jumper on J2, next to the optical mezzanines, looks like this
 <img alt="Fuse Jumper" src="../fuse_jumper.jpg" /></p>
-<p>First, connect the usb dongle to the master optical mezzanine. You have to 
-slide the thin flat wires into the top of the mezzanine, making sure the 
-exposed metal side is facing down toward the DCB. Then connect the U.FL 
-wire from the dongle to <code>J5</code> on the mezzanine. The connection is underneath,
-but there is a label for it on the top.</p>
+<p>There will already be an optical mezzanine connected to a dongle that you need 
+to attach to the DCB. It goes over the outline with the label "OMDBMC". Don't 
+worry about srewing it in, this is a temporary setup.</p>
 <p><img alt="Dongle Connection" src="../fuse_connection_LI.jpg" /></p>
 <p>On the left of the picture is a different power breakout board that must also 
 be attatched. Its powered by two 1.5 volt connections with amp limit 2.5 and one
@@ -759,7 +757,12 @@ picture below. Power on the DCB.  </p>
 </li>
 <li>
 <p>Add a red jumper to connector J4 as shown 
-<img alt="Jumper J4" src="../Jumper_crop.jpg" /></p>
+    <img alt="Jumper J4" src="../Jumper_crop.jpg" /></p>
+</li>
+<li>
+<p>Take off the mezzanine with the dongle and attach all 4 of the mezzanines 
+   that came with the DCB. Make sure the red VTRx mezzanine goes on the 
+   connector "OMDBMC"</p>
 </li>
 </ol>
 <h2 id="setting-up-dcb">Setting up DCB</h2>
@@ -770,7 +773,7 @@ picture below. Power on the DCB.  </p>
 </li>
 <li>
 <p>Verify optical mezzanines are attached. They should rest on the long hex 
-   nuts, but it is not necessary to screw in the mezzanines to the long hexes.</p>
+   nuts.</p>
 </li>
 <li>
 <p>Attach optical fibers to the mezzanines. Two fibers go into each board. They
