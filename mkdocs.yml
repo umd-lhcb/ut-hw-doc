@@ -20,6 +20,7 @@ nav:
         - DCB QA: dcb/dcb_qa/dcb_qa.md
     - LVR:
         - LVR Configuration: lvr/lvrconfig.md
+        - CCM Identification Guide: lvr/ccm_id.md
         - LVR QA: lvr/lvrqa.md
         - CCM QA: lvr/ccmqa.md
     - MiniDAQ:
