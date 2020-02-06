@@ -40,6 +40,10 @@ the DCB itself and the stave.
 
 ## Fusing GBTx
 
+!!! warning
+	If the DCB has already gone through the burn-in, skip fusing and go straight
+	to "[Setting up DCB](dcb_qa.md#setting-up-dcb)"
+
 Verify the jumper on J2, next to the optical mezzanines, looks like this
 ![Fuse Jumper](fuse_jumper.jpg)
 
@@ -103,8 +107,8 @@ picture below. Power on the DCB.
    master. 
 	- The order should be something like 1, 2, Masters, 3, 4, 5, 6
 	
-4. Correct slot based on stave connection, Not sure if this is a necessary step
-	- will either be JD10 or JD11
+4. Correct slot based on stave connection
+	- will either be JD10 (for stave JP8) or JD11 (for stave JP11)
 
 5. Slide DCB into the proper slot using the heat spreader pipes as handles. 
    Let it gently go down until until the guide rails at the bottom go in and 
@@ -197,8 +201,24 @@ board gets power cycled.
    plugging them back in. Remember, master are the ones connected. 
 	- Enter `./dcbutil.py prbs off` in the nanoDAQ command line. No output is a
 	  success, otherwise it will report "Master GBT not locked"
-	
+
+!!! warning
+	**Stop here! if the DCB has NOT gone through the burn-in yet!!!**
+
+
 ## SALT Testing
+
+The following three tests (SALT, TFC, and ADC) have different instructions 
+dependant on the slot the DCB is connected to, which is determined by the 
+stave connection. Each slot only tests half of the board. Remember **JP8** 
+goes to slot **JD10** and **JP11** goes to slot **JD11**. Changing the stave 
+connection is a process, so we'll test the same half of many boards, then 
+swap everything to check the other half. 
+
+!!! note
+	Make sure to program the data GBTxs if the DCB has been powered off since 
+	doing so
+
 
 For this step, we need to open the **Memory Monitoring** panel in MiniDAQ. In 
 the Top panel, double click **DAQ** to open a new window, then keep double 
@@ -206,8 +226,7 @@ clicking **TELL40** until the following panel shows up, with the tab for
 **Memory Monitoring** on the right.
 
 !!!note
-	The last **TELL40** has a suffix, it doesn't matter which one you double 
-	click.
+	The last **TELL40** has a suffix, click on the first **Dev1_0**
 
 ![Memory Monitoring Panel](more_pictures/mem_mon.png)
 
@@ -254,6 +273,7 @@ clicking **TELL40** until the following panel shows up, with the tab for
 | JD11 	|	5	|	0	|	14	|
 | JD10	|	6	|	5	|	13	|
 
+
 4. The following is for a DCB in slot JD11 only
 	1. Start with `./saltutil.py 2 init` for I2C 2
 	2. Type `./dcbutil.py init ~/bin/tmp_0.xml -s 3` to work with GBT 3
@@ -299,9 +319,10 @@ the top left. Now navigate to the **ADC** tab.
 ![Therm Readout Panel](gbt_client_adc_readout_readchannel.png)
 
 1. Configure settings as follows - PC: UMDlab, GBT ID: 0, SCA ID: 0, Version: 2
-	- For now, set address to "Read Channel" and line to 24 then 25. Clicking 
+	- For now, set address to "Read Channel" and line to 24, then 25, then 0. Clicking 
 	  read on the right updates the "Data out" field.
-	- Line 24 should be around 0.5 and line 25 should be around 0.833
+	- Line 24 should be around 0.83 and line 25 should be around 0.5
+	- Line 0 should be around 0.53
 	- If you're getting an error, try clicking "Activate Channel" then try again
 	
 2. When looking in slot JD10
@@ -313,10 +334,9 @@ the top left. Now navigate to the **ADC** tab.
 4. Change address to "Current Source" and put `FFFFFFFF` (8 Fs) in "Data in", 
    then click read/write
 
-5. Put address back to "Read Channel" and check lines 0, 1, 16, 17, and 18 by 
+5. Put address back to "Read Channel" and check lines 1, 16, 17, and 18 by 
    clicking read and looking at "Data in"
-	- Line 0 expected value is 0.53
-	- Other lines expected value 0.15
+	- Expected value 0.15
 
 
 ## Optical to Master GBT
