@@ -720,6 +720,11 @@ the DCB itself and the stave.</p>
 up to date as you go through the tests.</p>
 </div>
 <h2 id="fusing-gbtx">Fusing GBTx</h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If the DCB has already gone through the burn-in, skip fusing and go straight
+to "<a href="./#setting-up-dcb">Setting up DCB</a>"</p>
+</div>
 <p>Verify the jumper on J2, next to the optical mezzanines, looks like this
 <img alt="Fuse Jumper" src="../fuse_jumper.jpg" /></p>
 <p>There will already be an optical mezzanine connected to a dongle that you need 
@@ -796,9 +801,9 @@ picture below. Power on the DCB.  </p>
 </ul>
 </li>
 <li>
-<p>Correct slot based on stave connection, Not sure if this is a necessary step</p>
+<p>Correct slot based on stave connection</p>
 <ul>
-<li>will either be JD10 or JD11</li>
+<li>will either be JD10 (for stave JP8) or JD11 (for stave JP11)</li>
 </ul>
 </li>
 <li>
@@ -918,15 +923,29 @@ menus can be found starting from this panel.</p>
 </ul>
 </li>
 </ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Stop here! if the DCB has NOT gone through the burn-in yet!!!</strong></p>
+</div>
 <h2 id="salt-testing">SALT Testing</h2>
+<p>The following three tests (SALT, TFC, and ADC) have different instructions 
+dependant on the slot the DCB is connected to, which is determined by the 
+stave connection. Each slot only tests half of the board. Remember <strong>JP8</strong> 
+goes to slot <strong>JD10</strong> and <strong>JP11</strong> goes to slot <strong>JD11</strong>. Changing the stave 
+connection is a process, so we'll test the same half of many boards, then 
+swap everything to check the other half. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure to program the data GBTxs if the DCB has been powered off since 
+doing so</p>
+</div>
 <p>For this step, we need to open the <strong>Memory Monitoring</strong> panel in MiniDAQ. In 
 the Top panel, double click <strong>DAQ</strong> to open a new window, then keep double 
 clicking <strong>TELL40</strong> until the following panel shows up, with the tab for 
 <strong>Memory Monitoring</strong> on the right.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The last <strong>TELL40</strong> has a suffix, it doesn't matter which one you double 
-click.</p>
+<p>The last <strong>TELL40</strong> has a suffix, click on the first <strong>Dev1_0</strong></p>
 </div>
 <p><img alt="Memory Monitoring Panel" src="../more_pictures/mem_mon.png" /></p>
 <ol>
@@ -1092,9 +1111,10 @@ the top left. Now navigate to the <strong>ADC</strong> tab.</p>
 <li>
 <p>Configure settings as follows - PC: UMDlab, GBT ID: 0, SCA ID: 0, Version: 2</p>
 <ul>
-<li>For now, set address to "Read Channel" and line to 24 then 25. Clicking 
+<li>For now, set address to "Read Channel" and line to 24, then 25, then 0. Clicking 
   read on the right updates the "Data out" field.</li>
-<li>Line 24 should be around 0.5 and line 25 should be around 0.833</li>
+<li>Line 24 should be around 0.83 and line 25 should be around 0.5</li>
+<li>Line 0 should be around 0.53</li>
 <li>If you're getting an error, try clicking "Activate Channel" then try again</li>
 </ul>
 </li>
@@ -1115,11 +1135,10 @@ the top left. Now navigate to the <strong>ADC</strong> tab.</p>
    then click read/write</p>
 </li>
 <li>
-<p>Put address back to "Read Channel" and check lines 0, 1, 16, 17, and 18 by 
+<p>Put address back to "Read Channel" and check lines 1, 16, 17, and 18 by 
    clicking read and looking at "Data in"</p>
 <ul>
-<li>Line 0 expected value is 0.53</li>
-<li>Other lines expected value 0.15</li>
+<li>Expected value 0.15</li>
 </ul>
 </li>
 </ol>
