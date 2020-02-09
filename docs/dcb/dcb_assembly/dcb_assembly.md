@@ -27,7 +27,7 @@ and put a new label on the board.
         points to a white dot on the DCB
 
     The dots are on the top left in this example
-    ![Dot Example](white_dot.jpg)
+    ![Dot Example](extra/white_dot.jpg)
 
 
 3. Now look at the 4 mezzanine connectors (the connectors inside the outline).
@@ -44,7 +44,7 @@ and put a new label on the board.
         when assembled to the backplate.
 
     An example of the extra globs of solder is shown here
-    ![Extra Solder Example](extra_solder_DCB.jpg)
+    ![Extra Solder Example](extra/extra_solder_dcb.jpg)
 
 5. Finally examine the large backplane connecter on the other end of the DCB.
     - Look into the connector at the pins and make sure they are all uniform.
@@ -170,7 +170,7 @@ For final assembly of the board:
    to configure the DCB.
 
     Red Lines are where the jumpers go
-    ![DCB Jumpers Highlighted](New_DCB_1_LI.jpg)
+    ![DCB Jumpers Highlighted](extra/new_dcb_1_li.jpg)
 
     !!! note
         You should install 10 jumpers to the following connectors:
