@@ -61,7 +61,7 @@ put it on, making sure that the pre-cut holes align with the holes of the DCB
 backplate. It is much easier to ensure the thermal gap filler is straight if
 two people work together.
 
-![Thermal gap filler installed on DCB backplate](thermal_gap_filler_on_the_backplate.jpg)
+![Thermal gap filler installed on DCB backplate](thermal_gap/thermal_gap_filler_on_the_backplate.jpg)
 
 !!! warning
     Make sure that the thermal gap filler is placed on the **flat** side of the
@@ -100,16 +100,17 @@ To install the heat pipes:
 
 Follow the pictures below for further guidance or if anything is not clear.
 
-![Assembled DCB plate, frontal](assembled_dcb_backplate_front.jpg)
-![Assembled DCB plate, side](assembled_dcb_backplate_side.jpg)
+![Assembled DCB plate, frontal](backplate_assembly/assembled_dcb_backplate_front.jpg)
+![Assembled DCB plate, side](backplate_assembly/assembled_dcb_backplate_side.jpg)
 
 
 ## Optical Mezzanines
 
 Each DCB needs 4 optical mezzanines, 3 with VTTxs and 1 with a VTRx. An
 assembled mezzanine will look like this, where the yellow component in a VTTx.
-![Assembled Mezzanine Back](New_opt_mezz_VTTx_05.jpg)
-![Assembled Mezzanine Front](New_opt_mezz_VTTx_11.jpg)
+
+![Assembled Mezzanine Back](opt_mezz/new_opt_mezz_vttx_05.jpg)
+![Assembled Mezzanine Front](opt_mezz/new_opt_mezz_vttx_11.jpg)
 
 !!! note
     A VTTx is **yellow** while a VTRx is **red**. They look the exact same
@@ -120,7 +121,7 @@ assembled mezzanine will look like this, where the yellow component in a VTTx.
    the plastic casing.
     - this can cause the holes to close over with plastic. Take a metal pick
       and carefully clear out the residual plastic to make a clean hole.
-    ![Snipped VTTx](New_opt_mezz_VTTx_14.jpg)
+    ![Snipped VTTx](opt_mezz/new_opt_mezz_vttx_14.jpg)
 
 2. Plug in a VTT/Rx and make sure the holes are aligned with the slot on the
    mezzanines front
@@ -179,8 +180,8 @@ For final assembly of the board:
     J12 1-2,3-4,5-6
     J13 1-3,2-4
 
-![Final Assembly Front](New_DCB_mechanics_5.jpg)
-![Final Assembly Back](New_DCB_mechanics_6.jpg)
+![Final Assembly Front](final_dcb_assembly/new_dcb_mechanics_5.jpg)
+![Final Assembly Back](final_dcb_assembly/new_dcb_mechanics_6.jpg)
 
 
 ## Continuity check
