@@ -111,11 +111,11 @@ and TP14-15 for CH5-8.
 ## Normal versus Duty Cycle Mode
 
 For Low Duty Cycle Pulsed mode, we enable this via setting SW3-1 to OFF.
-It provides a pulse every \~3 seconds that appears to last for \~60ms.
+It provides a pulse every ~3 seconds that appears to last for ~60ms.
 Normal mode (or continuous mode) provides continuous transmission of
 voltage.
 
-It is recommended that for operation periods greater than \~20 minutes
+It is recommended that for operation periods greater than ~20 minutes
 to have the board on Duty Cycle Pulsed mode (30-45 min in extreme
 cases), whereas short operation periods can utilize continuous mode.
 This is to prevent overheating of 4913ADLHC regulator chips on LVR.
