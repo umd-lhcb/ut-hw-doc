@@ -154,15 +154,17 @@ verify the connections are correct.
 
 ## Programming Data GBTxs
 
-There are 6 data GBTxs on each DCB, and these must be programed everytime the
+There are 6 data GBTxs on each DCB, and these must be programed every time the
 board gets power cycled.
 
 !!!note
-    NanoDAQ has some documentation [here.](https://github.com/umd-lhcb/nanoDAQ/blob/master/README.md)
-    <br> A pdf that goes over a lot of MiniDAQ and GBTx usage can be downloaded
-    [here.](https://github.com/umd-lhcb/gbtx_brds_doc/releases/download/0.8.5/gbtx_brds_doc.pdf)
-1. In the nanoDAQ command prompt, we're going to pull the reset, also called
-   gpio, low and try to program it then high and try to program it.
+    `nanoDAQ` has some documentation [here](https://github.com/umd-lhcb/nanoDAQ/blob/master/README.md).
+
+    A pdf that goes over a lot of MiniDAQ and GBTx usage can be downloaded
+    [here](https://github.com/umd-lhcb/gbtx_brds_doc/releases/download/0.8.5/gbtx_brds_doc.pdf).
+
+1. In the `nanoDAQ` command prompt, we're going to pull the reset, also called
+   GPIO, low and try to program it then high and try to program it.
 
 2. First, enter `./dcbutil.py gpio --reset 0 1 2 3 4 5 6 --final_state low` to
    pull all resets low. Then attempt to program the GBTxs with
@@ -173,12 +175,14 @@ board gets power cycled.
    `./dcbutil.py gpio --reset 0 1 2 3 4 5 6 --final_state high` You should now
    be able to program the GBTxs with the command you inputted earlier.
 
+
 ## PRBS Test
 
 !!!note
     This is the MiniDAQ "Top" panel that is referenced a couple times. Most
     menus can be found starting from this panel.
-![TOP Panel](more_pictures/top.png)
+
+    ![TOP Panel](prbs/top.png)
 
 1. To start PRBS, go to the nanoDAQ command line and enter `./dcbutil.py prbs on`
 
@@ -188,7 +192,7 @@ board gets power cycled.
       Stop All Generators → Stop All Checkers → Reset All Counters →  <br>
       Start All Generators → Start All Checkers → Start All Counters
 
-    ![PRBS Test Panel](more_pictures/prbs.png)
+    ![PRBS Test Panel](prbs/prbs.png)
 
 3. Allow test to run for **1-5 minutes**. It passes if there are 6 green channels
    shown on the PRBS panel.
@@ -201,46 +205,44 @@ board gets power cycled.
       success, otherwise it will report "Master GBT not locked"
 
 !!! warning
-    **Stop here! if the DCB has NOT gone through the burn-in yet!!!**
+    **Stop here if the DCB has NOT gone through the burn-in yet!!!**
 
 
 ## SALT Testing
 
 The following three tests (SALT, TFC, and ADC) have different instructions
-dependant on the slot the DCB is connected to, which is determined by the
-stave connection. Each slot only tests half of the board. Remember **JP8**
-goes to slot **JD10** and **JP11** goes to slot **JD11**. Changing the stave
-connection is a process, so we'll test the same half of many boards, then
-swap everything to check the other half.
+dependant on the slot the DCB is connected to, which is determined by the stave
+connection. Each slot only tests half of the board. Remember **`JP8`** goes to
+slot **`JD10`** and **`JP11`** goes to slot **`JD11`**. Changing the stave
+connection is a process, so we'll test the same half of many boards, then swap
+everything to check the other half.
 
 !!! note
     Make sure to program the data GBTxs if the DCB has been powered off since
     doing so
-
 
 For this step, we need to open the **Memory Monitoring** panel in MiniDAQ. In
 the Top panel, double click **DAQ** to open a new window, then keep double
 clicking **TELL40** until the following panel shows up, with the tab for
 **Memory Monitoring** on the right.
 
+![Memory Monitoring Panel](more_pictures/mem_mon.png)
+
 !!!note
     The last **TELL40** has a suffix, click on the first **Dev1_0**
 
-![Memory Monitoring Panel](more_pictures/mem_mon.png)
-
-1. In nanoDAQ, type in the command `./dcbutil.py gpio --reset 0 1 2 3 4 5
+1. In `nanoDAQ`, type in the command `./dcbutil.py gpio --reset 0 1 2 3 4 5
    --final_state low`
-    - Now type `./saltutil.py [I2C] read 0 0 1` replacing the \[I2C\] with 3,
-      4, and 5 if the DCB is in slot JD10.
-    - Replace with 0, 1, 2 if the DCB is in slot JD11
+    - Now type `./saltutil.py [I2C] read 0 0 1` replacing the `[I2C]` with `3`,
+      `4`, and `5` if the DCB is in slot **`JD10`**.
+    - Replace with `0`, `1`, `2` if the DCB is in slot **`JD11`**
     - You have to enter this command 3 times, once for each number.
 
 2. If it is working correctly you'll get an error. Then repeat the process
    but change the final state to high. You should get a result.
     - `./dcbutil.py gpio --reset 0 1 2 3 4 5 --final_state high`
 
-
-3. The following is for a DCB in slot JD10 only
+3. The following is for a DCB in slot **`JD10`** only
     1. Start with `./saltutil.py 4 init` for I2C 4
     2. Type `./dcbutil.py init ~/bin/tmp_0.xml -s 1` to work with GBT 1
     3. Go to the memory monitoring panel and select link 22 at the top
@@ -248,31 +250,31 @@ clicking **TELL40** until the following panel shows up, with the tab for
           couple seconds and **Write Signal Status** is green.
     4. Now look at the table, focusing on the latter 3 columns. There are 8
        digits in each column. If they are NOT stable values,
-       go to nanoDAQ and type `./dcbutil.py init ~/bin/tmp_1.xml -s 1`
+       go to `nanoDAQ` and type `./dcbutil.py init ~/bin/tmp_1.xml -s 1`
         - keep incrementing the `tmp_*.xml` until the values are a stable bit
-          shift of C4.
+          shift of `c4`.
     5. Repeat this process starting with `./saltutil.py 3 init` followed by
        `./dcbutil.py init ~/bin/tmp_0.xml -s 2`
         - Link Selection must be on 12 now
-        - When incrementing `tmp_*.xml` keep using "-s 2"
+        - When incrementing `tmp_*.xml` keep using `-s 2`
     6. Repeat again with `./saltutil.py 5 init` followed by
        `./dcbutil.py init ~/bin/tmp_0.xml -s 6`
         - Link Selection must be on 13
 
-!!!note
-    Refer to this table if instructions are unclear as to what numbers you
-    should be using.
-| Slot     | GBT    | I2C    | Link Selection |
-| :--:    | :--:    | :--:    | :--:    |
-| JD10    |    1    |    4    |    22    |
-| JD10    |    2    |    3    |    12    |
-| JD11    |    3    |    2    |    23    |
-| JD11     |    4    |    1    |    21    |
-| JD11     |    5    |    0    |    14    |
-| JD10    |    6    |    5    |    13    |
+    !!!note
+        Refer to this table if instructions are unclear as to what numbers you
+        should be using.
 
+        | Slot   | GBT  | I2C  | Link Selection |
+        | :--:   | :--: | :--: | :--:           |
+        | `JD10` |    1 |    4 |   22           |
+        | `JD10` |    2 |    3 |   12           |
+        | `JD11` |    3 |    2 |   23           |
+        | `JD11` |    4 |    1 |   21           |
+        | `JD11` |    5 |    0 |   14           |
+        | `JD10` |    6 |    5 |   13           |
 
-4. The following is for a DCB in slot JD11 only
+4. The following is for a DCB in slot **`JD11`** only
     1. Start with `./saltutil.py 2 init` for I2C 2
     2. Type `./dcbutil.py init ~/bin/tmp_0.xml -s 3` to work with GBT 3
     3. Go to the memory monitoring panel and select link 23 at the top
@@ -280,13 +282,13 @@ clicking **TELL40** until the following panel shows up, with the tab for
           couple seconds and **Write Signal Status** is green.
     4. Now look at the table, focusing on the latter 3 columns. There are 8
        digits in each column. If they are NOT stable values,
-       go to nanoDAQ and type `./dcbutil.py init ~/bin/tmp_1.xml -s 3`
+       go to `nanoDAQ` and type `./dcbutil.py init ~/bin/tmp_1.xml -s 3`
         - keep incrementing the `tmp_*.xml` until the values are a stable bit
-          shift of C4.
+          shift of `c4`.
     5. Repeat this process starting with `./saltutil.py 1 init` followed by
        `./dcbutil.py init ~/bin/tmp_0.xml -s 4`
         - Link Selection must be on 21 now
-        - When incrementing `tmp_*.xml` keep using "-s 4"
+        - When incrementing `tmp_*.xml` keep using `-s 4`
     6. Repeat again with `./saltutil.py 0 init` followed by
        `./dcbutil.py init ~/bin/tmp_0.xml -s 5`
         - Link Selection must be on 14
@@ -294,13 +296,13 @@ clicking **TELL40** until the following panel shows up, with the tab for
 
 ## TFC Test
 
-1. Type `./saltutil.py [I2C] ser_src tfc` replacing the \[I2C\] with 3, 4, and 5
-   if the DCB is in slot JD10.
-    - Replace with 0, 1, 2 if the DCB is in slot JD11
+1. Type `./saltutil.py [I2C] ser_src tfc` replacing the `[I2C]` with `3`, `4`,
+   and `5` if the DCB is in slot **`JD10`**.
+    - Replace with `0`, `1`, `2` if the DCB is in slot **`JD11`**
 
 2. Look in memory monitoring again and select links based on slot
-    - Same as SALT. JD10 gets links 22, 12, and 13. JD11 gets links 23, 21, and
-      14
+    - Same as SALT. **`JD10`** gets links 22, 12, and 13. **`JD11`** gets links
+      23, 21, and 14
 
 3. The values in the table should be something similar to 01, 02, 04, or 08
    repeating
