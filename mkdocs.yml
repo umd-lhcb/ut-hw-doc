@@ -19,10 +19,10 @@ nav:
         - DCB mechanical assembly: dcb/dcb_assembly/dcb_assembly.md
         - DCB QA: dcb/dcb_qa/dcb_qa.md
     - LVR:
-        - LVR Configuration: lvr/lvrconfig.md
-        - CCM Identification Guide: lvr/ccm_id.md
-        - LVR QA: lvr/lvrqa.md
-        - CCM QA: lvr/ccmqa.md
+        - LVR Configuration: lvr/lvr_config/lvr_config.md
+        - CCM Identification Guide: lvr/ccm_id/ccm_id.md
+        - LVR QA: lvr/lvr_qa.md
+        - CCM QA: lvr/ccm_qa.md
     - MiniDAQ:
         - MiniDAQ usage: minidaq/minidaq_usage.md
         - CentOS tips: minidaq/centos_tips.md
