@@ -212,7 +212,7 @@ The following three tests (SALT, TFC, and ADC) have different instructions
 dependant on the slot the DCB is connected to, which is determined by the 
 stave connection. Each slot only tests half of the board. Remember **JP8** 
 goes to slot **JD10** and **JP11** goes to slot **JD11**. Changing the stave 
-connection is a process, so we'll test the same half of many boards, then 
+connection is a process, so we'll test the same half on many boards, then 
 swap everything to check the other half. 
 
 !!! note
