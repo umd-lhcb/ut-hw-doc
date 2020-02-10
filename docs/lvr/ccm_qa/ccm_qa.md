@@ -1,5 +1,3 @@
-## CCM QA Procedure
-
 This procedure acts under the assumption that the user is utilizing the
 pre-built CCM QA setup.
 
