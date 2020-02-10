@@ -226,7 +226,7 @@ the Top panel, double click **DAQ** to open a new window, then keep double
 clicking **TELL40** until the following panel shows up, with the tab for
 **Memory Monitoring** on the right.
 
-![Memory Monitoring Panel](more_pictures/mem_mon.png)
+![Memory Monitoring Panel](extra/mem_mon.png)
 
 !!!note
     The last **TELL40** has a suffix, click on the first **Dev1_0**
