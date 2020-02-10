@@ -6,7 +6,7 @@ repo_url: https://github.com/umd-lhcb/ut-hw-doc
 
 theme:
     name: 'material'
-    logo: images/umd_logo.png
+    logo: umd_logo.png
     include_search_page: false
     feature:
         tabs: true
@@ -21,8 +21,8 @@ nav:
     - LVR:
         - LVR Configuration: lvr/lvr_config/lvr_config.md
         - CCM Identification Guide: lvr/ccm_id/ccm_id.md
-        - LVR QA: lvr/lvr_qa.md
-        - CCM QA: lvr/ccm_qa.md
+        - LVR QA: lvr/lvr_qa/lvr_qa.md
+        - CCM QA: lvr/ccm_qa/ccm_qa.md
     - MiniDAQ:
         - MiniDAQ usage: minidaq/minidaq_usage.md
         - CentOS tips: minidaq/centos_tips.md
@@ -30,3 +30,4 @@ nav:
 markdown_extensions:
     - admonition
     - pymdownx.critic
+    - pymdownx.caret
