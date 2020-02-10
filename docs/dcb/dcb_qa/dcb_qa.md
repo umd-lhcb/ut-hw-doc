@@ -316,26 +316,27 @@ going back to the MiniDAQ UI (the one with "Gedi" in its title) and under
 **LHCB Framework**, click **GBT Client**. Choose GBT under Communication on
 the top left. Now navigate to the **ADC** tab.
 
-![Therm Readout Panel](gbt_client_adc_readout_readchannel.png)
+![Therm Readout Panel](adc/gbt_client_adc_readout_readchannel.png)
 
-1. Configure settings as follows - PC: UMDlab, GBT ID: 0, SCA ID: 0, Version: 2
-    - For now, set address to "Read Channel" and line to 24, then 25, then 0. Clicking
-      read on the right updates the "Data out" field.
+1. Configure settings as follows
+    - **PC**: UMDlab, **GBT ID**: 0, **SCA ID**: 0, **Version**: 2
+    - For now, set address to **Read Channel** and **Line** to 24, then 25,
+      then 0. Clicking read on the right updates the **Data out** field.
     - Line 24 should be around 0.83 and line 25 should be around 0.5
     - Line 0 should be around 0.53
-    - If you're getting an error, try clicking "Activate Channel" then try again
+    - If you're getting an error, try clicking **Activate Channel** then try again
 
-2. When looking in slot JD10
+2. When looking in slot **`JD10`**
     - Also read out lines 5, 6, and 7. They should all be 0.55
 
-3. When looking in slot JD11
+3. When looking in slot **`JD11`**
     - Also read out lines 2, 3, and 4. They should all be 0.55
 
-4. Change address to "Current Source" and put `FFFFFFFF` (8 Fs) in "Data in",
-   then click read/write
+4. Change address to **Current Source** and put `ffffffff` (8 `f`s) in **Data in**,
+   then click **read/write**
 
-5. Put address back to "Read Channel" and check lines 1, 16, 17, and 18 by
-   clicking read and looking at "Data in"
+5. Put address back to **Read Channel** and check lines 1, 16, 17, and 18 by
+   clicking read and looking at **Data in**
     - Expected value 0.15
 
 
@@ -345,15 +346,15 @@ We want to verify that we can communicate to the Master GBTx through the
 optical fibers. Make sure **GBT Client** is still open, and go to the tab
 labeled **GBT**.
 
-1. Verify or add a red jumper cable to the first connection from "J4" on the
-   DCB, directly under an optical mezzanine. It is also labeled "MC
-   CONFIGSELECT"
+1. Verify or add a red jumper cable to the first connection from **`J4`** on
+   the DCB, directly under an optical mezzanine. It is also labeled
+   `MC CONFIGSELECT`
 
    ![Jumper](fusing/jumper_crop.jpg)
 
-2. Set up **GBT Client** such that GBT ID:0, Device Address: 7, Register
-   Address: 28, Size: 1
-    - Click Read on the right and you should see 00 in "Data out"
+2. Set up **GBT Client** such that **GBT ID**: 0, **Device Address**: 7,
+   **Register Address**: 28, Size: 1
+    - Click Read on the right and you should see `00` in **Data out**
 
-3. Put FF in "Data in" and click read/write
-    - "Data out" should now read FF
+3. Put `ff` in **Data in** and click **read/write**
+    - **Data out** should now read `ff`
