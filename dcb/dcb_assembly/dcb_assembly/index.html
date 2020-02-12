@@ -90,7 +90,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="https://umd-lhcb.github.io/ut-hw-doc" title="UMD UT hardware documentation" aria-label="UMD UT hardware documentation" class="md-header-nav__button md-logo">
           
-            <img alt="logo" src="../../../images/umd_logo.png" width="24" height="24">
+            <img alt="logo" src="../../../umd_logo.png" width="24" height="24">
           
         </a>
       </div>
@@ -210,7 +210,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../lvr/lvrconfig/" class="md-tabs__link">
+        <a href="../../../lvr/lvr_config/lvr_config/" class="md-tabs__link">
           LVR
         </a>
       
@@ -246,7 +246,7 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="https://umd-lhcb.github.io/ut-hw-doc" title="UMD UT hardware documentation" class="md-nav__button md-logo">
       
-        <img alt="logo" src="../../../images/umd_logo.png" width="48" height="48">
+        <img alt="logo" src="../../../umd_logo.png" width="48" height="48">
       
     </a>
     UMD UT hardware documentation
@@ -466,7 +466,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../lvr/lvrconfig/" title="LVR Configuration" class="md-nav__link">
+    <a href="../../../lvr/lvr_config/lvr_config/" title="LVR Configuration" class="md-nav__link">
       LVR Configuration
     </a>
   </li>
@@ -478,7 +478,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../lvr/ccm_id/" title="CCM Identification Guide" class="md-nav__link">
+    <a href="../../../lvr/ccm_id/ccm_id/" title="CCM Identification Guide" class="md-nav__link">
       CCM Identification Guide
     </a>
   </li>
@@ -490,7 +490,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../lvr/lvrqa/" title="LVR QA" class="md-nav__link">
+    <a href="../../../lvr/lvr_qa/lvr_qa/" title="LVR QA" class="md-nav__link">
       LVR QA
     </a>
   </li>
@@ -502,7 +502,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../lvr/ccmqa/" title="CCM QA" class="md-nav__link">
+    <a href="../../../lvr/ccm_qa/ccm_qa/" title="CCM QA" class="md-nav__link">
       CCM QA
     </a>
   </li>
@@ -643,7 +643,7 @@
                   <h1>DCB mechanical assembly</h1>
                 
                 <h2 id="visual-inspection-of-new-dcb">Visual inspection of new DCB</h2>
-<p>Record serial number from sticker on the DCB to the 
+<p>Record serial number from sticker on the DCB to the
 <a href="https://docs.google.com/spreadsheets/d/1KjXGhOFzi0SZPsozpKzxGjVtfr4kkS_Hv5EigUwKOj8/edit" title="Database">database</a>
 and put a new label on the board.</p>
 <div class="admonition warning">
@@ -652,13 +652,13 @@ and put a new label on the board.</p>
 </div>
 <ol>
 <li>
-<p>Look for scratches, gouges, and any other signs of obvious damage on the 
+<p>Look for scratches, gouges, and any other signs of obvious damage on the
    surface of the DCB.</p>
 </li>
 <li>
 <p>Inspect more thoroughly by focusing on 1 GBTx cluster at a time. All clusters
-   should be the same and include the same components. If a piece appears to be 
-   missing, compare to the other groups. If they are all the same, it is likely 
+   should be the same and include the same components. If a piece appears to be
+   missing, compare to the other groups. If they are all the same, it is likely
    correct</p>
 <ul>
 <li>Look for any pieces that are bent, broken, or otherwise askew within each
@@ -666,22 +666,22 @@ and put a new label on the board.</p>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Each GBTx has a marked corner which must match a white dot on the DCB. 
+<p>Each GBTx has a marked corner which must match a white dot on the DCB.
 The black SCA also has marked corner and dot.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>There are also a couple small components, the ones next to pieces 
-labeled "R500", with faint white lines on one side. That side also 
+<p>There are also a couple small components, the ones next to pieces
+labeled "R500", with faint white lines on one side. That side also
 points to a white dot on the DCB</p>
 </div>
 <p>The dots are on the top left in this example
-<img alt="Dot Example" src="../white_dot.jpg" /></p>
+<img alt="Dot Example" src="../extra/white_dot.jpg" /></p>
 </li>
 <li>
 <p>Now look at the 4 mezzanine connectors (the connectors inside the outline).
-   Angle the DCB to see each pin clearly and confirm there are no globs of 
-   solder possibly connecting two pins. Also confirm that no pins are bent or 
+   Angle the DCB to see each pin clearly and confirm there are no globs of
+   solder possibly connecting two pins. Also confirm that no pins are bent or
    broken.</p>
 </li>
 <li>
@@ -690,11 +690,11 @@ points to a white dot on the DCB</p>
    are no extra globs of solder protruding through the surface of the DCB.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If there are extra globs of solder present then it can short the DCB 
+<p>If there are extra globs of solder present then it can short the DCB
 when assembled to the backplate.</p>
 </div>
 <p>An example of the extra globs of solder is shown here
-<img alt="Extra Solder Example" src="../extra_solder_DCB.jpg" /></p>
+<img alt="Extra Solder Example" src="../extra/extra_solder_dcb.jpg" /></p>
 </li>
 <li>
 <p>Finally examine the large backplane connecter on the other end of the DCB.</p>
@@ -712,7 +712,7 @@ when assembled to the backplate.</p>
 put it on, making sure that the pre-cut holes align with the holes of the DCB
 backplate. It is much easier to ensure the thermal gap filler is straight if
 two people work together.</p>
-<p><img alt="Thermal gap filler installed on DCB backplate" src="../thermal_gap_filler_on_the_backplate.jpg" /></p>
+<p><img alt="Thermal gap filler installed on DCB backplate" src="../thermal_gap/thermal_gap_filler_on_the_backplate.jpg" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Make sure that the thermal gap filler is placed on the <strong>flat</strong> side of the
@@ -728,8 +728,8 @@ that no residue from the thermal gap filler will attach to the DCB.</p>
 <p>To install the heat pipes:</p>
 <ol>
 <li>
-<p>Put a thin line of thermal grease on the pipes using a spreader, not going 
-   all the way to the edges. The grease squeezes out when the pipes are 
+<p>Put a thin line of thermal grease on the pipes using a spreader, not going
+   all the way to the edges. The grease squeezes out when the pipes are
    installed and tightened.</p>
 </li>
 <li>
@@ -747,51 +747,51 @@ that no residue from the thermal gap filler will attach to the DCB.</p>
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Pay attention to the direction of the heat pipe! The long end should point 
-toward the flat side of the backplate and the short piping toward the 
+<p>Pay attention to the direction of the heat pipe! The long end should point
+toward the flat side of the backplate and the short piping toward the
 notched side.</p>
 </div>
 <p>Follow the pictures below for further guidance or if anything is not clear.</p>
-<p><img alt="Assembled DCB plate, frontal" src="../assembled_dcb_backplate_front.jpg" />
-<img alt="Assembled DCB plate, side" src="../assembled_dcb_backplate_side.jpg" /></p>
+<p><img alt="Assembled DCB plate, frontal" src="../backplate_assembly/assembled_dcb_backplate_front.jpg" />
+<img alt="Assembled DCB plate, side" src="../backplate_assembly/assembled_dcb_backplate_side.jpg" /></p>
 <h2 id="optical-mezzanines">Optical Mezzanines</h2>
-<p>Each DCB needs 4 optical mezzanines, <strong>3 with VTTxs</strong> and <strong>1 with a VTRx</strong>. An 
-assembled mezzanine will look like this, where the black component in a yellow 
+<p>Each DCB needs 4 optical mezzanines, <strong>3 with VTTxs</strong> and <strong>1 with a VTRx</strong>. An
+assembled mezzanine will look like this, where the black component in a yellow
 casing is a VTTx.
-<img alt="Assembled Mezzanine Back" src="../New_opt_mezz_VTTx_05.jpg" />
-<img alt="Assembled Mezzanine Front" src="../New_opt_mezz_VTTx_11.jpg" /></p>
+<img alt="Assembled Mezzanine Back" src="../opt_mezz/new_opt_mezz_vttx_05.jpg" />
+<img alt="Assembled Mezzanine Front" src="../opt_mezz/new_opt_mezz_vttx_11.jpg" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>A VTTx is <strong>black</strong> while a VTRx is <strong>red</strong>. They both have a yellow casing 
+<p>A VTTx is <strong>black</strong> while a VTRx is <strong>red</strong>. They both have a yellow casing
 and look the exact same otherwise.</p>
 </div>
 <ol>
 <li>
 <p>The VTT/Rxs have nubs on top that don't fit into the slot on the mezzanines.
-   Take a pair of wire cutters and clip them off to be flush with the rest of 
+   Take a pair of wire cutters and clip them off to be flush with the rest of
    the plastic casing.</p>
 <ul>
-<li>this can cause the holes to close over with plastic. Take a metal pick 
+<li>this can cause the holes to close over with plastic. Take a metal pick
   and carefully clear out the residual plastic to make a clean hole.
-<img alt="Snipped VTTx" src="../New_opt_mezz_VTTx_14.jpg" /></li>
+<img alt="Snipped VTTx" src="../opt_mezz/new_opt_mezz_vttx_14.jpg" /></li>
 </ul>
 </li>
 <li>
-<p>Plug in a VTT/Rx and make sure the holes are aligned with the slot on the 
+<p>Plug in a VTT/Rx and make sure the holes are aligned with the slot on the
    mezzanines front</p>
 </li>
 <li>
-<p>Screw in 2 <mark class="critic">M1.4</mark> bolts to attach the mezzanine and the VTT/Rx, tighten 
+<p>Screw in 2 <mark class="critic">M1.4</mark> bolts to attach the mezzanine and the VTT/Rx, tighten
    gently.</p>
 <ul>
-<li>It can be really hard to get the tiny bolts to work. If you're having 
-  trouble, use tweezers to hold the bolt in place while putting a decent 
+<li>It can be really hard to get the tiny bolts to work. If you're having
+  trouble, use tweezers to hold the bolt in place while putting a decent
   amount of force into the hole while you start to screw it in</li>
 </ul>
 </li>
 <li>
-<p>Repeat for 4 total mezzanines. Make sure one has a red VTRx while the rest 
-   have black VTTxs</p>
+<p>Repeat for 4 total mezzanines. Make sure one has a red VTRX while the rest
+   have VTTxs</p>
 </li>
 </ol>
 <h2 id="final-assembly">Final assembly</h2>
@@ -803,10 +803,10 @@ and look the exact same otherwise.</p>
 <ol>
 <li>
 <p>Use 16 <mark class="critic">M.2.5</mark> countersunk bolts along with 16 long <mark class="critic">M.2.5</mark>
-   hexagonal nuts and Kapton washers (part# 5611-33-5) to install the DCB 
-   backplate onto the DCB and provide supports for the optical mezzanines. The 
-   bolts should be placed on the backplate side and should fit into the 
-   countersunk holes while the nuts and washers will sit on top of the DCB. 
+   hexagonal nuts and Kapton washers (part# 5611-33-5) to install the DCB
+   backplate onto the DCB and provide supports for the optical mezzanines. The
+   bolts should be placed on the backplate side and should fit into the
+   countersunk holes while the nuts and washers will sit on top of the DCB.
    Again fix opposite diagonal bolts first.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -815,43 +815,43 @@ and look the exact same otherwise.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The nuts on top of the DCB <strong>should not be rotated</strong> as they will
-damage the surface of the DCB. In order to prevent this secure the nut 
+damage the surface of the DCB. In order to prevent this secure the nut
 using pliers or a socket wrench and use a screwdriver to tighten.</p>
 </div>
 </li>
 <li>
 <p>Use 8 <mark class="critic">M.3</mark> countersunk bolts along with 8 short <mark class="critic">M.3</mark> hexagonal nuts
-   and Kapton washers (part# 5611-130-5) to secure the notched side of the 
-   backplate. The washers should be placed on the DCB to protect it from the 
+   and Kapton washers (part# 5611-130-5) to secure the notched side of the
+   backplate. The washers should be placed on the DCB to protect it from the
    hex nut.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The nuts on top of the DCB <strong>should not be rotated</strong> as they will
-damage the surface of the DCB. In order to prevent this secure the nut 
+damage the surface of the DCB. In order to prevent this secure the nut
 using pliers or a socket wrench and use a screwdriver to tighten.</p>
 </div>
 </li>
 <li>
-<p>Install jumpers to the board according to the picture, these are needed 
-   to configure the DCB. </p>
+<p>Install jumpers to the board according to the picture, these are needed
+   to configure the DCB.</p>
 <ul>
 <li>They should be oriented with their metal side away from the board</li>
 </ul>
 <p>Red Lines are where the jumpers go
-<img alt="DCB Jumpers Highlighted" src="../New_DCB_1_LI.jpg" /></p>
+<img alt="DCB Jumpers Highlighted" src="../extra/new_dcb_1_li.jpg" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You should install 10 jumpers to the following connectors: </p>
+<p>You should install 10 jumpers to the following connectors:</p>
 </div>
-<p>J2 pins 1-3, 4-6<br />
-J4 pins 3-4<br />
-J10 pins 3-4, 5-6<br />
-J12 pins 1-2, 3-4, 5-6<br />
-J13 pins 1-3, 2-4  </p>
+<p>J2 pins 1-3, 4-6
+J4 pins 3-4
+J10 pins 3-4, 5-6
+J12 1-2, 3-4, 5-6
+J13 1-3, 2-4</p>
 </li>
 </ol>
-<p><img alt="Final Assembly Front" src="../New_DCB_mechanics_5.jpg" />
-<img alt="Final Assembly Back" src="../New_DCB_mechanics_6.jpg" /></p>
+<p><img alt="Final Assembly Front" src="../final_dcb_assembly/new_dcb_mechanics_5.jpg" />
+<img alt="Final Assembly Back" src="../final_dcb_assembly/new_dcb_mechanics_6.jpg" /></p>
 <h2 id="continuity-check">Continuity check</h2>
 <p>Measure the resistance between any of the <code>TP5</code> around the data GBTxs and the
 aluminum backplate. The resistance should be very large to ensure the backplate
