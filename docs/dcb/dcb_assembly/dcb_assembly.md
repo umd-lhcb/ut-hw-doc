@@ -106,16 +106,16 @@ Follow the pictures below for further guidance or if anything is not clear.
 
 ## Optical Mezzanines
 
-Each DCB needs 4 optical mezzanines, 3 with VTTxs and 1 with a VTRx. An
-assembled mezzanine will look like this, where the yellow component in a VTTx.
-
-![Assembled Mezzanine Back](opt_mezz/new_opt_mezz_vttx_05.jpg)
-![Assembled Mezzanine Front](opt_mezz/new_opt_mezz_vttx_11.jpg)
+Each DCB needs 4 optical mezzanines, **3 with VTTxs** and **1 with a VTRx**. An 
+assembled mezzanine will look like this, where the black component in a yellow 
+casing is a VTTx.
+![Assembled Mezzanine Back](opt_mezz/new_opt_mezz_VTTx_05.jpg)
+![Assembled Mezzanine Front](opt_mezz/new_opt_mezz_VTTx_11.jpg)
 
 !!! note
-    A VTTx is **yellow** while a VTRx is **red**. They look the exact same
-    otherwise.
-
+	A VTTx is **black** while a VTRx is **red**. They both have a yellow casing 
+	and look the exact same otherwise.
+	
 1. The VTT/Rxs have nubs on top that don't fit into the slot on the mezzanines.
    Take a pair of wire cutters and clip them off to be flush with the rest of
    the plastic casing.
@@ -134,7 +134,7 @@ assembled mezzanine will look like this, where the yellow component in a VTTx.
 
 4. Repeat for 4 total mezzanines. Make sure one has a red VTRX while the rest
    have VTTxs
-
+   
 
 ## Final assembly
 
@@ -144,11 +144,12 @@ assembled mezzanine will look like this, where the yellow component in a VTTx.
 For final assembly of the board:
 
 1. Use 16 {==M.2.5==} countersunk bolts along with 16 long {==M.2.5==}
-   hexagonal nuts to install the DCB backplate onto the DCB and provide
-   supports for the optical mezzanines. The bolts should be placed on the
-   backplate side and should fit into the countersunk holes while the nuts will
-   sit on top of the DCB. Again fix opposite diagonal bolts first.
-
+   hexagonal nuts and Kapton washers (part# 5611-33-5) to install the DCB 
+   backplate onto the DCB and provide supports for the optical mezzanines. The 
+   bolts should be placed on the backplate side and should fit into the 
+   countersunk holes while the nuts and washers will sit on top of the DCB. 
+   Again fix opposite diagonal bolts first.
+   
     !!! note
         This is for the flat edge/long pipe side of the assembly.
 
@@ -158,8 +159,9 @@ For final assembly of the board:
         using pliers or a socket wrench and use a screwdriver to tighten.
 
 2. Use 8 {==M.3==} countersunk bolts along with 8 short {==M.3==} hexagonal nuts
-   and Kapton washers to secure the notched side of the backplate. The washers
-   should be placed on the DCB to protect it from the hex nut.
+   and Kapton washers (part# 5611-130-5) to secure the notched side of the 
+   backplate. The washers should be placed on the DCB to protect it from the
+   hex nut.
 
     !!! warning
         The nuts on top of the DCB **should not be rotated** as they will
@@ -168,17 +170,19 @@ For final assembly of the board:
 
 3. Install jumpers to the board according to the picture, these are needed
    to configure the DCB.
+   
+    - They should be oriented with their metal side away from the board
 
     Red Lines are where the jumpers go
     ![DCB Jumpers Highlighted](extra/new_dcb_1_li.jpg)
 
     !!! note
         You should install 10 jumpers to the following connectors:
-    J2 pins 1-3,2-4
+    J2 pins 1-3, 4-6
     J4 pins 3-4
-    J10 pins 3-4,5-6
-    J12 1-2,3-4,5-6
-    J13 1-3,2-4
+    J10 pins 3-4, 5-6
+    J12 1-2, 3-4, 5-6
+    J13 1-3, 2-4
 
 ![Final Assembly Front](final_dcb_assembly/new_dcb_mechanics_5.jpg)
 ![Final Assembly Back](final_dcb_assembly/new_dcb_mechanics_6.jpg)
