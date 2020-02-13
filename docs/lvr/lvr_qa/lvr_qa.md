@@ -273,4 +273,4 @@
             07 07 07 07       06 06 06 06
     
 
-21. If it is not already, set SW2 1^st^ switch to **ON** (takes regulator out of pulsed mode).
+21. If it is not already, set SW3 1^st^ switch to **ON** (takes regulator out of pulsed mode).
