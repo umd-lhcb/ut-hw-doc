@@ -572,34 +572,49 @@
                 
                   <h1>LVR QA</h1>
                 
-                <pre><code>!!! Before you proceed
-
-- Beware that **`TP5`** is **NOT** GND. The silkscreen label applies to
-  the adjacent **`TP2`**.
-
-- Fused power input breakout board silk screen circuit labels are
-    incorrect.
-
-- The LVR outputs should be connected to a benign load that can withstand
+                <div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><strong><em>Before you proceed</em></strong></p>
+<ul>
+<li>
+<p>Beware that <strong><code>TP5</code></strong> is <strong>NOT</strong> GND. The silkscreen label applies to
+  the adjacent <strong><code>TP2</code></strong>.</p>
+</li>
+<li>
+<p>Fused power input breakout board silk screen circuit labels are
+  incorrect.</p>
+</li>
+<li>
+<p>The LVR outputs should be connected to a benign load that can withstand
   having upwards of 7V output. (i.e. the LVR channel outputs follow the input
-  power rail if the CCM is not populated and configured.)
-
-- Extreme caution is needed when connecting test lead clips to the
-  test points.
-- The test points are rather fragile and easily pulled of the board.
-- Care must be taken to avoid temporary unintended shorts from the high
-  density of surrounding components, via's, and traces.
-
-- When configuring the CCMs on the LVR, remember that CCM voltage
+  power rail if the CCM is not populated and configured.)</p>
+</li>
+<li>
+<p>Extreme caution is needed when connecting test lead clips to the
+  test points.</p>
+</li>
+<li>
+<p>The test points are rather fragile and easily pulled of the board.</p>
+</li>
+<li>
+<p>Care must be taken to avoid temporary unintended shorts from the high
+  density of surrounding components, via's, and traces.</p>
+</li>
+<li>
+<p>When configuring the CCMs on the LVR, remember that CCM voltage
   types split down the middle of the LVR (i.e. CH1-4 must have the same CCM
-  voltage, CH5-8 must have the same CCM voltage)
-
-- Going down the board on one side, arrange CCMs as master, slave, master,
-  slave, etc.
-
-- The Master-Slave configurations require a jumper ON the LVR output breakout
-  board that electrically connects the master and slave output rails together.
-</code></pre>
+  voltage, CH5-8 must have the same CCM voltage)</p>
+</li>
+<li>
+<p>Going down the board on one side, arrange CCMs as master, slave, master,
+  slave, etc.</p>
+</li>
+<li>
+<p>The Master-Slave configurations require a jumper ON the LVR output breakout
+  board that electrically connects the master and slave output rails together.</p>
+</li>
+</ul>
+</div>
 <h2 id="full-qa-procedure">Full QA Procedure</h2>
 <ol>
 <li>
@@ -656,12 +671,12 @@ the <code>Vin_FPGA_3V3</code> and <code>Vin_FPGA_1V5</code> reading.</p>
 <li>3.3V x 110% = 3.63V</li>
 </ul>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>It may be useful to let the rail approach the desired value, then turn down
-  the setpoint to a value much below the current input voltage in order to find
-  the plateau (max voltage where the rail 'sticks') more quickly</p>
+the setpoint to a value much below the current input voltage in order to find
+the plateau (max voltage where the rail 'sticks') more quickly</p>
+</div>
 </li>
 <li>
 <p>Adjust P1 to obtain 1.5V  on <strong><code>TP8</code></strong>.</p>
@@ -696,8 +711,8 @@ the <code>Vin_FPGA_3V3</code> and <code>Vin_FPGA_1V5</code> reading.</p>
 <p class="admonition-title">Warning</p>
 <p><strong>IT IS IMPERATIVE THAT THE <code>Vop_rail</code> NOT EXCEED 5.5V !!!!</strong></p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>In the LVR monitor software this voltage rail is denoted as
 <code>V_OPAMP_RAIL</code>, because this is the input voltage used to power
 OpAmps (operational amplifiers) on the board and ccms.</p>
@@ -727,11 +742,7 @@ OpAmps (operational amplifiers) on the board and ccms.</p>
 </ol>
 </li>
 <li>
-<p>Record checksum when program is done</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Checksum should be a 7-digit number: Checksum = <code>_______</code></p>
-</div>
+<p>Check in the log that the auto-verify ran successfully. </p>
 </li>
 <li>
 <p>Turn off power and install CCMs</p>
@@ -812,24 +823,48 @@ OpAmps (operational amplifiers) on the board and ccms.</p>
 <li>Reduce the input power gradually, and confirm that the outputs shut off below
    4.5-4.6 volts (ish).</li>
 </ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>To test individual undervoltage lockouts (if needed) use the following procedure
- 1. Locate SW6[A, B, C, D]. The switcher-channel correspondence is the
-  following:</p>
-<pre><code>| SW6 switcher | Channels |
-|--------------|----------|
-| SW6A         | CH7 &amp; 8  |
-| SW6B         | CH5 &amp; 6  |
-| SW6C         | CH3 &amp; 4  |
-| SW6D         | CH1 &amp; 2  |
-</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>To test individual undervoltage lockouts (if needed) use the following procedure</p>
 <ol>
-<li>For each SW6#, verify that its corresponding channels shut off
-   when turning the switch configuration to [<strong>OFF, OFF, OFF, OFF</strong>]</li>
-<li>Each channel should switch from some voltage (depending on power
-   supply setting) to ~0V.</li>
+<li>
+<p>Locate SW6[A, B, C, D]. The switcher-channel correspondence is given in the table below</p>
+</li>
+<li>
+<p>For each SW6#, verify that its corresponding channels shut off
+   when turning the switch configuration to [<strong>OFF, OFF, OFF, OFF</strong>]</p>
+</li>
+<li>
+<p>Each channel should switch from some voltage (depending on power
+   supply setting) to ~0V.</p>
+</li>
 </ol>
+<table>
+<thead>
+<tr>
+<th>SW6 switcher</th>
+<th>Channels</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SW6A</td>
+<td>CH7 &amp; 8</td>
+</tr>
+<tr>
+<td>SW6B</td>
+<td>CH5 &amp; 6</td>
+</tr>
+<tr>
+<td>SW6C</td>
+<td>CH3 &amp; 4</td>
+</tr>
+<tr>
+<td>SW6D</td>
+<td>CH1 &amp; 2</td>
+</tr>
+</tbody>
+</table>
 </div>
 </li>
 <li>
@@ -838,8 +873,8 @@ OpAmps (operational amplifiers) on the board and ccms.</p>
 <li>Locate SW1.</li>
 <li>
 <p>Set SW1 to [<strong>ON, ON, ON, ON</strong>].</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
 <p>This tells the board that it should shut down if it gets above ~ 20C (room temperature).</p>
 </div>
 </li>
@@ -977,11 +1012,13 @@ They will only go to RAIL when shorting their respective master channels.</p>
 </ol>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
+<p>The following illustrates the kind of output you're looking for:</p>
+<pre><code>04 04 04 04       03 03 03 03
+05 05 05 05       04 04 04 04
+06 06 06 06       05 05 05 05
+07 07 07 07       06 06 06 06
+</code></pre>
 </div>
-<p><code>04 04 04 04       03 03 03 03
-    05 05 05 05       04 04 04 04
-    06 06 06 06       05 05 05 05
-    07 07 07 07       06 06 06 06</code></p>
 </li>
 <li>
 <p>If it is not already, set SW2 1<sup>st</sup> switch to <strong>ON</strong> (takes regulator out of pulsed mode).</p>
