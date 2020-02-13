@@ -79,7 +79,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#before-you-proceed" tabindex="0" class="md-skip">
+      <a href="#full-qa-procedure" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -444,13 +444,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#before-you-proceed" class="md-nav__link">
-    Before you proceed
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#full-qa-procedure" class="md-nav__link">
     Full QA Procedure
   </a>
@@ -552,13 +545,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#before-you-proceed" class="md-nav__link">
-    Before you proceed
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#full-qa-procedure" class="md-nav__link">
     Full QA Procedure
   </a>
@@ -586,44 +572,34 @@
                 
                   <h1>LVR QA</h1>
                 
-                <h2 id="before-you-proceed">Before you proceed</h2>
-<ul>
-<li>
-<p>Beware that <strong><code>TP5</code></strong> is <strong>NOT</strong> GND. The silkscreen label applies to
-  the adjacent <strong><code>TP2</code></strong>.</p>
-</li>
-<li>
-<p>Fused power input breakout board silk screen circuit labels are
-  incorrect.</p>
-</li>
-<li>
-<p>The LVR outputs should be connected to a benign load that can withstand
+                <pre><code>!!! Before you proceed
+
+- Beware that **`TP5`** is **NOT** GND. The silkscreen label applies to
+  the adjacent **`TP2`**.
+
+- Fused power input breakout board silk screen circuit labels are
+    incorrect.
+
+- The LVR outputs should be connected to a benign load that can withstand
   having upwards of 7V output. (i.e. the LVR channel outputs follow the input
-  power rail if the CCM is not populated and configured.)</p>
-</li>
-<li>
-<p>Extreme caution is needed when connecting test lead clips to the
-  test points.</p>
-<ul>
-<li>The test points are rather fragile and easily pulled of the board.</li>
-<li>Care must be taken to avoid temporary unintended shorts from the high
-  density of surrounding components, via's, and traces.</li>
-</ul>
-</li>
-<li>
-<p>When configuring the CCMs on the LVR, remember that CCM voltage
+  power rail if the CCM is not populated and configured.)
+
+- Extreme caution is needed when connecting test lead clips to the
+  test points.
+- The test points are rather fragile and easily pulled of the board.
+- Care must be taken to avoid temporary unintended shorts from the high
+  density of surrounding components, via's, and traces.
+
+- When configuring the CCMs on the LVR, remember that CCM voltage
   types split down the middle of the LVR (i.e. CH1-4 must have the same CCM
-  voltage, CH5-8 must have the same CCM voltage)</p>
-</li>
-<li>
-<p>Going down the board on one side, arrange CCMs as master, slave, master,
-  slave, etc.</p>
-</li>
-<li>
-<p>The Master-Slave configurations require a jumper ON the LVR output breakout
-  board that electrically connects the master and slave output rails together.</p>
-</li>
-</ul>
+  voltage, CH5-8 must have the same CCM voltage)
+
+- Going down the board on one side, arrange CCMs as master, slave, master,
+  slave, etc.
+
+- The Master-Slave configurations require a jumper ON the LVR output breakout
+  board that electrically connects the master and slave output rails together.
+</code></pre>
 <h2 id="full-qa-procedure">Full QA Procedure</h2>
 <ol>
 <li>
@@ -634,29 +610,30 @@
 <ol>
 <li>Measure input voltage at the large lugs at the top of the board</li>
 <li>Use any GND test point on the board (i.e. <strong><code>TP7</code></strong>)</li>
+<li>Repeat measurement reversing the polarity of leads (ground isolation circuit is different each way)</li>
 </ol>
 </li>
 <li>
-<p>Activate the LVR monitor</p>
+<p>Activate the LVR monitor if it is not already running</p>
 <ol>
 <li>Go to PuTTY and select Monitor Pi</li>
 <li>Both user name and password are "<code>lvr</code>"</li>
 </ol>
 </li>
 <li>
-<p>Set power supply initially to 1.6V and the current limited to 1.5A</p>
+<p>Set power supply initially to 1.6V and the current limited to 2.0A</p>
 </li>
 <li>
-<p>Connect up power with any number of channels (ideally since all
-   channels are being tested you should put fuses in all slots, however
-   in principal it does not matter which channel you select)</p>
+<p>Connect provided input breakout board. Verify polarity of connections visually</p>
 <ol>
-<li>Verify voltage polarity of connections</li>
+<li>Red wire in positive terminal of power supply</li>
+<li>Blue wire in negative terminal</li>
+<li>Negative terminal and power supply ground shorted</li>
 </ol>
 </li>
 <li>
-<p>Place a DVM (DC Voltage Meter) between <strong><code>TP3</code></strong> (3.3V) and <strong><code>TP6</code></strong> (GND)
-   to monitor the 3.3V rail</p>
+<p>If not using the raspberry pi LVR monitor, place a DVM (DC Voltage Meter) between <strong><code>TP3</code></strong> (3.3V) and <strong><code>TP6</code></strong> (GND)
+   to monitor the 3.3V rail, otherwise proceed to step 8.</p>
 </li>
 <li>
 <p>Place another DVM between <strong><code>TP8</code></strong> (1.5V) and <strong><code>TP6</code></strong> (GND) to monitor
@@ -679,27 +656,36 @@ the <code>Vin_FPGA_3V3</code> and <code>Vin_FPGA_1V5</code> reading.</p>
 <li>3.3V x 110% = 3.63V</li>
 </ul>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>It may be useful to let the rail approach the desired value, then turn down
+  the setpoint to a value much below the current input voltage in order to find
+  the plateau (max voltage where the rail 'sticks') more quickly</p>
 </li>
 <li>
 <p>Adjust P1 to obtain 1.5V  on <strong><code>TP8</code></strong>.</p>
 </li>
 <li>
-<p>Adjust P2 to obtain 3.3V on <strong><code>TP3</code></strong>.</p>
+<p>Continue increasing the input voltage and similarly adjust P2 to obtain 3.3V on <strong><code>TP3</code></strong>.</p>
 </li>
 <li>
-<p>Re-verify both the 3.3V and 1.5V rails are correct. σV should be
-    at most 0.01 V.</p>
+<p>Both the 3.3V and 1.5V rails should be correct now and no longer 
+    increase as input voltage goes up. σV should be 0.01 V or less if possible.</p>
 </li>
 <li>
-<p>Record input current.</p>
+<p>Expected input current given by the supply at this point should be around 0.09A.
+    If it is substantially more there may be an issue.</p>
 </li>
 <li>
-<p>Place a DVM between <strong><code>TP4</code></strong> (<code>Vop_rail</code>) and <strong><code>TP7</code></strong> (GND)</p>
+<p>If not using the LVR monitor, place a DVM between <strong><code>TP4</code></strong> (<code>Vop_rail</code>) and <strong><code>TP7</code></strong> (GND).
+    Otherwise proceed.</p>
 <p><img alt="" src="../lvr_qa1.png" /></p>
 </li>
 <li>
 <p>Slowly increase the input voltage to 7V until EITHER the Vop_rail
-    stops increasing or hits 5.5V.</p>
+    stops increasing or hits 5.5V. (Note this is just the same thing as
+    for the 1.5V and 3.3V, just now it's 5.5V).</p>
 <ol>
 <li>Adjust P5 whilst increasing the input voltage</li>
 <li>The <code>Vop_rail</code> will clamp at a maximum of 5.5V when properly
@@ -712,29 +698,31 @@ the <code>Vin_FPGA_3V3</code> and <code>Vin_FPGA_1V5</code> reading.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You can also use the monitor to view Op Rail voltage (denoted as
-<code>V_OPAMP_RAIL</code>).</p>
+<p>In the LVR monitor software this voltage rail is denoted as
+<code>V_OPAMP_RAIL</code>, because this is the input voltage used to power
+OpAmps (operational amplifiers) on the board and ccms.</p>
 </div>
 </li>
 <li>
 <p>Program the FPGA</p>
 <ol>
 <li>Turn power off</li>
-<li>Connect jumpers between <strong><code>J22</code></strong> pins 2 &amp; 4 (<code>V_pump</code>) and between
+<li>Connect jumpers between <strong><code>J22</code></strong> (near ch8) 
+    pins 2 &amp; 4 (<code>V_pump</code>) and between
    <code>J22</code> pins 1 &amp; 3 (<code>V_jtag</code>).</li>
-<li>Connect programmer to <strong><code>J17</code></strong>.</li>
+<li>Connect programmer to <strong><code>J17</code></strong> (back of the board, center).</li>
 <li>
 <p>Turn power on</p>
 </li>
 <li>
 <p>Initiate the program sequence</p>
 <ol>
-<li>If no program has been loaded onto the FPGA, go to Open Project</li>
+<li>If no program has been loaded onto the FPGA, go to Open Project, otherwise continue to 5.</li>
 <li>Inside the LVR folder select the program you want to run</li>
 <li>Go to Configure Device</li>
 <li>Click Browse, and select the <code>.pdb</code> file you wish to use to
    program</li>
-<li>Set <strong>MODE</strong> to basic, and set <strong>ACTION</strong> to program</li>
+<li>Set <strong>MODE</strong> to basic (should be default), and set <strong>ACTION</strong> to program </li>
 <li>Once that is complete, click <strong>PROGRAM</strong></li>
 </ol>
 </li>
@@ -746,7 +734,7 @@ the <code>Vin_FPGA_3V3</code> and <code>Vin_FPGA_1V5</code> reading.</p>
 </div>
 </li>
 <li>
-<p>Move jumpers on <strong><code>J22</code></strong> to connect pins 4 &amp; 6 and pins 3 &amp; 5</p>
+<p>Turn off power and install CCMs</p>
 </li>
 </ol>
 </li>
@@ -811,7 +799,8 @@ the <code>Vin_FPGA_3V3</code> and <code>Vin_FPGA_1V5</code> reading.</p>
 </li>
 <li>
 <p>Additionally, note that if you wish the board to be in pulsed
-   duty cycle, set SW3 pin 1 to <strong>OFF</strong>, otherwise keep pin at <strong>ON</strong></p>
+   duty cycle, set SW3 pin 1 to <strong>OFF</strong>, otherwise keep pin at <strong>ON</strong>.
+   For most of the QA sequence it will be more useful in <strong>ON</strong></p>
 <p><img alt="" src="../lvr_qa5.png" /></p>
 </li>
 </ol>
@@ -820,43 +809,28 @@ the <code>Vin_FPGA_3V3</code> and <code>Vin_FPGA_1V5</code> reading.</p>
 <p>Undervoltage Lockout test</p>
 <ol>
 <li>Set input power to ~4.8 V</li>
-<li>
-<p>Locate SW6[A, B, C, D]. The switcher-channel correspondence is the
-   following:</p>
-<table>
-<thead>
-<tr>
-<th>SW6 switcher</th>
-<th>Channels</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SW6A</td>
-<td>CH7 &amp; 8</td>
-</tr>
-<tr>
-<td>SW6B</td>
-<td>CH5 &amp; 6</td>
-</tr>
-<tr>
-<td>SW6C</td>
-<td>CH3 &amp; 4</td>
-</tr>
-<tr>
-<td>SW6D</td>
-<td>CH1 &amp; 2</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>For each SW6#, verify that its corresponding channels shut off
-   when turning the switch configuration to [<strong>OFF, OFF, OFF, OFF</strong>]</p>
-</li>
+<li>Reduce the input power gradually, and confirm that the outputs shut off below
+   4.5-4.6 volts (ish).</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To test individual undervoltage lockouts (if needed) use the following procedure
+ 1. Locate SW6[A, B, C, D]. The switcher-channel correspondence is the
+  following:</p>
+<pre><code>| SW6 switcher | Channels |
+|--------------|----------|
+| SW6A         | CH7 &amp; 8  |
+| SW6B         | CH5 &amp; 6  |
+| SW6C         | CH3 &amp; 4  |
+| SW6D         | CH1 &amp; 2  |
+</code></pre>
+<ol>
+<li>For each SW6#, verify that its corresponding channels shut off
+   when turning the switch configuration to [<strong>OFF, OFF, OFF, OFF</strong>]</li>
 <li>Each channel should switch from some voltage (depending on power
    supply setting) to ~0V.</li>
 </ol>
+</div>
 </li>
 <li>
 <p>Overtemperature lockout test</p>
@@ -866,7 +840,7 @@ the <code>Vin_FPGA_3V3</code> and <code>Vin_FPGA_1V5</code> reading.</p>
 <p>Set SW1 to [<strong>ON, ON, ON, ON</strong>].</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This tells the board to lockout at room temperature.</p>
+<p>This tells the board that it should shut down if it gets above ~ 20C (room temperature).</p>
 </div>
 </li>
 <li>
@@ -874,6 +848,7 @@ the <code>Vin_FPGA_3V3</code> and <code>Vin_FPGA_1V5</code> reading.</p>
 </li>
 <li>Verify <strong><code>LD7</code></strong> is <code>ON</code>.</li>
 <li>Verify all <code>V_OUT</code> channel values as shown on monitor go to ~0V.</li>
+<li>Set SW1 back to nominal [<strong>OFF, OFF, OFF, ON</strong>]</li>
 </ol>
 </li>
 <li>
@@ -884,16 +859,17 @@ the <code>Vin_FPGA_3V3</code> and <code>Vin_FPGA_1V5</code> reading.</p>
 <li>CH 8-5: <strong><code>TP14</code></strong> (<code>Vos_gen</code>) and <strong><code>TP15</code></strong> (GND)</li>
 </ul>
 <p>Adjust P3 and P4 on each respective side of the board in order
-to configure the voltages.</p>
+to configure the voltages. (They are beside the testpoints. You can remove
+the nearby CCM if it gets in your way)</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Each 4-channel group must be set to operate with the same output
-voltage as shown below:</p>
+voltage according to what kind of CCM it will host as shown below:</p>
 <table>
 <thead>
 <tr>
 <th>Vos [V]</th>
-<th>Vout [V]</th>
+<th>Vccm [V]</th>
 </tr>
 </thead>
 <tbody>
@@ -914,33 +890,57 @@ voltage as shown below:</p>
 </div>
 </li>
 <li>
-<p>Use the RJ45 breakout board to perform the sense line test
-    Verify that the peak voltage goes to RAIL when the following sense
-    lines are shorted to each other. Recall that on the respective
-    ethernet connectors:</p>
+<p>Use the RJ45 breakout board to perform the sense line test.
+    Verify that the voltage of a channel goes to RAIL when the corresponding sense
+    lines are shorted to each other. The sense lines are mapped to the RJ45 as follows:</p>
 <table>
 <thead>
 <tr>
 <th>Channels</th>
 <th>Pins</th>
+<th>RJ45 Connector</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>CH1 &amp; 5</td>
+<td>CH1</td>
 <td>1 &amp; 2</td>
+<td>Right (J10)</td>
 </tr>
 <tr>
-<td>CH2 &amp; 6</td>
+<td>CH2 (if 12/25A)</td>
 <td>4 &amp; 5</td>
+<td>Right (J10)</td>
 </tr>
 <tr>
-<td>CH3 &amp; 7</td>
+<td>CH3</td>
 <td>3 &amp; 6</td>
+<td>Right (J10)</td>
 </tr>
 <tr>
-<td>CH4 &amp; 8</td>
+<td>CH4 (if 12/25A)</td>
 <td>7 &amp; 8</td>
+<td>Right (J10)</td>
+</tr>
+<tr>
+<td>CH5</td>
+<td>1 &amp; 2</td>
+<td>Left  (J16)</td>
+</tr>
+<tr>
+<td>CH6 (if 12/25A)</td>
+<td>4 &amp; 5</td>
+<td>Left  (J16)</td>
+</tr>
+<tr>
+<td>CH7</td>
+<td>3 &amp; 6</td>
+<td>Left  (J16)</td>
+</tr>
+<tr>
+<td>CH8 (if 12/25A)</td>
+<td>7 &amp; 8</td>
+<td>Left  (J16)</td>
 </tr>
 </tbody>
 </table>
@@ -951,7 +951,40 @@ They will only go to RAIL when shorting their respective master channels.</p>
 </div>
 </li>
 <li>
-<p>Set SW2 1<sup>st</sup> switch to <strong>ON</strong> (takes regulator out of pulsed mode).</p>
+<p>Aux current follower test</p>
+<ol>
+<li>Plug the provided load board (output breakout board with 4 resistors) onto one of the
+   LVR output connectors. You should see the current output on that channel go up to a few 100s of mA</li>
+<li>For each channel on the half of the board corresponding to the output connector you have the load in,
+   confirm that the voltage drop across R73 and R81 are the same to within a few %. These are the two 
+   medium-sized resistors
+   with R050 and R150 printed on them.</li>
+<li>Rinse and repeat on other half of LVR.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>for this test we do want both master and slave channels to be checked. </p>
+</div>
+</li>
+<li>
+<p>SPI Communication test</p>
+<ol>
+<li>On the laptop's desktop, locate the "SPI test". Run this shortcut.</li>
+<li>The username and password are both 'spitest'</li>
+<li>The 4 bytes transmitted to the LVR are in the left column, the 4 received are on the right. You should
+   see (possibly after 4-5 rounds of communication) that the message received from the LVR is the previous one that
+   was sent.</li>
+</ol>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+</div>
+<p><code>04 04 04 04       03 03 03 03
+    05 05 05 05       04 04 04 04
+    06 06 06 06       05 05 05 05
+    07 07 07 07       06 06 06 06</code></p>
+</li>
+<li>
+<p>If it is not already, set SW2 1<sup>st</sup> switch to <strong>ON</strong> (takes regulator out of pulsed mode).</p>
 </li>
 </ol>
                 
