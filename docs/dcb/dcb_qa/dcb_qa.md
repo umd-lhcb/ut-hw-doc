@@ -62,8 +62,8 @@ picture below. Power on the DCB.
 ![Fusing Power](fusing/fuse_power_setup.jpg)
 
 1. Open the **GBTX Programmer** on the windows PC. If it's not already open you
-   can find it under `C:/Users/DT_Rack/GBTx_Programmer` as a jar file called
-   `programmerv2.jar`.
+   can find it under `D:/Users/DT_Rack/GBTx_Programmer` as a jar file called
+   `programmerv2.20180725.jar`.
 
 2. Check the connection is working by clicking **Read GBTX**, the state should
    change to `pauseForConfig`
