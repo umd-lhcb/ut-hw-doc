@@ -1,10 +1,11 @@
-    !!! Before you proceed
+!!! info 
+    ***Before you proceed***
 
     - Beware that **`TP5`** is **NOT** GND. The silkscreen label applies to
       the adjacent **`TP2`**.
 
     - Fused power input breakout board silk screen circuit labels are
-        incorrect.
+      incorrect.
 
     - The LVR outputs should be connected to a benign load that can withstand
       having upwards of 7V output. (i.e. the LVR channel outputs follow the input
@@ -12,7 +13,9 @@
 
     - Extreme caution is needed when connecting test lead clips to the
       test points.
+
     - The test points are rather fragile and easily pulled of the board.
+
     - Care must be taken to avoid temporary unintended shorts from the high
       density of surrounding components, via's, and traces.
 
@@ -25,7 +28,7 @@
 
     - The Master-Slave configurations require a jumper ON the LVR output breakout
       board that electrically connects the master and slave output rails together.
-
+    
 
 ## Full QA Procedure
 
@@ -67,10 +70,10 @@
         - 1.5V x 110% = 1.65V
         - 3.3V x 110% = 3.63V
         
-    !!! note
-      It may be useful to let the rail approach the desired value, then turn down
-      the setpoint to a value much below the current input voltage in order to find
-      the plateau (max voltage where the rail 'sticks') more quickly
+    !!! tip
+        It may be useful to let the rail approach the desired value, then turn down
+        the setpoint to a value much below the current input voltage in order to find
+        the plateau (max voltage where the rail 'sticks') more quickly
 
 9. Adjust P1 to obtain 1.5V  on **`TP8`**.
 
@@ -101,7 +104,7 @@
     !!! warning
         **IT IS IMPERATIVE THAT THE `Vop_rail` NOT EXCEED 5.5V !!!!**
 
-    !!! note
+    !!! tip
         In the LVR monitor software this voltage rail is denoted as
         `V_OPAMP_RAIL`, because this is the input voltage used to power
         OpAmps (operational amplifiers) on the board and ccms.
@@ -123,10 +126,7 @@
         5. Set **MODE** to basic (should be default), and set **ACTION** to program 
         6. Once that is complete, click **PROGRAM**
 
-    6. Record checksum when program is done
-
-        !!! note
-            Checksum should be a 7-digit number: Checksum = `_______`
+    6. Check in the log that the auto-verify ran successfully. 
 
     7. Turn off power and install CCMs
 
@@ -175,28 +175,29 @@
     2. Reduce the input power gradually, and confirm that the outputs shut off below
        4.5-4.6 volts (ish).
     
-    !!! note
+    !!! info
         To test individual undervoltage lockouts (if needed) use the following procedure
-         1. Locate SW6\[A, B, C, D\]. The switcher-channel correspondence is the
-          following:
 
-            | SW6 switcher | Channels |
-            |--------------|----------|
-            | SW6A         | CH7 & 8  |
-            | SW6B         | CH5 & 6  |
-            | SW6C         | CH3 & 4  |
-            | SW6D         | CH1 & 2  |
+        1. Locate SW6\[A, B, C, D\]. The switcher-channel correspondence is given in the table below
 
         2. For each SW6\#, verify that its corresponding channels shut off
            when turning the switch configuration to \[**OFF, OFF, OFF, OFF**\]
+
         3. Each channel should switch from some voltage (depending on power
            supply setting) to ~0V.
+
+        | SW6 switcher | Channels |
+        |--------------|----------|
+        | SW6A         | CH7 & 8  |
+        | SW6B         | CH5 & 6  |
+        | SW6C         | CH3 & 4  |
+        | SW6D         | CH1 & 2  |
 
 18. Overtemperature lockout test
     1. Locate SW1.
     2. Set SW1 to \[**ON, ON, ON, ON**\].
 
-        !!! note
+        !!! info
             This tells the board that it should shut down if it gets above ~ 20C (room temperature).
 
     3. Locate **`LD7`** (bottom left corner of LVR).
@@ -264,12 +265,12 @@
        was sent.
        
     !!! example
-    ```
-        04 04 04 04       03 03 03 03
-        05 05 05 05       04 04 04 04
-        06 06 06 06       05 05 05 05
-        07 07 07 07       06 06 06 06
-    ```
+        The following illustrates the kind of output you're looking for:
+
+            04 04 04 04       03 03 03 03
+            05 05 05 05       04 04 04 04
+            06 06 06 06       05 05 05 05
+            07 07 07 07       06 06 06 06
     
 
 21. If it is not already, set SW2 1^st^ switch to **ON** (takes regulator out of pulsed mode).
