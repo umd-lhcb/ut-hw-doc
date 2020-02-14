@@ -1,5 +1,4 @@
-!!! info 
-    ***Before you proceed***
+!!! info "Before you proceed"
 
     - Beware that **`TP5`** is **NOT** GND. The silkscreen label applies to
       the adjacent **`TP2`**.
@@ -28,9 +27,7 @@
 
     - The Master-Slave configurations require a jumper ON the LVR output breakout
       board that electrically connects the master and slave output rails together.
-    
 
-## Full QA Procedure
 
 1. Note Serial Number of LVR and CCM before beginning QA
 
@@ -69,7 +66,7 @@
 
         - 1.5V x 110% = 1.65V
         - 3.3V x 110% = 3.63V
-        
+
     !!! tip
         It may be useful to let the rail approach the desired value, then turn down
         the setpoint to a value much below the current input voltage in order to find
@@ -79,7 +76,7 @@
 
 10. Continue increasing the input voltage and similarly adjust P2 to obtain 3.3V on **`TP3`**.
 
-11. Both the 3.3V and 1.5V rails should be correct now and no longer 
+11. Both the 3.3V and 1.5V rails should be correct now and no longer
     increase as input voltage goes up. σV should be 0.01 V or less if possible.
 
 12. Expected input current given by the supply at this point should be around 0.09A.
@@ -111,7 +108,7 @@
 
 15. Program the FPGA
     1. Turn power off
-    2. Connect jumpers between **`J22`** (near ch8) 
+    2. Connect jumpers between **`J22`** (near ch8)
         pins 2 & 4 (`V_pump`) and between
        `J22` pins 1 & 3 (`V_jtag`).
     3. Connect programmer to **`J17`** (back of the board, center).
@@ -123,10 +120,10 @@
         3. Go to Configure Device
         4. Click Browse, and select the `.pdb` file you wish to use to
            program
-        5. Set **MODE** to basic (should be default), and set **ACTION** to program 
+        5. Set **MODE** to basic (should be default), and set **ACTION** to program
         6. Once that is complete, click **PROGRAM**
 
-    6. Check in the log that the auto-verify ran successfully. 
+    6. Check in the log that the auto-verify ran successfully.
 
     7. Turn off power and install CCMs
 
@@ -174,7 +171,7 @@
     1. Set input power to ~4.8 V
     2. Reduce the input power gradually, and confirm that the outputs shut off below
        4.5-4.6 volts (ish).
-    
+
     !!! info
         To test individual undervoltage lockouts (if needed) use the following procedure
 
@@ -244,26 +241,26 @@
     !!! note
         Slave channels will not alter voltage when shorting those channels.
         They will only go to RAIL when shorting their respective master channels.
-        
+
 21. Aux current follower test
     1. Plug the provided load board (output breakout board with 4 resistors) onto one of the
        LVR output connectors. You should see the current output on that channel go up to a few 100s of mA
     2. For each channel on the half of the board corresponding to the output connector you have the load in,
-       confirm that the voltage drop across R73 and R81 are the same to within a few %. These are the two 
+       confirm that the voltage drop across R73 and R81 are the same to within a few %. These are the two
        medium-sized resistors
        with R050 and R150 printed on them.
     3. Rinse and repeat on other half of LVR.
-    
+
     !!! note
-        for this test we do want both master and slave channels to be checked. 
-       
+        for this test we do want both master and slave channels to be checked.
+
 22. SPI Communication test
     1. On the laptop's desktop, locate the "SPI test". Run this shortcut.
     2. The username and password are both 'spitest'
     3. The 4 bytes transmitted to the LVR are in the left column, the 4 received are on the right. You should
        see (possibly after 4-5 rounds of communication) that the message received from the LVR is the previous one that
        was sent.
-       
+
     !!! example
         The following illustrates the kind of output you're looking for:
 
@@ -271,6 +268,6 @@
             05 05 05 05       04 04 04 04
             06 06 06 06       05 05 05 05
             07 07 07 07       06 06 06 06
-    
+
 
 21. If it is not already, set SW3 1^st^ switch to **ON** (takes regulator out of pulsed mode).
