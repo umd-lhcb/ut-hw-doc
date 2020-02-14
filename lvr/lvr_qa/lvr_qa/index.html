@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.2">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
     
     
       
@@ -78,10 +78,6 @@
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#full-qa-procedure" tabindex="0" class="md-skip">
-        Skip to content
-      </a>
     
     
       <header class="md-header" data-md-component="header">
@@ -427,36 +423,9 @@
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        LVR QA
-      </label>
-    
     <a href="./" title="LVR QA" class="md-nav__link md-nav__link--active">
       LVR QA
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#full-qa-procedure" class="md-nav__link">
-    Full QA Procedure
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -533,35 +502,6 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#full-qa-procedure" class="md-nav__link">
-    Full QA Procedure
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -573,8 +513,7 @@
                   <h1>LVR QA</h1>
                 
                 <div class="admonition info">
-<p class="admonition-title">Info</p>
-<p><strong><em>Before you proceed</em></strong></p>
+<p class="admonition-title">Before you proceed</p>
 <ul>
 <li>
 <p>Beware that <strong><code>TP5</code></strong> is <strong>NOT</strong> GND. The silkscreen label applies to
@@ -615,7 +554,6 @@
 </li>
 </ul>
 </div>
-<h2 id="full-qa-procedure">Full QA Procedure</h2>
 <ol>
 <li>
 <p>Note Serial Number of LVR and CCM before beginning QA</p>
@@ -685,7 +623,7 @@ the plateau (max voltage where the rail 'sticks') more quickly</p>
 <p>Continue increasing the input voltage and similarly adjust P2 to obtain 3.3V on <strong><code>TP3</code></strong>.</p>
 </li>
 <li>
-<p>Both the 3.3V and 1.5V rails should be correct now and no longer 
+<p>Both the 3.3V and 1.5V rails should be correct now and no longer
     increase as input voltage goes up. σV should be 0.01 V or less if possible.</p>
 </li>
 <li>
@@ -722,7 +660,7 @@ OpAmps (operational amplifiers) on the board and ccms.</p>
 <p>Program the FPGA</p>
 <ol>
 <li>Turn power off</li>
-<li>Connect jumpers between <strong><code>J22</code></strong> (near ch8) 
+<li>Connect jumpers between <strong><code>J22</code></strong> (near ch8)
     pins 2 &amp; 4 (<code>V_pump</code>) and between
    <code>J22</code> pins 1 &amp; 3 (<code>V_jtag</code>).</li>
 <li>Connect programmer to <strong><code>J17</code></strong> (back of the board, center).</li>
@@ -737,12 +675,12 @@ OpAmps (operational amplifiers) on the board and ccms.</p>
 <li>Go to Configure Device</li>
 <li>Click Browse, and select the <code>.pdb</code> file you wish to use to
    program</li>
-<li>Set <strong>MODE</strong> to basic (should be default), and set <strong>ACTION</strong> to program </li>
+<li>Set <strong>MODE</strong> to basic (should be default), and set <strong>ACTION</strong> to program</li>
 <li>Once that is complete, click <strong>PROGRAM</strong></li>
 </ol>
 </li>
 <li>
-<p>Check in the log that the auto-verify ran successfully. </p>
+<p>Check in the log that the auto-verify ran successfully.</p>
 </li>
 <li>
 <p>Turn off power and install CCMs</p>
@@ -991,14 +929,14 @@ They will only go to RAIL when shorting their respective master channels.</p>
 <li>Plug the provided load board (output breakout board with 4 resistors) onto one of the
    LVR output connectors. You should see the current output on that channel go up to a few 100s of mA</li>
 <li>For each channel on the half of the board corresponding to the output connector you have the load in,
-   confirm that the voltage drop across R73 and R81 are the same to within a few %. These are the two 
+   confirm that the voltage drop across R73 and R81 are the same to within a few %. These are the two
    medium-sized resistors
    with R050 and R150 printed on them.</li>
 <li>Rinse and repeat on other half of LVR.</li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>for this test we do want both master and slave channels to be checked. </p>
+<p>for this test we do want both master and slave channels to be checked.</p>
 </div>
 </li>
 <li>
