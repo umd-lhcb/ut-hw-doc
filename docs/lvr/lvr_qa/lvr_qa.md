@@ -260,9 +260,12 @@
     3. The 4 bytes transmitted to the LVR are in the left column, the 4 received are on the right. You should
        see (possibly after 4-5 rounds of communication) that the message received from the LVR is the previous one that
        was sent.
+    4. Finally, once communication is verified, connect the SPI_RESET line (floating green wire) to any GND test point on the LVR
+       (the GND on the raspberry pi or the Rigol power supply also works in principle). The LVR should stop replying and
+       you should read the response as all 00 00 00 00 until you allow the SPI_RESET to float once more.
 
     !!! example
-        The following illustrates the kind of output you're looking for:
+        The following illustrates the kind of output you're looking for when communication is working:
 
             04 04 04 04       03 03 03 03
             05 05 05 05       04 04 04 04
