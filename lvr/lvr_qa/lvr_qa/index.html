@@ -947,10 +947,13 @@ They will only go to RAIL when shorting their respective master channels.</p>
 <li>The 4 bytes transmitted to the LVR are in the left column, the 4 received are on the right. You should
    see (possibly after 4-5 rounds of communication) that the message received from the LVR is the previous one that
    was sent.</li>
+<li>Finally, once communication is verified, connect the SPI_RESET line (floating green wire) to any GND test point on the LVR
+   (the GND on the raspberry pi or the Rigol power supply also works in principle). The LVR should stop replying and
+   you should read the response as all 00 00 00 00 until you allow the SPI_RESET to float once more.</li>
 </ol>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p>The following illustrates the kind of output you're looking for:</p>
+<p>The following illustrates the kind of output you're looking for when communication is working:</p>
 <pre><code>04 04 04 04       03 03 03 03
 05 05 05 05       04 04 04 04
 06 06 06 06       05 05 05 05
