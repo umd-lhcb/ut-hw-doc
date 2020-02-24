@@ -2,7 +2,7 @@
 
 Record serial number from sticker on the DCB to the
 [database](https://docs.google.com/spreadsheets/d/1KjXGhOFzi0SZPsozpKzxGjVtfr4kkS_Hv5EigUwKOj8/edit "Database")
-and put a new label on the board. **The label should match the serial number!!**
+and put the next label on the board. 
 
 !!! warning
     Make sure you are grounded at all times when handling the DCB!
