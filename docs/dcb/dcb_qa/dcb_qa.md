@@ -78,7 +78,7 @@ picture below. Power on the DCB.
     - Now check **enable fusing** and
       **fuse updateConfig**, and click the big **FUSE** button at the bottom
       !!! note
-    Register 365 should not be checked and fused.
+      Register 365 should not be checked and fused.
       
 
 4. Shut off power to the DCB and move the right jumper on **`J2`** up one to be
