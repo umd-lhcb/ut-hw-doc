@@ -499,13 +499,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#reprogram-the-on-board-flash-memory" class="md-nav__link">
-    Reprogram the on-board flash memory
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#configure-minidaq-control-software" class="md-nav__link">
     Configure MiniDAQ control software
   </a>
@@ -573,13 +566,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#reprogram-the-on-board-flash-memory" class="md-nav__link">
-    Reprogram the on-board flash memory
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#configure-minidaq-control-software" class="md-nav__link">
     Configure MiniDAQ control software
   </a>
@@ -614,7 +600,11 @@
                 
                   <h1>MiniDAQ usage</h1>
                 
-                <h2 id="load-a-firmware-file">Load a firmware file</h2>
+                <div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This step is only needed after a power cycle or power outage.</p>
+</div>
+<h2 id="load-a-firmware-file">Load a firmware file</h2>
 <p>This is temporary, as MiniDAQ will reprogram itself with the firmware stored on the on-board flash memory.</p>
 <p>To load a firmware:</p>
 <pre><code>pcie40_pgm ~/src/sof_files/lhcb_daq_firmware_readout40_pcie40v1_minidaq_forUT_unset_131119.sof
@@ -624,23 +614,19 @@
 <pre><code>$HOME/src/sof_files
 </code></pre>
 
-<h2 id="reprogram-the-on-board-flash-memory">Reprogram the on-board flash memory</h2>
-<p>This is the firmware that will be loaded by default on each fresh power-on. To do so:</p>
-<pre><code>pcie40_pgm &lt;path_to_pof_file&gt;
-</code></pre>
-
-<p>Note that here we need a <code>pof</code> file, not a <code>sof</code> file. Currently, we have some <code>pof</code> files in:</p>
-<pre><code>/opt/lhcb/daq40/firmware
-</code></pre>
-
 <h2 id="configure-minidaq-control-software">Configure MiniDAQ control software</h2>
-<p>After programming the MiniDAQ FPGA, <strong>reboot</strong> (not power cycle) the server, and follow these steps:</p>
+<p>After programming the MiniDAQ FPGA, <strong>restart</strong> (not power cycle) the server, and follow these steps:</p>
 <ol>
 <li>Open a terminal, type in:
     <code>config_fPLL.py</code></li>
-<li>From the top menu, click <strong>JCOP Framework</strong>, then <strong>Device Editor and Navigator</strong>, then <strong>FSM</strong>.
-   Now expand <strong>dist_1</strong>, then right click on <strong>MiniDAQ</strong> to open the <strong>TOP</strong> panel.</li>
-<li>Click the MiniDAQ state (it now should be <strong>Not Configured</strong>), then click <strong>Configure</strong>.</li>
+<li>
+<p>Start the Project by going to going to <strong>Applications, WinCC, Project Administrator</strong>. </p>
+</li>
+<li>
+<p>From the top menu, click <strong>JCOP Framework</strong>, then <strong>Device Editor and Navigator</strong>, then <strong>FSM</strong>.
+   Now expand <strong>dist_1</strong>, then right click on <strong>MiniDAQ</strong> to open the <strong>TOP</strong> panel.</p>
+</li>
+<li>Take the MiniDAQ. Click the MiniDAQ state (it now should be <strong>Not Configured</strong>), then click <strong>Configure</strong>.</li>
 <li>If not all devices showing as <strong>Ready</strong> (excluding <strong>DATAFLOW</strong>), repeat 2-3.</li>
 </ol>
 <h2 id="nanodaq">nanoDAQ</h2>
