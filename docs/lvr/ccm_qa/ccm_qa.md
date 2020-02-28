@@ -21,8 +21,8 @@ pre-built CCM QA setup.
 
         ![](ccm_qa1.png)
 
-        The waveform displayed should be a smooth curve as shown in the figure
-        above.
+        This is an examlpe of a curve for a 1.5 MS CCM. The waveform displayed should be a 
+        smooth curve as shown in the figure above.
     
     !!! note "Note the following"
         In addition to similar shapes, ch1&2 (yellow and green) 
@@ -52,3 +52,8 @@ pre-built CCM QA setup.
         2. If after replacing the bottom curve is not smooth, this
            indicates a problem with the previous master CCM and the
            current slave CCM
+10. Once the CCM is fully QAd, place a colored dot labelling its type on the front of the CCM, and 
+    a numbered sticker on the back of the CCM to indicate its serial number. 
+    1. Once all CCMs in a roll are complete, place the CCMs back into the roll and label the roll
+       as "XXY#", where XX denotes the CCM type (i.e. 25, 15, 12), Y denotes the pairing (A, M, S)
+       and # denotes the serial number (001, 002, ....)
