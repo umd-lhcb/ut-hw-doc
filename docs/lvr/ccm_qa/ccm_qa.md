@@ -7,7 +7,7 @@ pre-built CCM QA setup.
 
 3. Install the CCM master-slave pair on channels 1 & 2 of the LVR.
 
-    !!! note
+    !!! note "Note the following"
         In the case of a master-slave pair, you CANNOT install 2 masters or
         2 slaves on the same 2-channel pair
 
@@ -15,7 +15,7 @@ pre-built CCM QA setup.
 5. Note the wave pattern on the first oscilloscope displaying 4
    distinct channels.
 
-    !!! note
+    !!! note "Note the following"
         Note that channels 1 and 2 correspond to the master, where
         channels 3 and 4 correspond to the slave.
 
@@ -24,7 +24,7 @@ pre-built CCM QA setup.
         The waveform displayed should be a smooth curve as shown in the figure
         above.
     
-    !!! important
+    !!! note "Note the following"
         In addition to similar shapes, ch1&2 (yellow and green) 
         and ch3&4 (blue and red) (if slave is present) should converge
         to the same amplitude within +/- 3% or so. It may be useful to include a "top"
