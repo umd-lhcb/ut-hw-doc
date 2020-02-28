@@ -242,19 +242,7 @@
         Slave channels will not alter voltage when shorting those channels.
         They will only go to RAIL when shorting their respective master channels.
 
-21. Aux current follower test
-    1. Plug the provided load board (output breakout board with 4 resistors) onto one of the
-       LVR output connectors. You should see the current output on that channel go up to a few 100s of mA
-    2. For each channel on the half of the board corresponding to the output connector you have the load in,
-       confirm that the voltage drop across R73 and R81 are the same to within a few %. These are the two
-       medium-sized resistors
-       with R050 and R150 printed on them.
-    3. Rinse and repeat on other half of LVR.
-
-    !!! note
-        for this test we do want both master and slave channels to be checked.
-
-22. SPI Communication test
+21. SPI Communication test
     1. On the laptop's desktop, locate the "SPI test". Run this shortcut.
     2. The username and password are both 'spitest'
     3. The 4 bytes transmitted to the LVR are in the left column, the 4 received are on the right. You should
@@ -273,4 +261,4 @@
             07 07 07 07       06 06 06 06
 
 
-21. If it is not already, set SW3 1^st^ switch to **ON** (takes regulator out of pulsed mode).
+22. If it is not already, set SW3 1^st^ switch to **ON** (takes regulator out of pulsed mode).
