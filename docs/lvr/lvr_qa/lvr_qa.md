@@ -116,10 +116,9 @@
 
     5. Initiate the program sequence
         1. If no program has been loaded onto the FPGA, go to Open Project, otherwise continue to 5.
-        2. Inside the LVR folder select the program you want to run
+        2. Inside the LVR folder select the program you want to run (this is already pre-loaded)
         3. Go to Configure Device
-        4. Click Browse, and select the `.pdb` file you wish to use to
-           program
+        4. Click Browse, and select the file v1-0e_lvr_fw.stp
         5. Set **MODE** to basic (should be default), and set **ACTION** to program
         6. Once that is complete, click **PROGRAM**
 
@@ -201,6 +200,10 @@
     4. Verify **`LD7`** is `ON`.
     5. Verify all `V_OUT` channel values as shown on monitor go to ~0V.
     6. Set SW1 back to nominal \[**OFF, OFF, OFF, ON**\]
+
+!!! note
+    The output voltages in each channel will be slightly higher than that of the 
+    CCM voltage. 25 CCMs output ~2.7V, 15 output ~1.7 V, 12 output ~1.4 V
 
 19. Output standby configuration. Adjust the Voltage offsets at the
     following test point pairs using the following variable resistors
