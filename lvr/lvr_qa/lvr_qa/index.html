@@ -671,10 +671,9 @@ OpAmps (operational amplifiers) on the board and ccms.</p>
 <p>Initiate the program sequence</p>
 <ol>
 <li>If no program has been loaded onto the FPGA, go to Open Project, otherwise continue to 5.</li>
-<li>Inside the LVR folder select the program you want to run</li>
+<li>Inside the LVR folder select the program you want to run (this is already pre-loaded)</li>
 <li>Go to Configure Device</li>
-<li>Click Browse, and select the <code>.pdb</code> file you wish to use to
-   program</li>
+<li>Click Browse, and select the file v1-0e_lvr_fw.stp</li>
 <li>Set <strong>MODE</strong> to basic (should be default), and set <strong>ACTION</strong> to program</li>
 <li>Once that is complete, click <strong>PROGRAM</strong></li>
 </ol>
@@ -824,6 +823,13 @@ OpAmps (operational amplifiers) on the board and ccms.</p>
 <li>Set SW1 back to nominal [<strong>OFF, OFF, OFF, ON</strong>]</li>
 </ol>
 </li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The output voltages in each channel will be slightly higher than that of the 
+CCM voltage. 25 CCMs output ~2.7V, 15 output ~1.7 V, 12 output ~1.4 V</p>
+</div>
+<ol>
 <li>
 <p>Output standby configuration. Adjust the Voltage offsets at the
     following test point pairs using the following variable resistors</p>
