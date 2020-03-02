@@ -23,6 +23,18 @@ pre-built CCM QA setup.
 
         This is an examlpe of a curve for a 1.5 MS CCM. The waveform displayed should be a 
         smooth curve as shown in the figure above.
+        
+        ![](ccm_qa3.png)
+
+        This is an example of a curve for a 2.5 A CCM. The waveform displayed, you will note,
+        has a slight oscillation. This is to be expected as this is just the representation of
+        the turn-on voltage.
+        
+        ![](ccm_qa4.png)
+        
+        This is an example of a curve for a 1.25 A CCM. The waveform displayed, you will note,
+        has a slight oscillation. This is to be expected as this is just the representation of
+        the turn-on voltage.
     
     !!! note "Note the following"
         In addition to similar shapes, ch1&2 (yellow and green) 
