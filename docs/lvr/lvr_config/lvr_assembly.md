@@ -40,7 +40,7 @@ Remove one side of the plastic backing and press the gap filler strip on to the 
 
 ![](Thermal_gap_4913.JPG)
 
-Put the applicator on an LHC4913 chip, gently push the plunger, and spread some paste on the chip.  Only the metal heat sink needs to be covered.  See attached picture for approximate thickness.  Repeat for all 10 chips.  
+Put the applicator on an LHC4913 chip, gently push the plunger, and spread some paste on the chip.  Only the metal heat sink needs to be covered.  See above picture for approximate thickness.  Repeat for all 10 chips.  
 
 ## Baseplate
 
