@@ -1,4 +1,6 @@
-## Components
+## Setup
+
+Make sure you are grounded.  Visually inspect the LVR for any damage.  You will need the following items:
 
 LVR
 
