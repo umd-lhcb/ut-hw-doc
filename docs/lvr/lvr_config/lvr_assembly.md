@@ -54,3 +54,7 @@ Put an M2.5 screw and washer in each hole.  First tighten very gently, then make
 
 ![](Assembled_LVR.JPG)
 Update the database, you have assembled an LVR!
+
+## Continuity check
+
+Measure the resistance between any of the grounds and the aluminum backplate. The resistance should be very large to ensure the backplate is not electronically connected to the LVR.
