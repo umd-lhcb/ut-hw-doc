@@ -23,6 +23,7 @@ nav:
         - CCM Identification Guide: lvr/ccm_id/ccm_id.md
         - LVR QA: lvr/lvr_qa/lvr_qa.md
         - CCM QA: lvr/ccm_qa/ccm_qa.md
+        - LVR mechanical assembly: lvr/lvr_config/lvr_assembly.md
     - MiniDAQ:
         - MiniDAQ usage: minidaq/minidaq_usage.md
         - CentOS tips: minidaq/centos_tips.md
