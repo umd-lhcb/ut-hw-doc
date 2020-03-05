@@ -76,11 +76,11 @@ picture below. Power on the DCB.
     - to the right of table, find and click update view. All of the entries in
       the table should now be green
     - Now check **enable fusing** and
-      **fuse updateConfig**, and click the big **FUSE** button at the bottom  
-		
-		!!! note
-			Register 365 should not be checked and fused.
-      
+      **fuse updateConfig**, and click the big **FUSE** button at the bottom
+
+        !!! note
+            Register 365 should not be checked and fused.
+
 
 4. Shut off power to the DCB and move the right jumper on **`J2`** up one to be
    in-line with the other jumper.
@@ -204,13 +204,13 @@ board gets power cycled.
       green if everything passes
 
 4. There is a screen above the power switch that shows some readout values for the
-   lvr. In the top left chunk, we care about the values of `i_SENSE_MON3`, 
+   lvr. In the top left chunk, we care about the values of `i_SENSE_MON3`,
    `i_SENSE_MON4`, and `i_SENSE_MON7`.
-	- Add the values from 3 and 4 together and record it on the database under 
-	  "1.5V current[A]"
-	- Record the value from 7 on the database under "2.5V current[A]"
-	
-	![Monitor](prbs/monitor_edit.jpg)
+    - Add the values from 3 and 4 together and record it on the database under
+      "1.5V current[A]"
+    - Record the value from 7 on the database under "2.5V current[A]"
+
+    ![Monitor](prbs/monitor_edit.jpg)
 
 5. Check if the DCB can regain lock by unplugging the master optical fibers then
    plugging them back in. Remember, master are the ones connected.

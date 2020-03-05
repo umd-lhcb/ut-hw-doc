@@ -21,23 +21,23 @@ pre-built CCM QA setup.
 
         ![](ccm_qa1.png)
 
-        This is an examlpe of a curve for a 1.5 MS CCM. The waveform displayed should be a 
+        This is an examlpe of a curve for a 1.5 MS CCM. The waveform displayed should be a
         smooth curve as shown in the figure above.
-        
+
         ![](ccm_qa3.png)
 
         This is an example of a curve for a 2.5 A CCM. The waveform displayed, you will note,
         has a slight oscillation. This is to be expected as this is just the representation of
         the turn-on voltage.
-        
+
         ![](ccm_qa4.png)
-        
+
         This is an example of a curve for a 1.25 A CCM. The waveform displayed, you will note,
         has a slight oscillation. This is to be expected as this is just the representation of
         the turn-on voltage.
-    
+
     !!! note "Note the following"
-        In addition to similar shapes, ch1&2 (yellow and green) 
+        In addition to similar shapes, ch1&2 (yellow and green)
         and ch3&4 (blue and red) (if slave is present) should converge
         to the same amplitude within +/- 3% or so. It may be useful to include a "top"
         voltage measurement on the display to do this easily.
@@ -64,8 +64,9 @@ pre-built CCM QA setup.
         2. If after replacing the bottom curve is not smooth, this
            indicates a problem with the previous master CCM and the
            current slave CCM
-10. Once the CCM is fully QAd, place a colored dot labelling its type on the front of the CCM, and 
-    a numbered sticker on the back of the CCM to indicate its serial number. 
+
+10. Once the CCM is fully QAd, place a colored dot labelling its type on the front of the CCM, and
+    a numbered sticker on the back of the CCM to indicate its serial number.
     1. Once all CCMs in a roll are complete, place the CCMs back into the roll and label the roll
-       as "XXY#", where XX denotes the CCM type (i.e. 25, 15, 12), Y denotes the pairing (A, M, S)
-       and # denotes the serial number (001, 002, ....)
+       as `XXY#`, where `XX` denotes the CCM type (i.e. `25, 15, 12`), `Y` denotes the pairing
+       (`A, M, S`) and `#` denotes the serial number (`001, 002, ....`)

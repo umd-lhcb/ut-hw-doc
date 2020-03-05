@@ -1,28 +1,18 @@
 ## Setup
 
-Make sure you are grounded.  Visually inspect the LVR for any damage.  You will need the following items:
+Make sure you are grounded. Visually inspect the LVR for any damage. You will need the following items:
 
-LVR
-
-LVR Baseplate
-
-Wedge Locks
-
-8mm flat head (not countersunk) M2.5 screws
-
-M2.5 washers
-
-5mm M2 screws
-
-Thermal gap filler strips
-
-Thermal paste (GL-20-10 for now)
-
-Kapton Tape 
-
-Punch
-
-Screwdrivers
+- LVR
+- LVR Baseplate
+- Wedge Locks
+- 8mm flat head (not countersunk) M2.5 screws
+- M2.5 washers
+- 5mm M2 screws
+- Thermal gap filler strips
+- Thermal paste (GL-20-10 for now)
+- Kapton Tape
+- Punch
+- Screwdrivers
 
 ## Wedge Locks
 
@@ -36,17 +26,17 @@ Note:  I put the wedge locks on last.  It should be much easier to do them first
 
 ![](Thermal_gap_sides.JPG)
 
-Remove one side of the plastic backing and press the gap filler strip on to the exposed metal on the LHC4913 side of the board, aligning the screw holes.  Then remove the plastic backing from the other side.  Repeat for the other side of the board.  
+Remove one side of the plastic backing and press the gap filler strip on to the exposed metal on the LHC4913 side of the board, aligning the screw holes.  Then remove the plastic backing from the other side.  Repeat for the other side of the board.
 
 ![](Thermal_gap_4913.JPG)
 
-Put the applicator on an LHC4913 chip, gently push the plunger, and spread some paste on the chip.  Only the metal heat sink needs to be covered.  See above picture for approximate thickness.  Repeat for all 10 chips.  
+Put the applicator on an LHC4913 chip, gently push the plunger, and spread some paste on the chip.  Only the metal heat sink needs to be covered.  See above picture for approximate thickness.  Repeat for all 10 chips.
 
 ## Baseplate
 
 ![](Baseplate_alignment.JPG)
 
-Place the baseplate on the LHC4913 side of the LVR.  Make sure the baseplate is aligned so that the raised squares with threaded holes match the holes on the LVR.  Also check that all corners are aligned.  
+Place the baseplate on the LHC4913 side of the LVR.  Make sure the baseplate is aligned so that the raised squares with threaded holes match the holes on the LVR.  Also check that all corners are aligned.
 
 ![](LVR_screws.JPG)
 
