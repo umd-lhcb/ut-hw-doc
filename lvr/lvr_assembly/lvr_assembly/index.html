@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://umd-lhcb.github.io/ut-hw-doc/lvr/lvr_config/lvr_assembly/">
+        <link rel="canonical" href="https://umd-lhcb.github.io/ut-hw-doc/lvr/lvr_assembly/lvr_assembly/">
       
       
       
@@ -210,7 +210,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../lvr_config/" class="md-tabs__link md-tabs__link--active">
+        <a href="../../lvr_config/lvr_config/" class="md-tabs__link md-tabs__link--active">
           LVR
         </a>
       
@@ -397,7 +397,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../lvr_config/" title="LVR Configuration" class="md-nav__link">
+    <a href="../../lvr_config/lvr_config/" title="LVR Configuration" class="md-nav__link">
       LVR Configuration
     </a>
   </li>
@@ -635,43 +635,90 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/umd-lhcb/ut-hw-doc/edit/master/docs/lvr/lvr_config/lvr_assembly.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/umd-lhcb/ut-hw-doc/edit/master/docs/lvr/lvr_assembly/lvr_assembly.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                   <h1>LVR mechanical assembly</h1>
                 
                 <h2 id="setup">Setup</h2>
-<p>Make sure you are grounded.  Visually inspect the LVR for any damage.  You will need the following items:</p>
-<p>LVR</p>
-<p>LVR Baseplate</p>
-<p>Wedge Locks</p>
-<p>8mm flat head (not countersunk) M2.5 screws</p>
-<p>M2.5 washers</p>
-<p>5mm M2 screws</p>
-<p>Thermal gap filler strips</p>
-<p>Thermal paste (GL-20-10 for now)</p>
-<p>Kapton Tape </p>
-<p>Punch</p>
-<p>Screwdrivers</p>
+<p>Make sure you are grounded. Visually inspect the LVR for any damage. You will need the following items:</p>
+<ul>
+<li>LVR</li>
+<li>LVR Baseplate</li>
+<li>Wedge Locks</li>
+<li>8mm flat head (not countersunk) <mark class="critic">M2.5</mark> screws</li>
+<li><mark class="critic">M2.5</mark> washers</li>
+<li>5mm <mark class="critic">M2</mark> screws</li>
+<li>Thermal gap filler strips</li>
+<li>Thermal paste (GL-20-10 for now)</li>
+<li>Kapton Tape</li>
+<li>Punch</li>
+<li>Screwdrivers</li>
+</ul>
 <h2 id="wedge-locks">Wedge Locks</h2>
-<p><img alt="" src="../Assembled_LVR.JPG" /></p>
-<p>It is not clear to me if Kapton tape is needed to prevent the wedge lock from abrading the solder mask, so I include the step for now.
-Put a strip of kapton along the edges of the CCM side of the board.  Poke holes for the wedge lock screws with a punch.  Attach the wedgelocks (IMPORTANT: The side that can be adjusted with an alan key needs to face the LVR outputs (two big connectors)).  Attach each wedgelock with 2 M2 screws.
-Note:  I put the wedge locks on last.  It should be much easier to do them first, but I don't have any pictures.</p>
+<p>It is not clear to me if Kapton tape is needed to prevent the wedge lock from
+abrading the solder mask, so I include the step for now.</p>
+<p><img alt="" src="../assembled_lvr.jpg" /></p>
+<ol>
+<li>Put a strip of kapton along the edges of the CCM side of the board.</li>
+<li>Poke holes for the wedge lock screws with a punch.</li>
+<li>
+<p>Attach the wedgelocks</p>
+<div class="admonition danger">
+<p class="admonition-title">IMPORTANT</p>
+<p>The side that can be adjusted with an alan key needs to face the LVR
+outputs (two big connectors)).</p>
+</div>
+</li>
+<li>
+<p>Attach each wedgelock with 2 <mark class="critic">M2</mark> screws.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I put the wedge locks on last. It should be much easier to do them
+first, but I don't have any pictures.</p>
+</div>
+</li>
+</ol>
 <h2 id="thermal-gap-filler">Thermal gap filler</h2>
-<p><img alt="" src="../Thermal_gap_sides.JPG" /></p>
-<p>Remove one side of the plastic backing and press the gap filler strip on to the exposed metal on the LHC4913 side of the board, aligning the screw holes.  Then remove the plastic backing from the other side.  Repeat for the other side of the board.  </p>
-<p><img alt="" src="../Thermal_gap_4913.JPG" /></p>
-<p>Put the applicator on an LHC4913 chip, gently push the plunger, and spread some paste on the chip.  Only the metal heat sink needs to be covered.  See above picture for approximate thickness.  Repeat for all 10 chips.  </p>
+<ol>
+<li>
+<p>Remove one side of the plastic backing and press the gap filler strip on to
+   the exposed metal on the LHC4913 side of the board, aligning the screw
+   holes. Then remove the plastic backing from the other side.  Repeat for the
+   other side of the board.</p>
+<p><img alt="" src="../thermal_gap_sides.jpg" /></p>
+</li>
+<li>
+<p>Put the applicator on an LHC4913 chip, gently push the plunger, and spread
+   some paste on the chip.  Only the metal heat sink needs to be covered.  See
+   above picture for approximate thickness.  Repeat for all 10 chips.</p>
+<p><img alt="" src="../thermal_gap_4913.jpg" /></p>
+</li>
+</ol>
 <h2 id="baseplate">Baseplate</h2>
-<p><img alt="" src="../Baseplate_alignment.JPG" /></p>
-<p>Place the baseplate on the LHC4913 side of the LVR.  Make sure the baseplate is aligned so that the raised squares with threaded holes match the holes on the LVR.  Also check that all corners are aligned.  </p>
-<p><img alt="" src="../LVR_screws.JPG" /></p>
-<p>Put an M2.5 screw and washer in each hole.  First tighten very gently, then make hand tight in an X pattern across the board.  Try to look between the LVR and baseplate to see that the thermal paste has made contact with the baseplate and been deformed.  Not all chips can be verified this way.</p>
-<p><img alt="" src="../Assembled_LVR.JPG" />
-Update the database, you have assembled an LVR!</p>
+<ol>
+<li>
+<p>Place the baseplate on the LHC4913 side of the LVR. Make sure the baseplate
+   is aligned so that the raised squares with threaded holes match the holes on
+   the LVR.  Also check that all corners are aligned.</p>
+<p><img alt="" src="../baseplate_alignment.jpg" /></p>
+</li>
+<li>
+<p>Put an <mark class="critic">M2.5</mark> screw and washer in each hole.  First tighten very gently, then
+   make hand tight in an X pattern across the board.  Try to look between the
+   LVR and baseplate to see that the thermal paste has made contact with the
+   baseplate and been deformed.  Not all chips can be verified this way.</p>
+<p><img alt="" src="../lvr_screws.jpg" /></p>
+</li>
+<li>
+<p>Update the database, you have assembled an LVR!</p>
+<p><img alt="" src="../assembled_lvr.jpg" /></p>
+</li>
+</ol>
 <h2 id="continuity-check">Continuity check</h2>
-<p>Measure the resistance between any of the grounds and the aluminum backplate. The resistance should be very large to ensure the backplate is not electronically connected to the LVR.</p>
+<p>Measure the resistance between any of the grounds and the aluminum backplate.
+The resistance should be very large to ensure the backplate is not
+electronically connected to the LVR.</p>
                 
                   
                 
