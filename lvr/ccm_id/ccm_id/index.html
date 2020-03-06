@@ -680,6 +680,41 @@ if we denote an empty pad by 0 and a populated resistor by 1, we have:</p>
 <h2 id="example-ccm">Example CCM</h2>
 <p>An example identification is shown in the picture.
 <img alt="Example of identifying features on 15M CCM" src="../ccm_id.jpg" /></p>
+<h1 id="ccm-test-stand-configuration">CCM Test Stand Configuration</h1>
+<p>Configuring the CCM test stand is a 3 staged process. This involves configurnig the test stand based on if the CCM being used is 12, 15, 25, and MS or A.</p>
+<h2 id="stage-1-load-board">Stage 1: Load Board</h2>
+<p>The first stage involves selecting the appropriate load board to plug into the LVR output. There are two different load boards; one for MS and one for A CCMs, as shown in the figures below:</p>
+<p>!!! info "Below shows the board used for MS CCMs, as well as where to plug it in</p>
+<pre><code>  ![](ccm_id1.png)
+</code></pre>
+<p>!!! info "Below shows the board used for A CCMs</p>
+<pre><code>![](ccm_id2.png)
+</code></pre>
+<h2 id="stage-2-capacitor-board">Stage 2: Capacitor Board</h2>
+<p>The second stage involves setting up the capacitor board. There are 2 different setting for the capacitor, each setting configuring the LVR for either MS or A CCMs. To configure MS CCMs, connect the left most cables on the capacitor board to the right most sockets, as shown in the figure below. In this case, the polarity does matter.</p>
+<div class="admonition info">
+<p class="admonition-title">Master-Slave CCM Capacitor Board configuration</p>
+<p><img alt="" src="ccm_id3.png" /></p>
+</div>
+<p>To configure A CCMs, connect the right most cables on the capacitor board to the right most sockets as shown below. Polarity of the cables does not matter in this case.</p>
+<div class="admonition info">
+<p class="admonition-title">Alone CCM Capacitor Board configuration</p>
+<p><img alt="" src="ccm_id4.png" /></p>
+</div>
+<h2 id="stage-3-resistor-bank">Stage 3: Resistor Bank</h2>
+<p>The third and final stage involves configuring the resistor bank shown in the figure below.</p>
+<div class="admonition info">
+<p class="admonition-title">Resistor Bank</p>
+<p><img alt="" src="ccm_id5.png" /></p>
+</div>
+<p>In this stage, you will be configuring the LVR to either 1.25, 1.5, or 2.5 V. In general, when considering voltage and resistance, each channel that you use has 2.1-2.6 A running through it. This means that for some CCM "XXA" the setup uses 2.1-2.6 A, and for some CCM "xxM + xxS", the setup would use 4.2-5.2 A.</p>
+<p>When setting up the resistor bank, use jumpers to jump the resistor pins that you want. It does not matter how you jump the pins (since there are 3 per resistor) as long as the jumper goes over the middle pin.</p>
+<p>The specific resistor board you must configure is shown in the figure above to have a large cable connected to it (first row middle column). On that resistor board, you will notice resistor pins arranged as shown below.</p>
+<div class="admonition info">
+<p class="admonition-title">Resistor Board</p>
+<p><img alt="" src="ccm_id6.png" /></p>
+</div>
+<p>Going from right to left, </p>
                 
                   
                 
