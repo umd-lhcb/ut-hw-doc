@@ -1,0 +1,742 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+        <link rel="canonical" href="https://umd-lhcb.github.io/ut-hw-doc/burnin/burnin_doc/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Intro - UMD UT hardware documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#intro" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://umd-lhcb.github.io/ut-hw-doc" title="UMD UT hardware documentation" aria-label="UMD UT hardware documentation" class="md-header-nav__button md-logo">
+          
+            <img alt="logo" src="../../umd_logo.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              UMD UT hardware documentation
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Intro
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/umd-lhcb/ut-hw-doc/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    umd-lhcb/ut-hw-doc
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../.." class="md-tabs__link">
+          Home
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../dcb/dcb_assembly/dcb_assembly/" class="md-tabs__link">
+          DCB
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../lvr/lvr_assembly/lvr_assembly/" class="md-tabs__link">
+          LVR
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../minidaq/minidaq_usage/" class="md-tabs__link">
+          MiniDAQ
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://umd-lhcb.github.io/ut-hw-doc" title="UMD UT hardware documentation" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../../umd_logo.png" width="48" height="48">
+      
+    </a>
+    UMD UT hardware documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/umd-lhcb/ut-hw-doc/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    umd-lhcb/ut-hw-doc
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Home
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Home
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Getting started" class="md-nav__link">
+      Getting started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../license/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      DCB
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        DCB
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../dcb/dcb_assembly/dcb_assembly/" title="DCB mechanical assembly" class="md-nav__link">
+      DCB mechanical assembly
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../dcb/dcb_qa/dcb_qa/" title="DCB QA" class="md-nav__link">
+      DCB QA
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      LVR
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        LVR
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lvr/lvr_assembly/lvr_assembly/" title="LVR mechanical assembly" class="md-nav__link">
+      LVR mechanical assembly
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lvr/lvr_qa/lvr_qa/" title="LVR QA" class="md-nav__link">
+      LVR QA
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lvr/lvr_config/lvr_config/" title="LVR Configuration" class="md-nav__link">
+      LVR Configuration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lvr/ccm_id/ccm_id/" title="CCM Identification Guide" class="md-nav__link">
+      CCM Identification Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lvr/ccm_qa/ccm_qa/" title="CCM QA" class="md-nav__link">
+      CCM QA
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      MiniDAQ
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        MiniDAQ
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../minidaq/minidaq_usage/" title="MiniDAQ usage" class="md-nav__link">
+      MiniDAQ usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../minidaq/centos_tips/" title="CentOS tips" class="md-nav__link">
+      CentOS tips
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/umd-lhcb/ut-hw-doc/edit/master/docs/burnin/burnin_doc.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="intro">Intro</h1>
+<p>The "burn-in" stage of testing is to ensure that the LVRs can be used in the
+final system at CERN. The burn-in uses both hardware and software which were
+designed at UMD.</p>
+<p>The burn-in testing makes extensive use of the software in the repo
+<code>NeoBurnIn</code>. This repo also imports software from repo <code>rpi.burnin</code>.</p>
+<h1 id="hardware-configuration">Hardware Configuration</h1>
+<p>The hardware system has four major components, the MARATON power supply, the
+crate containing the LVRs, the crate containing the switching load boards,
+and a single raspberry pi.</p>
+<p>The MARATON power supply is connected to the crate containing the LVRs and
+is used to provide power to the separate LVR channels.</p>
+<p>The LVRs connect to the crate containing the switching load boards and
+have their output connected to the switching load boards.</p>
+<p>The switching load boards and the single raspberry pi are the parts of the
+hardware configuration that require the most setup so they will each receive
+their own section.</p>
+<p>A picture of the final hardware configuration is shown below.</p>
+<p><strong>INSERT PIC ZISHUO SENT HERE.</strong></p>
+<h2 id="switching-load-board-setup">Switching Load Board Setup</h2>
+<p>The switching load boards are used to increase the current output by the
+LVRs. A picture of the board is shown below.</p>
+<p><strong>INSERT SLB PIC HERE</strong></p>
+<p>From the picture there are two separate connections which will have pinouts
+to other hardware. The two pinouts on the upper left-side of the board
+(<code>P101</code>) are labeled as <code>V Opto Sec. 5V</code>. These pinouts are connected to a
+function generator which provides a 5V DC connection to the switching load
+board. The positive and negative terminals connect to the respective
+positve and negative terminals of the function generator.</p>
+<p>The second connection are the two pinouts on the upper right-side of the
+board (<code>P102</code>) which are labeled as <code>RPi GPIO Control</code>. The positive
+terminal of this connection connects to one of the many GPIO pins on the
+raspberry pi and the negative terminal connects to one the the raspberry pi
+pins labeled <code>GND</code>. Any GPIO pins that occur on the pi at pins 11 or lower
+can not be conencted to the switching load boards as these GPIO pins are
+reserved for other hardware. This will be further explained in the section
+describing the raspberry pi hardware setup.</p>
+<p>Additionally, a python script was made which will pull the GPIO pin
+connected to the switching load board high for 60 seconds, then pull
+the pin low for 10 seconds and repeat this process until the user
+interrupts this process (from Ctrl+C). Pulling the GPIO pin high will
+power the switching load board and tell it to increase the current
+output by the LVRs. The python script will be described more with the
+other software below.</p>
+<h2 id="raspberry-pi-setup">Raspberry Pi Setup</h2>
+<p>The single raspberry pi for the hardware is considered the brain of the
+system as this pi controls all of the software for the system and controls
+the power to the hardware.</p>
+<p>The raspberry pi for this system is version RPi 3B+ and has a MicroSD card
+configured to run the <code>NixOS</code> operating system (linux based). The pi must
+be connected to a monitor and keyboard in order to control the system.</p>
+<p><strong>Note:</strong> The grounding for the pi is through the shield of the HDMI cord
+connecting the monitor to the pi. This means that the monitor conencted to
+the pi <strong>must</strong> have a three-prong power cord to ensure that all GNDs in
+the system are referencing the Earth GND.</p>
+<p>The raspberry pi controls most of the smaller hardware parts of the system
+including the USB relay (used to control the CP100 Rain Bird Solenoid Valve),
+the water alarm, the fire alarm and all of the thermistors.</p>
+<p><strong>Note:</strong> The power for the thermistors and the fire alarm both come from
+the <code>3.3V</code> pin of the pi although there is only one <code>3.3V</code> pin. To fix
+this we made a wire which starts at the <code>3.3V</code> pin of the pi and forks
+out to make two connections.</p>
+<h4 id="usb-relay-and-solenoid-valve">USB Relay and Solenoid Valve</h4>
+<p>The USB relay and solenoid valve control the water flowing to the LVR crate.
+This water is used for cooling the crate if it gets too hot. A diagram of
+the circuit is shown below.</p>
+<p><strong>INSERT USB RELAY PIC HERE</strong></p>
+<p>The USB relay in this diagram would be connected to the raspberry pi via USB.
+Multiple solenoid valves can be inserted into this system although now we
+only have one solenoid valve in use as each solenoid valve in the system
+requires its own diode and normally open (NO) terminal.</p>
+<h4 id="water-alarm">Water Alarm</h4>
+<p>The water alarm is used to measure if water is leaking on the floor next to
+the crate containing the LVRs. This would occur if the tubes connected to
+the solenoid valve started to leak. If water is detected then the software
+will output a <code>WATER</code> message. The water alarm is a
+<a href="https://www.amazon.com/Floor-Water-Sensor-Flood-Detection/dp/B079YB1T8J/ref=cm_cr_srp_d_product_top?ie=UTF8" title="Water Sensor on Amazon">floor water sensor by Level Sense</a>.</p>
+<p>The water alarm has a red wire, which is connected to one of the <code>5V</code>
+connections on the pi, and a white wire, which is connected to pin 11 of
+the pi (<code>GPIO17</code>) with a pull-down resistor of 4.7k.</p>
+<h4 id="fire-alarm">Fire Alarm</h4>
+<p>The fire alarm is used to detect if smoke is rising from the crate
+containing the LVRs. If smoke is detected then the alarm will trigger
+and the software will output a <code>FIRE</code> message.</p>
+<p>The fire alarm has three connections to the pi. The grey wire from the
+alarm will connect to one of the <code>GND</code> pins of the pi. The blue wire
+from the alarm has two connections with a pull-down resistor
+connecting them. The red only wire soldered to the blue wire is the
+power for the alarm and is connected to one of the forked <code>3.3V</code>
+connections. The red wire with black markings soldered to the blue
+wire is the control for the alarm and is connected to pin 8
+(<code>GPIO14</code>) of the pi.</p>
+<h4 id="thermistors">Thermistors</h4>
+<p>The thermistors are used to measure the temperature of the LVRs being
+burned-in. The thermistors have their values averaged to obtain the
+nominal temperature of the crate.</p>
+<p>If the crate has a temperature of 30C or higher then the solenoid
+valve is turned to allow water to flow to the crate and aid in cooling
+the crate. Once the crate has a temperature of 29C or lower then the
+solenoid valve is turned off and water flow stops to ensure that
+the crate does not continue to cool.</p>
+<p>The thermistors all have their GND legs soldered to their VDD legs
+and are connected in parallel to each other via a breakout board
+connected to the pi. The breakout board has one rail for the GND
+connection of each thermistor and one rail for the data obtained
+by the thermistor. A diagram of the circuit is shown below.</p>
+<p><strong>INSERT THERM CIRCUIT PIC HERE</strong></p>
+<p>The connections to the pins of the pi in the diagram are the same
+as the connections to the pins of the pi in use for the burn-in.</p>
+<h1 id="software">Software</h1>
+<p>The software for the burn-in is all run through the raspberry pi
+and comes from the repo <code>NeoBurnIn</code>. Some software also comes
+from the <code>rpi.burnin</code> repo although the necessary software
+from this repo is downloaded from the command shown in the
+<strong>Dependencies</strong> section.</p>
+<p>In order to run to the burn-in software one must first clone
+the <code>master</code> branch of the <code>NeoBurnIn</code> repo. After cloning,
+change directory to the recently cloned <code>NeoBurnIn</code> repo and
+isuue the command:</p>
+<pre><code>nix-shell
+</code></pre>
+
+<p>This will setup the evironment for the software to be run
+correctly.</p>
+<h2 id="dependencies">Dependencies</h2>
+<p>After setting up the environment, the required packages for
+the software must be downloaded. All required packages can be
+installed with:</p>
+<pre><code>pip install -U -r ./requirements.txt
+</code></pre>
+
+<h2 id="configuration">Configuration</h2>
+<p>The configuration of all data logging and hardware is included
+in the YAML files for each of the python scripts. These YAML are:
+- <code>NeoBurnIn/DataServer.example.yml</code>
+- <code>NeoBurnIn/CtrlServer.example.yml</code>
+- <code>NeoBurnIn/measurements/test_temp_ctrl_client.yml</code></p>
+<p><code>NeoBurnIn/DataServer.example.yml</code> controls the setup for the
+output log file from <code>DataServer.py</code>. This YAML file also
+controls the standard deviation range to use for the
+thermistor readout warning.</p>
+<p><code>NeoBurnIn/CtrlServer.example.yml</code> controls the setup for the
+output log file from <code>CtrlServer.py</code>. This YAML file also
+controls the IP address and port number of the raspberry pi
+to be used for the <code>curl</code> commands which control the USB
+relay. Additionally, this YAML file controls the time intervals
+on which the USB relay and MARATON power supply can be
+controlled. For example, in this file if the variable
+<code>relay_timer</code> is set to <code>60</code> then this means that the channels
+of the USB relay can only be switched from on to off or
+vice-versa every 60 seconds.</p>
+<p><code>NeoBurnIn/measurements/test_temp_ctrl_client.yml</code> controls
+the setup for the output log file from <code>CtrlClient.py</code>.
+This YAML file also controls the setup of the thermistors,
+the setup of the MARATON power supply and the setup of both
+alarms (these controls are under the label <code>sensors</code>).
+Additionally, this YAML file controls the setup for the
+control commands of both the USB relay and the MARATON
+power supply (these controls are under the label
+<code>controllers</code>). Note that the control for the USB relay in
+this YAML file is only the control from the thermistors but 
+<strong>not</strong> the control from the <code>curl</code> commands. Also, this YAML
+file controls the rules for when to turn on/off the cooling
+from the solenoid valve (these controls are under the label
+<code>ctrlRules</code>).</p>
+<h2 id="usage">Usage</h2>
+<h2 id="controlling-the-psu-maraton-with-curl">Controlling the PSU (MARATON) with <code>curl</code></h2>
+<h2 id="controlling-the-usb-relay-with-curl">Controlling the USB Relay with <code>curl</code></h2>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>
