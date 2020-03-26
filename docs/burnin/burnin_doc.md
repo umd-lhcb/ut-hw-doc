@@ -24,13 +24,13 @@ their own section.
 
 A picture of the final hardware configuration is shown below.
 
-**INSERT PIC ZISHUO SENT HERE.**
+![Full Burnin Setup](burnin_images/full_burnin_setup.png)
 
 ## Switching Load Board Setup
 The switching load boards are used to increase the current output by the
 LVRs. A picture of the board is shown below.
 
-**INSERT SLB PIC HERE**
+![Switching Load Board](burnin_images/switching_load_board.PNG)
 
 From the picture there are two separate connections which will have pinouts
 to other hardware. The two pinouts on the upper left-side of the board
@@ -79,12 +79,21 @@ the `3.3V` pin of the pi although there is only one `3.3V` pin. To fix
 this we made a wire which starts at the `3.3V` pin of the pi and forks
 out to make two connections.
 
+**UPDATE:** There are actually two `3.3V` pins on the raspberry pi, however
+the second `3.3V` pin is not near the other power pins. Due to this, we
+decided to contiue use of the forked connection as it is best to keep all
+power connections in one place.
+
+A picture of all connections to the raspberry pi GPIO pins is shown below.
+
+![RPi Connections](burnin_images/rasberry_pi_connections.jpg)
+
 #### USB Relay and Solenoid Valve
 The USB relay and solenoid valve control the water flowing to the LVR crate.
 This water is used for cooling the crate if it gets too hot. A diagram of
 the circuit is shown below.
 
-**INSERT USB RELAY PIC HERE**
+![Solenoid Valve Diagram](burnin_images/solenoid_valve_diagram.png)
 
 The USB relay in this diagram would be connected to the raspberry pi via USB.
 Multiple solenoid valves can be inserted into this system although now we
@@ -133,7 +142,7 @@ connected to the pi. The breakout board has one rail for the GND
 connection of each thermistor and one rail for the data obtained
 by the thermistor. A diagram of the circuit is shown below.
 
-**INSERT THERM CIRCUIT PIC HERE**
+![Thermistor Setup](burnin_images/thermistor_circuit_diagram.png)
 
 The connections to the pins of the pi in the diagram are the same
 as the connections to the pins of the pi in use for the burn-in.
@@ -184,9 +193,9 @@ to be used for the `curl` commands which control the USB
 relay. Additionally, this YAML file controls the time intervals
 on which the USB relay and MARATON power supply can be
 controlled. For example, in this file if the variable
-`relay_timer` is set to `60` then this means that the channels
-of the USB relay can only be switched from on to off or
-vice-versa every 60 seconds.
+`minTimeOut` is set to `60` then this means that the channels
+of the USB relay and the MARATON power supply can only be
+switched from on to off or vice-versa every 60 seconds.
 
 `NeoBurnIn/measurements/test_temp_ctrl_client.yml` controls
 the setup for the output log file from `CtrlClient.py`.
@@ -201,12 +210,139 @@ this YAML file is only the control from the thermistors but
 **not** the control from the `curl` commands. Also, this YAML
 file controls the rules for when to turn on/off the cooling
 from the solenoid valve (these controls are under the label
-`ctrlRules`).
+`ctrlRules`). Additionally, this YAML file can also control
+the rules for when to turn on/off the MARATON channels
+although this has not yet been implemented. These controls
+would also be implemented under the label `ctrlRules`.
 
 ## Usage
+To start the burn-in testing one must issue the command `tmux`
+and then open four separate panels using the key combination
+`Ctrl+A, "`. One can open more panels if needed although four
+panels should be sufficient to run the burn-in.
 
+**Note:** In order to start the burn-in testing one must be
+in the directory of the recently cloned `NeoBurnIn` repo. If
+one is following the directions in this documentation then
+they should already be in the necessary directory.
+
+In the first panel, one will run `DataServer.py` using the
+command
+```
+./DataServer.py --config-file ./DataServer.example.yml
+```
+
+In the second panel, one will run `CtrlServer.py` using the
+command
+```
+./CtrlServer.py --config-file ./CtrlServer.example.yml
+```
+
+In the third panel, one will run `CtrlClient.py` using the
+command
+```
+./CtrlClient.py --config-file ./measurements/test_temp_ctrl_client.yml
+```
+
+The fourth and final panel will be used for controlling the
+PSU (MARATON) and the USB relay with `curl` commands. If
+controlling the PSU and USB relay is not necessary then
+only three panels are necessary although it is best to
+have four panels just in case.
+
+**Note:** To navigate between `tmux` panels, type
+`Ctrl+A, up/down arrow keys` in order to move up/down
+between panels.
+
+To stop the burn-in testing, navigate to each `tmux`
+panel which is running and type `Ctrl+C` in order to
+issue a keyboard inturrupt which will stop the code
+from running. After all codes are stopped, one can
+exit `tmux` panels by issuing the command `exit` within
+each panel.
 
 ## Controlling the PSU (MARATON) with `curl`
+To control the PSU (MARATON) with `curl`, one must be
+running all three scripts as described in the **Usage**
+section and have a fourth `tmux` panel setup. In the
+fourth panel, one can turn on/off a MARATON channel
+using the commands
+```
+curl -X POST http://192.168.1.30:45679/psu/192.168.1.31/<CHANNEL_NUMBER>/on
+curl -X POST http://192.168.1.30:45679/psu/192.168.1.31/<CHANNEL_NUMBER>/off
+```
+
+where `<CHANNEL_NUMBER>` is the number of the MARATON
+channel which one would like to turn on/off. There
+are 12 MARATON channels that can be turned on/off,
+ranging from channel 1 to channel 12. If changing
+the MARATON channel on/off is successful then the
+terminal will output `Success` and the LEDs on the
+LVRs for that MARATON channel will turn on/off
+respectively.
+
+Before changing the state of a MARATON channel, one
+must ensure that the time period specified by
+`minTimeOut` has passed or else the command will
+not issue succesfully. For example, if the variable
+`minTimeOut` is set to `60` and one tries to turn
+off a MARATON channel 10 seconds after turning it
+on then the channel will not turn off. One must
+then wait an additional 50 seconds before issuing
+the command again for it to execute as expected.
+
+**Note:** If using the WEINER control software for
+a Windows machine it is important to note that the
+MARATON channels are numbered in a different way.
+The WEINER control software numbers the 12 MARATON
+channels by started at channel 0 and going to
+channel 11. This means that issuing the `curl`
+command to turn on channel 1 will turn on the
+channel labeled 0 on the WEINER control software.
+If one is not using the WEINER control software to
+monitor the MARATON channels then do not worry
+about this numbering offset.
 
 
 ## Controlling the USB Relay with `curl`
+To control the USB relay with `curl`, one must be
+running all three scripts as described in the **Usage**
+section and have a fourth `tmux` panel setup. In the
+fourth panel, one can turn on/off a USB relay channel
+using the commands
+```
+curl -X POST http://192.168.1.30:45679/relay/0001:0014:00/<CHANNEL_NUMBER>/on
+curl -X POST http://192.168.1.30:45679/relay/0001:0014:00/<CHANNEL_NUMBER>/off
+```
+
+where `<CHANNEL_NUMBER>` is the number of the USB relay
+channel which one would like to turn on/off. There are
+only two USB relay channels, channel 1 and channel 2,
+and only one channel will need to be turned on/off.
+This is because only one channel will be connected to
+a solenoid valve for the burn-in (as of 3/26/20).
+To see which channel one must turn on/off with `curl`
+commands one must inspect the hardware setup of the
+system, although the hardware should be setup such
+that the solenoid valve is connected to channel 2
+of the USB relay.
+
+Again, one must wait for the `minTimeOut` time to
+pass before a successful turning on/off of the
+USB relay channel. After a successful turning
+on/off of a USB relay channel the terminal will
+output `Success` and the respective channel LED
+on the USB relay will turn on/off.
+
+**Note:** The number `0001:0014:00` in the `curl`
+commands **can change** and one should check if
+this number has changed **before** issuing these
+`curl` commands. To check whether this number has
+changed, issue the command
+```
+curl -X POST http://127.0.0.1:45679/relay/list
+```
+
+as this command will list all of the device
+numbers for that USB port. There should only be
+one device listed which will be the USB relay.
