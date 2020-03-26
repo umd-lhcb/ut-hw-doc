@@ -25,6 +25,7 @@ their own section.
 A picture of the final hardware configuration is shown below.
 
 ![Full Burnin Setup](burnin_images/full_burnin_setup.png)
+![Full_Burnin_Setup2](burnin_images/full_lvr_burnin_setup_2.png)
 
 ## Switching Load Board Setup
 The switching load boards are used to increase the current output by the
