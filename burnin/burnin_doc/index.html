@@ -548,11 +548,11 @@ have their output connected to the switching load boards.</p>
 hardware configuration that require the most setup so they will each receive
 their own section.</p>
 <p>A picture of the final hardware configuration is shown below.</p>
-<p><strong>INSERT PIC ZISHUO SENT HERE.</strong></p>
+<p><img alt="Full Burnin Setup" src="../burnin_images/full_burnin_setup.png" /></p>
 <h2 id="switching-load-board-setup">Switching Load Board Setup</h2>
 <p>The switching load boards are used to increase the current output by the
 LVRs. A picture of the board is shown below.</p>
-<p><strong>INSERT SLB PIC HERE</strong></p>
+<p><img alt="Switching Load Board" src="../burnin_images/switching_load_board.PNG" /></p>
 <p>From the picture there are two separate connections which will have pinouts
 to other hardware. The two pinouts on the upper left-side of the board
 (<code>P101</code>) are labeled as <code>V Opto Sec. 5V</code>. These pinouts are connected to a
@@ -592,11 +592,17 @@ the water alarm, the fire alarm and all of the thermistors.</p>
 the <code>3.3V</code> pin of the pi although there is only one <code>3.3V</code> pin. To fix
 this we made a wire which starts at the <code>3.3V</code> pin of the pi and forks
 out to make two connections.</p>
+<p><strong>UPDATE:</strong> There are actually two <code>3.3V</code> pins on the raspberry pi, however
+the second <code>3.3V</code> pin is not near the other power pins. Due to this, we
+decided to contiue use of the forked connection as it is best to keep all
+power connections in one place.</p>
+<p>A picture of all connections to the raspberry pi GPIO pins is shown below.</p>
+<p><img alt="RPi Connections" src="burnin_images/rasberry_pi_connections.jpg" /></p>
 <h4 id="usb-relay-and-solenoid-valve">USB Relay and Solenoid Valve</h4>
 <p>The USB relay and solenoid valve control the water flowing to the LVR crate.
 This water is used for cooling the crate if it gets too hot. A diagram of
 the circuit is shown below.</p>
-<p><strong>INSERT USB RELAY PIC HERE</strong></p>
+<p><img alt="Solenoid Valve Diagram" src="../burnin_images/solenoid_valve_diagram.png" /></p>
 <p>The USB relay in this diagram would be connected to the raspberry pi via USB.
 Multiple solenoid valves can be inserted into this system although now we
 only have one solenoid valve in use as each solenoid valve in the system
@@ -636,7 +642,7 @@ and are connected in parallel to each other via a breakout board
 connected to the pi. The breakout board has one rail for the GND
 connection of each thermistor and one rail for the data obtained
 by the thermistor. A diagram of the circuit is shown below.</p>
-<p><strong>INSERT THERM CIRCUIT PIC HERE</strong></p>
+<p><img alt="Thermistor Setup" src="../burnin_images/thermistor_circuit_diagram.png" /></p>
 <p>The connections to the pins of the pi in the diagram are the same
 as the connections to the pins of the pi in use for the burn-in.</p>
 <h1 id="software">Software</h1>
@@ -678,9 +684,9 @@ to be used for the <code>curl</code> commands which control the USB
 relay. Additionally, this YAML file controls the time intervals
 on which the USB relay and MARATON power supply can be
 controlled. For example, in this file if the variable
-<code>relay_timer</code> is set to <code>60</code> then this means that the channels
-of the USB relay can only be switched from on to off or
-vice-versa every 60 seconds.</p>
+<code>minTimeOut</code> is set to <code>60</code> then this means that the channels
+of the USB relay and the MARATON power supply can only be
+switched from on to off or vice-versa every 60 seconds.</p>
 <p><code>NeoBurnIn/measurements/test_temp_ctrl_client.yml</code> controls
 the setup for the output log file from <code>CtrlClient.py</code>.
 This YAML file also controls the setup of the thermistors,
@@ -694,10 +700,124 @@ this YAML file is only the control from the thermistors but
 <strong>not</strong> the control from the <code>curl</code> commands. Also, this YAML
 file controls the rules for when to turn on/off the cooling
 from the solenoid valve (these controls are under the label
-<code>ctrlRules</code>).</p>
+<code>ctrlRules</code>). Additionally, this YAML file can also control
+the rules for when to turn on/off the MARATON channels
+although this has not yet been implemented. These controls
+would also be implemented under the label <code>ctrlRules</code>.</p>
 <h2 id="usage">Usage</h2>
+<p>To start the burn-in testing one must issue the command <code>tmux</code>
+and then open four separate panels using the key combination
+<code>Ctrl+A, "</code>. One can open more panels if needed although four
+panels should be sufficient to run the burn-in.</p>
+<p><strong>Note:</strong> In order to start the burn-in testing one must be
+in the directory of the recently cloned <code>NeoBurnIn</code> repo. If
+one is following the directions in this documentation then
+they should already be in the necessary directory.</p>
+<p>In the first panel, one will run <code>DataServer.py</code> using the
+command</p>
+<pre><code>./DataServer.py --config-file ./DataServer.example.yml
+</code></pre>
+
+<p>In the second panel, one will run <code>CtrlServer.py</code> using the
+command</p>
+<pre><code>./CtrlServer.py --config-file ./CtrlServer.example.yml
+</code></pre>
+
+<p>In the third panel, one will run <code>CtrlClient.py</code> using the
+command</p>
+<pre><code>./CtrlClient.py --config-file ./measurements/test_temp_ctrl_client.yml
+</code></pre>
+
+<p>The fourth and final panel will be used for controlling the
+PSU (MARATON) and the USB relay with <code>curl</code> commands. If
+controlling the PSU and USB relay is not necessary then
+only three panels are necessary although it is best to
+have four panels just in case.</p>
+<p><strong>Note:</strong> To navigate between <code>tmux</code> panels, type
+<code>Ctrl+A, up/down arrow keys</code> in order to move up/down
+between panels.</p>
+<p>To stop the burn-in testing, navigate to each <code>tmux</code>
+panel which is running and type <code>Ctrl+C</code> in order to
+issue a keyboard inturrupt which will stop the code
+from running. After all codes are stopped, one can
+exit <code>tmux</code> panels by issuing the command <code>exit</code> within
+each panel.</p>
 <h2 id="controlling-the-psu-maraton-with-curl">Controlling the PSU (MARATON) with <code>curl</code></h2>
+<p>To control the PSU (MARATON) with <code>curl</code>, one must be
+running all three scripts as described in the <strong>Usage</strong>
+section and have a fourth <code>tmux</code> panel setup. In the
+fourth panel, one can turn on/off a MARATON channel
+using the commands</p>
+<pre><code>curl -X POST http://192.168.1.30:45679/psu/192.168.1.31/&lt;CHANNEL_NUMBER&gt;/on
+curl -X POST http://192.168.1.30:45679/psu/192.168.1.31/&lt;CHANNEL_NUMBER&gt;/off
+</code></pre>
+
+<p>where <code>&lt;CHANNEL_NUMBER&gt;</code> is the number of the MARATON
+channel which one would like to turn on/off. There
+are 12 MARATON channels that can be turned on/off,
+ranging from channel 1 to channel 12. If changing
+the MARATON channel on/off is successful then the
+terminal will output <code>Success</code> and the LEDs on the
+LVRs for that MARATON channel will turn on/off
+respectively.</p>
+<p>Before changing the state of a MARATON channel, one
+must ensure that the time period specified by
+<code>minTimeOut</code> has passed or else the command will
+not issue succesfully. For example, if the variable
+<code>minTimeOut</code> is set to <code>60</code> and one tries to turn
+off a MARATON channel 10 seconds after turning it
+on then the channel will not turn off. One must
+then wait an additional 50 seconds before issuing
+the command again for it to execute as expected.</p>
+<p><strong>Note:</strong> If using the WEINER control software for
+a Windows machine it is important to note that the
+MARATON channels are numbered in a different way.
+The WEINER control software numbers the 12 MARATON
+channels by started at channel 0 and going to
+channel 11. This means that issuing the <code>curl</code>
+command to turn on channel 1 will turn on the
+channel labeled 0 on the WEINER control software.
+If one is not using the WEINER control software to
+monitor the MARATON channels then do not worry
+about this numbering offset.</p>
 <h2 id="controlling-the-usb-relay-with-curl">Controlling the USB Relay with <code>curl</code></h2>
+<p>To control the USB relay with <code>curl</code>, one must be
+running all three scripts as described in the <strong>Usage</strong>
+section and have a fourth <code>tmux</code> panel setup. In the
+fourth panel, one can turn on/off a USB relay channel
+using the commands</p>
+<pre><code>curl -X POST http://192.168.1.30:45679/relay/0001:0014:00/&lt;CHANNEL_NUMBER&gt;/on
+curl -X POST http://192.168.1.30:45679/relay/0001:0014:00/&lt;CHANNEL_NUMBER&gt;/off
+</code></pre>
+
+<p>where <code>&lt;CHANNEL_NUMBER&gt;</code> is the number of the USB relay
+channel which one would like to turn on/off. There are
+only two USB relay channels, channel 1 and channel 2,
+and only one channel will need to be turned on/off.
+This is because only one channel will be connected to
+a solenoid valve for the burn-in (as of 3/26/20).
+To see which channel one must turn on/off with <code>curl</code>
+commands one must inspect the hardware setup of the
+system, although the hardware should be setup such
+that the solenoid valve is connected to channel 2
+of the USB relay.</p>
+<p>Again, one must wait for the <code>minTimeOut</code> time to
+pass before a successful turning on/off of the
+USB relay channel. After a successful turning
+on/off of a USB relay channel the terminal will
+output <code>Success</code> and the respective channel LED
+on the USB relay will turn on/off.</p>
+<p><strong>Note:</strong> The number <code>0001:0014:00</code> in the <code>curl</code>
+commands <strong>can change</strong> and one should check if
+this number has changed <strong>before</strong> issuing these
+<code>curl</code> commands. To check whether this number has
+changed, issue the command</p>
+<pre><code>curl -X POST http://127.0.0.1:45679/relay/list
+</code></pre>
+
+<p>as this command will list all of the device
+numbers for that USB port. There should only be
+one device listed which will be the USB relay.</p>
                 
                   
                 
