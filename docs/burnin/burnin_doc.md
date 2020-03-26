@@ -86,7 +86,7 @@ power connections in one place.
 
 A picture of all connections to the raspberry pi GPIO pins is shown below.
 
-![RPi Connections](burnin_images/rasberry_pi_connections.jpg)
+![RPi Connections](burnin_images/raspberry_pi_connections.jpg)
 
 #### USB Relay and Solenoid Valve
 The USB relay and solenoid valve control the water flowing to the LVR crate.
