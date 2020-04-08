@@ -9,7 +9,8 @@ theme:
     logo: umd_logo.png
     include_search_page: false
     feature:
-        tabs: true
+        - tabs
+        - instant
 
 nav:
     - Home:
