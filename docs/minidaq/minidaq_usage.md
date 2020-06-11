@@ -1,5 +1,6 @@
 !!! note
-    This step is only needed after a power cycle or power outage.
+    The MiniDAQ configuration steps are only needed after a power cycle or
+    power outage.
 
 ## Load a firmware file
 This is temporary, as MiniDAQ will reprogram itself with the firmware stored on the on-board flash memory.
@@ -23,12 +24,13 @@ After programming the MiniDAQ FPGA, **restart** (not power cycle) the server, an
     ```
     config_fPLL.py
     ```
-2. Start the Project by going to going to **Applications, WinCC, Project Administrator**. 
+2. Start the Project by going to going to **Applications, WinCC, Project Administrator**.
 
 2. From the top menu, click **JCOP Framework**, then **Device Editor and Navigator**, then **FSM**.
    Now expand **dist_1**, then right click on **MiniDAQ** to open the **TOP** panel.
 3. Take the MiniDAQ. Click the MiniDAQ state (it now should be **Not Configured**), then click **Configure**.
 4. If not all devices showing as **Ready** (excluding **DATAFLOW**), repeat 2-3.
+
 
 ## nanoDAQ
 
