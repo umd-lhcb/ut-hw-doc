@@ -6,18 +6,19 @@ the test stand based on if the CCM being used is `12, 15, 25`, and `MS` or `A`.
 ## Stage 1: Load Board
 
 The first stage involves selecting the appropriate load board to plug into the
-LVR output. There are two different load boards (shown in figure below):
+LVR output. There are two different load boards:
 
 1. For `MS` CCMs
+
+    !!! info "Load board for `MS` CCMs, and where to plug it in"
+
+          ![](ccm_id1.png)
+
 2. For `A` CCMs
 
-!!! info "Load board for `MS` CCMs, and where to plug it in"
+    !!! info "Load board for `A` CCMs"
 
-      ![](ccm_id1.png)
-
-!!! info "Load board for `A` CCMs"
-
-    ![](ccm_id2.png)
+        ![](ccm_id2.png)
 
 
 ## Stage 2: Capacitor Board
