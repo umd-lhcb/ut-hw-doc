@@ -8,9 +8,24 @@ theme:
     name: 'material'
     logo: umd_logo.png
     include_search_page: false
+    search_index_only: true
     feature:
         - tabs
         - instant
+    palette:
+        scheme: default
+        primary: red
+        accent: indigo
+
+markdown_extensions:
+    - admonition
+    - pymdownx.critic
+    - pymdownx.caret
+
+plugins:
+    - search
+    - minify:
+        minify_html: true
 
 nav:
     - Home:
@@ -29,8 +44,5 @@ nav:
     - MiniDAQ:
         - MiniDAQ usage: minidaq/minidaq_usage.md
         - CentOS tips: minidaq/centos_tips.md
-
-markdown_extensions:
-    - admonition
-    - pymdownx.critic
-    - pymdownx.caret
+    - Burn-in:
+        - Burn-in system: burnin/burnin_doc.md
