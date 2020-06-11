@@ -10,7 +10,6 @@ theme:
     include_search_page: false
     search_index_only: true
     feature:
-        - tabs
         - instant
     palette:
         scheme: default
