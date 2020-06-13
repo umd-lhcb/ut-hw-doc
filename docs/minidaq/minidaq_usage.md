@@ -7,7 +7,7 @@ This is temporary, as MiniDAQ will reprogram itself with the firmware stored on 
 
 To load a firmware:
 ```
-pcie40_pgm ~/src/sof_files/lhcb_daq_firmware_readout40_pcie40v1_minidaq_forUT_unset_131119.sof
+pcie40_pgm ~/src/sof_files/lhcb_daq_firmware_readout40_pcie40v1_minidaq_forUT_Bologna+realsim_12+12links_unset_090620.sof
 ```
 
 In our MiniDAQ server, all `sof` firmware are located in:
