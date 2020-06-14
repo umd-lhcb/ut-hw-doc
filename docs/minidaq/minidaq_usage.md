@@ -32,7 +32,35 @@ After programming the MiniDAQ FPGA, **restart** (not power cycle) the server, an
 4. If not all devices showing as **Ready** (excluding **DATAFLOW**), repeat 2-3.
 
 
+## Connect to MiniDAQ screen remotely
+
+If you are in UMD network, use a VNC client and the address are:
+```
+<minidaq_ip_addr>:5900
+```
+
+If you are outside, first create a SSH tunnel to map MiniDAQ port 5900 to one
+of your localhost port (5901 in the example):
+```
+SSH -L 5901:localhost:5900 <user>@<minidaq_ip_addr>
+```
+
+Then use the local port for your VNC session:
+```
+localhost:5901
+```
+
+!!! note
+    The additional password for the VNC connection is printed on the sticker of
+    the **Windows PC**.
+
+
 ## nanoDAQ
 
 A series of command-line scripts have been implemented in [nanoDAQ](https://github.com/umd-lhcb/nanoDAQ).
 The commands are explained in the [nanoDAQ wiki](https://github.com/umd-lhcb/nanoDAQ/blob/master/README.md).
+
+
+## Configure a MiniDAQ from scratch
+
+Please refer to [this guide](https://github.com/umd-lhcb/MiniDAQ-config) on how to configure a MiniDAQ from scratch.
