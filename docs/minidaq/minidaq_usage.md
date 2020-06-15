@@ -54,6 +54,17 @@ localhost:5901
     The additional password for the VNC connection is printed on the sticker of
     the **Windows PC**.
 
+!!! info
+    If you are a Linux user, install `tigervnc` and follow the standard
+    literature on the Internet on how to use it.
+
+    If you are a macOS user, use the mighty built-in VNC viewer from cli:
+    ```
+    open vnc://<ip_addr>:<port>
+    ```
+
+    If you use Microsoft Windows, Good luck!
+
 
 ## nanoDAQ
 
