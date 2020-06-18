@@ -5,7 +5,7 @@ let
 in
 
 pkgs.mkShell {
-  name = "pip-env";
+  name = "ut-hw-doc";
   buildInputs = with pythonPackages; [
     # Python requirements (enough to get a virtualenv going).
     virtualenvwrapper
@@ -16,7 +16,7 @@ pkgs.mkShell {
     SOURCE_DATE_EPOCH=$(date +%s)
 
     if test -d $HOME/build/python-venv; then
-      VENV=$HOME/build/python-venv/NeoBurnIn
+      VENV=$HOME/build/python-venv/ut-hw-doc
     else
       VENV=./.virtualenv
     fi
@@ -25,8 +25,5 @@ pkgs.mkShell {
       virtualenv $VENV
     fi
     source $VENV/bin/activate
-
-    # allow for the environment to pick up packages installed with virtualenv
-    export PYTHONPATH=$VENV/${python.sitePackages}/:$PYTHONPATH
   '';
 }
