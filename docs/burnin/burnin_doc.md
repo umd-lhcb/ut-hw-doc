@@ -148,6 +148,18 @@ by the thermistor. A diagram of the circuit is shown below.
 The connections to the pins of the pi in the diagram are the same
 as the connections to the pins of the pi in use for the burn-in.
 
+---
+**Note**
+
+It has been observed that the w1 devices (/sys/bus/w1/devices/) 
+lost connections with the RPi after ~3 months' inactivity.
+If you see the error from CtrlClient.py `No such file or directory: 
+'/sys/bus/w1/devices/28-0000098d8197/w1_slave'` or no temperature 
+reading in logs/DataServer.log, try replugging the 3 GPIO 
+connectors and the thermal sensor breakout board connectors.
+
+---
+
 
 # Software
 The software for the burn-in is all run through the raspberry pi
