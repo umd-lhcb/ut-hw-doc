@@ -22,6 +22,7 @@ After programming the MiniDAQ FPGA, **restart** (not power cycle) the server, an
 
 1. Open a terminal, type in:
     ```
+    pcie40_reload -m
     config_fPLL.py
     ```
 2. Start the Project by going to going to **Applications, WinCC, Project Administrator**.
