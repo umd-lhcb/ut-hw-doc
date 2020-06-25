@@ -10,10 +10,11 @@ Outline of what needs to be accomplished in this QA stage:
 2) Update and/or Verify the FW version 2.03 (SPI WORD2 enough maybe?)
 3) (Re)configure control switches for test
     * be careful about master slave
-4) Check power-on curve of 1-4
+4) Power on LVR with channels off, verify housekeeping is correct.
+4) Connect load, Check power-on curve of 1-4
     * while running at load, verify the current sharing of master/slave for each channel
     * TODO: HOW TO VERIFY SENSE? Maybe repeat with/without sense lines?
-5) Check power-on of 5-8
+5) Move load, Check power-on of 5-8
     * while running at load, verify the current sharing of master/slave for each channel
     * TODO: HOW TO VERIFY SENSE?
 6) Verify that lockout switches are where they should be
