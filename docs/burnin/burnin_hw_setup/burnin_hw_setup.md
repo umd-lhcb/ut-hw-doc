@@ -144,3 +144,15 @@ by the thermistor. A diagram of the circuit is shown below.
 
 The connections to the pins of the pi in the diagram are the same
 as the connections to the pins of the pi in use for the burn-in.
+
+!!! warning
+    It has been observed that the w1 devices (`/sys/bus/w1/devices/`)
+    lost connections with the pi for unknown reason.
+
+    If you see the error from `CtrlClient.py`:
+    ```
+    An error occurred when trying to read sensor: /sys/bus/w1/devices/28-0000098d8197/w1_slave
+    ```
+
+    or no temperature reading in logs/DataServer.log, try replugging the 3 GPIO
+    connectors and the thermal sensor breakout board connectors.
