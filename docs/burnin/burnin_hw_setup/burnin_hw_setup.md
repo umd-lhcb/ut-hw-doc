@@ -22,7 +22,7 @@ A picture of the final hardware configuration is shown below.
 The switching load boards are used to increase the current output by the
 LVRs. A picture of the board is shown below:
 
-![Switching Load Board](burnin_images/switching_load_board.png)
+![Switching Load Board](switching_load_board.png)
 
 From the picture there are two separate connections which will have pinouts
 to other hardware:
@@ -84,7 +84,7 @@ the water alarm, the fire alarm and all of the thermistors.
 
 A picture of all connections to the raspberry pi GPIO pins is shown below.
 
-![RPi Connections](burnin_images/raspberry_pi_connections.jpg)
+![RPi Connections](raspberry_pi_connections.jpg)
 
 
 ### USB Relay and Solenoid Valve
@@ -92,7 +92,7 @@ The USB relay and solenoid valve control the water flowing to the LVR crate.
 This water is used for cooling the crate if it gets too hot. A diagram of
 the circuit is shown below.
 
-![Solenoid Valve Diagram](burnin_images/solenoid_valve_diagram.png)
+![Solenoid Valve Diagram](solenoid_valve_diagram.png)
 
 The USB relay in this diagram would be connected to the raspberry pi via USB.
 Multiple solenoid valves can be inserted into this system although now we
@@ -141,7 +141,7 @@ connected to the pi. The breakout board has one rail for the GND
 connection of each thermistor and one rail for the data obtained
 by the thermistor. A diagram of the circuit is shown below.
 
-![Thermistor Setup](burnin_images/thermistor_circuit_diagram.png)
+![Thermistor Setup](thermistor_circuit_diagram.png)
 
 The connections to the pins of the pi in the diagram are the same
 as the connections to the pins of the pi in use for the burn-in.

@@ -44,5 +44,5 @@ nav:
         - MiniDAQ usage: minidaq/minidaq_usage.md
         - CentOS tips: minidaq/centos_tips.md
     - Burn-in:
-        - Burn-in hardware setup: burnin/burin_hw_setup/burin_hw_setup.md
+        - Burn-in hardware setup: burnin/burnin_hw_setup/burnin_hw_setup.md
         - Burn-in system: burnin/burnin_doc.md
