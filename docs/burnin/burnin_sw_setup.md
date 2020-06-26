@@ -46,6 +46,10 @@ type `Ctrl+C` in order to issue a keyboard interrupt which will stop the code
 from running. After all codes are stopped, one can exit `tmux` panels by
 issuing the command `exit` within each panel.
 
+!!! warning
+    The `CtrlClient.py` should be stoped after a burn-in is finished, to avoid
+    collecting idle MARATON current readouts.
+
 
 ## Scripts to run on `Julian`
 Yipeng will take care of that. The gist is that `DataServer.py` and another
