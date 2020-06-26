@@ -1,4 +1,3 @@
-## Overview of the Burn-in hardware setup
 The hardware system has four major components:
 
 1. MARATON power supply: Connected to the crate containing the LVRs and
