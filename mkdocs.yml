@@ -35,7 +35,8 @@ nav:
         - DCB QA: dcb/dcb_qa/dcb_qa.md
     - LVR:
         - LVR mechanical assembly: lvr/lvr_assembly/lvr_assembly.md
-        - LVR QA: lvr/lvr_qa/lvr_qa.md
+        - LVR Setup QA: lvr/lvr_qa/lvr_qa.md
+        - LVR Final QA: lvr/final_qa/final_qa.md
         - LVR Configuration: lvr/lvr_config/lvr_config.md
         - CCM Identification Guide: lvr/ccm_id/ccm_id.md
         - CCM Test Stand Configuration: lvr/ccm_test_stand_config/ccm_test_stand_config.md
