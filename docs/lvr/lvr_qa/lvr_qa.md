@@ -201,9 +201,9 @@
     5. Verify all `V_OUT` channel values as shown on monitor go to ~0V.
     6. Set SW1 back to nominal \[**OFF, OFF, OFF, ON**\]
 
-!!! note
-    The output voltages in each channel will be slightly higher than that of the 
-    CCM voltage. 25 CCMs output ~2.7V, 15 output ~1.7 V, 12 output ~1.4 V
+    !!! note
+        The output voltages in each channel will be slightly higher than that of the
+        CCM voltage. 25 CCMs output ~2.7V, 15 output ~1.7 V, 12 output ~1.4 V
 
 19. Output standby configuration. Adjust the Voltage offsets at the
     following test point pairs using the following variable resistors
@@ -262,6 +262,5 @@
             05 05 05 05       04 04 04 04
             06 06 06 06       05 05 05 05
             07 07 07 07       06 06 06 06
-
 
 22. If it is not already, set SW3 1^st^ switch to **ON** (takes regulator out of pulsed mode).
