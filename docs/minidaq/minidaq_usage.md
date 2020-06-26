@@ -21,10 +21,10 @@ $HOME/src/sof_files
 After programming the MiniDAQ FPGA, **restart** (not power cycle) the server, and follow these steps:
 
 1. Open a terminal, type in:
-    ```
-    pcie40_reload -m
-    config_fPLL.py
-    ```
+
+        pcie40_reload -m
+        config_fPLL.py
+
 2. Start the Project by going to going to **Applications, WinCC, Project Administrator**.
 
 2. From the top menu, click **JCOP Framework**, then **Device Editor and Navigator**, then **FSM**.
