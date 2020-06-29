@@ -118,7 +118,7 @@
         1. If no program has been loaded onto the FPGA, go to Open Project, otherwise continue to 5.
         2. Inside the LVR folder select the program you want to run (this is already pre-loaded)
         3. Go to Configure Device
-        4. Click Browse, and select the file v1-0e_lvr_fw.stp
+        4. Click Browse, and select the file v2-03_lvr_fw.stp
         5. Set **MODE** to basic (should be default), and set **ACTION** to program
         6. Once that is complete, click **PROGRAM**
 
@@ -142,10 +142,11 @@
 
         ![](lvr_qa4.png)
 
-        1. Set SW5 to \[**OFF, OFF, OFF, OFF**\]
-        2. For SW4, for each channel pair that has a master-slave pair,
-           set each corresponding pin to **OFF** if a slave is present in
-           the channel pair, otherwise set to **ON**
+        1. SW3 sets CH1-4 enabled. Set it to \[**ON, ON, ON, ON**\]
+        2. SW2 sets CH5-8 enabled. Set it to \[**ON, ON, ON, ON**\]
+        3. For SW4, for each channel pair that has a master-slave pair,
+           set each corresponding pin to **ON** if a slave is present in
+           the channel pair, otherwise set to **OFF**
 
             | SW4 switcher | Channels |
             |--------------|----------|
@@ -154,15 +155,15 @@
             | 3            | CH5 & 6  |
             | 4            | CH7 & 8  |
 
-        3. Set SW2 and SW3 to \[**OFF, OFF, OFF, OFF**\]
+        4. Set SW5 to \[**ON, OFF, OFF, OFF**\] (channels come on immediately with power, output is constant rather than pulsed)
 
 
     4. Note that the ON position is labelled opposite the numbered
        slots (1, 2, 3, 4)
 
     5. Additionally, note that if you wish the board to be in pulsed
-       duty cycle, set SW3 pin 1 to **OFF**, otherwise keep pin at **ON**.
-       For most of the QA sequence it will be more useful in **ON**
+       duty cycle, set SW5 pin 2 to **ON**, otherwise keep pin at **OFF**.
+       For most of the QA sequence it will be more useful in **OFF**
 
         ![](lvr_qa5.png)
 
@@ -248,19 +249,10 @@
 21. SPI Communication test
     1. On the laptop's desktop, locate the "SPI test". Run this shortcut.
     2. The username and password are both 'spitest'
-    3. The 4 bytes transmitted to the LVR are in the left column, the 4 received are on the right. You should
-       see (possibly after 4-5 rounds of communication) that the message received from the LVR is the previous one that
-       was sent.
-    4. Finally, once communication is verified, connect the SPI_RESET line (floating green wire) to any GND test point on the LVR
+    3. You will see a menu for options to send commands to the LVR. Try requesting the LVR status (first option) and verify that the response ends in 0xFFFF. (All channels on)
+       You can also request WORD2, which should end with 0x203 (the FW version) and try modifying the config to turn all the channels OFF and ON again.
+    4. When you are satisfied the LVR is responding properly, connect the SPI_RESET line (floating green wire) to any GND test point on the LVR
        (the GND on the raspberry pi or the Rigol power supply also works in principle). The LVR should stop replying and
-       you should read the response as all 00 00 00 00 until you allow the SPI_RESET to float once more.
+       you should read the response as all 00 00 00 00 no matter the command you send until you allow the SPI_RESET to float once more.
 
-    !!! example
-        The following illustrates the kind of output you're looking for when communication is working:
-
-            04 04 04 04       03 03 03 03
-            05 05 05 05       04 04 04 04
-            06 06 06 06       05 05 05 05
-            07 07 07 07       06 06 06 06
-
-22. If it is not already, set SW3 1^st^ switch to **ON** (takes regulator out of pulsed mode).
+22. If it is not already, set SW5 2^nd^ switch to **OFF** (takes regulator out of pulsed mode).
