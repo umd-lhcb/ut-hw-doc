@@ -31,7 +31,7 @@
 
 1. Note Serial Number of LVR and CCM before beginning QA
 
-2. Verify that the chassis and power ground are isolated \> 25K Ohms.
+2. Verify that the chassis and power ground are isolated \> 25k Ohms.
     1. Measure input voltage at the large lugs at the top of the board
     2. Use any GND test point on the board (i.e. **`TP7`**)
     3. Repeat measurement reversing the polarity of leads (ground isolation circuit is different each way)
