@@ -6,10 +6,6 @@
     - Fused power input breakout board silk screen circuit labels are
       incorrect.
 
-    - ??? The LVR outputs should be connected to a benign load that can withstand
-      having upwards of 7V output. (i.e. the LVR channel outputs follow the input
-      power rail if the CCM is not populated and configured.)
-
     - Caution is needed when connecting test lead clips to the
       test points. The test points are rather fragile and easily pulled of the board.
 
@@ -20,11 +16,7 @@
       types split down the middle of the LVR (i.e. CH1-4 must have the same CCM
       voltage, CH5-8 must have the same CCM voltage)
 
-    - ??? The Master-Slave configurations require a jumper ON the LVR output breakout
-      board that electrically connects the master and slave output rails together.
-
-
-1. Place an ID sticker on a new LVR under the input connector at the top on the side with the CCM connectors (recall there is one input on one end and two outputs on the other), and document its serial number in the database. Also document which type of LVR you intend to QA (12MS, 12A, 12MSA, 15MS, 25A).
+1. Place an ID sticker on a new LVR under the input connector at the top on the side with the CCM connectors (recall the one input is on one end and the two outputs on the other), and document its serial number in the database. Also document which type of LVR you intend to QA (12MS, 12A, 12MSA, 15MS, 25A).
 
     !!! note The CCM serial number is documented at a later stage, during LVR assembly.
 
@@ -33,35 +25,38 @@
     2. Use any GND test point on the board (eg. **`TP7`**)
     3. Repeat measurement reversing the polarity of leads (ground isolation circuit is different each way)
 
-3. Set power supply initially to 1.6V and the current limited to 2.0A, and connect provided input breakout board. Verify polarity of connections visually
+3. Connect jumpers between **`J22`** (near ch8) pins 2 & 4 (`V_pump`) and between `J22` pins 1 & 3 (`V_jtag`). This will be to be able to program the FPGA later.
+
+4. Set power supply initially to 1.6V and the current limited to 2.0A, and connect provided input breakout board. Verify polarity of connections visually
     1. Red wire in positive terminal of power supply
     2. Blue wire in negative terminal
     3. Negative terminal ground shorted
 
-4. Turn power supply on. Connect the raspberry Pi LVR monitor to the board, and activate the LVR monitor on the laptop if it is not already running
+5. Turn power supply on. Connect the raspberry Pi LVR monitor to the board, and activate the LVR monitor on the laptop if it is not already running
     1. Go to PuTTY and select Monitor Pi
     2. Both user name and password are "`lvr`"
 
     !!! note If not using the raspberry Pi LVR monitor, place a DVM (DC Voltage Meter) between **`TP3`** (3.3V) and **`TP6`** (GND) to monitor the 3.3V rail,
     another DVM between **`TP8`** (1.5V) and **`TP6`** (GND) to monitor the 1.5V rail, and a third DVM between **`TP4`** (`Vop_rail`) and **`TP7`** (GND) to 
-    monitor the 5.5V rail. The first image below shows the location of **`TP3`**, **`TP6`**, and **`TP8`**, as well as potentiometers **`P1`** and **`P2`**
-    that will be used to adjust the 1.5V and 3.3V rails. The second image shows the locations of **`TP4`**, **`TP7`**, and **`P5`** for the 5.5V rail.
+    monitor the op amp rail. The first image below shows the location of **`TP3`**, **`TP6`**, and **`TP8`**, as well as potentiometers **`P1`** and **`P2`**
+    that will be used to adjust the 1.5V and 3.3V rails. The second image shows the locations of **`TP4`**, **`TP7`**, and **`P5`** for the op amp rail.
     
     ![](lvr_qa1.png)
     
     ![](lvr_qa2.png)
 
-5. Slowly increase the input voltage from the initial 1.6V while monitoring the 1.5V, 3.3V, and 5.5V rails to make sure they stay below the max values (warning below).
-Note that it is particularly important that the 5.5V rail not exceed 5.5V. As power is increased, the rails should near their desired value in the order: 1.5V, 3.3V,
-5.5V. These rail voltages are achieved by adjusting a corresponding potentiometer (see tip below. Also see images above for potentiometer locations). After adjusting,
-σV should be 0.01 V or less if possible.
+6. Slowly increase the input voltage from the initial 1.6V while monitoring the 1.5V, 3.3V, and op amp rails to make sure they stay below the max values (warning below).
+Note that it is particularly important that the op amp rail not exceed 5.5V. As power is increased, the rails should near their desired value in the order: 1.5V, 3.3V,
+op amp (the op amp rail working voltage range is 5.0-5.5V, with a preference to be in the range 5.45-5.5V, as this allows for a slightly better time response). These rail 
+voltages are achieved by adjusting a corresponding potentiometer (see tip below. Also see images above for potentiometer locations). After adjusting, the op amp rail
+should plateau in the range 5.45-5.5V and σV for the 1.5V and 3.3V rails should be 0.01V or less if possible.
     1. The 1.5V rail is adjusted using **`P1`** and can be read off the LVR monitor as `Vin_FPGA_1V5`
     2. The 3.3V rail is adjusted using **`P2`** and can be read off the LVR monitor as `Vin_FPGA_3V3`
     3. Increasing the power to around 4.5V, the expected input current given by the supply at this point should be around 0.09A. If it is substantially more there may
     be an issue. Both the 1.5V and 3.3V rails should be adjusted now and should no longer increase as the input voltage increases. Continue increasing the input voltage
-    (up to a max of 7V while monitoring the 5.5V rail).
-    4. The 5.5V rail is adjusted using **`P5`** and can be read off the LVR monitor as `V_OPAMP_RAIL` (this is the input voltage used to power op amps on the board and
-    CCM's). This rail should no longer increase as you increase the input voltage to 7V.
+    (up to a max of 7V while monitoring the op amp rail).
+    4. The op amp rail is adjusted using **`P5`** and can be read off the LVR monitor as `V_OPAMP_RAIL` (this is the voltage used to power op amps on the board and
+    CCM's). After adjusting, this rail should no longer increase as you increase the input voltage to 7V.
     
     !!! warning
         **STOP IF VALUES BELOW ARE EXCEEDED** to prevent damage.
@@ -71,32 +66,49 @@ Note that it is particularly important that the 5.5V rail not exceed 5.5V. As po
         - **The 5.5V rail (`Vop_rail`) should not exceed 5.5V!!**
 
     !!! tip
-        It may be useful to let the rail approach the desired value, then turn down
-        the setpoint to a value much below the current input voltage in order to find
-        the plateau (max voltage where the rail 'sticks') more quickly
+        It may be useful to let the rail approach the desired value from below as input voltage increases, then turn down the rail plateau to a value below the desired
+        final plateau, and make the final adjustments by turning the input voltage and rail plateau values up simultaneously. Note that you can verify the rail has
+        reached its plateau if you increase the input voltage and the rail voltage no longer increases.
 
-6. Program the FPGA
+6. Output standby configuration. Adjust the voltage offsets at the
+    following test point pairs using the following potentiometers, using a multimeter to read the DC voltage.
+
+    - CH 4-1: **`TP9`** (`Vos_gen`) and **`TP10`** (GND)
+    - CH 8-5: **`TP14`** (`Vos_gen`) and **`TP15`** (GND)
+
+    Adjust P3 and P4 on each respective side of the board in order
+    to configure the voltages. (They are beside the testpoints)
+
+    !!! note
+        Each 4-channel group must be set to operate with the same output
+        voltage according to what kind of CCM it will host as shown below:
+
+        | Vos [V] | Vccm [V] |
+        |---------|----------|
+        | 1.775   | 2.5      |
+        | 1.546   | 1.5      |
+        | 1.483   | 1.225    |
+
+7. Program the FPGA
     1. Turn power off
-    2. Connect jumpers between **`J22`** (near ch8) pins 2 & 4 (`V_pump`) and between `J22` pins 1 & 3 (`V_jtag`). You will have to disconnect the raspberry Pi LVR
-    monitor for this.
-    3. Connect programmer to **`J17`** (back of the board, center).
-    4. Turn power on (7V is still fine)
+    2. Connect programmer to **`J17`** (back of the board, center).
+    3. Turn power on (7V is still fine)
 
-    5. Initiate the program sequence, opening FlashPro on the laptop if is not already running
-        1. If no program has been loaded onto the FPGA, go to Open Project and select the pre-loaded program in the LVR folder you want to run. Otherwise, continue
+    4. Initiate the program sequence, opening FlashPro on the laptop if is not already running
+        1. If no program has been loaded onto the FPGA, go to Open Project and select the pre-loaded program in the LVR folder you want to run
         2. Go to Configure Device
         3. Click Browse, and select the file v2-03_lvr_fw.stp
         4. Set **MODE** to basic (should be default), and set **ACTION** to program
         5. Once that is complete, click **PROGRAM**
 
-    6. Check in the log that the auto-verify ran successfully.
+    5. Check in the log that the auto-verify ran successfully.
 
-7. Turn off power and install CCM's. For an MS type LVR, going down the board on one side, arrange CCM's as master, slave, master, slave, etc. with masters going on
-odd channels, slaves on even
+8. Turn off power and install CCM's. For an MS type LVR, going down the board on one side, arrange CCM's as master, slave, master, slave, etc. with masters going on
+odd channels, slaves on even. For an A type LVR, place stand-alone single master (A) CCM's in every channel. For MSA type, fill half the channels with MS (all on one side)
+and half with A CCM's. You will have to disconnect the raspberry Pi LVR monitor to be able to get to the bottom CCM connectors.
 
-8. Set dip switch configuration for undervoltage lockout and overtemp lockout
-    1. Locate four dip switches SW6\[A,B,C,D\]. Note the side of the switch
-       body labeled ON.
+9. Set dip switch configuration for undervoltage lockout and overtemp lockout
+    1. Locate four dip switches SW6\[A,B,C,D\]. Note the side of the switch body labeled ON (for all the dip switches, ON is opposite the numbered slots 1-4).
        Set the 3^rd^ switch to **ON**. Leave others **OFF**. These switches (and SW1) are circled in the image below.
 
         ![](lvr_qa3.png)
@@ -130,7 +142,7 @@ odd channels, slaves on even
 
         ![](lvr_qa5.png)
 
-9. Undervoltage Lockout test
+10. Undervoltage Lockout test    ~~~TODO~~~
     1. Set input power to ~4.8 V and connect raspberry Pi LVR monitor
     2. Reduce the input power gradually, and confirm that the outputs shut off below
        4.5-4.6 volts (ish).
@@ -153,7 +165,7 @@ odd channels, slaves on even
         | SW6C         | CH3 & 4  |
         | SW6D         | CH1 & 2  |
 
-10. Overtemperature lockout test
+11. Overtemperature lockout test
     1. Locate SW1.
     2. Set SW1 to \[**ON, ON, ON, ON**\].
 
@@ -168,26 +180,6 @@ odd channels, slaves on even
     !!! note
         The output voltages in each channel will be slightly higher than that of the
         CCM voltage. 25 CCMs output ~2.7V, 15 output ~1.7 V, 12 output ~1.4 V
-
-11. Output standby configuration. Adjust the Voltage offsets at the
-    following test point pairs using the following variable resistors, using a multimeter to read the DC voltage.
-
-    - CH 4-1: **`TP9`** (`Vos_gen`) and **`TP10`** (GND)
-    - CH 8-5: **`TP14`** (`Vos_gen`) and **`TP15`** (GND)
-
-    Adjust P3 and P4 on each respective side of the board in order
-    to configure the voltages. (They are beside the testpoints. You can remove
-    the nearby CCM if it gets in your way)
-
-    !!! note
-        Each 4-channel group must be set to operate with the same output
-        voltage according to what kind of CCM it will host as shown below:
-
-        | Vos [V] | Vccm [V] |
-        |---------|----------|
-        | 1.775   | 2.5      |
-        | 1.546   | 1.5      |
-        | 1.483   | 1.225    |
 
 12. Use the RJ45 breakout board to perform the sense line test.
     Verify that the voltage of a channel goes to RAIL when the corresponding sense
