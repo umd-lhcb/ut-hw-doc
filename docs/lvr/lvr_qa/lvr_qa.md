@@ -20,9 +20,6 @@
       types split down the middle of the LVR (i.e. CH1-4 must have the same CCM
       voltage, CH5-8 must have the same CCM voltage)
 
-    - SHOULD BE MENTIONED LATER WHEN THE STEP COMES UP: Going down the board on one side, arrange CCMs as master, slave, master,
-      slave, etc. with masters going on odd channels, slaves on even.
-
     - ??? The Master-Slave configurations require a jumper ON the LVR output breakout
       board that electrically connects the master and slave output rails together.
 
@@ -62,9 +59,9 @@ Note that it is particularly important that the 5.5V rail not exceed 5.5V. As po
     2. The 3.3V rail is adjusted using **`P2`** and can be read off the LVR monitor as `Vin_FPGA_3V3`
     3. Increasing the power to around 4.5V, the expected input current given by the supply at this point should be around 0.09A. If it is substantially more there may
     be an issue. Both the 1.5V and 3.3V rails should be adjusted now and should no longer increase as the input voltage increases. Continue increasing the input voltage
-    (up to a max of 7V for the final rail).
+    (up to a max of 7V while monitoring the 5.5V rail).
     4. The 5.5V rail is adjusted using **`P5`** and can be read off the LVR monitor as `V_OPAMP_RAIL` (this is the input voltage used to power op amps on the board and
-    CCM's). This rail should no longer increase when you increase the input voltage to 7V.
+    CCM's). This rail should no longer increase as you increase the input voltage to 7V.
     
     !!! warning
         **STOP IF VALUES BELOW ARE EXCEEDED** to prevent damage.
