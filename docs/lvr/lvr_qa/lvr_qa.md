@@ -6,60 +6,54 @@
     - Fused power input breakout board silk screen circuit labels are
       incorrect.
 
-    - The LVR outputs should be connected to a benign load that can withstand
+    - ??? The LVR outputs should be connected to a benign load that can withstand
       having upwards of 7V output. (i.e. the LVR channel outputs follow the input
       power rail if the CCM is not populated and configured.)
 
-    - Extreme caution is needed when connecting test lead clips to the
-      test points.
-
-    - The test points are rather fragile and easily pulled of the board.
+    - Caution is needed when connecting test lead clips to the
+      test points. The test points are rather fragile and easily pulled of the board.
 
     - Care must be taken to avoid temporary unintended shorts from the high
       density of surrounding components, via's, and traces.
 
-    - When configuring the CCMs on the LVR, remember that CCM voltage
+    - SHOULD BE MENTIONED LATER WHEN THE STEP COMES UP: When configuring the CCMs on the LVR, remember that CCM voltage
       types split down the middle of the LVR (i.e. CH1-4 must have the same CCM
       voltage, CH5-8 must have the same CCM voltage)
 
-    - Going down the board on one side, arrange CCMs as master, slave, master,
-      slave, etc.
+    - SHOULD BE MENTIONED LATER WHEN THE STEP COMES UP: Going down the board on one side, arrange CCMs as master, slave, master,
+      slave, etc. with masters going on odd channels, slaves on even.
 
-    - The Master-Slave configurations require a jumper ON the LVR output breakout
+    - ??? The Master-Slave configurations require a jumper ON the LVR output breakout
       board that electrically connects the master and slave output rails together.
 
 
-1. Note Serial Number of LVR and CCM before beginning QA
+1. Place an ID sticker on a new LVR under the input connector at the top on the side with the CCM connectors (recall there is one input on one end and two outputs on the other), and document its serial number in the database. Also document which type of LVR you intend to QA (12MS, 12A, 12MSA, 15MS, 25A).
 
-2. Verify that the chassis and power ground are isolated \> 25k Ohms.
-    1. Measure input voltage at the large lugs at the top of the board
-    2. Use any GND test point on the board (i.e. **`TP7`**)
+    !!! note The CCM serial number is documented at a later stage, during LVR assembly.
+
+2. Verify that the chassis and power ground are isolated \> 25k Ohms
+    1. Measure input voltage at the large lugs near the outputs at the bottom of the board
+    2. Use any GND test point on the board (eg. **`TP7`**)
     3. Repeat measurement reversing the polarity of leads (ground isolation circuit is different each way)
 
-3. Activate the LVR monitor if it is not already running
+3. Set power supply initially to 1.6V and the current limited to 2.0A, and connect provided input breakout board. Verify polarity of connections visually
+    1. Red wire in positive terminal of power supply
+    2. Blue wire in negative terminal
+    3. Negative terminal ground shorted
+
+4. Turn power supply on. Connect the raspberry Pi LVR monitor to the board, and activate the LVR monitor on the laptop if it is not already running
     1. Go to PuTTY and select Monitor Pi
     2. Both user name and password are "`lvr`"
 
-4. Set power supply initially to 1.6V and the current limited to 2.0A
+    !!! note If not using the raspberry Pi LVR monitor, place a DVM (DC Voltage Meter) between **`TP3`** (3.3V) and **`TP6`** (GND) to monitor the 3.3V rail,
+    another DVM between **`TP8`** (1.5V) and **`TP6`** (GND) to monitor the 1.5V rail, and a third DVM between **`TP4`** (`Vop_rail`) and **`TP7`** (GND) to 
+    monitor the 5.5V rail. The first image below shows the location of **`TP3`**, **`TP6`**, and **`TP8`**, as well as potentiometers **`P1`** and **`P2`**
+    that will be used to adjust the ~~~
+    
+    ![](lvr_qa1.png)
 
-5. Connect provided input breakout board. Verify polarity of connections visually
-    1. Red wire in positive terminal of power supply
-    2. Blue wire in negative terminal
-    3. Negative terminal and power supply ground shorted
-
-6. If not using the raspberry pi LVR monitor, place a DVM (DC Voltage Meter) between **`TP3`** (3.3V) and **`TP6`** (GND)
-   to monitor the 3.3V rail, otherwise proceed to step 8.
-
-7. Place another DVM between **`TP8`** (1.5V) and **`TP6`** (GND) to monitor
-   the 1.5N rail
-
-    !!! note
-        You can also use the LVR monitor for this section, looking at
-        the `Vin_FPGA_3V3` and `Vin_FPGA_1V5` reading.
-
-8. Slowly increase the input voltage from the initial 1.6V to a max of
-   4.5V while monitoring the 3.3V and 1.5V rails to make sure they stay
-   below the max values.
+5. Slowly increase the input voltage from the initial 1.6V while monitoring the 3.3V and 1.5V rails to make sure they stay below the max values (below). 
+    1. The 1.5V rail 
 
     !!! warning
         **STOP IF VALUES BELOW ARE EXCEEDED** to prevent damage.
@@ -71,6 +65,11 @@
         It may be useful to let the rail approach the desired value, then turn down
         the setpoint to a value much below the current input voltage in order to find
         the plateau (max voltage where the rail 'sticks') more quickly
+    
+    
+    !!! note
+        You can also use the LVR monitor for this section, looking at
+        the `Vin_FPGA_3V3` and `Vin_FPGA_1V5` reading.
 
 9. Adjust P1 to obtain 1.5V  on **`TP8`**.
 
