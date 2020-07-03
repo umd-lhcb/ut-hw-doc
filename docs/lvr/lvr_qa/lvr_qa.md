@@ -16,7 +16,7 @@
     - Care must be taken to avoid temporary unintended shorts from the high
       density of surrounding components, via's, and traces.
 
-    - SHOULD BE MENTIONED LATER WHEN THE STEP COMES UP: When configuring the CCMs on the LVR, remember that CCM voltage
+    - When configuring the CCMs on the LVR, remember that CCM voltage
       types split down the middle of the LVR (i.e. CH1-4 must have the same CCM
       voltage, CH5-8 must have the same CCM voltage)
 
@@ -48,96 +48,66 @@
     !!! note If not using the raspberry Pi LVR monitor, place a DVM (DC Voltage Meter) between **`TP3`** (3.3V) and **`TP6`** (GND) to monitor the 3.3V rail,
     another DVM between **`TP8`** (1.5V) and **`TP6`** (GND) to monitor the 1.5V rail, and a third DVM between **`TP4`** (`Vop_rail`) and **`TP7`** (GND) to 
     monitor the 5.5V rail. The first image below shows the location of **`TP3`**, **`TP6`**, and **`TP8`**, as well as potentiometers **`P1`** and **`P2`**
-    that will be used to adjust the ~~~
+    that will be used to adjust the 1.5V and 3.3V rails. The second image shows the locations of **`TP4`**, **`TP7`**, and **`P5`** for the 5.5V rail.
     
     ![](lvr_qa1.png)
+    
+    ![](lvr_qa2.png)
 
-5. Slowly increase the input voltage from the initial 1.6V while monitoring the 3.3V and 1.5V rails to make sure they stay below the max values (below). 
-    1. The 1.5V rail 
-
+5. Slowly increase the input voltage from the initial 1.6V while monitoring the 1.5V, 3.3V, and 5.5V rails to make sure they stay below the max values (warning below).
+Note that it is particularly important that the 5.5V rail not exceed 5.5V. As power is increased, the rails should near their desired value in the order: 1.5V, 3.3V,
+5.5V. These rail voltages are achieved by adjusting a corresponding potentiometer (see tip below. Also see images above for potentiometer locations). After adjusting,
+σV should be 0.01 V or less if possible.
+    1. The 1.5V rail is adjusted using **`P1`** and can be read off the LVR monitor as `Vin_FPGA_1V5`
+    2. The 3.3V rail is adjusted using **`P2`** and can be read off the LVR monitor as `Vin_FPGA_3V3`
+    3. Increasing the power to around 4.5V, the expected input current given by the supply at this point should be around 0.09A. If it is substantially more there may
+    be an issue. Both the 1.5V and 3.3V rails should be adjusted now and should no longer increase as the input voltage increases. Continue increasing the input voltage
+    (up to a max of 7V for the final rail).
+    4. The 5.5V rail is adjusted using **`P5`** and can be read off the LVR monitor as `V_OPAMP_RAIL` (this is the input voltage used to power op amps on the board and
+    CCM's). This rail should no longer increase when you increase the input voltage to 7V.
+    
     !!! warning
         **STOP IF VALUES BELOW ARE EXCEEDED** to prevent damage.
 
         - 1.5V x 110% = 1.65V
         - 3.3V x 110% = 3.63V
+        - **The 5.5V rail (`Vop_rail`) should not exceed 5.5V!!**
 
     !!! tip
         It may be useful to let the rail approach the desired value, then turn down
         the setpoint to a value much below the current input voltage in order to find
         the plateau (max voltage where the rail 'sticks') more quickly
-    
-    
-    !!! note
-        You can also use the LVR monitor for this section, looking at
-        the `Vin_FPGA_3V3` and `Vin_FPGA_1V5` reading.
 
-9. Adjust P1 to obtain 1.5V  on **`TP8`**.
-
-10. Continue increasing the input voltage and similarly adjust P2 to obtain 3.3V on **`TP3`**.
-
-11. Both the 3.3V and 1.5V rails should be correct now and no longer
-    increase as input voltage goes up. σV should be 0.01 V or less if possible.
-
-12. Expected input current given by the supply at this point should be around 0.09A.
-    If it is substantially more there may be an issue.
-
-13. If not using the LVR monitor, place a DVM between **`TP4`** (`Vop_rail`) and **`TP7`** (GND).
-    Otherwise proceed.
-
-    ![](lvr_qa1.png)
-
-14. Slowly increase the input voltage to 7V until EITHER the Vop\_rail
-    stops increasing or hits 5.5V. (Note this is just the same thing as
-    for the 1.5V and 3.3V, just now it's 5.5V).
-
-
-    1. Adjust P5 whilst increasing the input voltage
-    2. The `Vop_rail` will clamp at a maximum of 5.5V when properly
-        adjusted.
-
-    ![](lvr_qa2.png)
-
-    !!! warning
-        **IT IS IMPERATIVE THAT THE `Vop_rail` NOT EXCEED 5.5V !!!!**
-
-    !!! tip
-        In the LVR monitor software this voltage rail is denoted as
-        `V_OPAMP_RAIL`, because this is the input voltage used to power
-        OpAmps (operational amplifiers) on the board and ccms.
-
-15. Program the FPGA
+6. Program the FPGA
     1. Turn power off
-    2. Connect jumpers between **`J22`** (near ch8)
-        pins 2 & 4 (`V_pump`) and between
-       `J22` pins 1 & 3 (`V_jtag`).
+    2. Connect jumpers between **`J22`** (near ch8) pins 2 & 4 (`V_pump`) and between `J22` pins 1 & 3 (`V_jtag`). You will have to disconnect the raspberry Pi LVR
+    monitor for this.
     3. Connect programmer to **`J17`** (back of the board, center).
-    4. Turn power on
+    4. Turn power on (7V is still fine)
 
-    5. Initiate the program sequence
-        1. If no program has been loaded onto the FPGA, go to Open Project, otherwise continue to 5.
-        2. Inside the LVR folder select the program you want to run (this is already pre-loaded)
-        3. Go to Configure Device
-        4. Click Browse, and select the file v2-03_lvr_fw.stp
-        5. Set **MODE** to basic (should be default), and set **ACTION** to program
-        6. Once that is complete, click **PROGRAM**
+    5. Initiate the program sequence, opening FlashPro on the laptop if is not already running
+        1. If no program has been loaded onto the FPGA, go to Open Project and select the pre-loaded program in the LVR folder you want to run. Otherwise, continue
+        2. Go to Configure Device
+        3. Click Browse, and select the file v2-03_lvr_fw.stp
+        4. Set **MODE** to basic (should be default), and set **ACTION** to program
+        5. Once that is complete, click **PROGRAM**
 
     6. Check in the log that the auto-verify ran successfully.
 
-    7. Turn off power and install CCMs
+7. Turn off power and install CCM's. For an MS type LVR, going down the board on one side, arrange CCM's as master, slave, master, slave, etc. with masters going on
+odd channels, slaves on even
 
-
-16. Set dip switch configuration for undervoltage lockout and overtemp
-    lockout
-    1. Locate dip switches SW6\[A,B,C,D\]. Note the side of the switch
+8. Set dip switch configuration for undervoltage lockout and overtemp lockout
+    1. Locate four dip switches SW6\[A,B,C,D\]. Note the side of the switch
        body labeled ON.
-       Set the 3^rd^ switch to **ON**. Leave others **OFF**.
+       Set the 3^rd^ switch to **ON**. Leave others **OFF**. These switches (and SW1) are circled in the image below.
 
         ![](lvr_qa3.png)
 
     2. Locate the switch labeled SW1. Set the 4^th^ switch to **ON**. Leave
        others **OFF**.
 
-    3. Locate the switches on the back of the regulator (SW2-5)
+    3. Locate the switches on the back of the regulator, SW2-5 (circled in the image below)
 
         ![](lvr_qa4.png)
 
@@ -157,17 +127,14 @@
         4. Set SW5 to \[**ON, OFF, OFF, OFF**\] (channels come on immediately with power, output is constant rather than pulsed)
 
 
-    4. Note that the ON position is labelled opposite the numbered
-       slots (1, 2, 3, 4)
-
-    5. Additionally, note that if you wish the board to be in pulsed
+    4. Additionally, note that if you wish the board to be in pulsed
        duty cycle, set SW5 pin 2 to **ON**, otherwise keep pin at **OFF**.
        For most of the QA sequence it will be more useful in **OFF**
 
         ![](lvr_qa5.png)
 
-17. Undervoltage Lockout test
-    1. Set input power to ~4.8 V
+9. Undervoltage Lockout test
+    1. Set input power to ~4.8 V and connect raspberry Pi LVR monitor
     2. Reduce the input power gradually, and confirm that the outputs shut off below
        4.5-4.6 volts (ish).
 
@@ -189,7 +156,7 @@
         | SW6C         | CH3 & 4  |
         | SW6D         | CH1 & 2  |
 
-18. Overtemperature lockout test
+10. Overtemperature lockout test
     1. Locate SW1.
     2. Set SW1 to \[**ON, ON, ON, ON**\].
 
@@ -205,8 +172,8 @@
         The output voltages in each channel will be slightly higher than that of the
         CCM voltage. 25 CCMs output ~2.7V, 15 output ~1.7 V, 12 output ~1.4 V
 
-19. Output standby configuration. Adjust the Voltage offsets at the
-    following test point pairs using the following variable resistors
+11. Output standby configuration. Adjust the Voltage offsets at the
+    following test point pairs using the following variable resistors, using a multimeter to read the DC voltage.
 
     - CH 4-1: **`TP9`** (`Vos_gen`) and **`TP10`** (GND)
     - CH 8-5: **`TP14`** (`Vos_gen`) and **`TP15`** (GND)
@@ -225,7 +192,7 @@
         | 1.546   | 1.5      |
         | 1.483   | 1.225    |
 
-20. Use the RJ45 breakout board to perform the sense line test.
+12. Use the RJ45 breakout board to perform the sense line test.
     Verify that the voltage of a channel goes to RAIL when the corresponding sense
     lines are shorted to each other. The sense lines are mapped to the RJ45 as follows:
 
@@ -245,7 +212,7 @@
         Slave channels will not alter voltage when shorting those channels.
         They will only go to RAIL when shorting their respective master channels.
 
-21. SPI Communication test
+13. SPI Communication test
     1. On the laptop's desktop, locate the "SPI test". Run this shortcut.
     2. The username and password are both 'spitest'
     3. You will see a menu for options to send commands to the LVR. Try requesting the LVR status (first option) and verify that the response ends in 0xFFFF. (All channels on)
@@ -254,4 +221,6 @@
        (the GND on the raspberry pi or the Rigol power supply also works in principle). The LVR should stop replying and
        you should read the response as all 00 00 00 00 no matter the command you send until you allow the SPI_RESET to float once more.
 
-22. If it is not already, set SW5 2^nd^ switch to **OFF** (takes regulator out of pulsed mode).
+14. If it is not already, set SW5 2^nd^ switch to **OFF** (takes regulator out of pulsed mode).
+15. Place colored stickers on the board near the CCM connectors to indicate which CCM's were used on the board during the QA. Disconnect everything from the board
+(excluding the jumpers placed on **`J22`**).
