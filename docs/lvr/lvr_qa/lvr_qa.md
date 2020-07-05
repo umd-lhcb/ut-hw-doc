@@ -25,14 +25,12 @@
     2. Use any GND test point on the board (eg. **`TP7`**)
     3. Repeat measurement reversing the polarity of leads (ground isolation circuit is different each way)
 
-3. Connect jumpers between **`J22`** (near ch8) pins 2 & 4 (`V_pump`) and between `J22` pins 1 & 3 (`V_jtag`). This will be to be able to program the FPGA later.
-
-4. Set power supply initially to 1.6V and the current limited to 2.0A, and connect provided input breakout board. Verify polarity of connections visually
+3. Set power supply initially to 1.6V and the current limited to 2.0A, and connect provided input breakout board. Verify polarity of connections visually
     1. Red wire in positive terminal of power supply
     2. Blue wire in negative terminal
     3. Negative terminal ground shorted
 
-5. Turn power supply on. Connect the raspberry Pi LVR monitor to the board, and activate the LVR monitor on the laptop if it is not already running
+4. Turn power supply on. Connect the raspberry Pi LVR monitor to the board, and activate the LVR monitor on the laptop if it is not already running
     1. Go to PuTTY and select Monitor Pi
     2. Both user name and password are "`lvr`"
 
@@ -45,7 +43,7 @@
     
     ![](lvr_qa2.png)
 
-6. Slowly increase the input voltage from the initial 1.6V while monitoring the 1.5V, 3.3V, and op amp rails to make sure they stay below the max values (warning below).
+5. Slowly increase the input voltage from the initial 1.6V while monitoring the 1.5V, 3.3V, and op amp rails to make sure they stay below the max values (warning below).
 Note that it is particularly important that the op amp rail not exceed 5.5V. As power is increased, the rails should near their desired value in the order: 1.5V, 3.3V,
 op amp (the op amp rail working voltage range is 5.0-5.5V, with a preference to be in the range 5.45-5.5V, as this allows for a slightly better time response). These rail 
 voltages are achieved by adjusting a corresponding potentiometer (see tip below. Also see images above for potentiometer locations). After adjusting, the op amp rail
@@ -91,21 +89,21 @@ should plateau in the range 5.45-5.5V and σV for the 1.5V and 3.3V rails should
 
 7. Program the FPGA
     1. Turn power off
-    2. Connect programmer to **`J17`** (back of the board, center).
-    3. Turn power on (7V is still fine)
-
-    4. Initiate the program sequence, opening FlashPro on the laptop if is not already running
+    2. Connect jumpers between **`J22`** (near ch8) pins 2 & 4 (`V_pump`) and between `J22` pins 1 & 3 (`V_jtag`). You will have to disconnect the raspberry Pi LVR
+    monitor to be able to do this; you can leave it off for now.
+    3. Connect programmer to **`J17`** (back of the board, center).
+    4. Turn power on (7V is still fine)
+    5. Initiate the program sequence, opening FlashPro on the laptop if is not already running
         1. If no program has been loaded onto the FPGA, go to Open Project and select the pre-loaded program in the LVR folder you want to run
         2. Go to Configure Device
         3. Click Browse, and select the file v2-03_lvr_fw.stp
         4. Set **MODE** to basic (should be default), and set **ACTION** to program
         5. Once that is complete, click **PROGRAM**
-
-    5. Check in the log that the auto-verify ran successfully.
+    6. Check in the log that the auto-verify ran successfully.
 
 8. Turn off power and install CCM's. For an MS type LVR, going down the board on one side, arrange CCM's as master, slave, master, slave, etc. with masters going on
 odd channels, slaves on even. For an A type LVR, place stand-alone single master (A) CCM's in every channel. For MSA type, fill half the channels with MS (all on one side)
-and half with A CCM's. You will have to disconnect the raspberry Pi LVR monitor to be able to get to the bottom CCM connectors.
+and half with A CCM's.
 
 9. Set dip switch configuration for undervoltage lockout and overtemp lockout
     1. Locate four dip switches SW6\[A,B,C,D\]. Note the side of the switch body labeled ON (for all the dip switches, ON is opposite the numbered slots 1-4).
@@ -142,10 +140,10 @@ and half with A CCM's. You will have to disconnect the raspberry Pi LVR monitor 
 
         ![](lvr_qa5.png)
 
-10. Undervoltage Lockout test    ~~~TODO~~~
-    1. Set input power to ~4.8 V and connect raspberry Pi LVR monitor
-    2. Reduce the input power gradually, and confirm that the outputs shut off below
-       4.5-4.6 volts (ish).
+10. Undervoltage Lockout test
+    1. Set input power to ~4.8V, turn power on, and connect raspberry Pi LVR monitor
+    2. Reduce the input power gradually, and confirm that the outputs shut off (go to ~0V) below
+       4.5-4.6 volts (ish). After confirming this, turn the input power back to ~4.8V so that the outputs are on for the next test.
 
     !!! info
         To test individual undervoltage lockouts (if needed) use the following procedure
@@ -164,22 +162,24 @@ and half with A CCM's. You will have to disconnect the raspberry Pi LVR monitor 
         | SW6B         | CH5 & 6  |
         | SW6C         | CH3 & 4  |
         | SW6D         | CH1 & 2  |
+        
+    
+    !!! note
+        The output voltages in each channel will be slightly higher than that of the
+        CCM voltage. 25 CCMs output ~2.7V, 15 output ~1.7 V, 12 output ~1.4 V
 
 11. Overtemperature lockout test
     1. Locate SW1.
     2. Set SW1 to \[**ON, ON, ON, ON**\].
 
         !!! info
-            This tells the board that it should shut down if it gets above ~ 20C (room temperature).
+            This tells the board that it should shut down if it gets above ~ 20C (room temperature). You actually may already see overtemperature lockout occur when SW1 is
+            set to \[**OFF, OFF, ON, ON**\], but still, perform this test by setting SW1 to \[**ON, ON, ON, ON**\].
 
     3. Locate **`LD7`** (bottom left corner of LVR).
     4. Verify **`LD7`** is `ON`.
     5. Verify all `V_OUT` channel values as shown on monitor go to ~0V.
     6. Set SW1 back to nominal \[**OFF, OFF, OFF, ON**\]
-
-    !!! note
-        The output voltages in each channel will be slightly higher than that of the
-        CCM voltage. 25 CCMs output ~2.7V, 15 output ~1.7 V, 12 output ~1.4 V
 
 12. Use the RJ45 breakout board to perform the sense line test.
     Verify that the voltage of a channel goes to RAIL when the corresponding sense
@@ -211,5 +211,5 @@ and half with A CCM's. You will have to disconnect the raspberry Pi LVR monitor 
        you should read the response as all 00 00 00 00 no matter the command you send until you allow the SPI_RESET to float once more.
 
 14. If it is not already, set SW5 2^nd^ switch to **OFF** (takes regulator out of pulsed mode).
-15. Place colored stickers on the board near the CCM connectors to indicate which CCM's were used on the board during the QA. Disconnect everything from the board
-(excluding the jumpers placed on **`J22`**).
+15. Disconnect everything from the board (excluding the jumpers placed on **`J22`**), and place colored stickers on the board near the CCM connectors to indicate which
+CCM's were used on the board during the QA.
