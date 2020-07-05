@@ -204,8 +204,8 @@ and half with A CCM's.
 13. SPI Communication test
     1. On the laptop's desktop, locate the "SPI test". Run this shortcut.
     2. The username and password are both 'spitest'
-    3. You will see a menu for options to send commands to the LVR. Try requesting the LVR status (first option) and verify that the response ends in 0xFFFF. (All channels on)
-       You can also request WORD2, which should end with 0x203 (the FW version) and try modifying the config to turn all the channels OFF and ON again.
+    3. You will see a menu for options to send commands to the LVR. Try requesting the LVR status (first option) and verify that the response ends in 0xFFFF (all 
+    channels on). You can also request WORD2, which should end with 0x203 (the FW version) and try modifying the config to turn all the channels OFF and ON again.
     4. When you are satisfied the LVR is responding properly, connect the SPI_RESET line (floating green wire) to any GND test point on the LVR
        (the GND on the raspberry pi or the Rigol power supply also works in principle). The LVR should stop replying and
        you should read the response as all 00 00 00 00 no matter the command you send until you allow the SPI_RESET to float once more.
