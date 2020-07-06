@@ -49,7 +49,9 @@ Verify the jumper on **`J2`**, next to the optical mezzanines, looks like this
 ![Fuse Jumper](fusing/fuse_jumper.jpg)
 
 There will already be an optical mezzanine connected to a dongle that you need
-to attach to the DCB. It goes over the outline with the label `OMDBMC`. Don't
+to attach to the DCB, verify that the dongle coneections look like this.
+![Dongle Connection 2](fusing/fuse_dongle.jpg)
+The mezzanine goes over the outline with the label `OMDBMC`. Don't
 worry about screwing it in, this is a temporary setup.
 
 ![Dongle Connection](fusing/fuse_connection_LI.jpg)
@@ -72,7 +74,7 @@ picture below. Power on the DCB.
     - click **Import Image**, make sure you can see .txt files, and select
       `master.txt`
     - click **Write GBTX** then **Read GBTX**, the state should change to
-      `waitDESLock`
+      `waitDESLock`, if the state changes to `Idle` please follow the instructions outlined [here](https://github.com/umd-lhcb/lab-notes/issues/70) and note it into the database.
     - to the right of table, find and click update view. All of the entries in
       the table should now be green
     - Now check **enable fusing** and
@@ -89,7 +91,7 @@ picture below. Power on the DCB.
 
 5. To verify the fuse was successful, power the DCB back on.
     - in the **GBTX Programmer**, read and update view like before. The table
-      should still be all green
+      should still be all green, except the last register 365.
 
 6. Add a red jumper to connector **`J4`** as shown
     ![Jumper J4](fusing/jumper_crop.jpg)
@@ -111,6 +113,7 @@ picture below. Power on the DCB.
    should be sequential except for the two attached fibers which go to the
    master.
     - The order should be something like 1, 2, Masters, 3, 4, 5, 6
+    - The Master is connected to fiber 3 which corresponds to GBT ID 10
 
 4. Correct slot based on stave connection
     - will either be **`JD10`** (for stave **`JP8`**) or **`JD11`** (for stave **`JP11`**)
@@ -170,13 +173,13 @@ board gets power cycled.
 1. In the `nanoDAQ` command prompt, we're going to pull the reset, also called
    GPIO, low and try to program it then high and try to program it.
 
-2. First, enter `./dcbutil.py gpio --reset 0 1 2 3 4 5 6 --final_state low` to
+2. First, enter `./dcbutil.py gpio --reset 0 1 2 3 4 5 6 --final_state low -g 10` to
    pull all resets low. Then attempt to program the GBTxs with
-   `./dcbutil.py init ./gbtx_config/slave-Tx-wrong_termination.txt -g 0`
+   `./dcbutil.py init ./gbtx_config/slave-Tx-wrong_termination.txt -g 10`
     - You should get an error
 
 3. Now do the reverse by changing --final_state to high to enter
-   `./dcbutil.py gpio --reset 0 1 2 3 4 5 6 --final_state high` You should now
+   `./dcbutil.py gpio --reset 0 1 2 3 4 5 6 --final_state high -g 10` You should now
    be able to program the GBTxs with the command you inputted earlier.
 
 
@@ -188,7 +191,7 @@ board gets power cycled.
 
     ![TOP Panel](prbs/top.png)
 
-1. To start PRBS, go to the nanoDAQ command line and enter `./dcbutil.py prbs on`
+1. To start PRBS, go to the nanoDAQ command line and enter `./dcbutil.py prbs on -g 10`
 
 2. Open the PRBS panel by going to the top MiniDAQ hardware panel and clicking
    **PRBS**.
@@ -213,8 +216,8 @@ board gets power cycled.
     ![Monitor](prbs/monitor_edit.jpg)
 
 5. Check if the DCB can regain lock by unplugging the master optical fibers then
-   plugging them back in. Remember, master are the ones connected.
-    - Enter `./dcbutil.py prbs off` in the nanoDAQ command line. No output is a
+   plugging them back in. 
+    - Enter `./dcbutil.py prbs off -g 10` in the nanoDAQ command line. No output is a
       success, otherwise it will report "Master GBT not locked"
 
 !!! warning
@@ -245,33 +248,33 @@ clicking **TELL40** until the following panel shows up, with the tab for
     The last **TELL40** has a suffix, click on the first **Dev1_0**
 
 1. In `nanoDAQ`, type in the command `./dcbutil.py gpio --reset 0 1 2 3 4 5
-   --final_state low`
-    - Now type `./saltutil.py [I2C] read 0 0 1` replacing the `[I2C]` with `3`,
+   --final_state low -g 10`
+    - Now type `./saltutil.py [I2C] read 0 0 1 -g 10` replacing the `[I2C]` with `3`,
       `4`, and `5` if the DCB is in slot **`JD10`**.
     - Replace with `0`, `1`, `2` if the DCB is in slot **`JD11`**
     - You have to enter this command 3 times, once for each number.
 
 2. If it is working correctly you'll get an error. Then repeat the process
    but change the final state to high. You should get a result.
-    - `./dcbutil.py gpio --reset 0 1 2 3 4 5 --final_state high`
+    - `./dcbutil.py gpio --reset 0 1 2 3 4 5 --final_state high -g 10`
 
 3. The following is for a DCB in slot **`JD10`** only
-    1. Start with `./saltutil.py 4 init` for I2C 4
-    2. Type `./dcbutil.py init ~/bin/tmp_0.xml -s 1` to work with GBT 1
+    1. Start with `./saltutil.py 4 init -g 10` for I2C 4
+    2. Type `./dcbutil.py init ~/bin/tmp_0.xml -g 10 -s 1` to work with GBT 1
     3. Go to the memory monitoring panel and select link 22 at the top
         - Verify that **Write Address Memory** on the right changes values every
           couple seconds and **Write Signal Status** is green.
     4. Now look at the table, focusing on the latter 3 columns. There are 8
        digits in each column. If they are NOT stable values,
-       go to `nanoDAQ` and type `./dcbutil.py init ~/bin/tmp_1.xml -s 1`
+       go to `nanoDAQ` and type `./dcbutil.py init ~/bin/tmp_1.xml -g 10 -s 1`
         - keep incrementing the `tmp_*.xml` until the values are a stable bit
           shift of `c4`.
-    5. Repeat this process starting with `./saltutil.py 3 init` followed by
-       `./dcbutil.py init ~/bin/tmp_0.xml -s 2`
+    5. Repeat this process starting with `./saltutil.py 3 init -g 10` followed by
+       `./dcbutil.py init ~/bin/tmp_0.xml -g 10 -s 2`
         - Link Selection must be on 12 now
         - When incrementing `tmp_*.xml` keep using `-s 2`
-    6. Repeat again with `./saltutil.py 5 init` followed by
-       `./dcbutil.py init ~/bin/tmp_0.xml -s 6`
+    6. Repeat again with `./saltutil.py 5 init -g 10` followed by
+       `./dcbutil.py init ~/bin/tmp_0.xml -g 10 -s 6`
         - Link Selection must be on 13
 
     !!!note
@@ -288,28 +291,28 @@ clicking **TELL40** until the following panel shows up, with the tab for
         | `JD10` |    6 |    5 |   13           |
 
 4. The following is for a DCB in slot **`JD11`** only
-    1. Start with `./saltutil.py 2 init` for I2C 2
-    2. Type `./dcbutil.py init ~/bin/tmp_0.xml -s 3` to work with GBT 3
+    1. Start with `./saltutil.py 2 init -g 10` for I2C 2
+    2. Type `./dcbutil.py init ~/bin/tmp_0.xml -g 10 -s 3` to work with GBT 3
     3. Go to the memory monitoring panel and select link 23 at the top
         - Verify that **Write Address Memory** on the right changes values every
           couple seconds and **Write Signal Status** is green.
     4. Now look at the table, focusing on the latter 3 columns. There are 8
        digits in each column. If they are NOT stable values,
-       go to `nanoDAQ` and type `./dcbutil.py init ~/bin/tmp_1.xml -s 3`
+       go to `nanoDAQ` and type `./dcbutil.py init ~/bin/tmp_1.xml -g 10 -s 3`
         - keep incrementing the `tmp_*.xml` until the values are a stable bit
           shift of `c4`.
     5. Repeat this process starting with `./saltutil.py 1 init` followed by
-       `./dcbutil.py init ~/bin/tmp_0.xml -s 4`
+       `./dcbutil.py init ~/bin/tmp_0.xml -g 10 -s 4`
         - Link Selection must be on 21 now
         - When incrementing `tmp_*.xml` keep using `-s 4`
     6. Repeat again with `./saltutil.py 0 init` followed by
-       `./dcbutil.py init ~/bin/tmp_0.xml -s 5`
+       `./dcbutil.py init ~/bin/tmp_0.xml -g 10 -s 5`
         - Link Selection must be on 14
 
 
 ## TFC Test
 
-1. Type `./saltutil.py [I2C] ser_src tfc` replacing the `[I2C]` with `3`, `4`,
+1. Type `./saltutil.py [I2C] ser_src tfc -g 10` replacing the `[I2C]` with `3`, `4`,
    and `5` if the DCB is in slot **`JD10`**.
     - Replace with `0`, `1`, `2` if the DCB is in slot **`JD11`**
 
@@ -332,7 +335,7 @@ the top left. Now navigate to the **ADC** tab.
 ![Therm Readout Panel](adc/gbt_client_adc_readout_readchannel.png)
 
 1. Configure settings as follows
-    - **PC**: UMDlab, **GBT ID**: 0, **SCA ID**: 0, **Version**: 2
+    - **PC**: UMDlab, **GBT ID**: 10, **SCA ID**: 0, **Version**: 2
     - For now, set address to **Read Channel** and **Line** to 24, then 25,
       then 0. Clicking read on the right updates the **Data out** field.
     - Line 24 should be around 0.83 and line 25 should be around 0.5
@@ -365,7 +368,7 @@ labeled **GBT**.
 
    ![Jumper](fusing/jumper_crop.jpg)
 
-2. Set up **GBT Client** such that **GBT ID**: 0, **Device Address**: 7,
+2. Set up **GBT Client** such that **GBT ID**: 10, **Device Address**: 7,
    **Register Address**: 28, Size: 1
     - Click Read on the right and you should see `00` in **Data out**
 
