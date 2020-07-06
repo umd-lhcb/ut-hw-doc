@@ -43,10 +43,13 @@ Verify polarity of connections visually
 
 7. Adjust the `P1`, `P2`, and `P5` potentiometers so that the 1.5V, 3.3V, and 5.5V rails (voltage plateaus) are
 set to those values.
-    1. Slowly increase the input voltage from the initial 1.6V up to about 7V to find at which voltage the
-    the 1.5V (`Vin_FPGA_1V5`), 3.3V (`Vin_FPGA_3V3`), and 5.5V (`V_OPAMP_RAIL`) levels in the Pi LVR monitor
-    plateau (that is, they do not increase despite increases to the input voltage). Make sure
-    they stay below the max values.
+    1. Slowly increase the input voltage from the initial 1.6V until either the 1.5V reading (`Vin_FPGA_1V5`) stops increasing or
+    exceeds 1.5V. At this point, tune the output using P1 to set it to 1.5V. You may have to increase the voltage
+    more and iterate the tuning process. An alternate approach is given in the tip below.
+    
+    2. Resume raising the input voltage and repeat this process on the 3.3V (`Vin_FPGA_3V3`) and 5.5V (`V_OPAMP_RAIL`) 
+    levels in the Pi LVR monitor. You should now be able to raise the input voltage all the way to 7V and the three readings
+    should be stable.
     
     !!! warning
         **STOP IF VALUES BELOW ARE EXCEEDED** to prevent damage.
