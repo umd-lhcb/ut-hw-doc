@@ -108,7 +108,7 @@ set to those values.
     6. Check in the log that the auto-verify ran successfully (`RUN PASSED` in green).
 
 10. Turn off power and install all 8 CCMs in the orientation that allows you to read the silkscreen as shown below.
-Remove the Raspberry Pi connector first, and remember to put it back.
+Remove the Raspberry Pi connector to install those.
   ![](ccm_board.jpg){: style="height:200px"}
     - For an `MS` type LVR, set up master CCMs on odd channels, slaves on even.
     - For an `A` type LVR, place stand-alone single master (`A`) CCMs on all channels.
@@ -135,9 +135,11 @@ toward the side that has **ON** printed on the switch)
            set each corresponding pin to **ON** if a slave is present in
            the channel pair, otherwise set to **OFF**
         4. Set SW5 to \[**ON, OFF, OFF, OFF**\] (channels come on immediately with power, output is constant rather than pulsed)
+               
+     4. Put on the Raspberry Pi connector. 
 
 12. Undervoltage Lockout test
-    1. Set input power to ~4.8V, turn power on, and connect raspberry Pi LVR monitor
+    1. Set input power to ~4.8V, connect raspberry Pi LVR monitor and turn power on
     2. Reduce the input power gradually, and confirm that the outputs shut off (go to ~0V) below
        4.5-4.6 volts (ish). After confirming this, turn the input power back to ~4.8V so that the outputs are on for the next test.
 
@@ -208,7 +210,7 @@ toward the side that has **ON** printed on the switch)
        you should read the response as all 00 00 00 00 no matter the command you send until you allow the SPI_RESET to float once more.
 
 14. If it is not already, set SW5 2^nd^ switch to **OFF** (takes regulator out of pulsed mode).
-15. Disconnect everything from the board (excluding the jumpers placed on **`J22`**), and place colored stickers on the board near the CCM connectors to indicate which
+15. Switch off the power and disconnect everything from the board (excluding the jumpers placed on **`J22`**), and place colored stickers on the board near the CCM connectors to indicate which
 CCMs were used on the board during the QA.
 
 19. Make sure you update the
