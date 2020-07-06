@@ -12,13 +12,13 @@ LVR output. There are two different load boards:
 
     !!! info "Load board for `MS` CCMs, and where to plug it in"
 
-          ![](ccm_id1.png)
+          Add figure `![](ccm_id1.png)`
 
 2. For `A` CCMs
 
     !!! info "Load board for `A` CCMs"
 
-        ![](ccm_id2.png)
+        Add figure `![](ccm_id2.png)`
 
 
 ## Stage 2: Capacitor Board
@@ -33,7 +33,7 @@ CCMs.
 
     !!! info "Master-Slave CCM Capacitor Board configuration"
 
-        ![](ccm_id3.png)
+        Add figure `![](ccm_id3.png)`
 
 2. To configure `A` CCMs, connect the right most cables on the capacitor board
     to the right most sockets as shown below. Polarity of the cables does not
@@ -41,7 +41,7 @@ CCMs.
 
     !!! info "Alone CCM Capacitor Board configuration"
 
-        ![](ccm_id4.png)
+        Add figure `![](ccm_id4.png)`
 
 
 ## Stage 3: Resistor Bank
@@ -51,7 +51,7 @@ figure below.
 
 !!! info "Resistor Bank"
 
-    ![](ccm_id5.png)
+    Add figure `![](ccm_id5.png)`
 
 In this stage, you will be configuring the LVR to either `1.25, 1.5`, or `2.5` V.
 
@@ -71,6 +71,6 @@ board, you will notice resistor pins arranged as shown below.
 
 !!! info "Resistor Board"
 
-    ![](ccm_id6.png)
+    Add figure `![](ccm_id6.png)`
 
     Going from right to left.
