@@ -20,7 +20,8 @@ markdown_extensions:
     - admonition
     - pymdownx.critic
     - pymdownx.caret
-
+    - attr_list
+  
 plugins:
     - search
     - minify:
@@ -35,7 +36,7 @@ nav:
         - DCB QA: dcb/dcb_qa/dcb_qa.md
     - LVR:
         - LVR mechanical assembly: lvr/lvr_assembly/lvr_assembly.md
-        - LVR Setup QA: lvr/lvr_qa/lvr_qa.md
+        - LVR Setup/Initial QA: lvr/lvr_qa/lvr_qa.md
         - LVR Final QA: lvr/qa_final/qa_final.md
         - LVR Configuration: lvr/lvr_config/lvr_config.md
         - CCM Identification Guide: lvr/ccm_id/ccm_id.md
