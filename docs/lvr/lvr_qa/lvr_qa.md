@@ -9,7 +9,7 @@
     - Care must be taken to avoid temporary unintended shorts from the high
       density of surrounding components, vias, and traces.
 
-1. Place a new LVR on the holder as shown in the picture. The CCM side should be facing you and the input
+1. Visually inspect a new LVR and place it on the holder as shown in the picture. The CCM side should be facing you and the input
 connector be at the top. Recall that the one input is on one end and the two outputs on the other.
   ![](lvr_setup_board.jpg)
 
