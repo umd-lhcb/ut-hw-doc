@@ -115,7 +115,7 @@ picture below. Power on the DCB.
     - The order should be something like 1, 2, Masters, 3, 4, 5, 6
     - The Master is connected to fiber 3 which corresponds to GBT ID 10
     - The optical fibers for the Master should be marked with black marker. The one with the thin white ribbon (circled in red below) should go on the left when facing the DCB (mezzanines toward you)
-    ![DCB Optical Fibers Labeled](setup_backplane/optical_fibers_masters_labeled_2)
+    ![DCB Optical Fibers Labeled](setup_backplane/optical_fibers_masters_labeled_2.jpg)
 
 4. Correct slot based on stave connection
     - will either be **`JD10`** (for stave **`JP8`**) or **`JD11`** (for stave **`JP11`**)
