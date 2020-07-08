@@ -74,7 +74,7 @@ picture below. Power on the DCB.
     - click **Import Image**, make sure you can see .txt files, and select
       `master.txt`
     - click **Write GBTX** then **Read GBTX**, the state should change to
-      `waitDESLock`, if the state changes to `Idle` please follow the instructions outlined [here](https://github.com/umd-lhcb/lab-notes/issues/70) and note it into the database.
+      `waitDESLock`. If the state changes to anything with a hex value larger than 0x0A (state hex value is listed right after the name, 0x0A is `waitDESlock`), eg. 0x0B or 0x11, please follow the instructions outlined [here](https://github.com/umd-lhcb/lab-notes/issues/70), and make a note in the database.
     - to the right of table, find and click update view. All of the entries in
       the table should now be green
     - Now check **enable fusing** and
@@ -93,7 +93,7 @@ picture below. Power on the DCB.
     - in the **GBTX Programmer**, read and update view like before. The table
       should still be all green, except the last register 365.
 
-6. Add a red jumper to connector **`J4`** as shown
+6. Shut off the power again, and add a red jumper to connector **`J4`** as shown
     ![Jumper J4](fusing/jumper_crop.jpg)
 
 7. Take off the mezzanine with the dongle and attach all 4 of the mezzanines
