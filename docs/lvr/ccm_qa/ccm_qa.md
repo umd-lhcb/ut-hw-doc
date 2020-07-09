@@ -37,10 +37,10 @@ pre-built CCM QA setup.
         the turn-on voltage.
 
     !!! note "Note the following"
-        In addition to similar shapes, ch1&2 (yellow and green)
+        In addition to similar shapes, For an MS pair ch1&2 (yellow and green)
         and ch3&4 (blue and red) (if slave is present) should converge
-        to the same amplitude within +/- 3% or so. It may be useful to include a "top"
-        voltage measurement on the display to do this easily.
+        to the same amplitude within +/- 3% or so. For an A CCM, ch1&2 should be within about 80mV.
+        It may be useful to include a "top" voltage measurement on the display to do this easily.
 
 6. Locate the variable resistor on the master CCM or the A CCM, and note the voltage
    reading on channel 1 of the second oscilloscope, denoted `Vtop`.
