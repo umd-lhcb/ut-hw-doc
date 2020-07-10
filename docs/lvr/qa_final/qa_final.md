@@ -6,9 +6,10 @@
 
 1. Using a DVM, confirm that the connection between GND and EARTH (between, e.g. **`TP7`**
    and the large lugs) each way is still \> 25k Ohms
-   !!! warning
-       Before attempting the next step, ensure the screwdriver torque setting is at "1"
-       and no higher   
+
+    !!! warning
+        Before attempting the next step, ensure the screwdriver torque setting is at "1"
+        and no higher!
 
 2. Set SW5 to \[**OFF, OFF, OFF, OFF**\] if it is not already. Carefully slide the
    board into the cooling frame, input side first.
@@ -45,9 +46,10 @@
    resistors R73 and R81 for each channel match one-another to within 2-5%. These
     are the two medium-sized resistors with R050 and R150 printed on them. Some variation
    with this range is expected and is related to the lower tolerance of a certain
-  resistor network.   
+  resistor network.
+
     !!! note
-        it is okay if the values do not match between different channels.
+        It is okay if the values do not match between different channels.
 
 9. Use the LVR butler to turn all channels **OFF** with the SPI. Move the cables and
   repeat steps 5, 6, 7, and 8 for the other output and sense connector on the LVR
