@@ -16,7 +16,7 @@ Each batch should be burned-in for 48 hrs, with switching loads and thermal cycl
 - bang-bang controlling board temperature between ~30C and ~50C
 
     !!! info
-        For reference, constant-cooling equilibrium is ~28C and overtemperature lockout is 70C.
+        For reference, constant-cooling equilibrium is ~30C and overtemperature lockout is 70C.
 
 ![SBC front view](SBC_front.jpg)
 ![SBC back view](SBC_back.jpg)
