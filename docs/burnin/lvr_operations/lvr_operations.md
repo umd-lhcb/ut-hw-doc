@@ -27,7 +27,10 @@ Each batch should be burned-in for 48 hrs, with switching loads and thermal cycl
 1. Inspect the "ready for burn-in" box and decide on the LVR types
 2. Update the database according to the selected LVRs' IDs
 3. Mount LVR in the SBC, and double-check that wedge locks are tightened
-4. Check the status of Maraton (if already running for DCB burn-in, be aware of the channels going to the lower SBC)
+4. Check the status of Maraton 
+
+    !!! warning
+        If it's already running for DCB burn-in, be careful not to touch exposed live wires in the lower SBC
 
 5. Attach thermal sensors on 4 boards:
     1. put sensor's flat side against an open area of the board (without SMD componments)
