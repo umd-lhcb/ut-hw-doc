@@ -99,10 +99,12 @@ Each batch should be burned-in for 48 hrs, with switching loads and thermal cycl
     !!! note
         Verify that the LEDs are off
 
-3. Stop the control and monitoring scripts by `Ctrl` + `C`
+3. Stop the control and monitoring scripts (`CtrlServer.py` and `CtrlClient.py`) by `Ctrl` + `C`
 
     !!! note
         You need to use `Ctrl` + `b` then arrow to switch tmux panel
+        
+        Some transmission failure messages may have covered the panel running `CtrlClient.py` 
 
         For future convenience: after scripts are stopped, `Ctrl` + `L` to
         clear, then up arrow to bring up the last command
