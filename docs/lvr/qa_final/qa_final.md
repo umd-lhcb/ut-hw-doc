@@ -34,7 +34,7 @@
     - The Scope should trigger with a screen like the following. Ensure that the
       turn-on curve is smooth, comes to the correct voltage (1.25, 1.50, 2.50) within
       a few %, and has a prestart voltage in the 100mV - 200mV range.
-    ![Figure 4: Example of turnon curve for half LVR](lvr_finalqa3.jpg)
+    ![Figure 4: Example of turnon curve for half LVR](lvr_finalqa4.jpg)
 
 6. Check the undervoltage lockout by dialing down the input voltage and verifying
    that the channels turn off. Bring back up the input voltage.
