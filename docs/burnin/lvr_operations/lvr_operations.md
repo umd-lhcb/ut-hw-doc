@@ -8,8 +8,10 @@ Currently, LVR burn-in maximum capacity is 16 boards:
 Each batch should be burned-in for 48 hrs, with switching loads and thermal cycles. The current profile is:
 
 - switching between high (normal) current for 50s and low current for 10s
-    - so that voltage regulator chips are frequently exercised by changing
-        states, while in typical operation (high current) most of the time
+    
+    !!! info
+        So that voltage regulator chips are frequently exercised by changing
+          states, while in typical operation (high current) most of the time
 
 - bang-bang controlling board temperature between ~30C and ~50C
 
