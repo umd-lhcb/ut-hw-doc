@@ -1,5 +1,3 @@
-Title: LVR burn-in operations
-
 Currently, LVR burn-in maximum capacity is 16 boards:
 - 2 x `2V5` (using Switching Load Boards labeled 2V5)
 - 14 x `1V2`/`1V5` (using the rest of Switching Load Boards)
@@ -9,8 +7,9 @@ Each batch should be burned-in for 48 hrs, with switching loads and thermal cycl
   - so that voltage regulator chips are frequently exercised by changing states, while in typical operation (high current) most of the time    
 - bang-bang controlling board temperature between ~30C and ~50C
   - for reference, constant-cooling equilibrium is ~28C and overtemperature lockout is 70C.
-  
 
+![SBC front view](../burnin_hw_setup/SBC_front.png)
+![SBC back view](../burnin_hw_setup/SBC_back.png)
   
 ## Start burning in a new batch
 - Inspect the "ready for burn-in" box and decide on the LVR types
