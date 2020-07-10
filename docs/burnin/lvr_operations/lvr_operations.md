@@ -8,8 +8,8 @@ Each batch should be burned-in for 48 hrs, with switching loads and thermal cycl
 - bang-bang controlling board temperature between ~30C and ~50C
   - for reference, constant-cooling equilibrium is ~28C and overtemperature lockout is 70C.
 
-![SBC front view](../burnin_hw_setup/SBC_front.png)
-![SBC back view](../burnin_hw_setup/SBC_back.png)
+![SBC front view](SBC_front.png)
+![SBC back view](SBC_back.png)
   
 ## Start burning in a new batch
 - Inspect the "ready for burn-in" box and decide on the LVR types
