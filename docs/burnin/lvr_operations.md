@@ -10,11 +10,13 @@ Each batch should be burned-in for 48 hrs, with switching loads and thermal cycl
 - bang-bang controlling board temperature between ~30C and ~50C
   - for reference, constant-cooling equilibrium is ~28C and overtemperature lockout is 70C.
   
+
+  
 ## Start burning in a new batch
 - Inspect the "ready for burn-in" box and decide on the LVR types
-- Make sure that the Maraton is off
 - Update the database according to the selected LVRs' IDs
 - Mount LVR in the SBC, and double-check that wedge locks are tightened
+- Check the status of Maraton (if already running for DCB burn-in, be aware of the channels going to the lower SBC)
 - Attach thermal sensors on 4 boards:
   - put sensor's flat side against an open area of the board (without SMD componments)
   - press the sticky putty to secure sensors in place
@@ -49,3 +51,27 @@ Each batch should be burned-in for 48 hrs, with switching loads and thermal cycl
 - Give yourself a pat on the back -- burn-in has started
 
 ## Stop the burn-in
+
+- Before turning off the Maraton channels, check that:
+  - all 4 LEDs on the back are on (indicating all 8 LVR channels have been on).
+  - no hot spot >60C on FLIR
+  - Check voltages on output breakout boards, e.g. 1V5 + ~0.2V drop
+  
+- Turn off Maraton channels one by one.
+  - verify that the LEDs are off 
+
+- Stop the control and monitoring scripts by Ctrl+C 
+  - note that you need to use `Ctrl` + `b` then arrow to switch tmux panel
+  - for future convenience: after scripts are stopped, Ctrl+L to clear, then up arrow to bring up the last command
+
+- Disconnect the output cables, and detach the thermal sensors
+  - take care not to pull wires off the sensors' leads
+
+- Disconnect the input breakout boards (after moving the SBC bar)
+  - check for loose connections to the terminal blocks
+
+- Disconnect the grounding wires
+
+- Loosen the wedge locks and take out LVRs
+
+- Double-check the LVR IDs, and update the database
