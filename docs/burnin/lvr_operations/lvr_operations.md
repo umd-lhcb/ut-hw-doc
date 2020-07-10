@@ -108,6 +108,12 @@ Each batch should be burned-in for 48 hrs, with switching loads and thermal cycl
 
         For future convenience: after scripts are stopped, `Ctrl` + `L` to
         clear, then up arrow to bring up the last command
+    
+    !!! warning
+        The USB relay may still be closed (red LED on) after scripts are stopped, if the last measured temperature is higher than the lower target (31C). 
+        Then the DC power supply will keep pushing the solenoid valve on (not ideal).
+        Therefore, after the next step, when thermal sensors are detached and cooled down to < 31C, run `CtrlServer.py` and `CtrlClient.py`. 
+        The measured T would trigger the condition to switch the relay open (red LED off). Then stop the scripts. 
 
 4. Disconnect the output cables, and detach the thermal sensors
 
