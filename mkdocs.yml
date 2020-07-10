@@ -48,3 +48,4 @@ nav:
     - Burn-in:
         - Burn-in hardware setup: burnin/burnin_hw_setup/burnin_hw_setup.md
         - Burn-in software setup: burnin/burnin_sw_setup.md
+        - LVR burn-in operations: burnin/lvr_operations/lvr_operations.md
