@@ -49,11 +49,11 @@ Each batch should be burned-in for 48 hrs, with switching loads and thermal cycl
 8. Double-check that the chiller is on
 9. Turn on the Maraton
 
-10. Start running the python scripts as described in [here](https://umd-lhcb.github.io/ut-hw-doc/burnin/burnin_sw_setup/#scripts-to-run-on-the-raspberry-pi)
+10. Start running the python scripts as described in [here](../burnin_sw_setup.md#scripts-to-run-on-the-raspberry-pi)
     1. Note that you need to use `Ctrl` + `b` then arrow to switch `tmux` panel
     2. You can use `Ctrl` + `r` to reverse search past command lines
 
-11. Turning on one Maraton channel (channel numbers are labeled on SBC) as described in https://umd-lhcb.github.io/ut-hw-doc/burnin/burnin_sw_setup/#controlling-the-psu-maraton-with-curl
+11. Turning on one Maraton channel (channel numbers are labeled on SBC) as described in [here](../burnin_sw_setup.md#controlling-the-psu-maraton-with-curl)
     1. after issuing command, verify all LEDs are on: 1 in the front **and 4 in the back**. If not, turn off the channel and check connections (e.g. only 4 LVR channels on due to partial input connection)
     2. use multimeter to spot check voltages across the output breakout boards -- should be the set voltage plus some drop (e.g. 1V5+0.2V)
 
