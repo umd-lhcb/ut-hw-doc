@@ -120,3 +120,11 @@ Each batch should be burned-in for 48 hrs, with switching loads and thermal cycl
 6. Disconnect the grounding wires
 7. Loosen the wedge locks and take out LVRs
 8. Double-check the LVR IDs, and update the database
+
+## Monitoring from off-campus
+
+To visit the [monitoring website](http://129.2.92.92:56789/DVApp) from off-campus, you can set up VPN this way:
+
+- Install the VPN client software from [UMD terpware](https://terpware.umd.edu/Windows/title/1840). (You want to select your OS and find it under Network.) 
+
+- Login with your UMD account to connect to vpn.umd.edu (and select Group UMD)
