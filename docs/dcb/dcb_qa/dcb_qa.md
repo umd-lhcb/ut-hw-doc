@@ -38,7 +38,7 @@ the DCB itself and the stave.
     Make sure to keep the [database](https://docs.google.com/spreadsheets/d/1KjXGhOFzi0SZPsozpKzxGjVtfr4kkS_Hv5EigUwKOj8/edit "Database")
     up to date as you go through the tests.
 
-
+# Initial QA
 ## Fusing GBTx
 
 !!! warning
@@ -172,6 +172,7 @@ board gets power cycled.
     A pdf that goes over a lot of MiniDAQ and GBTx usage can be downloaded
     [here](https://github.com/umd-lhcb/gbtx_brds_doc/releases/download/0.8.5/gbtx_brds_doc.pdf).
 
+0. Power on the DCB.
 1. In the `nanoDAQ` command prompt, we're going to pull the reset, also called
    GPIO, low and try to program it then high and try to program it.
 
@@ -225,6 +226,11 @@ board gets power cycled.
 !!! warning
     **Stop here if the DCB has NOT gone through the burn-in yet!!!**
 
+# Final QA
+
+!!! note
+    Follow the "[Programming Data GBTxs](dcb_qa.md#programming-data-gbtxs)"
+    and "[PRBS Test](dcb_qa.md#prbs-test)" instructions above before moving to the SALT test.
 
 ## SALT Testing
 
@@ -234,10 +240,6 @@ stave connection. Each slot only tests half of the board. Remember **`JP8`**
 goes to slot **`JD10`** and **`JP11`** goes to slot **`JD11`**. Changing the
 stave connection is a process, so we'll test the same half on many boards,
 then swap everything to check the other half.
-
-!!! note
-    Make sure to program the data GBTxs if the DCB has been powered off since
-    doing so
 
 For this step, we need to open the **Memory Monitoring** panel in MiniDAQ. In
 the Top panel, double click **DAQ** to open a new window, then keep double
@@ -249,6 +251,7 @@ clicking **TELL40** until the following panel shows up, with the tab for
 !!!note
     The last **TELL40** has a suffix, click on the first **Dev1_0**
 
+0. Power on the SALT.
 1. In `nanoDAQ`, type in the command `./dcbutil.py gpio --reset 0 1 2 3 4 5
    --final_state low -g 10`
     - Now type `./saltutil.py [I2C] read 0 0 1 -g 10` replacing the `[I2C]` with `3`,
@@ -307,7 +310,7 @@ clicking **TELL40** until the following panel shows up, with the tab for
        `./dcbutil.py init ~/bin/tmp_0.xml -g 10 -s 4`
         - Link Selection must be on 21 now
         - When incrementing `tmp_*.xml` keep using `-s 4`
-    6. Repeat again with `./saltutil.py 0 init` followed by
+    6. Repeat again with `./saltutil.py 0 init -g 10` followed by
        `./dcbutil.py init ~/bin/tmp_0.xml -g 10 -s 5`
         - Link Selection must be on 14
 
@@ -354,8 +357,8 @@ the top left. Now navigate to the **ADC** tab.
    then click **read/write**
 
 5. Put address back to **Read Channel** and check lines 1, 16, 17, and 18 by
-   clicking read and looking at **Data in**
-    - Expected value 0.15
+   clicking read and looking at **Data out**
+    - Expected value 0.29 (was 0.15 before)
 
 
 ## Optical to Master GBT
@@ -364,15 +367,9 @@ We want to verify that we can communicate to the Master GBTx through the
 optical fibers. Make sure **GBT Client** is still open, and go to the tab
 labeled **GBT**.
 
-1. Verify or add a red jumper cable to the first connection from **`J4`** on
-   the DCB, directly under an optical mezzanine. It is also labeled
-   `MC CONFIGSELECT`
-
-   ![Jumper](fusing/jumper_crop.jpg)
-
-2. Set up **GBT Client** such that **GBT ID**: 10, **Device Address**: 7,
+1. Set up **GBT Client** such that **GBT ID**: 10, **Device Address**: 7,
    **Register Address**: 28, Size: 1
     - Click Read on the right and you should see `00` in **Data out**
 
-3. Put `ff` in **Data in** and click **read/write**
+2. Put `ff` in **Data in** and click **read/write**
     - **Data out** should now read `ff`
