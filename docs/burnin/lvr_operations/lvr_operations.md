@@ -127,6 +127,11 @@ Each batch should be burned-in for 48 hrs, with switching loads and thermal cycl
 
 6. Disconnect the grounding wires
 7. Loosen the wedge locks and take out LVRs
+
+    !!! note
+        Wedge locks are loose after 2.5-3 complete turns. 
+        If you still have trouble moving the LVR, make sure it's not blocked by the crate's bottom horizontal rail. 
+
 8. Double-check the LVR IDs, and update the database
 
 ## Monitoring from off-campus
