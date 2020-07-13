@@ -104,8 +104,8 @@ picture below. Power on the DCB.
 
 ### Setting up DCB
 
-1. Verify the backplane connector. Do not plug in if its pins are bent, as it
-   can break the backplane.
+1. Verify the backplane connector EVERY time before pluuging it into the backplane. Do not plug in if its pins are bent, as it
+   can break the backplane. Check for pieces of thermal gap in the connector and clean it before plugging it it.
 
 2. Verify optical mezzanines are attached. They should rest on the long hex
    nuts.
@@ -231,7 +231,7 @@ board gets power cycled.
 ## Final QA
 
 !!! note
-    Follow the "[Programming Data GBTxs](dcb_qa.md#programming-data-gbtxs)"
+    Follow the "[Setting up DCB](dcb_qa.md#setting-up-dcb)", "[Checking Power](dcb_qa.md#checking-power)","[Programming Data GBTxs](dcb_qa.md#programming-data-gbtxs)"
     and "[PRBS Test](dcb_qa.md#prbs-test)" instructions above before moving to the SALT test.
 
 ### SALT Testing
