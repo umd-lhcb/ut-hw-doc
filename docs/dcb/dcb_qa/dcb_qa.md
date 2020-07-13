@@ -38,8 +38,8 @@ the DCB itself and the stave.
     Make sure to keep the [database](https://docs.google.com/spreadsheets/d/1KjXGhOFzi0SZPsozpKzxGjVtfr4kkS_Hv5EigUwKOj8/edit "Database")
     up to date as you go through the tests.
 
-# Initial QA
-## Fusing GBTx
+## Initial QA
+### Fusing GBTx
 
 !!! warning
     If the DCB has already gone through the burn-in, skip fusing and go straight
@@ -101,7 +101,7 @@ picture below. Power on the DCB.
    connector `OMDBMC`
 
 
-## Setting up DCB
+### Setting up DCB
 
 1. Verify the backplane connector. Do not plug in if its pins are bent, as it
    can break the backplane.
@@ -125,7 +125,7 @@ picture below. Power on the DCB.
    the DCB sits correctly. Then push until it clicks in.
 
 
-## Checking Power
+### Checking Power
 
 There are 3 separate power lines, for the DCB, the VTTx's, and the Stave. They
 should not be moved or changed over the course of this QA, but it is good to
@@ -161,7 +161,7 @@ verify the connections are correct.
     **Project Administrator**, then double click on the top project.
 
 
-## Programming Data GBTxs
+### Programming Data GBTxs
 
 There are 6 data GBTxs on each DCB, and these must be programed every time the
 board gets power cycled.
@@ -186,7 +186,7 @@ board gets power cycled.
    be able to program the GBTxs with the command you inputted earlier.
 
 
-## PRBS Test
+### PRBS Test
 
 !!!note
     This is the MiniDAQ "Top" panel that is referenced a couple times. Most
@@ -219,20 +219,21 @@ board gets power cycled.
     ![Monitor](prbs/monitor_edit.jpg)
 
 5. Check if the DCB can regain lock by unplugging the master optical fibers then
-   plugging them back in. 
+   plugging them back in.
     - Enter `./dcbutil.py prbs off -g 10` in the nanoDAQ command line. No output is a
       success, otherwise it will report "Master GBT not locked"
 
 !!! warning
     **Stop here if the DCB has NOT gone through the burn-in yet!!!**
 
-# Final QA
+
+## Final QA
 
 !!! note
     Follow the "[Programming Data GBTxs](dcb_qa.md#programming-data-gbtxs)"
     and "[PRBS Test](dcb_qa.md#prbs-test)" instructions above before moving to the SALT test.
 
-## SALT Testing
+### SALT Testing
 
 The following three tests (SALT, TFC, and ADC) have different instructions
 dependant on the slot the DCB is connected to, which is determined by the
@@ -315,7 +316,7 @@ clicking **TELL40** until the following panel shows up, with the tab for
         - Link Selection must be on 14
 
 
-## TFC Test
+### TFC Test
 
 1. Type `./saltutil.py [I2C] ser_src tfc -g 10` replacing the `[I2C]` with `3`, `4`,
    and `5` if the DCB is in slot **`JD10`**.
@@ -329,8 +330,7 @@ clicking **TELL40** until the following panel shows up, with the tab for
    repeating
 
 
-
-## ADC Read Out
+### ADC Read Out
 
 If there is no MiniDAQ panel called **GBT Client** already open, open it by
 going back to the MiniDAQ UI (the one with "Gedi" in its title) and under
@@ -361,7 +361,7 @@ the top left. Now navigate to the **ADC** tab.
     - Expected value 0.29 (was 0.15 before)
 
 
-## Optical to Master GBT
+### Optical to Master GBT
 
 We want to verify that we can communicate to the Master GBTx through the
 optical fibers. Make sure **GBT Client** is still open, and go to the tab
