@@ -47,7 +47,7 @@ pre-built CCM QA setup.
 
 7. Adjust the variable resistor so the voltage reading of channel 1
    corresponds to the voltage of the CCM (i.e. a 1.5 V CCM should have
-   a channel reading of ~1.5 V) as shown below for a 1.5 V CCM. For an A CCM, this
+   a channel reading of ~1.5 V) as shown below for a 1.5 V CCM. For a 12A or 12M CCM, this
    will mean adjusting the variable resistor all the way to the left (counterclockwise).
 
     ![](ccm_qa2.png)
