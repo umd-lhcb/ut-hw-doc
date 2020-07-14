@@ -24,18 +24,26 @@ Directions here: https://github.com/umd-lhcb/ut-hw-doc/blob/master/docs/burnin/b
 
 Because the DCB programming can be unreliable on the first tries after power-up, I suggest running 
 
-./dcbutil.py init ./gbtx_config/slave-Tx-wrong_termination.txt -g 0 
+    ```
+    ./dcbutil.py init ./gbtx_config/slave-Tx-wrong_termination.txt -g 0 
+    ```
 
 If there is an error, try again a few times.  If programming has been stable you can skip this step.  Once no error is observed you can program all of the data GBTxs with
 
-./burnin_init.sh
+    ```
+    ./burnin_init.sh
+    ```
 
 enable PRBS with
 
-./burnin_prbs.sh
+    ```
+    ./burnin_prbs.sh
+    ```
 
 and verify that the boards are properly configured with
 
-./burnin_read.sh
+    ```
+    ./burnin_read.sh
+    ```
 
 Check that each GBTx reports '03151515'.  The burn-in is now running.
