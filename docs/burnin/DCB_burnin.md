@@ -22,28 +22,22 @@ After all DCBs are in the crate and the pull-up harnesses are successfully conne
 Once all fibers are connected, power on Maraton channels 0, 1, and 12 and verify that the LEDs are on in the bottom SBC.
 Directions here: https://github.com/umd-lhcb/ut-hw-doc/blob/master/docs/burnin/burnin_sw_setup.md#scripts-to-run-on-the-raspberry-pi
 
+Open PuTTY, click on MiniDAQ, and navigate to the nanoDAQ directory.
+
 Because the DCB programming can be unreliable on the first tries after power-up, I suggest running 
 
-    ```
     ./dcbutil.py init ./gbtx_config/slave-Tx-wrong_termination.txt -g 0 
-    ```
 
 If there is an error, try again a few times.  If programming has been stable you can skip this step.  Once no error is observed you can program all of the data GBTxs with
 
-    ```
     ./burnin_init.sh
-    ```
 
 enable PRBS with
 
-    ```
     ./burnin_prbs.sh
-    ```
 
 and verify that the boards are properly configured with
 
-    ```
     ./burnin_read.sh
-    ```
 
 Check that each GBTx reports '03151515'.  The burn-in is now running.
