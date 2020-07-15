@@ -46,8 +46,8 @@ Each batch should be burned-in for 48 hrs, with switching loads and thermal cycl
     1. move the horizontal bar back to make space for installation
     2. because there are 2 input breakout boards per Maraton channel, connect
         them in order and not mix between channels
-    3. input breakout boards are hard to secure, so sometimes zip ties are needed
-    4. after all boards are connected (some horizontal tilt unavoidable), push and secure the bar
+    3. input breakout boards are hard to secure even with the bar, so sometimes zip ties are needed (2V5 slots in particular)
+    4. after all boards are connected (some horizontal tilt unavoidable), push and secure the bar to keep boards in place (try starting from one end and push in one input BB at a time) 
     5. double-check the connectors, especially for vertical tilt (resulting in partial connection)
     6. verify grounding cable connection
 
