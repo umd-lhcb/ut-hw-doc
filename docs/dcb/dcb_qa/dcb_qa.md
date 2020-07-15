@@ -19,8 +19,8 @@ grey data lines. Each line represents 12 E-links connecting the stave to the
 GBTxs. For our tests, we have the stave sending `c4` repeated to the DCB. It
 is easy for this to get out of phase, which is why we accept any stable data
 in the memory monitor as a success. To see possible out-of-phase responses,
-you can break `c4` into 8bit binary, shift it one bit left or right, then
-make it hex again.
+you can break `c4` into 8bit binary and shift the bits left or right. You should
+find `26`, `13`, and `89` are all acceptable.
 
 ![TFC Diagram](overview/tfc_loopback.png)
 
@@ -340,26 +340,27 @@ the top left. Now navigate to the **ADC** tab.
 
 ![Therm Readout Panel](adc/gbt_client_adc_readout_readchannel.png)
 
-1. Configure settings as follows
+1. Configure settings and check ADC read outs as follows
     - **PC**: UMDlab, **GBT ID**: 10, **SCA ID**: 0, **Version**: 2
     - For now, set address to **Read Channel** and **Line** to 24, then 25,
-      then 0. Clicking read on the right updates the **Data out** field.
-    - Line 24 should be around 0.83 and line 25 should be around 0.5
-    - Line 0 should be around 0.53
+      then 0. For each line, clicking read on the right updates the **Data out** field.
+    - Power lines: line 24 should be around 0.83 and line 25 should be around 0.5,
+      both within ~0.02
+    - Line 0 should be around 0.53, within ~0.04 (depending on the temperature)
     - If you're getting an error, try clicking **Activate Channel** then try again
 
 2. When looking in slot **`JD10`**
-    - Also read out lines 5, 6, and 7. They should all be 0.55
+    - Also read out lines 5, 6, and 7. They should all be 0.5, within ~0.04
 
 3. When looking in slot **`JD11`**
-    - Also read out lines 2, 3, and 4. They should all be 0.55
+    - Also read out lines 2, 3, and 4. They should all be 0.55, within ~0.04
 
 4. Change address to **Current Source** and put `ffffffff` (8 `f`s) in **Data in**,
    then click **read/write**
 
 5. Put address back to **Read Channel** and check lines 1, 16, 17, and 18 by
    clicking read and looking at **Data out**
-    - Expected value 0.29 (was 0.15 before)
+    - Expected value 0.29 (was 0.15 before), within ~0.04
 
 
 ### Optical to Master GBT
