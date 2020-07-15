@@ -282,7 +282,7 @@ clicking **TELL40** until the following panel shows up, with the tab for
        go to `nanoDAQ` and type `./dcbutil.py init ~/bin/tmp_1.xml -g 10 -s [GBT]`
         - keep incrementing the `tmp_*.xml` until the values are a stable bit
           shift of `c4`.
-        - there are 24 digits (3 x 8 columns) we care about, with 6-digit groups 
+        - there are 24 digits (8 x 3 columns) we care about, with 6-digit groups 
           for 4 ASICs (6 x 4 groups); the 8-digit columns are not the groupings
           we care about.
         - it is okay if the groups' digits don't agree, but each single group
