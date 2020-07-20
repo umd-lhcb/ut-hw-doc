@@ -90,8 +90,8 @@ curl -X POST http://192.168.1.30:45679/psu/192.168.1.31/<CHANNEL_NUMBER>/off
 
 To turn on/off a USB relay channel, use the commands
 ```
-curl -X POST http://192.168.1.30:45679/relay/0001:0014:00/<CHANNEL_NUMBER>/on
-curl -X POST http://192.168.1.30:45679/relay/0001:0014:00/<CHANNEL_NUMBER>/off
+curl -X POST http://192.168.1.30:45679/relay/0001:0004:00/<CHANNEL_NUMBER>/on
+curl -X POST http://192.168.1.30:45679/relay/0001:0004:00/<CHANNEL_NUMBER>/off
 ```
 
 !!! note
