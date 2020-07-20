@@ -116,10 +116,7 @@ Each batch should be burned-in for 48 hrs, with switching loads and thermal cycl
         Therefore, after the next step, when thermal sensors are detached and cooled down to < 31C, run `CtrlServer.py` and `CtrlClient.py`. 
         The measured T would trigger the condition to switch the relay open (red LED off). Then stop the scripts. 
 
-4. Disconnect the output cables, and detach the thermal sensors
-
-    !!! warning
-        Take care not to pull wires off the sensors' leads
+4. Disconnect the output cables and hang them by their clip on the red wire.
 
 5. Disconnect the input breakout boards (after moving the SBC bar)
 
@@ -127,10 +124,13 @@ Each batch should be burned-in for 48 hrs, with switching loads and thermal cycl
         Check for loose connections to the terminal blocks
 
 6. Disconnect the grounding wires
-7. Loosen the wedge locks and take out LVRs
+7. Loosen the wedge locks and take out LVRs. Detach the thermal sensors as space around LVR opens up.  
 
+    !!! warning
+        Take care not to pull wires off the sensors' leads
+        
     !!! note
-        Wedge locks are loose after 2.5-3 complete turns. 
+        Wedge locks should be loose after 3 complete turns. 
         If you still have trouble moving the LVR, make sure it's not blocked by the crate's bottom horizontal rail. 
 
 8. Double-check the LVR IDs, and update the database
