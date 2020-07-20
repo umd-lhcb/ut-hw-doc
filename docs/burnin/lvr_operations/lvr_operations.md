@@ -41,6 +41,9 @@ Each batch should be burned-in for 48 hrs, with switching loads and thermal cycl
 
     !!! info
         The output breakout boards are labeled for 2V5
+        
+    !!! warning
+        As you connect the output cables, take care not to pull thermal sensors away from the boards
 
 7. Now install the input breakout boards and grounding cables:
     1. move the horizontal bar back to make space for installation
