@@ -37,7 +37,7 @@ Each batch should be burned-in for 48 hrs, with switching loads and thermal cycl
     2. press the sticky putty to secure sensors in place
     3. you'll have more room to work with before installing adjacent boards
 
-6. Connect the output cables to LVR, and double-check which switching load board the cables connect to
+6. Connect the output cables to LVR (the connectors should click), and verify that 2V5 switching load boards are connecting to two LVRs in Maraton channel 11. 
 
     !!! info
         The output breakout boards are labeled for 2V5
