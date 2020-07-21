@@ -1,5 +1,7 @@
 ## Stopping the DCB burn-in
 
+Execute burnin_read.sh.  If any GBTxs don't report '03151515', note the DCB in the database.
+
 Turn off Maraton channels 0, 1, and 12 and verify that all LEDs are off in the bottom SBC.
 Directions here: https://github.com/umd-lhcb/ut-hw-doc/blob/master/docs/burnin/burnin_sw_setup.md#scripts-to-run-on-the-raspberry-pi
 
