@@ -19,21 +19,32 @@
    inspection, checking the backplane connector for damage.
 
 2. One by one, plug DCBs into the crate, lifting the power wires out of the
-   way.  Slots 10 and 11 are unused, I recommend starting with Slot 9 on the left
-   when facing the DCB.  As you plug in each DCB, also plug the pull-up harness
-   into the FFC connector of the Master GBTx (third from the top when plugged into
-   the crate).  After connecting each FFC, power on the appropriate Rigol channel
-   and check that the current consumption increases by ~0.15A, then power it off.
-   If not, re-seat the FFC cable.  Power off the Rigol when all FFCs are
-   successfully connected.
+   way.
+
+    !!! info
+        Slots 10 and 11 are unused, I recommend starting with Slot 9 on the left
+        when facing the DCB.
+
+    1. As you plug in each DCB, also plug the pull-up harness into the FFC
+       connector of the Master GBTx (third from the top when plugged into the
+       crate).
+    2. After connecting each FFC, power on the appropriate Rigol channel and
+       check that the current consumption increases by ~0.15A, then power it off.
+    3. If not, re-seat the FFC cable.  Power off the Rigol when all FFCs are
+       successfully connected.
 
 3. After all DCBs are in the crate and the pull-up harnesses are successfully
    connected, connect the optical fibers to the Master GBTx mezzanines (third from
-   the top when plugged into the crate).  The fiber bundles are labeled 0-4 and
-   5-9, and the individual fibers are numbered from 1-12 in each bundle.  Start
-   with (1,2) for DCB 0, with 1 on top.  Proceed with (3,4) etc. with the lower
-   odd numbered fiber always on top.  Fibers 11 and 12 are not used, so start over
-   with (1,2) from the second bundle at DCB 5.
+   the top when plugged into the crate).
+
+    !!! info
+        The fiber bundles are labeled 0-4 and 5-9, and the individual fibers are
+        numbered from 1-12 in each bundle.
+
+    1. Start with (1,2) for DCB 0, with 1 on top.
+    2. Proceed with (3,4) etc. with the lower odd numbered fiber always on top.
+    3. Fibers 11 and 12 are not used, so start over with (1,2) from the second
+       bundle at DCB 5.
 
 4. Once all fibers are connected, power on Maraton channels 0, 1, and 12 and
    verify that the LEDs are on in the bottom SBC. Directions [here](./burnin_sw_setup.md#controlling-the-psu-maraton-with-curl)
