@@ -1,6 +1,6 @@
 ## Stopping the DCB burn-in
 
-0. Execute `burnin_read.sh`. If any GBTxs don't report '03151515', note the DCB
+0. Execute `burnin_read.sh`. If any GBTxs don't report `03151515`, note the DCB
    in the database.
 
 1. Turn off Maraton channels 0, 1, and 12 and verify that all LEDs are off in
