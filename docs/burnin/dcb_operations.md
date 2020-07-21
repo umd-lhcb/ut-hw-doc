@@ -1,7 +1,7 @@
 ## Stopping the DCB burn-in
 
 1. Turn off Maraton channels 0, 1, and 12 and verify that all LEDs are off in
-   the bottom SBC. The direction is available [here](./burnin_sw_setup.md#scripts-to-run-on-the-raspberry-pi).
+   the bottom SBC. The direction is available [here](./burnin_sw_setup.md#controlling-the-psu-maraton-with-curl).
 
 2. Turn off channels 1 and 2 of the Rigol power supply.
 
@@ -36,7 +36,7 @@
    with (1,2) from the second bundle at DCB 5.
 
 4. Once all fibers are connected, power on Maraton channels 0, 1, and 12 and
-   verify that the LEDs are on in the bottom SBC. Directions [here](./burnin_sw_setup.md#scripts-to-run-on-the-raspberry-pi)
+   verify that the LEDs are on in the bottom SBC. Directions [here](./burnin_sw_setup.md#controlling-the-psu-maraton-with-curl)
 
 5. Then power on the Rigol.
 
