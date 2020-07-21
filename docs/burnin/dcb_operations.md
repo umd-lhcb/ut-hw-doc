@@ -1,7 +1,10 @@
 ## Stopping the DCB burn-in
 
+0. Execute `burnin_read.sh`. If any GBTxs don't report '03151515', note the DCB
+   in the database.
+
 1. Turn off Maraton channels 0, 1, and 12 and verify that all LEDs are off in
-   the bottom SBC. The direction is available [here](./burnin_sw_setup.md#controlling-the-psu-maraton-with-curl).
+   the bottom SBC. Directions [here](./burnin_sw_setup.md#controlling-the-psu-maraton-with-curl).
 
 2. Turn off channels 1 and 2 of the Rigol power supply.
 
@@ -49,9 +52,9 @@
 4. Once all fibers are connected, power on Maraton channels 0, 1, and 12 and
    verify that the LEDs are on in the bottom SBC. Directions [here](./burnin_sw_setup.md#controlling-the-psu-maraton-with-curl)
 
-5. Then power on the Rigol.
+5. Power on the Rigol.
 
-6. Open PuTTY, click on MiniDAQ, and navigate to the nanoDAQ directory.
+6. Open PuTTY, click on MiniDAQ, and navigate to the `nanoDAQ` directory.
 
 7. Because the DCB programming can be unreliable on the first tries after power-up, I suggest running
 
