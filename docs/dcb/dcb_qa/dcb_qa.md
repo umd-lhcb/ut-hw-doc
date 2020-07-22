@@ -269,8 +269,6 @@ clicking **TELL40** until the following panel shows up, with the tab for
     1. Type `./saltutil.py [I2C] init -g 10` into `nanoDAQ`, filling in `[I2C]` with
        `3`, `4`, or `5` if the DCB is in slot **`JD10`** or with `0`, `1`, `2` if the 
        DCB is in slot **`JD11`**
-        - don't enter these commands consecutively like in the last step, wait until
-          SALT and TFC testing is complete for one I2C to move on to the next
     2. Type `./dcbutil.py init ~/bin/tmp_0.xml -g 10 -s [GBT]`, with `[GBT]` the 
        corresponding GBT for your current I2C (see table below).
     3. Go to the memory monitoring panel and select the corresponding link for your
@@ -317,13 +315,12 @@ the top left. Now navigate to the **ADC** tab.
 
 1. Configure settings and check ADC read outs as follows
     - **PC**: UMDlab, **GBT ID**: 10, **SCA ID**: 0, **Version**: 2
+    - First click **Activate Channel**
     - For now, set address to **Read Channel** and **Line** to 24, then 25,
       then 0. For each line, clicking read on the right updates the **Data out** field.
     - Power lines: line 24 should be around 0.83 and line 25 should be around 0.5,
       both within ~0.02
     - Line 0 should be around 0.53, within ~0.04 (depending on the temperature)
-    - If you're getting an error, try clicking **Activate Channel** then try again
-
 2. When looking in slot **`JD10`**
     - Also read out lines 5, 6, and 7. They should all be 0.5, within ~0.04
 
@@ -331,11 +328,11 @@ the top left. Now navigate to the **ADC** tab.
     - Also read out lines 2, 3, and 4. They should all be 0.55, within ~0.04
 
 4. Change address to **Current Source** and put `ffffffff` (8 `f`s) in **Data in**,
-   then click **read/write**
+   then click **write/read**
 
 5. Put address back to **Read Channel** and check lines 1, 16, 17, and 18 by
    clicking read and looking at **Data out**
-    - Expected value 0.29 (was 0.15 before), within ~0.04
+    - Expected value 0.29 (was 0.15 for prototype DCBs before), within ~0.04
 
 
 ### Optical to Master GBT
@@ -348,5 +345,5 @@ labeled **GBT**.
    **Register Address**: 28, Size: 1
     - Click Read on the right and you should see `00` in **Data out**
 
-2. Put `ff` in **Data in** and click **read/write**
+2. Put `ff` in **Data in** and click **write/read**
     - **Data out** should now read `ff`
