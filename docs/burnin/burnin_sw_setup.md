@@ -88,7 +88,7 @@ curl -X POST http://192.168.1.30:45679/psu/192.168.1.31/<CHANNEL_NUMBER>/off
 ## Controlling the USB relay with `curl`
 `CtrlServer.py` is required to control PSU remotely.
 
-To turn on/off a USB relay channel, use the commands
+To turn on/off a USB relay channel, use the commands after checking the dynamic address
 ```
 curl -X POST http://192.168.1.30:45679/relay/0001:0004:00/<CHANNEL_NUMBER>/on
 curl -X POST http://192.168.1.30:45679/relay/0001:0004:00/<CHANNEL_NUMBER>/off
