@@ -94,14 +94,15 @@ Each batch should be burned-in for 48 hrs, with switching loads and thermal cycl
 ## Stop the burn-in
 
 1. Before turning off the Maraton channels, check that:
-    1. all 4 LEDs on the back are on (indicating all 8 LVR channels have been on).
-    2. no hot spot >60C on FLIR
-    3. Check voltages on output breakout boards, e.g. 1V5 + ~0.2V drop
+    1. In the web monitoring history, each Maraton channel's current did not deviate from its high and low values (e.g. reducing to half if 1 LVR stopped working)
+    2. all 4 LEDs on the back are on (indicating all 8 LVR channels have been on).
+    3. no hot spot >60C on FLIR
+    4. Spot check voltages on output breakout boards, e.g. 1V5 + ~0.2V drop. Very carefully probe between two adjecent groups of pins on output connector (slowly move one probe at a time to avoid shorting). Will add picture here later.    
 
 2. Turn off Maraton channels one by one.
 
     !!! note
-        Verify that the LEDs are off
+        Verify that the front LEDs are off
 
 3. Stop the control and monitoring scripts (`CtrlServer.py`, `CtrlClient.py`, `SwLoadTest.py`) by `Ctrl` + `C`
 
@@ -113,20 +114,19 @@ Each batch should be burned-in for 48 hrs, with switching loads and thermal cycl
         For future convenience: after scripts are stopped, `Ctrl` + `L` to
         clear, then up arrow to bring up the last command
     
-    !!! warning
-        The USB relay may still be closed (red LED on) after scripts are stopped, if the last measured temperature is higher than the lower target (31C). 
-        Then the DC power supply will keep pushing the solenoid valve on (not ideal).
-        Therefore, after the next step, when thermal sensors are detached and cooled down to < 31C, run `CtrlServer.py` and `CtrlClient.py`. 
-        The measured T would trigger the condition to switch the relay open (red LED off). Then stop the scripts. 
+    !!! note 
+        USB relay should be automatically set to open (no red LED on) when scripts are stopped, if the last measured temperature is higher than the lower target (31C). 
+        If relay is closed, the DC power supply will keep pushing the solenoid valve on (not ideal). To open it by command line, refer to the burn-in software doc. 
 
 4. Disconnect the output cables and hang them by their clip on the red wire.
 
 5. Disconnect the input breakout boards (after moving the SBC bar)
 
     !!! note
-        Check for loose connections to the terminal blocks
+        Check for loose connections to the terminal blocks (can gently pull to see if a wire is loose)
 
 6. Disconnect the grounding wires
+
 7. Loosen the wedge locks and take out LVRs. Detach the thermal sensors as space around LVR opens up.  
 
     !!! warning
@@ -136,7 +136,7 @@ Each batch should be burned-in for 48 hrs, with switching loads and thermal cycl
         Wedge locks should be loose after 3 complete turns. 
         If you still have trouble moving the LVR, make sure it's not blocked by the crate's bottom horizontal rail. 
 
-8. Double-check the LVR IDs, and update the database
+8. Put the LVRs into ESD bags, and update the database
 
 ## Monitoring from off-campus
 
