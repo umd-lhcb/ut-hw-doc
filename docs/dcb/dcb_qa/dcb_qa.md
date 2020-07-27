@@ -322,7 +322,7 @@ the top left. Now navigate to the **ADC** tab.
       both within ~0.02
     - Line 0 should be around 0.53, within ~0.04 (depending on the temperature)
 2. When looking in slot **`JD10`**
-    - Also read out lines 5, 6, and 7. They should all be 0.5, within ~0.04
+    - Also read out lines 5, 6, and 7. They should all be 0.55, within ~0.04
 
 3. When looking in slot **`JD11`**
     - Also read out lines 2, 3, and 4. They should all be 0.55, within ~0.04
@@ -332,7 +332,7 @@ the top left. Now navigate to the **ADC** tab.
 
 5. Put address back to **Read Channel** and check lines 1, 16, 17, and 18 by
    clicking read and looking at **Data out**
-    - Expected value 0.29 (was 0.15 for prototype DCBs before), within ~0.04
+    - Expected value 0.29 (was 0.15 for prototype DCBs before), within ~0.04 (temperature specified [here](https://github.com/umd-lhcb/lab-notes/issues/10), 0.32 corresponds to 50 degree celsius, higher value corresponds to smaller T)
 
 
 ### Optical to Master GBT
