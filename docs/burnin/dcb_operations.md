@@ -1,7 +1,7 @@
 ## Stopping the DCB burn-in
 
 0. Execute `burnin_read.sh`. If any GBTxs don't report `03151515`, note the DCB
-   in the database.
+   in the database.  If any DCBs don't respond at all, try resetting the SCA from the MiniDAQ SCA panel.
 
 1. Turn off Maraton channels 0, 1, and 12 and verify that all LEDs are off in
    the bottom SBC. Directions [here](./burnin_sw_setup.md#controlling-the-psu-maraton-with-curl).
