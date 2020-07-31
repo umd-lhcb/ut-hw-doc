@@ -25,7 +25,7 @@
    way.
 
     !!! info
-        Slots 10 and 11 are unused, I recommend starting with Slot 9 on the left
+        Slots 10 and 11 are unused, I recommend starting with Slot 0 on the right
         when facing the DCB.
 
     1. As you plug in each DCB, also plug the pull-up harness into the FFC
