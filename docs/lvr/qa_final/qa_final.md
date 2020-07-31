@@ -1,92 +1,66 @@
-# Post-Burnin QA Proceedure
+# Post-Burnin (final) QA Procedure
 
+1. Put on the wrist strap, take a burned in LVR. If fw version is not 2.06, **set the switches** as indicated in the table below.
+Order refers to toggles 1234 on the switch, with `1` meaning `ON`. (CCM) or (FPGA) refer to the side
+of the LVR the switch is on. 
 
-0. If the LVR was set up using the old firmware version, follow the steps in the initial QA to
-   bring the FPGA to version 2.03. SW2-5 will need to be updated. SW2&3 should be all \[**ON, ON, ON, ON**\]
-   while SW4 should be **ON** only for each master slave pair (SW4-1 = 1&2, SW4-2 = 3&4, SW4-3 = 5&6, SW4-2 = 7&8).
-   SW5 can be \[**OFF, OFF, OFF, OFF**\]
+    | Type | SW1 (CCM) | SW3 (FPGA) | SW2 (FPGA) | SW5 (FPGA) |
+    |------|-----|-----|-----|-----|
+    | All LVRs | `0001` | `1111` |  `1111` |  `0000`  |
 
-1. Using a DVM, confirm that the connection between GND and EARTH (between, e.g. **`TP7`**
-   and the large lugs) each way is still \> 25k Ohms
+    | Type | SW6[ABCD] (CCM) | SW4 (FPGA) |
+    |---|-----|----|
+    | 12A | `1010` |  `0000`  |
+    | 15MS | `1100` |  `1111`  |
+    | 25A | `1000` |  `0000`  |
 
-    !!! warning
-        Before attempting the next step, ensure the screwdriver torque setting is at "1"
-        and no higher!
+2. Confirm that the connection between `GND` (eg, `TP7`) and EARTH (lugs sticking out at the bottom) is still **\> 25k Ohms**
+in both directions.
 
-2. Set SW5 to \[**OFF, OFF, OFF, OFF**\] if it is not already. Carefully slide the
-   board into the cooling frame, input side first.
-   Using the power screwdriver, tighten the wedgeloks by screwing in the hex bolts
-    - the screwdriver will hit a torque limit and stop turning. **DO NOT** attempt to
-      tighten further
-    - See figure for what this should look like
+3. Slide LVR into the cooling frame, input side first. With the torque screwdriver set to 5.5 inch*pounds, tighten the
+wedge locks.
+
+4. **Connect** input BB, the Rpi monitor, and turn on the PS at 6V as shown below.
+    - If fw version is not 2.06, also connect the Microsemi dongle, and update the firmware.
+
     ![Figure 1: Assembled LVR board in cooling stand](lvr_finalqa1.jpg)
 
-3. Connect input power supply and LVR monitor. Power on the board with at least 6V in and
-   check that the housekeeping voltages are as expected (`Vin_FPGA_1V5`=1.5 V, `Vin_FPGA_3V3`=3.3 V, `V_OPAMP_RAIL`=5.5 V)
-    - the figures below show the stand all connected and on its side (sometimes useful
-      to manipulate SW2-SW5) and the relevant lines on the LVR monitor
-   ![Figure 2: Assembled LVR board in cooling stand with cabling](lvr_finalqa2.jpg)
-   ![Figure 3: LVR monitor housekeeping output](lvr_finalqa3.jpg)
+5. **Adjust `P1`, `P2`, and `P5`** if the base voltages are not as expected (`Vin_FPGA_1V5`=1.5 V, `Vin_FPGA_3V3`=3.3 V, `V_OPAMP_RAIL`=5.5 V)
 
-4. Using the LVR Butler software, request WORD2 and confirm that the LVR firmware version
-   is reported correctly (LSBs equal to 0x203, CRC confirmed okay)
-   
-5. If the board is of the 12A type, this step may be skipped. With no load connected, 
-   use the LVR Butler software to request all channels on.
-   The LVR monitor readings `V_SENSE_MON1` are equal to the setpoint the corresponding CCM.
-   Ensure they are all within nominal ranges. (25A = 2.50-2.52, 15M/S = 1.51-1.53)
-   
-6. With no load, use the LVR Butler to request all channels READY. Check that V_SENSE_MON1-8 are between 110-190 mV.
-   If they are not, you will need to fine-tune P3 and P4 to ensure they are within this range (preferably near 120-140 mV if possible).
-  
-7. Clear the oscilloscope screen by forcing a trigger. Connect the load board MPSS
-   extension cable and the sense cable in the corresponding RJ45 and use the LVR Butler to command the LVR to "ripple" on all channels.
-    - The Scope should trigger with a screen like the following. Ensure that the
-      turn-on curve is smooth, comes to the correct voltage (1.25, 1.50, 2.50) within
-      a few %, and has a prestart voltage in the 100mV - 200mV range.
-    ![Figure 4: Example of turnon curve for half LVR](lvr_finalqa4.jpeg)
+6. Using the Rpi Butler software, request WORD2 to confirm **fw version is 2.06**, and **turn all channel `ON`**
 
-8. Check the undervoltage lockout by dialing down the input voltage and verifying
-   that the channels turn off. Bring back up the input voltage.
+7. Adjust the **CCM potentiometers** if the `V_SENSE_MONi` voltages are not about 1.25V, 1.52V, or 2.51V.
 
-9. Check the sense lines by verifying that when the CAT5 cable is disconnected the
-   V_OUT for the connected channels moves until it matches the other half of the LVR
+8. Reduce power supply voltage to about 4.3V (12A), 5.0V (15MS), or 5.3V (25A) and check the **under-voltage lockout (UVL) turns all channels off**
+in the Rpi monitor.
+    - Set input voltage back to 6V
+    
+9. Change SW1 to `0011`, and check the **over-temperature protection turns all channels off** and the `LD7` LED turns on. Some times you may have to go all the way to `1111`.
 
-10. Plug back in the sense lines and confirm with a DVM that the voltage drops across
-   resistors R73 and R81 for each channel match one-another to within 2-5%. These
-    are the two medium-sized resistors with R050 and R150 printed on them. Some variation
-   with this range is expected and is related to the lower tolerance of a certain
-  resistor network.
+10. Set all channels to `READY` with the Rpi Butler, and **adjust `P3` and `P4`** if the `V_SENSE_MONi` voltages are between 110-190 mV (preferably 120-140 mV).
 
-    !!! note
-        It is okay if the values do not match between different channels.
+11. Repeat these steps after setting all channels to `OFF` with the Rpi Butler and connecting the MPSS cable and RJ45 sense lines to each output:
+    1. Set the oscilloscope trigger to *Single*, the Butler to "Ripple ALL", and **check that the turn-on curve is smooth** and comes to a sensible voltage (scope is single ended,
+    so voltage will be higher than `V_SENSE_MONi`). LVRs without slaves would look like on the left, `MS` like on the right.
+    ![Figure 4: Example of turnon curve for half LVR](lvr_ripple_turnon.png)
+    2. Confirm with multimeter that the **voltage drops across resistors `R73[A-H]` and `R91[A-H]` for each channel match one-another to within 2-5%**. These
+    are the two medium-sized resistors with R050 and R150 printed on them.  It is okay if the values do not match between different channels.
+    3. Check the sense lines by verifying that when the CAT5 cable is disconnected the
+    `V_SENSE_MONi` for the connected channels **moves until it matches the other half of the LVR**.
 
-11. Use the LVR butler to turn all channels **OFF** with the SPI. Move the cables and
-  repeat steps 5, 6, 7, and 8 for the other output and sense connector on the LVR
+12. Set the JTAG into a radiation-hard state by **moving the two jumpers on `J22`** (near ch8)
+    to connect pins 4&6 and pins 3&5 (should be both jumpers moving one pin to the right if the
+      output is facing you.)
 
-12. Before turning off the channels a second time, confirm that the overtemperature lockout
-    is working by setting SW1 to \[**ON, ON, ON, ON**\] and verifying that the outputs shut
-    down.
-
-13. Configure SW6 and SW1 to the final values: SW1 = \[**OFF, OFF, OFF, ON**\]
-
-    | LVR output voltage | SW6                      |
-    |--------------------|--------------------------|
-    | 1.2 V              |\[**ON, OFF, ON, OFF**\] |
-    | 1.5 V              |\[**ON, ON, OFF, OFF**\] |
-    | 2.5 V              |\[**ON, OFF, OFF, OFF**\] |
-
-14. The LVR can be shut down and set to its final configuration. Consult the database for
+13. The LVR can be shut down and set to its final configuration. Consult the database for
     valid 'sub types' and remove CCMS as necessary. For each removed CCM, one of the switches
     on SW3 and SW2 must be set off.
 
-    | SW3 switcher | Channels ||| SW2 switcher | Channels |
-    |--------------|----------|||--------------|----------|
-    | 1            | CH1      ||| 1            | CH5      |
-    | 2            | CH3      ||| 2            | CH6      |
-    | 3            | CH5      ||| 3            | CH7      |
-    | 4            | CH7      ||| 4            | CH8      |
+    | SW3 toggle | Channels | SW2 toggle | Channels |
+    |--------------|----------|--------------|----------|
+    | 1            | CH1      | 1            | CH5      |
+    | 2            | CH3      | 2            | CH6      |
+    | 3            | CH5      | 3            | CH7      |
+    | 4            | CH7      | 4            | CH8      |
 
-15. Set the JTAG into a radiation-hard state by moving the two jumpers on **`J22`** (near ch8)
-    to connect pins 4&6 and pins 3&5 (should be both jumpers moving one pin to the right if the
-      output is facing you.)
+14. Update the [database](https://docs.google.com/spreadsheets/d/1KjXGhOFzi0SZPsozpKzxGjVtfr4kkS_Hv5EigUwKOj8/edit#gid=1564410083), and you are done!
