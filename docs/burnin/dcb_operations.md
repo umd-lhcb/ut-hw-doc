@@ -83,10 +83,8 @@
               
         The most common problems are that the SCA needs to be reset from the MiniDAQ SCA panel, and that the FFC cable needs to be reseated or even removed and the kapton insulation replaced (even if the current consumption for the reset line is correct).
         
-        You can also try the following in no particular order:
-    
-        - Reset the SCA from the MiniDAQ SCA panel
-    
+        You can also try the following in no particular order:   
+  
         - Reset the master with the RIGOL
     
         - Reset the data GBTxs following the DCB QA instructions
