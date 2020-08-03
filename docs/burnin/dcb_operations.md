@@ -75,7 +75,14 @@
         ./burnin_read.sh
 
     Check that each GBTx reports `03151515`.  The burn-in is now running.
-    !!! info
-        If a DCB is not responding try reading from it individually with 
+    
+    If a DCB is not responding try reading from it individually with 
+    
               ./dcbutil.py read 1c 4 -g #
-        You can also try resetting the master with the RIGOL and/or the data GBTxs following the DCB QA instructions
+              
+    You can also try the following in no particular order:
+    Reset the SCA from the MiniDAQ SCA panel
+    Reset the master with the RIGOL
+    Reset the data GBTxs following the DCB QA instructions
+    Power cycle the DCBs
+    Reseat the FFC cables
