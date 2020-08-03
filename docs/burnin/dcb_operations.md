@@ -81,8 +81,13 @@
               ./dcbutil.py read 1c 4 -g #
               
     You can also try the following in no particular order:
+    
     Reset the SCA from the MiniDAQ SCA panel
+    
     Reset the master with the RIGOL
+    
     Reset the data GBTxs following the DCB QA instructions
+    
     Power cycle the DCBs
+    
     Reseat the FFC cables
