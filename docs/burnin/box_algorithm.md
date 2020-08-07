@@ -2,6 +2,8 @@
 
 General: if a box is full or missing, find a new box and put a post-it on it.
 
+To do: inventory of boxes for shipping, want to pack one box of each type first.
+
 ## DCBs:
 
 Out of shipping box downstairs 
