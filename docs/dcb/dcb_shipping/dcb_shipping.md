@@ -27,6 +27,8 @@ Much more speculative.  Here are some things to think about:
 
 ![DCB Box](DCBs_box.jpg)
 
-Close the ESD bag, remove the white strip from the bubble wrap bag and seal it.  Add a sheet of bubble wrap (might need to buy some).
+Make sure there is a layer of pink foam at the bottom of the box.  Remove one of the two short dividers and move the other to the middle of the box to fit the assembled DCB.
 
-Make sure the outer DCBs at the edges of the honeycomb are well protected with bubble wrap.
+After removing the optical mezzanines (above) close the ESD bag, remove the white strip from the bubble wrap bag and seal it.  Add a sheet of bubble wrap if there is enough space (might need to buy some).
+
+Make sure the outer DCBs at the edges of the honeycomb are well protected with bubble wrap, and possibly additional cardboard.
