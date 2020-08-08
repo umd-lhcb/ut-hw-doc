@@ -31,9 +31,11 @@ nav:
     - Home:
         - Getting started: index.md
         - license.md
+        - boxes: burnin/box_algorithm.md
     - DCB:
         - DCB mechanical assembly: dcb/dcb_assembly/dcb_assembly.md
         - DCB QA: dcb/dcb_qa/dcb_qa.md
+        - DCB Shipping: dcb/dcb_shipping/dcb_shipping.md
     - LVR:
         - LVR mechanical assembly: lvr/lvr_assembly/lvr_assembly.md
         - LVR Setup/Initial QA: lvr/lvr_qa/lvr_qa.md
