@@ -31,7 +31,7 @@ nav:
     - Home:
         - Getting started: index.md
         - license.md
-        - boxes: burnin/box_algorithm.md
+        - Boxes: burnin/box_algorithm.md
     - DCB:
         - DCB mechanical assembly: dcb/dcb_assembly/dcb_assembly.md
         - DCB QA: dcb/dcb_qa/dcb_qa.md
