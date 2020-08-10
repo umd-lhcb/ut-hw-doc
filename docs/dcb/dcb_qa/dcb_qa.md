@@ -225,7 +225,7 @@ board gets power cycled.
       success, otherwise it will report "Master GBT not locked"
 
 !!! warning
-    **Stop here if the DCB has NOT gone through the burn-in yet!!!**
+    **Stop here if the DCB has NOT gone through the burn-in yet!!!** If finishing an initial QA, **turn off power to the DCB before removing it from the backplane.**
 
 
 ## Final QA
@@ -347,3 +347,7 @@ labeled **GBT**.
 
 2. Put `ff` in **Data in** and click **write/read**
     - **Data out** should now read `ff`
+
+!!! warning
+    When finishing final QA, **turn off power to the DCB before removing it from the backplane.**
+
