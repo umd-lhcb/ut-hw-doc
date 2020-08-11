@@ -25,10 +25,27 @@ Much more speculative.  Here are some things to think about:
 
 *Note: The DCBs are a little loose in the cardboard honeycomb, we could try to fit one more sheet of bubble wrap in if we have it. 
 
+Check the DCB database and label the box DCB Box # according to the previously numbered DCB boxes.
+
+As you pack DCBs, note in the database that they have been put into DCB Box #.
+
 ![DCB Box](DCBs_box.jpg)
 
-Make sure there is a layer of pink foam at the bottom of the box.  Remove one of the two short dividers and move the other to the middle of the box to fit the assembled DCB.
+Make sure there is a layer of stiff pink foam at the bottom of the box.  Remove one of the two short dividers and move the other to the middle of the box to fit the assembled DCB.
 
-After removing the optical mezzanines (above) close the ESD bag, remove the white strip from the bubble wrap bag and seal it.  Add a sheet of bubble wrap if there is enough space (might need to buy some).
+After removing the optical mezzanines (above) close the ESD bag, remove the white strip from the bubble wrap bag and seal it.  
 
-Make sure the outer DCBs at the edges of the honeycomb are well protected with bubble wrap, and possibly additional cardboard.
+![DCB Bag](DCBs_bag.jpg)
+
+Fold the bag over the top of the DCBs, and wrap a sheet of thin bubble wrap around the bottom (currently using 2 pieces of u-line per board but will run out).
+
+![DCB_Taco](DCBs_taco.jpg)
+
+Make sure the outer DCBs at the edges of the honeycomb are well protected with bubble wrap, and pad with some of the egg crate backplane foam or something similar.
+
+![DCB_Padding](DCBs_padding.jpg)
+
+When the box is full, put a layer of stiff pink foam over the top.  
+
+![DCB_Foam](DCBs_foam.jpg)
+
