@@ -41,7 +41,7 @@ Fold the bag over the top of the DCBs, and wrap a sheet of thin bubble wrap arou
 
 ![DCB_Taco](DCBs_taco.jpg)
 
-Make sure the outer DCBs at the edges of the honeycomb are well protected with bubble wrap, and pad with some of the egg crate backplane foam or something similar.
+Place the DCB in the box with the heat pipe side towards the outside of the box.  Make sure the outer DCBs at the edges of the honeycomb are well protected with bubble wrap, and pad with some of the egg crate backplane foam or something similar.
 
 ![DCB_Padding](DCBs_padding.jpg)
 
