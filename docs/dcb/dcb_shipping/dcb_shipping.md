@@ -4,7 +4,7 @@
 
 Remove mezzanines from DCB.  Screws can go in a pile for later use for now.
 
-Put mezzanine in ESD bag.  *Note: we are not sealing the ESD bags for now.*
+Put the rubber plug in the VTXx and put mezzanine in ESD bag.  *Note: we are not sealing the ESD bags for now.*
 
 Wrap bags in bubble wrap in the same way they arrived:
 
