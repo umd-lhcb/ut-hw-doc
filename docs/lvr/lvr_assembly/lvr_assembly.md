@@ -23,7 +23,7 @@ electrically connected to the LVR.
 ## Wedge Locks
 
 
-![](assembled_lvr.jpg)
+![](assembled_lvr.jpg){: style="height: 300px"}
 
 1. Put a strip of kapton along the edges of the CCM side of the board.
 2. Poke holes for the wedge lock screws with a punch.
