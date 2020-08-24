@@ -73,6 +73,8 @@ electrically connected to the LVR.
 
 Attach 8 CCMs, matching the color of the stickers on the LVR.  Make sure to orient the CCMs correctly (see picture)
 
+![](LVR_CCMs.jpg)
+
 ## Final
 
 1. Repeat the continuity check above to ensure that the LHC4913 chips have not made contact with the baseplate during assembly.
