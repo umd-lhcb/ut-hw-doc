@@ -49,7 +49,7 @@ When the box is full, put a layer of stiff pink foam over the top.
 
 ![DCB_Foam](DCBs_foam.jpg)
 
-##CERN Visual Inspection
+## CERN Visual Inspection
 
 Carefully examine the backplane connector, looking for any bent or broken pins or any other signs of excessive force
 
