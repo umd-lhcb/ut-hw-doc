@@ -63,11 +63,13 @@ electrically connected to the LVR.
     ![](baseplate_alignment.jpg)
 
 2. Put an {==M2.5==} screw and washer in each hole.  First tighten very gently, then
-   make hand tight in an X pattern across the board.  Try to look between the
+   make hand tight in an X pattern across the board.  For your first few boards, try to look between the
    LVR and baseplate to see that the thermal paste has made contact with the
    baseplate and been deformed.  Not all chips can be verified this way.
 
     ![](lvr_screws.jpg)
+    
+3. Put a number sticker on the baseplate matching the number on the front of the LVR.  Make sure to use the roll labeled for LVRs.
 
 ## CCMs
 
@@ -79,8 +81,8 @@ Attach 8 CCMs, matching the color of the stickers on the LVR.  Make sure to orie
 
 1. Repeat the continuity check above to ensure that the LHC4913 chips have not made contact with the baseplate during assembly.
 
-2. Update the database, you have assembled an LVR!
+2. Put a post-it note on the ESD bag matching the color of the CCM stickers, and put the LVR in the box for burn-in.
 
-    ![](assembled_lvr.jpg)
+3. Update the database, you have assembled an LVR!
 
 
