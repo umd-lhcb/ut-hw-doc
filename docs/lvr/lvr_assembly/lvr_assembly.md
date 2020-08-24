@@ -22,8 +22,7 @@ electrically connected to the LVR.
 
 ## Wedge Locks
 
-
-![](assembled_lvr.jpg){: style="height:300px"}
+![](assembled_lvr.jpg){: style="height:300px}
 
 1. Put a strip of kapton along the edges of the CCM side of the board.
 2. Poke holes for the wedge lock screws with a punch.
@@ -46,13 +45,13 @@ electrically connected to the LVR.
    holes. Then remove the plastic backing from the other side.  Repeat for the
    other side of the board.
 
-    ![](thermal_gap_sides.jpg)
+    ![](thermal_gap_sides.jpg){: style="height:300px}
 
 2. Put the applicator flush with the top of an LHC4913 chip, gently push the plunger, and spread
    some paste on the chip.  Very little paste is needed, and only covering the metal heat sink.  See
    above picture for approximate thickness.  Repeat for all 10 chips.
 
-    ![](thermal_gap_4913.jpg)
+    ![](thermal_gap_4913.jpg){: style="height:300px}
 
 ## Baseplate
 
@@ -60,14 +59,14 @@ electrically connected to the LVR.
    is aligned so that the raised squares with threaded holes match the holes on
    the LVR.  Also check that all corners are aligned.
 
-    ![](baseplate_alignment.jpg)
+    ![](baseplate_alignment.jpg){: style="height:300px}
 
 2. Put an {==M2.5==} screw and washer in each hole.  First tighten very gently, then
    make hand tight in an X pattern across the board.  For your first few boards, try to look between the
    LVR and baseplate to see that the thermal paste has made contact with the
    baseplate and been deformed.  Not all chips can be verified this way.
 
-    ![](lvr_screws.jpg)
+    ![](lvr_screws.jpg){: style="height:300px}
     
 3. Put a number sticker on the baseplate matching the number on the front of the LVR.  Make sure to use the roll labeled for LVRs.
 
@@ -75,7 +74,7 @@ electrically connected to the LVR.
 
 Attach 8 CCMs, matching the color of the stickers on the LVR.  Make sure to orient the CCMs correctly (see picture)
 
-![](LVR_CCMs.jpg)
+![](LVR_CCMs.jpg){: style="height:300px}
 
 ## Final
 
