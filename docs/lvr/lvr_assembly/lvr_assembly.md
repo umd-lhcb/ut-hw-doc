@@ -14,10 +14,14 @@ Make sure you are grounded. Visually inspect the LVR for any damage. You will ne
 - Punch
 - Screwdrivers
 
+## Continuity check
+
+Measure the resistance between any of the grounds (for example ground pins of the input/output connectors) and the aluminum backplate.
+The resistance should be on the order of 100k ohms to ensure the backplate is not
+electrically connected to the LVR.
+
 ## Wedge Locks
 
-It is not clear to me if Kapton tape is needed to prevent the wedge lock from
-abrading the solder mask, so I include the step for now.
 
 ![](assembled_lvr.jpg)
 
@@ -44,8 +48,8 @@ abrading the solder mask, so I include the step for now.
 
     ![](thermal_gap_sides.jpg)
 
-2. Put the applicator on an LHC4913 chip, gently push the plunger, and spread
-   some paste on the chip.  Only the metal heat sink needs to be covered.  See
+2. Put the applicator flush with the top of an LHC4913 chip, gently push the plunger, and spread
+   some paste on the chip.  Very little paste is needed, and only covering the metal heat sink.  See
    above picture for approximate thickness.  Repeat for all 10 chips.
 
     ![](thermal_gap_4913.jpg)
@@ -65,12 +69,16 @@ abrading the solder mask, so I include the step for now.
 
     ![](lvr_screws.jpg)
 
-3. Update the database, you have assembled an LVR!
+## CCMs
+
+Attach 8 CCMs, matching the color of the stickers on the LVR.  Make sure to orient the CCMs correctly (see picture)
+
+## Final
+
+1. Repeat the continuity check above to ensure that the LHC4913 chips have not made contact with the baseplate during assembly.
+
+2. Update the database, you have assembled an LVR!
 
     ![](assembled_lvr.jpg)
 
-## Continuity check
 
-Measure the resistance between any of the grounds and the aluminum backplate.
-The resistance should be very large to ensure the backplate is not
-electronically connected to the LVR.
