@@ -58,3 +58,5 @@ The heat pipes are not perfectly straight, but check that they are not too bent 
 Check the four mezzanine connectors for bent or broken pins or any other signs of excessive force
 
 Do a brief visual scan of the visible side of the board for cracked components or torn pads
+
+![DCB_top](DCB_top.jpg)
