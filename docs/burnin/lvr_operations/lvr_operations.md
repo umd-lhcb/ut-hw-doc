@@ -48,10 +48,10 @@ Each batch should be burned-in for 48 hrs, with switching loads and thermal cycl
 7. Now install the input breakout boards and grounding cables:
     1. move the horizontal bar back to make space for installation
     2. because there are 2 input breakout boards per Maraton channel, connect
-        them in order and not mix between channels
+        the pairs in order (e.g. from right to left) to not mix between channels
     3. input breakout boards are hard to secure even with the bar, so sometimes zip ties are needed (2V5 slots in particular)
     4. check that the cables to the input BBs are tightly connected to the block terminals (they gradually loosen and should be tightened again)
-    5. after all boards are connected (some horizontal tilt unavoidable), push and secure the bar to keep boards in place (try starting from one end and push in one input BB at a time) 
+    5. after all boards are connected (some horizontal tilt unavoidable), push in the boards and fix the bar to keep boards in place (with quite some force, try starting from one end and push in one input BB at a time) 
     6. double-check the connectors, especially for vertical tilt (resulting in partial connection)
     7. verify grounding cable connection
 
@@ -63,8 +63,8 @@ Each batch should be burned-in for 48 hrs, with switching loads and thermal cycl
     2. You can use `Ctrl` + `r` to reverse search past command lines
 
 11. Turning on one Maraton channel (channel numbers are labeled on SBC) as described in [here](../burnin_sw_setup.md#controlling-the-psu-maraton-with-curl)
-    1. after issuing command, verify all LEDs are on: 1 in the front **and 4 in the back**. If not, turn off the channel and check connections (e.g. only 4 LVR channels on due to partial input connection)
-    2. use multimeter to spot check voltages across the output breakout boards -- should be the set voltage plus some drop (e.g. 1V5+0.2V)
+    1. after issuing command, verify all LEDs are on: 1 in the front **and 4 in the back**. If not, turn off the channel and check connections (e.g. only 4 LVR channels on due to partial input connection). Often the last few channels (11,10,9) need adjusting input BB connections (e.g. pushing in more).  
+    2. use multimeter to spot check voltages across the output connector solder joints (or output breakout boards) -- should be the set voltage plus some drop (e.g. 1V5+0.2V)
 
 12. Repeat for other channels
 13. At this point, all LVRs are running with low currents, before load-switching (seeing 5 Ohm fixed load)
@@ -87,7 +87,7 @@ Each batch should be burned-in for 48 hrs, with switching loads and thermal cycl
     !!! info
         Now valve is open for cooling water
 
-19. Use FlIR camera to check for abnormally hot (>60C) spots, both on the LVRs and the SLBs
+19. Use FLIR camera to check for abnormally hot (>60C) spots, both on the LVRs and the SLBs
 20. Give yourself a pat on the back -- burn-in has started
 
 
