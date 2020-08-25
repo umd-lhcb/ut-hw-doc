@@ -19,7 +19,7 @@ toward the side that has **ON** printed on the switch)
   
     | Type | SW1 (CCM) | SW3 (FPGA) | SW2 (FPGA) | SW5 (FPGA) |
     |------|-----|-----|-----|-----|
-    | All LVRs | `0001` | `1111` |  `1111` |  `0000`  |
+    | All LVRs | `0001` | `1111` |  `1111` |  `1000`  |
 
     | Type | SW6[ABCD] (CCM) | SW4 (FPGA) |
     |---|-----|----|
