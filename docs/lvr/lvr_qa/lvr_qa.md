@@ -12,36 +12,51 @@
 1. Visually inspect a new LVR and place it on the holder as shown in the picture. The CCM side should be facing you and the input
 connector be at the top. Recall that the one input is on one end and the two outputs on the other.
   ![](lvr_setup_board.jpg)
+  
+2. Set dip switch configuration for undervoltage lockout and overtemp lockout (`ON` or `1` is setting the toggle
+toward the side that has **ON** printed on the switch)
+  
+  
+    | Type | SW1 (CCM) | SW3 (FPGA) | SW2 (FPGA) | SW5 (FPGA) |
+    |------|-----|-----|-----|-----|
+    | All LVRs | `0001` | `1111` |  `1111` |  `0000`  |
 
-2. Place an serial number sticker on a new LVR under the input connector, and document its serial number in the
+    | Type | SW6[ABCD] (CCM) | SW4 (FPGA) |
+    |---|-----|----|
+    | 12A | `1010` |  `0000`  |
+    | 15MS | `1100` |  `1111`  |
+    | 25A | `1000` |  `0000`  |
+
+
+3. Place an serial number sticker on a new LVR under the input connector, and document its serial number in the
 [database](https://docs.google.com/spreadsheets/d/1KjXGhOFzi0SZPsozpKzxGjVtfr4kkS_Hv5EigUwKOj8/edit#gid=1564410083). Also document which type of LVR you intend to QA (12MS, 12A, 12MSA, 15MS, 25A). 
 
     - You don't need to fill every column in the database as you complete that test until you finish the QA
     or leave the setup for any reason.
     - The CCM serial number is documented at a later stage, during LVR assembly.
 
-3. Verify that the chassis and power ground are isolated by \> 25k Ohms (often 180k Ohms)
+4. Verify that the chassis and power ground are isolated by \> 25k Ohms (often 180k Ohms)
     1. Measure the resistance between the lugs sticking out near the input connector and any `GND` test point
     on the board (eg. **`TP7`**)
     2. Repeat measurement reversing the polarity of leads (ground isolation circuit is different each way)
 
-4. Connect jumpers between **`J22`** (near ch8) pins 2 & 4 (`V_pump`) and between `J22` pins 1 & 3 (`V_jtag`).
+5. Connect jumpers between **`J22`** (near ch8) pins 2 & 4 (`V_pump`) and between `J22` pins 1 & 3 (`V_jtag`).
 You can zoom in the above picture (righ-click, view image) to check it. This
 configuration allows you to program the FPGA later on.
 
-5. Connect the raspberry Pi LVR monitor to the board, and activate the LVR monitor on the laptop if it is
+6. Connect the raspberry Pi LVR monitor to the board, and activate the LVR monitor on the laptop if it is
 not already running. If not using the Pi, you can follow the instructions at the bottom of the page.
     1. Go to PuTTY and select Monitor Pi
     2. Both user name and password are "`lvr`"
 
-6. Set the power supply initially to 1.6V and the current limited to 2.0A, and connect provided input breakout board.
+7. Set the power supply initially to 1.6V and the current limited to 2.0A, and connect provided input breakout board.
 Verify polarity of connections visually
     1. Red wire in positive terminal of power supply
     2. Blue wire in negative terminal
     3. Negative terminal ground shorted
     4. Turn power supply on and enable output
 
-7. Adjust the `P1`, `P2`, and `P5` potentiometers so that the 1.5V, 3.3V, and 5.5V rails (voltage plateaus) are
+8. Adjust the `P1`, `P2`, and `P5` potentiometers so that the 1.5V, 3.3V, and 5.5V rails (voltage plateaus) are
 set to those values.
     1. Slowly increase the input voltage from the initial 1.6V until either the 1.5V reading (`Vin_FPGA_1V5`) stops increasing or
     exceeds 1.5V. At this point, tune the output using P1 to set it to 1.5V. You may have to increase the voltage
@@ -73,7 +88,7 @@ set to those values.
         - The 5.5V rail works in the 5.0-5.5V range, with a
         preference to be in the range 5.45-5.5V, as this allows for a slightly better time response.
 
-8. Output standby configuration. Adjust the voltage offsets at the
+9. Output standby configuration. Adjust the voltage offsets at the
     following test point pairs using the following potentiometers, using a multimeter to read the DC voltage.
 
     - CH 4-1: **`TP9`** (`Vos_gen`) and **`TP10`** (GND)
@@ -92,7 +107,7 @@ set to those values.
         | 1.546   | 1.5      |
         | 1.483   | 1.225    |
 
-9. Program the FPGA
+10. Program the FPGA
     1. Turn power off
     3. Connect programmer to **`J17`** on the back of the board, bottom-center (the ribbon in the picture
     below). Also make sure the blue jumpers are place in `J22` as in the picture.
@@ -102,12 +117,12 @@ set to those values.
         1. If no program has been loaded onto the FPGA, go to Open Project and select the pre-loaded
         program in the LVR folder you want to run
         2. Go to Configure Device
-        3. Click Browse, and select the file v2-03_lvr_fw.stp
+        3. Click Browse, and select the file v2-06_lvr_fw.stp
         4. Set **MODE** to basic (should be default), and set **ACTION** to program
         5. Once that is complete, click **PROGRAM**
     6. Check in the log that the auto-verify ran successfully (`RUN PASSED` in green).
 
-10. Turn off power and install all 8 CCMs in the orientation that allows you to read the silkscreen as shown below.
+11. Turn off power and install all 8 CCMs in the orientation that allows you to read the silkscreen as shown below.
 Remove the Raspberry Pi connector to install those.
   ![](ccm_board.jpg){: style="height:200px"}
     - For an `MS` type LVR, set up master CCMs on odd channels, slaves on even.
@@ -115,28 +130,6 @@ Remove the Raspberry Pi connector to install those.
     - For `MSA` type, fill half the channels with `MS` (CH1-4 for instance) and half with `A` CCMs.
 
 
-11. Set dip switch configuration for undervoltage lockout and overtemp lockout (`ON` or `1` is setting the toggle
-toward the side that has **ON** printed on the switch)
-    1. Locate four dip switches SW6\[A,B,C,D\]. 
-       Set the 3^rd^ switch to **ON**. Leave others **OFF**. These switches (and SW1) are circled in the image below.
-
-        ![](lvr_top_switches.png)
-
-    2. Locate the switch labeled SW1. Set the 4^th^ switch to **ON**. Leave
-       others **OFF**.
-
-    3. Locate the SW2-5 switches on the back of the board along the top edge
-
-        ![](lvr_bottom_switches.png)
-
-        1. SW3 sets CH1-4 enabled. Set it to \[**ON, ON, ON, ON**\]
-        2. SW2 sets CH5-8 enabled. Set it to \[**ON, ON, ON, ON**\]
-        3. For SW4, for each channel pair that has a master-slave pair,
-           set each corresponding pin to **ON** if a slave is present in
-           the channel pair, otherwise set to **OFF**
-        4. Set SW5 to \[**ON, OFF, OFF, OFF**\] (channels come on immediately with power, output is constant rather than pulsed)
-               
-     4. Put on the Raspberry Pi connector. 
 
 12. Undervoltage Lockout test
     1. Set input power to ~4.8V, connect raspberry Pi LVR monitor and turn power on
