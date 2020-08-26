@@ -1,18 +1,11 @@
 # Post-Burnin (final) QA Procedure
 
-1. Put on the wrist strap, take a burned in LVR. If fw version is not 2.06, **set the switches** as indicated in the table below.
+If you are already familiar with this procedure, you can simply follow the [LVR final QA checklist](LVR_final_QA_checklist.pdf).
+
+1. Put on the wrist strap, take a burned in LVR. **Set the switches** as indicated in the table below.
 Order refers to toggles 1234 on the switch, with `1` meaning `ON`. (CCM) or (FPGA) refer to the side
-of the LVR the switch is on. 
-
-    | Type | SW1 (CCM) | SW3 (FPGA) | SW2 (FPGA) | SW5 (FPGA) |
-    |------|-----|-----|-----|-----|
-    | All LVRs | `0001` | `1111` |  `1111` |  `0000`  |
-
-    | Type | SW6[ABCD] (CCM) | SW4 (FPGA) |
-    |---|-----|----|
-    | 12A | `1010` |  `0000`  |
-    | 15MS | `1100` |  `1111`  |
-    | 25A | `1000` |  `0000`  |
+of the LVR the switch is on. There are four SW6 switches, ABCD.
+    ![](table_switches.png)
 
 2. Confirm that the connection between `GND` (eg, `TP7`) and EARTH (lugs sticking out at the bottom) is still **\> 25k Ohms**
 in both directions.
@@ -31,7 +24,7 @@ wedge locks.
 
 7. Adjust the **CCM potentiometers** if the `V_SENSE_MONi` voltages are not about 1.25V, 1.52V, or 2.51V.
 
-8. Reduce power supply voltage to about 4.3V (12A), 5.0V (15MS), or 5.3V (25A) and check the **under-voltage lockout (UVL) turns all channels off**
+8. Reduce power supply voltage to about 4.3V (1.2V LVR), 4.8V (1.5V LVR), or 5.3V (2.5V LVR) and check the **under-voltage lockout (UVL) turns all channels off**
 in the Rpi monitor.
     - Set input voltage back to 6V
     
