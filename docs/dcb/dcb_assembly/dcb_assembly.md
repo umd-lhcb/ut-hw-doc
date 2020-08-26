@@ -184,7 +184,7 @@ Follow the pictures below for further guidance or if anything is not clear.
         - **`J13`** 1-3, 2-4
 
 
-**Note to self: include picture of top of fully assembled DCB, w jumpers, here**
+    ![DCB fully assembled](extra/fully_assembled_dcb.jpg) 
 
 ## Continuity check
 
