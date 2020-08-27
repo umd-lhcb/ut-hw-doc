@@ -32,7 +32,7 @@ in the Rpi monitor.
 
 10. Set all channels to `READY` with the Rpi Butler, and **adjust `P3` and `P4`** if the `V_SENSE_MONi` voltages are between 110-190 mV (preferably 120-140 mV).
 
-11. Repeat these steps after setting all channels to `OFF` with the Rpi Butler and connecting the MPSS cable and RJ45 sense lines to each output:
+11. Repeat these steps after setting all channels to `OFF` with the Rpi Butler and connecting the MPSS cable and RJ45 sense lines to each output. For `MS` LVRs, you will need to connect the jumper board to the MPSS cable (easier on the end away from the LVR):
     1. Set the oscilloscope trigger to *Single*, the Butler to "Ripple ALL", and **check that the turn-on curve is smooth** and comes to a sensible voltage (scope is single ended,
     so voltage will be higher than `V_SENSE_MONi`). LVRs without slaves would look like on the left, `MS` like on the right.
     ![Figure 4: Example of turnon curve for half LVR](lvr_ripple_turnon.png)
