@@ -34,7 +34,7 @@ Also document which type of LVR you intend to QA (12MS, 12A, 12MSA, 15MS, 25A).
     2. Repeat measurement reversing the polarity of leads (ground isolation circuit is different each way)
 
 5. Connect JTAG programmer to **`J17`** on the back of the board, bottom-center (the ribbon in the picture
-    abvove). Connect jumpers between **`J22`** (near ch8) pins 2 & 4 (`V_pump`) and between `J22` pins 1 & 3 (`V_jtag`).
+    abvove). Connect blue jumpers between **`J22`** (near ch8) pins 2 & 4 (`V_pump`) and between `J22` pins 1 & 3 (`V_jtag`).
 You can zoom in the above picture (righ-click, view image) to check it. This
 configuration allows you to program the FPGA later on.
 
