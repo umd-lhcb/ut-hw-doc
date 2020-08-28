@@ -2,6 +2,11 @@
 
 If you are already familiar with this procedure, you can simply follow the [LVR final QA checklist](LVR_final_QA_checklist.pdf).
 
+    !!! warning
+        **You should change the set up on the shelf with the oscilloscope and the loads.** All you need to change are the connections to
+        the LVR and, in the case of `MS` boards, you'll need to add the jumper board to the MPSS black cables. It is easier to plug this board on the
+        far end of the MPSS cable, and plug the other end of the MPSS cable directly to the LVR.
+
 1. Put on the wrist strap, take a burned in LVR. **Set the switches** as indicated in the table below.
 Order refers to toggles 1234 on the switch, with `1` meaning `ON`. (CCM) or (FPGA) refer to the side
 of the LVR the switch is on. There are four SW6 switches, ABCD.
