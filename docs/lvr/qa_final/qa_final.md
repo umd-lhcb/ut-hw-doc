@@ -35,9 +35,9 @@ wedge locks.
 in the Rpi monitor.
     - Set input voltage back to 6V
     
-9. Change SW1 to `0011`, and check the **over-temperature protection turns all channels off** and the `LD7` LED turns on. Some times you may have to go all the way to `1111`.
+9. Change SW1 to `0011`, and check the **over-temperature protection turns all channels off** and the `LD7` LED turns on. Some times you may have to go all the way to `1111`. Afterwards change SW1 back to `0001`.
 
-10. Set all channels to `READY` with the Rpi Butler, and **adjust `P3` and `P4`** if the `V_SENSE_MONi` voltages are between 110-190 mV (preferably 120-140 mV).
+10. Set all channels to `READY` with the Rpi Butler, and **adjust `P3` and `P4`** such that the `V_SENSE_MONi` voltages are between 110-190 mV (preferably 120-140 mV).
 
 11. Repeat these steps after setting all channels to `OFF` with the Rpi Butler and connecting the MPSS cable and RJ45 sense lines to each output. For `MS` LVRs, you will need to connect the jumper board to the MPSS cable (easier on the end away from the LVR):
     1. Set the oscilloscope trigger to *Single*, the Butler to "Ripple ALL", and **check that the turn-on curve is smooth** and comes to a sensible voltage (scope is single ended,
@@ -45,14 +45,14 @@ in the Rpi monitor.
     ![Figure 4: Example of turnon curve for half LVR](lvr_ripple_turnon.png)
     2. Confirm with multimeter that the **voltage drops across resistors `R73[A-H]` and `R91[A-H]` for each channel match one-another to within 2-5%**. These
     are the two medium-sized resistors with R050 and R150 printed on them.  It is okay if the values do not match between different channels.
-    3. Check the sense lines by verifying that when the CAT5 cable is disconnected the
-    `V_SENSE_MONi` for the connected channels **moves until it matches the other half of the LVR**.
+    3. Check the sense lines by verifying that when the sense line cable is disconnected the
+    `V_REG_OUT` for the connected channels **moves until it matches the other half of the LVR**.
 
-12. Set the JTAG into a radiation-hard state by **moving the two jumpers on `J22`** (near ch8)
+12. The LVR can be shut down and set the JTAG into a radiation-hard state by **moving the two jumpers on `J22`** (near ch8)
     to connect pins 4&6 and pins 3&5 (should be both jumpers moving one pin to the right if the
       output is facing you.)
 
-13. The LVR can be shut down and set to its final configuration. Consult the database for
+13. Set the LVR to its final configuration. Consult the database for
     valid 'sub types' and remove CCMS as necessary. For each removed CCM, one of the switches
     on SW3 and SW2 must be set off.
 
