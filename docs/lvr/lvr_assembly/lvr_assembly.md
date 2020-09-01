@@ -16,7 +16,7 @@ Make sure you are grounded. Visually inspect the LVR for any damage. You will ne
 
 ## Continuity check
 
-Measure the resistance between any of the grounds (for example ground pins of the input/output connectors) and the aluminum backplate.
+Measure the resistance between any of the grounds (for example ground pins of the input/output connectors) and the chassis ground.
 The resistance should be on the order of 100k ohms to ensure the backplate is not
 electrically connected to the LVR.
 
