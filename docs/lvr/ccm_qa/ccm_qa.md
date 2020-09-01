@@ -66,8 +66,9 @@ pre-built CCM QA setup.
            indicates a problem with the previous master CCM and the
            current slave CCM
 
-10. Once the CCM is fully QAd, place a colored dot labelling its type on the front of the CCM, and
-    a numbered sticker on the back of the CCM to indicate its serial number.
+10. Once the CCM is fully QAd, place a colored dot labelling its type on the front of the CCM as indicated in the picture below, and
+    a numbered sticker on the back of the CCM to indicate its serial number (there are different sticker rolls: one for 12As and the other one for all other types).
+    ![](CCMstickers.png)
     1. Once all CCMs in a roll are complete, place the CCMs back into the roll and label the roll
        as `XXY#`, where `XX` denotes the CCM type (i.e. `25, 15, 12`), `Y` denotes the pairing
        (`A, M, S`) and `#` denotes the serial number (`001, 002, ....`)
