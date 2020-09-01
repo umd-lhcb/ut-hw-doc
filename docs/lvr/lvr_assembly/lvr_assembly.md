@@ -17,8 +17,7 @@ Make sure you are grounded. Visually inspect the LVR for any damage. You will ne
 ## Continuity check
 
 Measure the resistance between any of the grounds (for example ground pins of the input/output connectors) and the chassis ground.
-The resistance should be on the order of 100k ohms to ensure the backplate is not
-electrically connected to the LVR.
+The resistance should be on the order of 100k ohms.
 
 ## Wedge Locks
 
@@ -78,7 +77,8 @@ Attach 8 CCMs, matching the color of the stickers on the LVR.  Make sure to orie
 
 ## Final
 
-1. Repeat the continuity check above to ensure that the LHC4913 chips have not made contact with the baseplate during assembly.
+1. Repeat the continuity check above to ensure that the LHC4913 chips have not made contact with the baseplate during assembly. Measure the resistance between any of the grounds and the aluminum backplate. The resistance should be on the order of 100k ohms to ensure the backplate is not
+electrically connected to the LVR.
 
 2. Put a post-it note on the ESD bag matching the color of the CCM stickers, and put the LVR in the box for burn-in.
 
