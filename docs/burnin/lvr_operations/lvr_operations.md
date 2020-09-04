@@ -26,18 +26,20 @@ Each batch should be burned-in for 48 hrs, with switching loads and thermal cycl
 
 1. Inspect the "ready for burn-in" box and decide on the LVR types
 2. Update the database according to the selected LVRs' IDs
-3. Mount LVR in the SBC, and double-check that wedge locks are tightened
-4. Check the status of Maraton 
+3. Check to make sure that wedgelocks' allen heads are facing the output side, not the input side; and verify the switches as indicated in the table below. Order refers to toggles 1234 on the switch, with `1` meaning `ON`. (CCM) or (FPGA) refer to the side of the LVR the switch is on. There are four SW6 switches.
+    ![](../../lvr/lvr_qa/table_switches.png)
+4. Mount LVR in the SBC, and double-check that wedge locks are tightened
+5. Check the status of Maraton 
 
     !!! warning
         If it's already running for DCB burn-in, be careful not to touch exposed live wires in the lower SBC
 
-5. Attach thermal sensors on 4 boards:
+6. Attach thermal sensors on 4 boards:
     1. put sensor's flat side against an open area of the board (without SMD componments)
     2. press the sticky putty to secure sensors in place
     3. you'll have more room to work with before installing adjacent boards
 
-6. Connect the output cables to LVR (the connectors should click), and verify that 2V5 switching load boards are connecting to two LVRs in Maraton channel 11. 
+7. Connect the output cables to LVR (the connectors should click), and verify that 2V5 switching load boards are connecting to two LVRs in Maraton channel 11. 
 
     !!! info
         The output breakout boards are labeled for 2V5
@@ -45,7 +47,7 @@ Each batch should be burned-in for 48 hrs, with switching loads and thermal cycl
     !!! warning
         As you connect the output cables, take care not to pull thermal sensors away from the boards
 
-7. Now install the input breakout boards and grounding cables:
+8. Now install the input breakout boards and grounding cables:
     1. move the horizontal bar back to make space for installation
     2. because there are 2 input breakout boards per Maraton channel, connect
         the pairs in order (e.g. from right to left) to not mix between channels
@@ -55,40 +57,40 @@ Each batch should be burned-in for 48 hrs, with switching loads and thermal cycl
     6. double-check the connectors, especially for vertical tilt (resulting in partial connection)
     7. verify grounding cable connection
 
-8. Double-check that the chiller is on
-9. Turn on the Maraton
+9. Double-check that the chiller is on
+10. Turn on the Maraton
 
-10. Start running the python scripts as described in [here](../burnin_sw_setup.md#scripts-to-run-on-the-raspberry-pi)
+11. Start running the python scripts as described in [here](../burnin_sw_setup.md#scripts-to-run-on-the-raspberry-pi)
     1. Note that you need to use `Ctrl` + `b` then arrow to switch `tmux` panel
     2. You can use `Ctrl` + `r` to reverse search past command lines
 
-11. Turning on one Maraton channel (channel numbers are labeled on SBC) as described in [here](../burnin_sw_setup.md#controlling-the-psu-maraton-with-curl)
+12. Turning on one Maraton channel (channel numbers are labeled on SBC) as described in [here](../burnin_sw_setup.md#controlling-the-psu-maraton-with-curl)
     1. after issuing command, verify all LEDs are on: 1 in the front **and 4 in the back**. If not, turn off the channel and check connections (e.g. only 4 LVR channels on due to partial input connection). Often the last few channels (11,10,9) need adjusting input BB connections (e.g. pushing in more).  
     2. use multimeter to spot check voltages across the output connector solder joints (or output breakout boards) -- should be the set voltage plus some drop (e.g. 1V5+0.2V)
 
-12. Repeat for other channels
-13. At this point, all LVRs are running with low currents, before load-switching (seeing 5 Ohm fixed load)
-14. Make sure that the Switching Load Boards' secondary voltage supply is on
+13. Repeat for other channels
+14. At this point, all LVRs are running with low currents, before load-switching (seeing 5 Ohm fixed load)
+15. Make sure that the Switching Load Boards' secondary voltage supply is on
     (5V, 0A), and the cooling fans are on
 
-15. In another panel, start running the `SwLoadTest.py` (`src/demo/SwLoadTest.py`)
+16. In another panel, start running the `SwLoadTest.py` (`src/demo/SwLoadTest.py`)
 
     !!! note
         Verify the changing current (2A/0A) on the voltage supply
 
-16. Now Switching Load Boards are in working state, LVRs are changing between
+17. Now Switching Load Boards are in working state, LVRs are changing between
     high/low-current states and heating up quickly
-17. Go to [monitoring website](http://129.2.92.92:56789/DVApp) and verify the temperature
+18. Go to [monitoring website](http://129.2.92.92:56789/DVApp) and verify the temperature
     measurements (should be going up from ~30C)
 
-18. Monitor and wait for the upper temperature target (40C), and verify the USB
+19. Monitor and wait for the upper temperature target (40C), and verify the USB
     relay switched on (click and red LED)
 
     !!! info
         Now valve is open for cooling water
 
-19. Use FLIR camera to check for abnormally hot (>60C) spots, both on the LVRs and the SLBs
-20. Give yourself a pat on the back -- burn-in has started
+20. Use FLIR camera to check for abnormally hot (>60C) spots, both on the LVRs and the SLBs
+21. Give yourself a pat on the back -- burn-in has started
 
 
 ## Stop the burn-in
