@@ -51,11 +51,10 @@ When the box is full, put a layer of stiff pink foam over the top.
 
 ## CERN Visual Inspection
 
-Carefully examine the backplane connector, looking for any bent or broken pins or any other signs of excessive force
+Carefully examine the backplane and mezzanine connectors (both for the DCB and
+mezzanines), looking for any bent or broken pins or any other signs of excessive force
 
 The heat pipes are not perfectly straight, but check that they are not too bent for the cooling setup
-
-Check the four mezzanine connectors for bent or broken pins or any other signs of excessive force
 
 Do a brief visual scan of the visible side of the board for cracked components or torn pads
 
