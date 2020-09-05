@@ -59,4 +59,4 @@ Check the four mezzanine connectors for bent or broken pins or any other signs o
 
 Do a brief visual scan of the visible side of the board for cracked components or torn pads
 
-![DCB_top](DCB_top.jpg)
+![DCB_inspect](DCB_inspect.jpg)
