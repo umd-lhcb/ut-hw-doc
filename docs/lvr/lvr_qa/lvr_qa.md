@@ -15,14 +15,14 @@ If you are already familiar with this procedure, you can simply follow the [LVR 
 Order refers to toggles 1234 on the switch, with `1` meaning `ON`. (CCM) or (FPGA) refer to the side
 of the LVR the switch is on. There are four SW6 switches.
     ![](table_switches.png)
-  
+
 2. Place the LVR on the holder as shown in the picture. The CCM side should be facing you and the input
 connector be at the top. Recall that the one input is on one end and the two outputs on the other.
   ![](lvr_setup_board.jpg)
-  
+
 3. Place an serial number sticker on a new LVR under the input connector, and document its serial number in the
 [database](https://docs.google.com/spreadsheets/d/1KjXGhOFzi0SZPsozpKzxGjVtfr4kkS_Hv5EigUwKOj8/edit#gid=1564410083).
-Also document which type of LVR you intend to QA (12MS, 12A, 12MSA, 15MS, 25A). 
+Also document which type of LVR you intend to QA (12MS, 12A, 12MSA, 15MS, 25A).
 
     - You don't need to fill every column in the database as you complete that test until you finish the QA
     or leave the setup for any reason.
@@ -55,22 +55,22 @@ set to those values.
     1. Slowly increase the input voltage from the initial 1.6V until either the 1.5V reading (`Vin_FPGA_1V5`) stops increasing or
     exceeds 1.5V. At this point, tune the output using P1 to set it to 1.5V. You may have to increase the voltage
     more and iterate the tuning process. An alternate approach is given in the tip below.
-    
-    2. Resume raising the input voltage and repeat this process on the 3.3V (`Vin_FPGA_3V3`) and 5.5V (`V_OPAMP_RAIL`) 
+
+    2. Resume raising the input voltage and repeat this process on the 3.3V (`Vin_FPGA_3V3`) and 5.5V (`V_OPAMP_RAIL`)
     levels in the Pi LVR monitor. You should now be able to raise the input voltage all the way to 7V and the three readings
     should be stable.
-    
+
     !!! warning
         **STOP IF VALUES BELOW ARE EXCEEDED** to prevent damage.
 
         - 1.5V x 110% = 1.65V
         - 3.3V x 110% = 3.63V
         - **The 5.5V rail (`Vop_rail`) should not exceed 5.5V!!**
-        
+
         When the power supply reaches about 4.5V, the expected input current given by the supply at this point
         should be around 0.09A. If it is substantially more there may be a problem
 
-    !!! tip    
+    !!! tip
         It may be useful to let the rail approach the desired value from below as input voltage increases,
         then turn down the rail plateau to a value below the desired final plateau, and make the final
         adjustments by turning the input voltage and rail plateau values up simultaneously. Note that you can
@@ -111,7 +111,7 @@ Remove the Raspberry Pi connector to install those.
 12. Reduce power supply voltage to about 4.3V (1.2V LVR), 4.8V (1.5V LVR), or 5.3V (2.5V LVR) and check the **under-voltage lockout (UVL) turns all channels off**
 in the Rpi monitor.
     - Set input voltage back to 7V
-    
+
 13. Change SW1 to `0011`, and check the **over-temperature protection turns all channels off** and the `LD7` LED turns on. Some times you may have to go all the way to `1111`.
 
 12. Use the RJ45 breakout board to perform the sense line test.
@@ -138,15 +138,20 @@ during the QA.
 appropriately. **You're done!**
 
 
-### If not using the raspberry Pi LVR monitor
-Place a DVM (DC Voltage Meter) between **`TP3`**
-(3.3V) and **`TP6`** (GND) to monitor the 3.3V rail, another DVM between **`TP8`** (1.5V) and **`TP6`**
-(GND) to monitor the 1.5V rail, and a third DVM between **`TP4`** (`Vop_rail`) and **`TP7`** (GND) to
-monitor the op amp rail. The first image below shows the location of **`TP3`**, **`TP6`**, and **`TP8`**,
-as well as potentiometers **`P1`** and **`P2`** that will be used to adjust the 1.5V and 3.3V rails. The
-second image shows the locations of **`TP4`**, **`TP7`**, and **`P5`** for the op amp rail.
+## If not using the raspberry Pi LVR monitor
+
+1. Place a DVM (DC Voltage Meter) between **`TP3`** (3.3V) and **`TP6`** (GND)
+   to monitor the 3.3V rail
+2. Add another DVM between **`TP8`** (1.5V) and **`TP6`** (GND) to monitor the 1.5V rail
+3. Add and a third DVM between **`TP4`** (`Vop_rail`) and **`TP7`** (GND) to
+   monitor the op amp rail.
+
+The image below shows the location of **`TP3`**, **`TP6`**, and **`TP8`**,
+as well as potentiometers **`P1`** and **`P2`** that will be used to adjust the
+1.5V and 3.3V rails.:
 
 ![](lvr_qa1.png)
 
-![](lvr_qa2.png)
+The image shows the locations of **`TP4`**, **`TP7`**, and **`P5`** for the op amp rail.
 
+![](lvr_qa2.png)
