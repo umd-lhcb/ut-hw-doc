@@ -40,3 +40,15 @@ In the LVR monitor python script, the following assignments are assumed:
 | 4 | i\_MON outputs |
 
 ## LVR - pi interface
+
+The interface between the Raspberry Pi + ADCs and the LVR is through the TCM connector on the
+LVR. The general diagram of the desired connections is shown below and is also available
+in PDF form [here](LVR_MONITOR_HARNESS.pdf).
+
+![montior-harness](monitor_harness_sch.PNG)
+
+This harness is implemented either in the wire harness (should be back at the desk by the shelves, and should be usable as backup) or as a breakout board plus IDC connectors. The breakout board was produced by
+PCB express and, unfortunately, contains some errors which have been corrected within software
+or by reworking. I've tried to document them below as best I can. In the latter case, the reworks include the addition of R3 as shown above, and a correction to how R1 and R2 are connected.
+
+![MonitorBB](MonitorBB.PNG)
