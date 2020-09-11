@@ -63,5 +63,15 @@ resistor) as long as the jumper goes over the middle pin.  The jumper activates 
 4. To configure `12MS` CCMs, connect the resistors with jumpers as shown below.
     ![ccm_12MS](ccm_12MS.jpg)
     
-    
+## General CCM Test Stand Config:
+
+Scope 1 should have channels 1 and 2 on.  Channel 1 is connected to the load board, channel 2 is connected to pins 1 and 2 of the output connector.
+
+Scope 2 should have channels 1 and 2 on for A, all channels on for MS.  They are connected as shown
+
+![CCM_probes](CCM_probes.jpg)
+
+Channel 1/A is Master, 2/B is slave.
+
+Unused channels should be disabled by switches or a resistor between pins 8 and 9 (15 and 17? not sure about numbering).
     
