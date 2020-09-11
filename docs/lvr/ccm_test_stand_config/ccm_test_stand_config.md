@@ -51,8 +51,6 @@ When setting up the resistor bank, use jumpers to jump the resistor pins that
 you want. It does not matter how you jump the pins (since there are 3 per
 resistor) as long as the jumper goes over the middle pin.
 
-!!! info "Resistor Board"
-
 1. To configure `25A` CCMs, connect the resistors with jumpers as shown below.
     ![ccm_12A](ccm_25A.jpg)
         
