@@ -44,7 +44,7 @@ nav:
         - CCM Identification Guide: lvr/ccm_id/ccm_id.md
         - CCM Test Stand Configuration: lvr/ccm_test_stand_config/ccm_test_stand_config.md
         - CCM QA: lvr/ccm_qa/ccm_qa.md
-        - LVR shipping: lvr/lvr_shipping.md
+        - LVR shipping: lvr/lvr_shipping/lvr_shipping.md
     - MiniDAQ:
         - MiniDAQ usage: minidaq/minidaq_usage.md
         - CentOS tips: minidaq/centos_tips.md
