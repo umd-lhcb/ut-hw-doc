@@ -12,46 +12,32 @@ LVR output. There are two different load boards:
 
     !!! info "Load board for `MS` CCMs, and where to plug it in"
 
-          Add figure `![](ccm_id1.png)`
+          ![ccm_loadboard_MS](ccm_loadboard_MS.jpg)
 
 2. For `A` CCMs
 
     !!! info "Load board for `A` CCMs"
 
-        Add figure `![](ccm_id2.png)`
+        ![ccm_loadboard_A](ccm_loadboard_A.jpg)
 
 
 ## Stage 2: Capacitor Board
 
 The second stage involves setting up the capacitor board. There are 2 different
-setting for the capacitor, each setting configuring the LVR for either MS or A
-CCMs.
+setting for the capacitor, each setting configuring the LVR for either 15MS/25A or 12A/12MS
+CCMs as indicated in the picture below.
+![ccm_capboard](ccm_capboard.jpg)
 
-1. To configure `MS` CCMs, connect the left most cables on the capacitor board
-    to the right most sockets, as shown in the figure below. In this case, the
-    polarity does matter.
+1. To configure `15MS` and `25A` CCMs, connect the right most cables on the capacitor board
+    to the left most sockets, as labeled by the 25A and 15MS tags shown in the figure above
+       
+2. To configure `12A` and `12MS` CCMs, connect the left most cables on the capacitor board
+    to the left most sockets as connected in the picture shown above. 
 
-    !!! info "Master-Slave CCM Capacitor Board configuration"
-
-        Add figure `![](ccm_id3.png)`
-
-2. To configure `A` CCMs, connect the right most cables on the capacitor board
-    to the right most sockets as shown below. Polarity of the cables does not
-    matter in this case.
-
-    !!! info "Alone CCM Capacitor Board configuration"
-
-        Add figure `![](ccm_id4.png)`
-
-
+   
 ## Stage 3: Resistor Bank
 
-The third and final stage involves configuring the resistor bank shown in the
-figure below.
-
-!!! info "Resistor Bank"
-
-    Add figure `![](ccm_id5.png)`
+The third and final stage involves configuring the resistor bank.
 
 In this stage, you will be configuring the LVR to either `1.25, 1.5`, or `2.5` V.
 
@@ -65,12 +51,16 @@ When setting up the resistor bank, use jumpers to jump the resistor pins that
 you want. It does not matter how you jump the pins (since there are 3 per
 resistor) as long as the jumper goes over the middle pin.
 
-The specific resistor board you must configure is shown in the figure above to
-have a large cable connected to it (first row middle column). On that resistor
-board, you will notice resistor pins arranged as shown below.
-
 !!! info "Resistor Board"
 
-    Add figure `![](ccm_id6.png)`
-
-    Going from right to left.
+1. To configure `25A` CCMs, connect the resistors with jumpers as shown below.
+    ![ccm_12A](ccm_25A.jpg)
+        
+2. To configure `12A` and `12MS` CCMs, connect the resistors with jumpers as shown below.
+    ![ccm_12A](ccm_12A.jpg)
+    
+3. To configure `15MS` CCMs, connect the resistors with jumpers as shown below.
+    ![ccm_15MS](ccm_15MS.jpg)
+    
+    
+    
