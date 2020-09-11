@@ -53,3 +53,7 @@ nav:
         - Burn-in software setup: burnin/burnin_sw_setup.md
         - LVR burn-in operations: burnin/lvr_operations/lvr_operations.md
         - DCB burn-in operations: burnin/dcb_operations.md
+    - Test stand documentation:
+        - LVR Monitor Hardware: teststands/rpi-general/lvr-monitor-errata.md
+        - LVR Final QA: teststands/lvr-finalqa/finalqa-setup.md
+        - CCM QA: teststands/ccm-qa/ccmqa-setup.md
