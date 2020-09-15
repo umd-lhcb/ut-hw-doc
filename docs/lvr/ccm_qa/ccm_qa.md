@@ -36,7 +36,7 @@ pre-built CCM QA setup.
         has a slight oscillation. This is to be expected as this is just the representation of
         the turn-on voltage.
         
-        ![](ccm_qa5.png)
+        ![](ccm_qa5.jpg)
         
         This is an example of a curve for a 1.25 MS CCM. The waveform displayed
         has a slight oscillation. This is to be expected as this is just the representation of
