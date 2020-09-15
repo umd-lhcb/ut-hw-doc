@@ -21,7 +21,7 @@ pre-built CCM QA setup.
 
         ![](ccm_qa1.png)
 
-        This is an examlpe of a curve for a 1.5 MS CCM. The waveform displayed should be a
+        This is an example of a curve for a 1.5 MS CCM. The waveform displayed should be a
         smooth curve as shown in the figure above.
 
         ![](ccm_qa3.png)
@@ -33,6 +33,12 @@ pre-built CCM QA setup.
         ![](ccm_qa4.png)
 
         This is an example of a curve for a 1.25 A CCM. The waveform displayed, you will note,
+        has a slight oscillation. This is to be expected as this is just the representation of
+        the turn-on voltage.
+        
+        ![](ccm_qa5.png)
+        
+        This is an example of a curve for a 1.25 MS CCM. The waveform displayed
         has a slight oscillation. This is to be expected as this is just the representation of
         the turn-on voltage.
 
@@ -47,8 +53,8 @@ pre-built CCM QA setup.
 
 7. Adjust the variable resistor so the voltage reading of channel 1
    corresponds to the voltage of the CCM (i.e. a 1.5 V CCM should have
-   a channel reading of ~1.5 V) as shown below for a 1.5 V CCM. For a 12A or 12M CCM, this
-   will mean adjusting the variable resistor all the way to the left (counterclockwise).
+   a channel reading of ~1.5 V) as shown below for a 1.5 V CCM. For a 12A CCM, this
+   will mean adjusting the variable resistor all the way to the left (counterclockwise). For 12M CCMs set the voltage to 1.29V.
 
     ![](ccm_qa2.png)
 
