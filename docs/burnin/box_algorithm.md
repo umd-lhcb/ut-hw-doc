@@ -1,12 +1,13 @@
-## Box Algorithms:
+## Box Algorithms
 
 General: if a box is full or missing, find a new box and put a post-it on it.
 
-To do: inventory of boxes for shipping, want to pack one box of each type first.
+!!! todo
+    Inventory of boxes for shipping, want to pack one box of each type first.
 
-## Box placement during the life of a DCB
+### Box placement during the life of a DCB
 
-- Take box out of original shipping boxes downstairs 
+- Take box out of original shipping boxes downstairs
 - **DCB ASSEMBLY**
 - Put in "init QA" box upstairs
 - **DCB INITIAL QA**
@@ -18,7 +19,7 @@ To do: inventory of boxes for shipping, want to pack one box of each type first.
 - **DCB FINAL QA OTHER HALF**
 - Put in "Ready to ship" box upstairs
 
-## Box placement during the life of an LVR
+### Box placement during the life of an LVR
 
 - Bring original shipping box upstairs
 - **LVR INITIAL QA**
@@ -33,13 +34,13 @@ To do: inventory of boxes for shipping, want to pack one box of each type first.
 
 ## Box Inventory
 
-## DCBs
+### DCBs
 
-## Basement
+#### Basement
 
-1 burn in 
+1 burn in
 
-## Lab
+#### Lab
 
 1 init QA
 
@@ -57,9 +58,9 @@ To do: inventory of boxes for shipping, want to pack one box of each type first.
 
 2 to be shipped
 
-## LVRs
+### LVRs
 
-## Basement
+#### Basement
 
 1 to be assembled
 
@@ -67,7 +68,7 @@ To do: inventory of boxes for shipping, want to pack one box of each type first.
 
 1 ready to ship
 
-## Lab
+#### Lab
 
 1 to be initial QAd
 
