@@ -59,8 +59,8 @@ in the Rpi monitor.
     | SW3 toggle | Channels | SW2 toggle | Channels |
     |--------------|----------|--------------|----------|
     | 1            | CH1      | 1            | CH5      |
-    | 2            | CH3      | 2            | CH6      |
-    | 3            | CH5      | 3            | CH7      |
-    | 4            | CH7      | 4            | CH8      |
+    | 2            | CH2      | 2            | CH6      |
+    | 3            | CH3      | 3            | CH7      |
+    | 4            | CH4      | 4            | CH8      |
 
 14. Update the [database](https://docs.google.com/spreadsheets/d/1KjXGhOFzi0SZPsozpKzxGjVtfr4kkS_Hv5EigUwKOj8/edit#gid=1564410083), and you are done!
