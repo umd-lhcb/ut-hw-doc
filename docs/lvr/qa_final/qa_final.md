@@ -54,13 +54,13 @@ in the Rpi monitor.
 
 13. Set the LVR to its final configuration. Consult the database for
     valid 'sub types' and remove CCMS as necessary. For each removed CCM, one of the switches
-    on SW3 and SW2 must be set off.
+    on SW3 and SW2 must be set off. Also, if removing an MS pair, turn off the corresponding switch on SW4.
 
-    | SW3 toggle | Channels | SW2 toggle | Channels |
-    |--------------|----------|--------------|----------|
-    | 1            | CH1      | 1            | CH5      |
-    | 2            | CH2      | 2            | CH6      |
-    | 3            | CH3      | 3            | CH7      |
-    | 4            | CH4      | 4            | CH8      |
+    | SW3 toggle | Channels | SW2 toggle | Channels | SW4 toggle | Channels (Slave) |
+    |--------------|----------|--------------|----------|--------------|----------|
+    | 1            | CH1      | 1            | CH5      | 1            | CH2      |
+    | 2            | CH2      | 2            | CH6      | 2            | CH4      |
+    | 3            | CH3      | 3            | CH7      | 3            | CH6      |
+    | 4            | CH4      | 4            | CH8      | 4            | CH8      |
 
 14. Update the [database](https://docs.google.com/spreadsheets/d/1KjXGhOFzi0SZPsozpKzxGjVtfr4kkS_Hv5EigUwKOj8/edit#gid=1564410083), and you are done!
