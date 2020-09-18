@@ -55,6 +55,7 @@ in the Rpi monitor.
 13. Set the LVR to its final configuration. Consult the database for
     valid 'sub types' and remove CCMS as necessary. For each removed CCM, one of the switches
     on SW3 and SW2 must be set off. Also, if removing an MS pair, turn off the corresponding switch on SW4.
+    Use a marker to X off the stickers of removed CCMs.
 
     | SW3 toggle | Channels | SW2 toggle | Channels | SW4 toggle | Channels (Slave) |
     |--------------|----------|--------------|----------|--------------|----------|
