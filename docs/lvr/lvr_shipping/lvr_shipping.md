@@ -2,7 +2,7 @@
 
 Check the database and label the LVR box # according to the previously numbered LVR boxes.
 
-As you pack LVRs note which box they are in.
+As you pack LVRs check that their firmware is marked up to date in the database.  If so, note which box they are in.  If not, set them aside and check/program firmware before packing.
 
 Remove the CCMs from the LVR if not done already.
 
