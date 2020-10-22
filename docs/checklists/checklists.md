@@ -1,5 +1,4 @@
-## CERN visual inspection
-### DCB
+## DCB
 Carefully examine the backplane and mezzanine connectors (both for the DCB and
 mezzanines), looking for any bent or broken pins or any other signs of excessive force
 
@@ -9,7 +8,7 @@ Do a brief visual scan of the visible side of the board for cracked components o
 
 ![DCB_inspect](DCB_inspect.jpg)
 
-### LVR
+## LVR
 Check the TCM and CCM connectors for bent or broken pins or any other
 signs of excessive force
 
@@ -20,5 +19,5 @@ components or torn pads
 
 ![LVR_inspect](lvr_inspect.jpg)
 
-### Backplane
+## Backplane
 to be added
