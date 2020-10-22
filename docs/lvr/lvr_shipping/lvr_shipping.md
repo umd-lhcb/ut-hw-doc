@@ -32,14 +32,3 @@ Put the pink foam on top of the styrofoam.  Make sure there is enough styrofoam 
 
 Seal the box with tape.
 
-## CERN Visual Inspection
-
-Check the TCM and CCM connectors for bent or broken pins or any other
-signs of excessive force
-
-Check that no potentiometers or switches are missing from the board
-
-Do a brief visual scan of the visible side of the board for cracked
-components or torn pads
-
-![LVR_inspect](lvr_inspect.jpg)
