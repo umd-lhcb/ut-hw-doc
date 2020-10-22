@@ -20,4 +20,4 @@ components or torn pads
 ![LVR_inspect](lvr_inspect.jpg)
 
 ## Backplane
-to be added
+You can click the link to the Google Doc for [backplane visual inspection and preparation checklist](https://docs.google.com/document/d/1PeLf8cPsfiIbphA_Zs2zO9EygfJ2MGr45PjirhIQkUE/edit#heading=h.vb8p0lepu9vn)
