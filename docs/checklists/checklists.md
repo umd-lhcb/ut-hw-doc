@@ -17,6 +17,8 @@ Check that no potentiometers or switches are missing from the board
 Do a brief visual scan of the visible side of the board for cracked
 components or torn pads
 
+Check that the jumpers on J22 are in the correct position (3-5, 4-6)
+
 ![LVR_inspect](lvr_inspect.jpg)
 
 ## Backplane
