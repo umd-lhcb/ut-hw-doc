@@ -57,3 +57,4 @@ nav:
         - LVR Monitor Hardware: teststands/rpi-general/lvr-monitor-errata.md
         - LVR Final QA: teststands/lvr-finalqa/finalqa-setup.md
         - CCM QA: teststands/ccm-qa/ccmqa-setup.md
+    - CERN visual inspection: checklists/checklists.md

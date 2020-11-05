@@ -72,15 +72,3 @@ Much more speculative.  Here are some things to think about:
 7. When the box is full, put a layer of stiff pink foam over the top.
 
     ![DCB_Foam](DCBs_foam.jpg)
-
-
-## CERN Visual Inspection
-
-Carefully examine the backplane and mezzanine connectors (both for the DCB and
-mezzanines), looking for any bent or broken pins or any other signs of excessive force
-
-The heat pipes are not perfectly straight, but check that they are not too bent for the cooling setup
-
-Do a brief visual scan of the visible side of the board for cracked components or torn pads
-
-![DCB_inspect](DCB_inspect.jpg)

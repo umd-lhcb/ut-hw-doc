@@ -54,7 +54,7 @@ resistor) as long as the jumper goes over the middle pin.  The jumper activates 
 1. To configure `15MS` CCMs, connect the resistors with jumpers as shown below.
     ![ccm_15MS](ccm_25A.jpg)
         
-2. To configure `12A` and `12MS` CCMs, connect the resistors with jumpers as shown below.
+2. To configure `12A` CCMs, connect the resistors with jumpers as shown below.
     ![ccm_12A](ccm_12A.jpg)
     
 3. To configure `25A` CCMs, connect the resistors with jumpers as shown below.
@@ -73,5 +73,5 @@ Scope 2 should have channels 1 and 2 on for A, all channels on for MS.  They are
 
 Channel 1/A is Master, 2/B is slave.
 
-Unused channels should be disabled by switches or a resistor between pins 8 and 9 (15 and 17? not sure about numbering).
+Unused channels should be disabled by switches or a resistor between pins 15 and 17.
     
