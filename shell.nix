@@ -1,29 +1,11 @@
 let
-  pkgs = import <nixpkgs> {};
-  python = pkgs.python3;
-  pythonPackages = python.pkgs;
+  mach-nix = import (builtins.fetchGit {
+    url = "https://github.com/DavHau/mach-nix/";
+    ref = "refs/tags/3.0.2";
+  }) {};
 in
 
-pkgs.mkShell {
-  name = "ut-hw-doc";
-  buildInputs = with pythonPackages; [
-    # Python requirements (enough to get a virtualenv going).
-    virtualenvwrapper
-  ];
-
-  shellHook = ''
-    # Allow the use of wheels.
-    SOURCE_DATE_EPOCH=$(date +%s)
-
-    if test -d $HOME/build/python-venv; then
-      VENV=$HOME/build/python-venv/ut-hw-doc
-    else
-      VENV=./.virtualenv
-    fi
-
-    if test ! -d $VENV; then
-      virtualenv $VENV
-    fi
-    source $VENV/bin/activate
-  '';
+mach-nix.mkPythonShell {
+  requirements = builtins.readFile ./requirements.txt + "setuptools";
+  # NOTE: "setuptools" is the most common missing dependency
 }
