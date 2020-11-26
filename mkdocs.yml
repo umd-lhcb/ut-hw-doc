@@ -36,6 +36,7 @@ nav:
         - DCB mechanical assembly: dcb/dcb_assembly/dcb_assembly.md
         - DCB QA: dcb/dcb_qa/dcb_qa.md
         - DCB Shipping: dcb/dcb_shipping/dcb_shipping.md
+        - Use production DCB with Pathfinder: dcb/dcb_prod_with_pathfinder/dcb_prod_with_pathfinder.md
     - LVR:
         - LVR mechanical assembly: lvr/lvr_assembly/lvr_assembly.md
         - LVR Setup/Initial QA: lvr/lvr_qa/lvr_qa.md
