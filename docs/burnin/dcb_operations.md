@@ -3,7 +3,7 @@
 0. Execute `burnin_read.sh`. If any GBTxs don't report `03151515`, note the DCB
    in the database.  If any DCBs don't respond at all, try resetting the SCA from the MiniDAQ SCA panel.
 
-1. Turn off Maraton channels 0, 1, and 12 and verify that all LEDs are off in
+1. Turn off Maraton channels 1, 2, and 12 and verify that all LEDs are off in
    the bottom SBC. Directions [here](./burnin_sw_setup.md#controlling-the-psu-maraton-with-curl).
 
 2. Turn off channels 1 and 2 of the Rigol power supply.
@@ -49,7 +49,7 @@
     3. Fibers 11 and 12 are not used, so start over with (1,2) from the second
        bundle at DCB 5.
 
-4. Once all fibers are connected, power on Maraton channels 0, 1, and 12 and
+4. Once all fibers are connected, power on Maraton channels 1, 2, and 12 and
    verify that the LEDs are on in the bottom SBC. Directions [here](./burnin_sw_setup.md#controlling-the-psu-maraton-with-curl)
 
 5. Power on the Rigol.
