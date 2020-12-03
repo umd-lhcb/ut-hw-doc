@@ -128,16 +128,16 @@ must follow ascending channel number. That is, CH1 is M and CH2 is S, or
 CH3 is M and CH4 is S, or CH5 is M and CH6 is S etc.
 
 In addition to the appropriate CCM type, the firmware must be _notified_
-which channels are M+S pairs, via SW4. The **OFF** setting of the switch
-corresponds to a M+S pair, while the **ON** state is the setting for two
-single masters
+channels 2, 4, 6, 8 should be slaves or masters, via SW4. The **ON** setting of
+the switch corresponds to slave in a M+S pair, while the **OFF** state is the
+setting for single master.
 
 | SW4 switch | Channels |
 |------------|----------|
-| 1          | CH1 & 2  |
-| 2          | CH3 & 4  |
-| 3          | CH5 & 6  |
-| 4          | CH7 & 8  |
+| 1          | CH2      |
+| 2          | CH4      |
+| 3          | CH6      |
+| 4          | CH8      |
 
 !!! note
     When setting up master/slave CCM pairs, slave CCMs should always be on even
