@@ -41,17 +41,17 @@ For F -> P:
 
 |      | P1W   | P1E   | P2W   | P2E   | P3   | P4   |
 |------|-------|-------|-------|-------|------|------|
-| JP0  | X     | O     |       | X     | X    | X    |
-| JP1  | X     | O     | O     | X     | X    | O    |
-| JP2  | X     | O     | O     | X     | X    | O    |
-| JP3  | X     | O     |       | X     | X    | X    |
-| JP4  | X     | O     |       | X     | X    | X    |
-| JP5  | X     | O     |       | X     | X    |      |
-| JP6  | X     | O     |       | X     | X    |      |
-| JP7  | X     | O     |       | X     | X    | X    |
-| JP8  | X     |       |       | X     | X    | X    |
-| JP9  | X     |       |       | X     | X    |      |
-| JP10 | X     |       |       | X     | X    |      |
-| JP11 | X     |       |       | X     | X    | X    |
+| JP0  | X     | O     | O     | X     | X    | O    |
+| JP1  | X     | O     |       | X     | X    | X    |
+| JP2  | X     | O     |       | X     | X    | X    |
+| JP3  | X     | O     | O     | X     | X    | O    |
+| JP4  | X     | O     |       | X     | X    |      |
+| JP5  | X     | O     |       | X     | X    | X    |
+| JP6  | X     | O     |       | X     | X    | X    |
+| JP7  | X     | O     |       | X     | X    |      |
+| JP8  | X     |       |       | X     | X    |      |
+| JP9  | X     |       |       | X     | X    | X    |
+| JP10 | X     |       |       | X     | X    | X    |
+| JP11 | X     |       |       | X     | X    |      |
 
 For P -> D: `JP8-11` are all depopulated, same as true.
