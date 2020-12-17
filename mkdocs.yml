@@ -32,6 +32,8 @@ nav:
         - Getting started: index.md
         - license.md
         - Boxes: burnin/box_algorithm.md
+    - Backplane:
+        Backplane depopution: backplane/backplane_depop.md
     - DCB:
         - DCB mechanical assembly: dcb/dcb_assembly/dcb_assembly.md
         - DCB QA: dcb/dcb_qa/dcb_qa.md
@@ -58,4 +60,5 @@ nav:
         - LVR Monitor Hardware: teststands/rpi-general/lvr-monitor-errata.md
         - LVR Final QA: teststands/lvr-finalqa/finalqa-setup.md
         - CCM QA: teststands/ccm-qa/ccmqa-setup.md
-    - CERN visual inspection: checklists/checklists.md
+    - CERN:
+        - CERN visual inspection: cern/cern_visual_inspection/cern_visual_inspection.md

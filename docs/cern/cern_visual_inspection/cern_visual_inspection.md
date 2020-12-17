@@ -6,7 +6,7 @@ The heat pipes are not perfectly straight, but check that they are not too bent 
 
 Do a brief visual scan of the visible side of the board for cracked components or torn pads
 
-![DCB_inspect](DCB_inspect.jpg)
+![DCB_inspect](dcb_inspect.jpg)
 
 ## LVR
 Check the TCM and CCM connectors for bent or broken pins or any other
@@ -28,13 +28,13 @@ Or see its content below:
 
 Shipment package
 Visual inspection of the outer box and inner boxes
-Shock-watch sticker on the outer box 
+Shock-watch sticker on the outer box
 Taking out the backplane
 Open from the top side of the inner box
 Practice ESD safety (e.g. wrist strap) when moving backplanes
 Always hold most of the backplane's weight from the rugged JPU/JPL side. Be very careful not to apply unnecessary pressure on/near pigtail (JP) connectors. See picture below:
 
-![holding backplane](./backplane_pics/Picture1.png)
+![holding backplane](./backplane/pic1.png)
 
 Use pressurized air to dedust (especially pigtail/DCB connectors)
 Use Deoxit lubricant with brush, for cleaning and lubrication: for each connector, dip the brush in bottle, stroke brush along bottle inner edge to remove excess, then carefully brush over each row of pins (not just pin tip)
@@ -50,13 +50,12 @@ Store the cleaned backplanes inside its ESD bag
 Each backplane has a color label to indicate type/variant, for easy identification during installation
 Check for type/variant consistency on backplane, ESD bag, and box:
 
-![list of backplane type/variant labels](./backplane_pics/Picture2.png)
+![list of backplane type/variant labels](./backplane/pic2.png)
 
 To protect the ready-for-install backplanes when moving them around, fold the ESD bag and carefully press it into the bottom foam:
 
-![storing bagged backplane 1](./backplane_pics/Picture3.png)
-![storing bagged backplane 2](./backplane_pics/Picture4.png)
+![storing bagged backplane 1](./backplane/pic3.png)
+![storing bagged backplane 2](./backplane/pic4.png)
 
-Because the top foam with the legs would have put much pressure through the bag onto pigtail connectors, remove the legs and then put it into the box. Alternatively, put in some ESD bubble wrap and leave the top foam out. 
-Always keep the backplane and the box top side up. 
-
+Because the top foam with the legs would have put much pressure through the bag onto pigtail connectors, remove the legs and then put it into the box. Alternatively, put in some ESD bubble wrap and leave the top foam out.
+Always keep the backplane and the box top side up.
