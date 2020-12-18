@@ -32,8 +32,8 @@ For F -> P:
     - blank: not present
 
 !!! info
-    - For `JP0-7`: P1-P3 are on P2B2, P4 are on Inner BB
-    - For `JP8-11`: P1-P2 are on P2B2, P3-P4 are on Inner BB
+    - P1-P3 are on P2B2, except for `JP11_P3` on Inner BB
+    - P4 are on Inner BB  
 
 For P -> D: `JP8-11` are all depopulated.
 
@@ -64,4 +64,8 @@ For F -> P:
 | JP10 | X     |       |       | X     | X    | X    |
 | JP11 | X     |       |       | X     | X    |      |
 
+!!! info
+    - P1-P3 are on P2B2, except for `JP11_P3` on Inner BB
+    - P4 are on Inner BB
+    
 For P -> D: `JP8-11` are all depopulated, same as true.
