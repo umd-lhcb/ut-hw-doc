@@ -4,6 +4,8 @@ at https://umd-lhcb.github.io/ut-hw-doc
 
 
 ## Test the site locally
+
+### Regular workflow
 Install the required Python pacakges via:
 ```
 pip install -r ./requirements.txt
@@ -15,3 +17,11 @@ mkdocs serve
 ```
 
 The website will be avaliable at http://127.0.0.1:8000
+
+### `nix`-based workflow
+If you have `nix` with flake support installed, spawn a development shell with:
+```
+nix develop
+```
+
+Then build the site with the same command listed in the previous section.
