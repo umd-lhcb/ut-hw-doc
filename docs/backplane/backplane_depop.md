@@ -37,6 +37,15 @@ For F -> P:
 For P -> D: `JP8-11` are all depopulated.
 
 ### Mirror backplanes
+
+!!! note
+    From the True configuration shown above, the pigtails `JP0-11` can be
+    rearranged into the Mirror configuration, by swapping:
+
+    - `JP0/JP1` with `JP2/JP3`
+    - `JP4/JP5` with `JP6/JP7`
+    - `JP8/JP9` with `JP10/JP11`
+
 For F -> P:
 
 |      | P1W   | P1E   | P2W   | P2E   | P3   | P4   |
