@@ -32,6 +32,8 @@ nav:
         - Getting started: index.md
         - license.md
         - Boxes: burnin/box_algorithm.md
+    - Backplane:
+        Backplane depopution: backplane/backplane_depop.md
     - DCB:
         - DCB mechanical assembly: dcb/dcb_assembly/dcb_assembly.md
         - DCB QA: dcb/dcb_qa/dcb_qa.md
