@@ -41,7 +41,7 @@ For P -> D: `JP8-11` are all depopulated.
 
 !!! note
     From the True configuration shown above, the pigtails `JP0-11` can be
-    rearranged into the Mirror configuration, by swapping:
+    rearranged into the Mirror configuration by swapping:
 
     - `JP0/JP1` with `JP2/JP3`
     - `JP4/JP5` with `JP6/JP7`
