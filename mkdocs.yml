@@ -64,4 +64,5 @@ nav:
     - CERN:
         - CERN visual inspection: cern/cern_visual_inspection/cern_visual_inspection.md
         - CERN QA: cern/cern_qa/cern_qa.md
-        - DCB depopulation: cern/cern_installation/DCB_depopulation.md
+        - CERN Installation:
+            DCB depopulation: cern/cern_installation/cern_dcb_depopulation.md
