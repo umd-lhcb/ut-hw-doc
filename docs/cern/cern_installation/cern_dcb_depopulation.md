@@ -12,8 +12,17 @@ does not need to be installed.
 
 ## Depopulated DCB placement
 The backplane mapping specifies which pairs of GBTxs are unused in the
-detector. They can be translated from "proto" JD slots to True and Mirror `JD`
-slots using [Zishuo's mapping](https://github.com/ZishuoYang/UT-Backplane-mapping/issues/52)
+detector. They can be translated from "proto" `JD` slots to True and Mirror `JD`
+slots with the following table[^1]:
+
+| Proto  | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 |
+|--------|---|---|---|---|---|---|---|---|---|---|----|----|
+| True   | 0 | 4 | 2 | 3 | 1 | 5 | 6 | 8 | 7 | 9 | 10 | 11 |
+| Mirror | 4 | 0 | 3 | 2 | 5 | 1 | 8 | 6 | 9 | 7 | 11 | 10 |
+
+
+[^1]: Copied from [Zishuo's notes on mapping](https://github.com/ZishuoYang/UT-Backplane-mapping/issues/52).
+
 
 - Full backplane: This backplane has no depopulated DCBs
 - Partially depopulated backplane: `JD` slots `1, 5, 6, 8` should be filled
