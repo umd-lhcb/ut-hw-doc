@@ -12,7 +12,7 @@
 5. Read selected thermistors on DCB and Stave
 
 
-[^1]: Default bias current is 6 mA.
+[^1]: Default bias current is 5 mA.
 [^2]: Some of the hybrids in the slice test Stave are not working, so we can't
       fully test every elink on DCBs.
 
