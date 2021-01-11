@@ -8,8 +8,9 @@
 2. If there's any PRBS error in the previous step, re-run PRBS with 6 mA[^1]
    bias current for 2 min.
 3. Run SALT PRBS on available elinks[^2] for 2 min.
-4. Read master GBTx status via optical link to master is configurable via optical link.
-5. Read selected thermistors on DCB and Stave
+4. Read master GBTx status via optical link to make sure master is configurable
+   this way.
+5. Read selected thermistors on DCB and Stave.
 
 
 [^1]: Default bias current is 5 mA.
