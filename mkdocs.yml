@@ -21,6 +21,7 @@ markdown_extensions:
     - pymdownx.critic
     - pymdownx.caret
     - attr_list
+    - footnotes
 
 plugins:
     - search
@@ -62,4 +63,5 @@ nav:
         - CCM QA: teststands/ccm-qa/ccmqa-setup.md
     - CERN:
         - CERN visual inspection: cern/cern_visual_inspection/cern_visual_inspection.md
+        - CERN QA: cern/cern_qa/cern_qa.md
         - DCB depopulation: cern/cern_installation/DCB_depopulation.md
