@@ -31,8 +31,9 @@ plugins:
 nav:
     - Home:
         - Getting started: index.md
+        - FAQ: faq/faq.md
         - license.md
-        - Boxes: burnin/box_algorithm.md
+        #- Boxes: burnin/box_algorithm.md
     - Backplane:
         Backplane depopution: backplane/backplane_depop.md
     - DCB:
