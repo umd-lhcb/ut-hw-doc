@@ -18,7 +18,7 @@
       fully test every elink on DCBs.
 
 
-### Use the DCB QA panel.
+### Use the DCB QA panel
 
 !!! info
     The panel looks like this:
