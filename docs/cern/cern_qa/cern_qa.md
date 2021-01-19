@@ -10,7 +10,7 @@
 3. Run SALT PRBS on available elinks[^2] for 2 min.
 4. Read master GBTx status via optical link to make sure master is configurable
    this way.
-5. Read selected thermistors on DCB and Stave.
+5. Read all ADC lines that will be used in the final system.
 
 
 [^1]: Default bias current is 5 mA.
