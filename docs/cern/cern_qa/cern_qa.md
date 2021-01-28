@@ -25,11 +25,10 @@
 
     ![DCB CERN QA panel](./dcb_cern_qa_panel.png)
 
-
 1. Launch the DCB CERN QA panel in a terminal:
-    ```
-    WCCOAui -proj UTSLICETEST -p objects/fwDCB/UT_DCB_CERN_QA.pnl &
-    ```
+
+        WCCOAui -proj UTSLICETEST -p objects/fwDCB/UT_DCB_CERN_QA.pnl &
+
 2. Input the serial numbers for the 2 DCBs in the **SN** fields
 3. Click **Start test**
 4. Wait for it to finish.
