@@ -26,13 +26,14 @@
     ![DCB CERN QA panel](./dcb_cern_qa_panel.png)
 
 
-1. Open the panel in `gedi`: `Ctrl+O` -> In **File name: **, locate `objects/fwDCB/UT_DCB_CERN_QA.pnl`
-2. Run the panel by clicking the **4-th icon** (floppy drive with a green play
-   button) on the `gedi` tool bar.
-3. Input the serial numbers for the 2 DCBs in the **SN** fields
-4. Click **Start test**
-5. Wait for it to finish.
-6. Take a look at the **Test results** section.
+1. Launch the DCB CERN QA panel in a terminal:
+    ```
+    WCCOAui -proj UTSLICETEST -p objects/fwDCB/UT_DCB_CERN_QA.pnl &
+    ```
+2. Input the serial numbers for the 2 DCBs in the **SN** fields
+3. Click **Start test**
+4. Wait for it to finish.
+5. Take a look at the **Test results** section.
 
     1. If there's no red fields, then both of the DCBs are OK.
     2. If there's red, document the corresponding DCB as bad
