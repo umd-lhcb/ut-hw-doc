@@ -20,26 +20,62 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
       fully test every elink on DCBs.
 
 
-### Remove DCBs from the Slice Test
-
+### Remove DCBs from PEPI crate
 
 !!! warning "Before you proceed"
-    To appease the accelerator god(s), wear anti-static straps at all time and
+    To appease the accelerator god(s), wear anti-static straps at all times and
     install caps on fibers immediately after removal.
 
     ![Anti-static strap](./anti_static_strap-small.jpg){: align=left }
 
     ![Fiber with cap](./fiber_with_cap-small.jpg)
 
-
 !!! note
     We are only using the 2 DCB slots on the **bottom** Pathfinder.
 
-1. Turn off bottom power with the power panel on the MiniDAQ by clicking
+1. Turn off bottom power[^3] with the power panel on the MiniDAQ by clicking
    **Bottom OFF**.
 2. Turn off the 3V pull-up PSU:
     ![3V pull-up PSU](./3v_pullup_psu.jpg)
-3. Pull out DCBs one-by-one, then
+3. Pull out DCBs one-by-one, then remove all fibers and FFC[^4].
+    ![FFC removal](./ffc_removal.jpg)
+
+
+[^3]: "Bottom power" refers to power to 2 bottom DCBs and Hybrids that the 2
+      DCBs connect
+[^4]: Flexible Flat Cable. Note that FFC cable would be a tautology.
+
+
+### Install DCBs to PEPI crate
+
+1. Install FFC to the DCB.
+
+    !!! note
+        - The 2 FFCs are interchangeable.
+        - The FFC should be inserted to the second to right of the opt. mezz,
+          when the copper pipes are pointing down (see the picture for FFC
+          removal above).
+
+2. Install optical fibers to the DCB.
+
+    !!! note
+        The left DCB slot is `JD0`, the right `JD4`. The topmost fiber has the
+        index `1`.
+
+        Therefore, `B0.4` means the 4th fiber from top to bottom at slot `JD0`.
+
+3. Install DCB to the correct slot (the one with `B0.x` fibers **must** go to
+   `JD0`, `B4.x` `JD4`).
+
+4. Double check the pull-up harnesses are still connected on the FFC breakout
+   board. If not, reconnect them according to the picture below.
+
+    ![FFC breakout board](./pull_up_cables.jpg)
+
+    Also make sure the other ends are still connected to the 3V pull-up PSU.
+
+5. Turn on the 3V pull-up PSU.
+6. Turn on bottom power with the power panel by clicking **Bottom ON**.
 
 
 ### Use the DCB QA panel
