@@ -2,7 +2,9 @@
 
 !!! note
     All these procedures will be automated by a single WinCC OA panel, please
-    refer to the section below on how to use it.
+    refer to [this section](#use-the-dcb-qa-panel) below on how to use it.
+
+The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
 
 1. Run regular GBTx PRBS test for 2 min.
 2. If there's any PRBS error in the previous step, re-run PRBS with 6 mA[^1]
@@ -16,6 +18,28 @@
 [^1]: Default bias current is 5 mA.
 [^2]: Some of the hybrids in the slice test Stave are not working, so we can't
       fully test every elink on DCBs.
+
+
+### Remove DCBs from the Slice Test
+
+
+!!! warning "Before you proceed"
+    To appease the accelerator god(s), wear anti-static straps at all time and
+    install caps on fibers immediately after removal.
+
+    ![Anti-static strap](./anti_static_strap-small.jpg){: align=left }
+
+    ![Fiber with cap](./fiber_with_cap-small.jpg)
+
+
+!!! note
+    We are only using the 2 DCB slots on the **bottom** Pathfinder.
+
+1. Turn off bottom power with the power panel on the MiniDAQ by clicking
+   **Bottom OFF**.
+2. Turn off the 3V pull-up PSU:
+    ![3V pull-up PSU](./3v_pullup_psu.jpg)
+3. Pull out DCBs one-by-one, then
 
 
 ### Use the DCB QA panel
