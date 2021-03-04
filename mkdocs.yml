@@ -63,6 +63,7 @@ nav:
         - LVR Final QA: teststands/lvr-finalqa/finalqa-setup.md
         - CCM QA: teststands/ccm-qa/ccmqa-setup.md
     - CERN:
+        - CERN PEPI installation QA: cern/cern_pepi_installation_qa/cern_pepi_installation_qa.md
         - CERN visual inspection: cern/cern_visual_inspection/cern_visual_inspection.md
         - CERN QA: cern/cern_qa/cern_qa.md
         - CERN Installation:
