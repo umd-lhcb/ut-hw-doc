@@ -3,18 +3,18 @@ connectivity test for now.
 
 ## Old method
 
-1. Install Backplane to PEPI crate baseplate with a **custom-made BP support**
+1. Install Backplane to PEPI crate baseplate with a **custom BP support**
 
     > diagram
 
-2. Install another **custom-made Inner BB support**
+2. Install another **custom Inner BB support**
 
     > diagram
 
 3. Install Inner BB, Telemetry BB, and P2B2 cables, then populate PPP
 
 4. _To test power and sense lines_:
-    1. Plug in **custom-made DCB and Pig Tail continuity testing boards**
+    1. Plug in **custom DCB and Pig Tail continuity testing boards**
     2. Turn on LVR _with_ sense lines connected channel-by-channel
     3. Measure the voltages on the continuity testing boards
 
@@ -72,7 +72,7 @@ connectivity test for now.
         of sense line
     3. Read the sense line voltage at LVR with SCA ADC
 
-4. Install BP with **custom-made BP support**
+4. Install BP with the **custom BP support**
 
 5. Install Pig Tails and their mechanical support
 
