@@ -123,5 +123,6 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
     All these procedures will be automated by a single WinCC OA panel, which is
     still in th work.
 
-1. Read all output voltages without sense line.
-2. Turn on and off each channel.
+1. Launch the LVR CERN QA panel in a terminal:
+
+        WCCOAui -proj UTSLICETEST -p fwTelemetry/LVR_v4.pnl &
