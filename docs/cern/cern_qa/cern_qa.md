@@ -89,6 +89,24 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
 
         WCCOAui -proj UTSLICETEST -p objects/fwDCB/UT_DCB_CERN_QA.pnl &
 
+    !!! warning "Establish a working baseline"
+
+        Now it's a good time trying to read the status of master GBTx, to establish
+        a working baseline.
+
+        This can be done by clicking the **Read master GBTx status** on the **Debug**
+        buttons.
+
+        If you see one or two of the master status can't be read, like this:
+
+        ![DCB CERN QA master problem](./dcb_test_prob.png)
+
+        Turning off powers and try **reseating** the FFC! It is very likely that the FFC
+        is not making good contact!
+
+        If after reseating and swapping FFCs, the master status still can't be read,
+        put the board aside, mark it as bad, and install a new board.
+
 2. Input the serial numbers for the 2 DCBs in the **SN** fields
 3. Click **Start test**
 4. Wait for it to finish.
