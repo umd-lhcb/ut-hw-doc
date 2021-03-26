@@ -50,10 +50,6 @@ connectivity test for now.
     1. Turn on LVR _without_ sense lines connected channel-by-channel
     2. Use a multimeter to measure voltage on the power cable/board BP side connectors
 
-        !!! question
-            Is it OK to measure voltages with multimeter directly? Is there any safety
-            code prevending us from doing that?
-
 3. _To test sense lines_:
     1. Turn off all LVR channels
     2. Use a **MiniIO breakout board**, then apply voltage at a particular pair
