@@ -5,11 +5,7 @@ connectivity test for now.
 
 1. Install Backplane to PEPI crate baseplate with a **custom BP support**
 
-    > diagram
-
 2. Install another **custom Inner BB support**
-
-    > diagram
 
 3. Install Inner BB, Telemetry BB, and P2B2 cables, then populate PPP
 
@@ -34,13 +30,11 @@ connectivity test for now.
     This is because we have to re-use existing screw holes on the carbon fiber
     frame, and that means these screws will be blocked by power cables.
 
-2. When removing power cables, it is likely that we need to unplug them from
-    PPP due to the fact that we cut them to exact lengths.
+2. When removing power cables, we need to unplug them from PPP due to the fact
+    that we cut them to exact lengths.
 
     This means that after replug, we have no continuity test to ensure all
     cables are populated correctly.
-
-3. 4 custom parts need to be made
 
 
 ## Proposed method
@@ -53,9 +47,6 @@ connectivity test for now.
             connector to the Telemetry BB.
 
 2. _To test power lines_:
-
-    > diagram
-
     1. Turn on LVR _without_ sense lines connected channel-by-channel
     2. Use a multimeter to measure voltage on the power cable/board BP side connectors
 
@@ -64,9 +55,6 @@ connectivity test for now.
             code prevending us from doing that?
 
 3. _To test sense lines_:
-
-    > diagram
-
     1. Turn off all LVR channels
     2. Use a **MiniIO breakout board**, then apply voltage at a particular pair
         of sense line
