@@ -109,6 +109,16 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
 
 2. Input the serial numbers for the 2 DCBs in the **SN** fields
 3. Click **Start test**
+
+    !!! info "In case the _Optimize hybrid elinks_ fails"
+
+        The hybrid elinks optimization are more error-prune than the rest of the steps.
+
+        One possibility is that the TFC NZS signal is not sent. To check that:
+        **TOP** -> **SODIN** -> **Core 0** -> **Calibration A** and make sure that
+        **make NZS** option is ticked.
+
+
 4. Wait for it to finish.
 5. Take a look at the **Test results** section.
 
