@@ -85,6 +85,11 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
 
     ![DCB CERN QA panel](./dcb_cern_qa_panel.png)
 
+!!! info
+    The log viewer can be launched from command line with:
+    
+        WCCOAtoolLogViewer -proj UTSLICETEST &
+
 1. Launch the DCB CERN QA panel in a terminal:
 
         WCCOAui -proj UTSLICETEST -p objects/fwDCB/UT_DCB_CERN_QA.pnl &
