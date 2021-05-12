@@ -87,7 +87,7 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
 
 !!! info
     The log viewer can be launched from command line with:
-    
+
         WCCOAtoolLogViewer -proj UTSLICETEST &
 
 1. Launch the DCB CERN QA panel in a terminal:
@@ -141,3 +141,24 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
 1. Launch the LVR CERN QA panel in a terminal:
 
         WCCOAui -proj UTSLICETEST -p fwTelemetry/LVR_v4.pnl &
+
+### Installing LVR to SBC
+
+1. Make sure the wedgelock is locked with specified torque of 80 cNm (7 lb-ft).
+
+    !!! info
+        - The name of the LVR wedgelock is [Birtcher wedgelock retainer (40-5-12-T)](https://schroff.nvent.com/en-gb/products/enc40-5-10-b-lf-ln-m?selectionPath=0%7C0%7C0%7C0%7C0%7C0%7C0%7C)
+        - The data sheet of the wedgelock can be found [here](https://schroff.nvent.com/sites/g/files/hdkjer281/files/acquiadam/2020-11/40-5_DataSheet.pdf)
+
+2. Test the isolation of `GND` and `GND_earth` after connecting the `GND_earth`
+    cables from SBC to LVR.
+
+    !!! info
+
+        This can be done with a multimeter. Fix one end of the probe on SBC,
+        while use the other end to probe on the `LV_RETURN` pin of the LVR
+        output connector (see picture below).
+
+        ![LVR isolation probe](./lvr_output_connector.jpg)
+
+        **One LVR only needs to be probed once.**
