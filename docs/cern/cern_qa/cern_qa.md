@@ -139,6 +139,42 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
     refer to [this section](#use-the-lvr-qa-panel) below on how to use it.
 
 
+### Proposed LVR nominal voltages
+
+| LVR type | M `VrsR` | M `VregR` |S `VrsR` | S `VregR` |
+|---|---|---|---|---|
+| `12A` | 1.23 | 1.4 | - | - |
+| `12MSA` | 1.23 | 1.4 | 3.7 | 1.42 |
+| `12MS` | 1.23 | 1.4 | 3.7 | 1.42 |
+| `15MS` | 1.5 | 1.7 | 3.7 | 1.7 |
+| `25A` | 2.5 | 2.84 | - | - |
+
+!!! info "Nomenclature"
+    - `VrsR`: Sense voltage (converted)
+    - `VregR`: Output voltage (converted)
+    - `VisR`: Sense current (read as a voltage, before conversion)
+
+!!! note
+    - All voltages are in unit "V".
+    - These expected values are pre-set in the test panel as default valules,
+        but they remain user-changeable.
+    - Since LVR CERN QA doesn't involve a load, all `VisR` is assumed to be at
+        $0.1$.
+    - For now, we assume a symmetrical tolerance of $\pm 0.3$ for all values.
+    - In `12MSA` case, all expected voltages for `A` channels is assumed to be
+          the same as that of the `M` channels.
+    - For slave `S` channels, the actual sense lines are unconnected.
+        Instead, `Master_Vref_Sense_in` is connected.
+
+        (See LVR schematic, p. 4)
+
+!!! info
+    - The _Output voltage_ `VregR` is the voltaged measured at LVR output
+        connector.
+    - When sense line is unconnected,
+      $\frac{\text{Sense voltage}}{\text{Output voltage}} = \frac{2000 - 249}{2000} = 0.88$.
+
+
 ### Use the LVR QA panel
 
 !!! info
