@@ -143,11 +143,11 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
 
 | LVR type | M `VrsR` | M `VregR` |S `VrsR` | S `VregR` |
 |---|---|---|---|---|
-| `12A` | 1.23 | 1.4 | - | - |
-| `12MSA` | 1.23 | 1.4 | 3.7 | 1.4 |
-| `12MS` | 1.23 | 1.4 | 3.7 | 1.4 |
-| `15MS` | 1.5 | 1.7 | 3.7 | 1.7 |
-| `25A` | 2.5 | 2.84 | - | - |
+| `12A` | $1.25 \pm 0.05$ | $1.4 \pm 0.1$ | - | - |
+| `12MSA` | $1.25 \pm 0.05$ | $1.4 \pm 0.1$ | $3.7 \pm 1$ | $1.4 \pm 0.1$ |
+| `12MS` | $1.25 \pm 0.05$ | $1.4 \pm 0.1$ | $3.7 \pm 1$ | $1.4 \pm 0.1$ |
+| `15MS` | $1.5 \pm 0.05$ | $1.7 \pm 0.1$ | $3.7 \pm 1$ | $1.7 \pm 0.1$ |
+| `25A` | $2.5 \pm 0.05$ | $2.84 \pm 0.1$ | - | - |
 
 !!! info "Nomenclature"
     - `VrsR`: Sense voltage (converted)
@@ -160,13 +160,15 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
         but they remain user-changeable.
     - Since LVR CERN QA doesn't involve a load, all `VisR` is assumed to be at
         $0.1$.
-    - For now, we assume a symmetrical tolerance of $\pm 0.3$ for all values.
     - In `12MSA` case, all expected voltages for `A` channels is assumed to be
           the same as that of the `M` channels.
     - For slave `S` channels, the actual sense lines are unconnected.
         Instead, `Master_Vref_Sense_in` is connected.
 
         (See [LVR schematic](https://raw.githubusercontent.com/umd-lhcb/electronic-projects/master/lvr/schematic_lvr.pdf), p. 4)
+
+    - For `S` sense lines, as long as it's not `rail` (5.5 V) or `GND`, we are
+        fine with it.
 
 !!! info
     - The _Output voltage_ `VregR` is the voltaged measured at LVR output
