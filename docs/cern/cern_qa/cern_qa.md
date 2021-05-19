@@ -144,8 +144,8 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
 | LVR type | M `VrsR` | M `VregR` |S `VrsR` | S `VregR` |
 |---|---|---|---|---|
 | `12A` | 1.23 | 1.4 | - | - |
-| `12MSA` | 1.23 | 1.4 | 3.7 | 1.42 |
-| `12MS` | 1.23 | 1.4 | 3.7 | 1.42 |
+| `12MSA` | 1.23 | 1.4 | 3.7 | 1.4 |
+| `12MS` | 1.23 | 1.4 | 3.7 | 1.4 |
 | `15MS` | 1.5 | 1.7 | 3.7 | 1.7 |
 | `25A` | 2.5 | 2.84 | - | - |
 
