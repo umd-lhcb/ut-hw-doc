@@ -166,7 +166,7 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
     - For slave `S` channels, the actual sense lines are unconnected.
         Instead, `Master_Vref_Sense_in` is connected.
 
-        (See LVR schematic, p. 4)
+        (See [LVR schematic](https://raw.githubusercontent.com/umd-lhcb/electronic-projects/master/lvr/schematic_lvr.pdf), p. 4)
 
 !!! info
     - The _Output voltage_ `VregR` is the voltaged measured at LVR output
