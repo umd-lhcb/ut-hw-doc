@@ -1,7 +1,7 @@
 ## DCB CERN QA
 
 !!! note
-    All these procedures will be automated by a single WinCC OA panel, please
+    All these procedures are automated by a single WinCC OA panel, please
     refer to [this section](#use-the-dcb-qa-panel) below on how to use it.
 
 The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
@@ -135,12 +135,21 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
 ## LVR CERN QA
 
 !!! note
-    All these procedures will be automated by a single WinCC OA panel, which is
-    still in th work.
+    All these procedures are automated by a single WinCC OA panel. Please
+    refer to [this section](#use-the-lvr-qa-panel) below on how to use it.
+
+
+### Use the LVR QA panel
+
+!!! info
+    The panel looks like this:
+
+    ![LVR CERN QA panel](./lvr_cern_qa_panel.png)
 
 1. Launch the LVR CERN QA panel in a terminal:
 
-        WCCOAui -proj UTSLICETEST -p fwTelemetry/LVR_v4.pnl &
+        WCCOAui -proj UTLABDAQ2 -p fwTelemetry/QA_LVR.pnl &
+
 
 ### Installing LVR to SBC
 
