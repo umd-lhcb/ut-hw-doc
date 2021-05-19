@@ -20,6 +20,8 @@ markdown_extensions:
     - admonition
     - pymdownx.critic
     - pymdownx.caret
+    - pymdownx.arithmatex:
+        generic: true
     - attr_list
     - footnotes
 
@@ -27,6 +29,11 @@ plugins:
     - search
     - minify:
         minify_html: true
+
+extra_javascript:
+  - javascripts/config.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 nav:
     - Home:
