@@ -6,7 +6,7 @@
     mach-nix.url = "github:DavHau/mach-nix";
   };
 
-  outputs = { self, nixpkgs, flake-utils, mach-nix }:
+  outputs = { self, flake-utils, mach-nix }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         mkPythonShell = mach-nix.lib.${system}.mkPythonShell;
