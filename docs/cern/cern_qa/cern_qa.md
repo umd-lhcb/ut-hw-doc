@@ -177,6 +177,38 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
       $\frac{\text{Sense voltage}}{\text{Output voltage}} = \frac{2000 - 249}{2000} = 0.88$.
 
 
+### Install TCM
+
+1. Install the 10 mm standoff, with one washer at bottom and one at top:
+
+    ![LVR TCM standoff](./lvr_standoff.jpg)
+
+2. Align and install the TCM.
+
+
+### Update LVR firmware
+
+1. Configure the LVR blue jumpers as shown in here:
+
+    ![LVR FW jumper config](../../lvr/lvr_qa/lvr_jtag.jpg)
+
+    !!! note
+        These jumpers need to go back to their original positions after the
+        firmware update. This is need to ensure some FPGA fail-safe is enabled.
+
+2. Connect the LVR input BB and JTAG to LVR according to this picture:
+
+    ![LVR JTAG](./lvr_fw_update.jpg)
+
+    !!! warning
+        The GND shold not be connected during the firmware update process.
+
+3. Use the nearby laptop to update the firmware. The flasher should have been
+    opened already and all we need to do is click **PROGRAM**.
+
+    ![LVR FW update prgrammer](./lvr_fw_update_program.jpg)
+
+
 ### Use the LVR QA panel
 
 !!! info
@@ -184,9 +216,23 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
 
     ![LVR CERN QA panel](./lvr_cern_qa_panel.png)
 
-1. Launch the LVR CERN QA panel in a terminal:
+1. Connect the Mini IO cable to TCM.
+
+    !!! warning
+        There's a latch that needs to be released manually when trying to
+        unplug the Mini IO cable.
+
+        ![Mini IO cable](./mini_io_connector.jpg)
+
+2. Connect the GND to LVR. See the TCM standoff picture for GND connection.
+
+3. Launch the LVR CERN QA panel in a terminal:
 
         WCCOAui -proj UTLABDAQ2 -p fwTelemetry/QA_LVR.pnl &
+
+4. Input LVR and TCM serial number.
+5. Choose the correct LVR type and subtype.
+6. Click **RUN TESTS**.
 
 
 ### Installing LVR to SBC
