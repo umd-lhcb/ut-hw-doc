@@ -1,9 +1,9 @@
 {
   description = "UMD UT hardward documentation website";
 
-  inputs = rec {
-    flake-utils.url = "github:numtide/flake-utils";
+  inputs = {
     mach-nix.url = "github:DavHau/mach-nix";
+    flake-utils.follows = "mach-nix/flake-utils";
   };
 
   outputs = { self, flake-utils, mach-nix }:
