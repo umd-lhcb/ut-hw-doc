@@ -29,6 +29,13 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
     ![Anti-static strap](./anti_static_strap-small.jpg){: align=left }
 
     ![Fiber with cap](./fiber_with_cap-small.jpg)
+    
+!!! info "Open the MARATON control panel"
+    1. Make sure to have a LHCb online account
+    2. `ssh -Y <lb_username>@lbgw`
+    3. `ssh -Y <lb_username>@utdaqlab1`
+    4. `WCCOAui -proj UTLABHVLV -m gedi &`
+    5. Open **JCOP Framework** -> **Device editor and navigator** -> **FSM** tab -> **UTLABMTN3**
 
 !!! note
     We are only using the 2 DCB slots on the **bottom** Pathfinder.
@@ -84,11 +91,19 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
     The panel looks like this:
 
     ![DCB CERN QA panel](./dcb_cern_qa_panel.png)
+    
+    The `UTSLICETEST` project lives on `lbminidaq2-17`. To connect:
+    
+        ssh -Y admin@lbminidaq2-17
 
 !!! info
     The log viewer can be launched from command line with:
 
         WCCOAtoolLogViewer -proj UTSLICETEST &
+        
+    The main user inteface, `gedi` can be opened with:
+    
+        WCCOAui -proj UTLSLICETEST -m gedi &
 
 1. Launch the DCB CERN QA panel in a terminal:
 
