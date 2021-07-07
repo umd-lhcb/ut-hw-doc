@@ -103,7 +103,7 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
         
     The main user inteface, `gedi` can be opened with:
     
-        WCCOAui -proj UTLSLICETEST -m gedi &
+        WCCOAui -proj UTSLICETEST -m gedi &
 
 1. Launch the DCB CERN QA panel in a terminal:
 
