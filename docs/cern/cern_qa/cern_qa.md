@@ -243,7 +243,7 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
 
 3. Launch the LVR CERN QA panel in a terminal:
 
-        WCCOAui -proj UTLABDAQ2 -p fwTelemetry/QA_LVR.pnl &
+        WCCOAui -proj UTLVTEST -p fwTelemetry/QA_LVR.pnl &
 
 4. Input LVR and TCM serial number.
 5. Choose the correct LVR type and subtype.
