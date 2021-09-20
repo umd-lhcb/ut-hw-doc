@@ -29,7 +29,7 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
     ![Anti-static strap](./anti_static_strap-small.jpg){: align=left }
 
     ![Fiber with cap](./fiber_with_cap-small.jpg)
-    
+
 !!! info "Open the MARATON control panel"
     1. Make sure to have a LHCb online account
     2. `ssh -Y <lb_username>@lbgw`
@@ -41,7 +41,8 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
     We are only using the 2 DCB slots on the **bottom** Pathfinder.
 
 1. Turn off bottom power[^3] with the power panel on the MiniDAQ by clicking
-   **Bottom OFF**.
+   **Bottom OFF** (don't worry about the warning on the panel that this button is "only for
+   testing").
 2. Turn off the 3V pull-up PSU:
     ![3V pull-up PSU](./3v_pullup_psu.jpg)
 3. Pull out DCBs one-by-one, then remove all fibers and FFC[^4].
@@ -62,20 +63,24 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
         - The FFC should be inserted to the second to right of the opt. mezz,
           when the copper pipes are pointing down (see the picture for FFC
           removal above).
+        - Try to do this step carefully, making an effort to ensure the FFC is
+          straight and making good contact. This will potentially save time,
+          since a bad FFC connection is often what causes a QA failure.
 
 2. Install optical fibers to the DCB.
 
     !!! note
-        The left DCB slot is `JD0`, the right `JD4`. The topmost fiber has the
-        index `1`.
+        The left DCB slot is `JD0`, the right `JD4`. The topmost fiber (in the FFC
+        removal picture above) is `1`.
 
-        Therefore, `B0.4` means the 4th fiber from top to bottom at slot `JD0`.
+        Therefore, `B0.4` means the 4th fiber from top in slot `JD0`.
 
 3. Install DCB to the correct slot (the one with `B0.x` fibers **must** go to
    `JD0`, `B4.x` `JD4`).
 
 4. Double check the pull-up harnesses are still connected on the FFC breakout
-   board. If not, reconnect them according to the picture below.
+   board. If not, reconnect them according to the picture below (red on third
+   from top, black on fourth from top).
 
     ![FFC breakout board](./pull_up_cables.jpg)
 
@@ -91,21 +96,21 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
     The panel looks like this:
 
     ![DCB CERN QA panel](./dcb_cern_qa_panel.png)
-    
+
     The `UTSLICETEST` project lives on `lbminidaq2-17`. To connect:
-    
+
         ssh -Y admin@lbminidaq2-17
 
 !!! info
     The log viewer can be launched from command line with:
 
         WCCOAtoolLogViewer -proj UTSLICETEST &
-        
+
     The main user inteface, `gedi` can be opened with:
-    
+
         WCCOAui -proj UTSLICETEST -m gedi &
 
-1. Launch the DCB CERN QA panel in a terminal:
+1. Once connected to `lbminidaq2-17`, launch the DCB CERN QA panel:
 
         WCCOAui -proj UTSLICETEST -p objects/fwDCB/UT_DCB_CERN_QA.pnl &
 
@@ -121,7 +126,7 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
 
         ![DCB CERN QA master problem](./dcb_test_prob.png)
 
-        Turning off powers and try **reseating** the FFC! It is very likely that the FFC
+        then turn off powers and try **reseating** the FFC! It is very likely that the FFC
         is not making good contact!
 
         If after reseating and swapping FFCs, the master status still can't be read,
@@ -132,29 +137,68 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
 
     !!! info "In case the _Optimize hybrid elinks_ fails"
 
-        The hybrid elinks optimization are more error-prune than the rest of the steps.
+        The hybrid elinks optimization are more error-prone than the rest of the steps.
 
         One possibility is that the TFC NZS signal is not sent. To check that:
         **TOP** -> **SODIN** -> **Core 0** -> **Calibration A** and make sure that
         **make NZS** option is ticked.
 
+        **Update 09-17-21: Mark tried to fix this common failure by editing the
+        panel; if it still fails, try power cycling, and then perhaps try
+        restarting the GbtServ** (run `pkill -9 GbtServ` then `GbtServ &`).
 
-4. Wait for it to finish.
+
+4. Wait for it the test to finish.
 5. Take a look at the **Test results** section.
 
     1. If there's no red fields, then both of the DCBs are OK.
-    2. If there's red, document the corresponding DCB as bad
+    2. If there's red, document the corresponding DCB as bad.
     3. All test results are also saved in a log file.
 
 
 ## LVR CERN QA
 
-!!! note
-    All these procedures are automated by a single WinCC OA panel. Please
-    refer to [this section](#use-the-lvr-qa-panel) below on how to use it.
+### TCM QA
+
+1. Take a new TCM and set switches 1 and 3 ON
+2. Take note of the TCM serial number and insert it into the testing apparatus,
+   ensuring to be careful to not break or bend any pins when closing it
+3. Connect the TCM to the TCB via a Mini IO ethernet cable
+4. Turn on the power supply
+5. Get to the TCM QA panel (while connected to `lbminidaq2-17` as [for the
+   DCB QA](#use-the-dcb-qa-panel)): run
+
+        WCCOAui -proj UTLVTEST -m gedi &
+
+    then locate and open the TCM QA panel (in the `panels` folder).
+
+6. Enter the TCM serial number and then run the TCM QA by clicking ***Start Test***
+
+    !!! warning "QA failure"
+
+        The QA may fail for a number of reasons. As a general note, on any given
+        panel, it is often a good idea to hit the ***Start Monitoring*** button,
+        if it exists, especially if you have just altered/restarted something.
+        Other potential fixes include:
+
+        1. Check that you can detect the SCA where the Mini IO cable is connected
+           (should be SCA 0) by opening up the TCB panel (there should be a
+           button on the TCM QA panel to open this). If you cannot detect the SCA,
+           you can try plugging into another slot on the TCB or try power cycling.
+        2. If the TCM QA fails with a message that it failed at the
+           "Configuring SCA" step, you can try power cycling, playing with the
+           switches on the TCM (in case they weren't properly set), and
+           restarting the GbtServ (`pkill -9 GbtServ` and `GbtServ &`). If none
+           of this works, set the TCM aside with a note.
+        3. If the TCM QA fails with a message that it failed because "ADCs not
+           connected" (or similar), set the TCM aside with a note
+           including the feedback from the QA panel.
 
 
 ### Proposed LVR nominal voltages
+
+As discussed with Phoebe (but to be altered to account for sense current monitoring
+issue found while testing), the proposed voltage ranges for the LVR are
 
 | LVR type | M `VrsR` | M `VregR` |S `VrsR` | S `VregR` |
 |---|---|---|---|---|
@@ -191,14 +235,9 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
     - When sense line is unconnected,
       $\frac{\text{Sense voltage}}{\text{Output voltage}} = \frac{2000 - 249}{2000} = 0.88$.
 
-
-### Install TCM
-
-1. Install the 10 mm standoff, with one washer at bottom and one at top:
-
-    ![LVR TCM standoff](./lvr_standoff.jpg)
-
-2. Align and install the TCM.
+The LVR QA panel (use described [here](#use-the-lvr-qa-panel)) will automatically
+adjust to test the voltages are within these ranges after the LVR type is set in
+the panel.
 
 
 ### Update LVR firmware
@@ -211,7 +250,8 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
         These jumpers need to go back to their original positions after the
         firmware update. This is need to ensure some FPGA fail-safe is enabled.
 
-2. Connect the LVR input BB and JTAG to LVR according to this picture:
+2. Connect the LVR input BB and JTAG to LVR according to this picture, and turn
+   on the power:
 
     ![LVR JTAG](./lvr_fw_update.jpg)
 
@@ -219,35 +259,57 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
         The GND shold not be connected during the firmware update process.
 
 3. Use the nearby laptop to update the firmware. The flasher should have been
-    opened already and all we need to do is click **PROGRAM**.
+   opened already and all we need to do is click **PROGRAM**.
 
     ![LVR FW update prgrammer](./lvr_fw_update_program.jpg)
+
+4. Once the firmware is updated, turn off the power and remove the input BB and
+   the JTAG. Don't forget to put the blue jumpers back to their original position
+
+
+### Install TCM
+
+1. Install the 10 mm standoff, with one washer at bottom and one at top (ie. two
+   washers per standoff):
+
+    ![LVR TCM standoff](./lvr_standoff.jpg)
+
+2. Align and install the TCM, with the Mini IO cable connected to it (and the TCB)
 
 
 ### Use the LVR QA panel
 
-!!! info
-    The panel looks like this:
-
-    ![LVR CERN QA panel](./lvr_cern_qa_panel.png)
-
-1. Connect the Mini IO cable to TCM.
-
-    !!! warning
-        There's a latch that needs to be released manually when trying to
-        unplug the Mini IO cable.
-
-        ![Mini IO cable](./mini_io_connector.jpg)
-
+1. Connect all the CCMs on the LVR according to the board subtype
 2. Connect the GND to LVR. See the TCM standoff picture for GND connection.
-
-3. Launch the LVR CERN QA panel in a terminal:
+3. Re-connect the input BB, and turn on the power
+4. Launch the LVR CERN QA panel in a terminal:
 
         WCCOAui -proj UTLVTEST -p fwTelemetry/QA_LVR.pnl &
 
-4. Input LVR and TCM serial number.
-5. Choose the correct LVR type and subtype.
-6. Click **RUN TESTS**.
+    !!! info
+        The panel looks like this:
+
+        ![LVR CERN QA panel](./lvr_cern_qa_panel.png)
+
+5. Input LVR and TCM serial number.
+6. Choose the correct LVR type and subtype.
+7. Click **RUN TESTS**
+8. Assuming the board passes, turn the power off and disconnect everything,
+   keeping the TCM and CCMs installed on the LVR
+
+    !!! warning "QA Failure because of high `Vis`"
+
+        TODO include instructions from Phoebe...
+
+9. In the case of an LVR with MS channels, test that the soldering was done
+   correctly using a multimeter (TODO get a picture of this, and explain in
+   more detail)
+
+!!! warning
+    There's a latch that needs to be released manually when trying to
+    unplug the Mini IO cable.
+
+    ![Mini IO cable](./mini_io_connector.jpg)
 
 
 ### Installing LVR to SBC
