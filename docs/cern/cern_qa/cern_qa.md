@@ -145,7 +145,11 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
 
         **Update 09-17-21: Mark tried to fix this common failure by editing the
         panel; if it still fails, try power cycling, and then perhaps try
-        restarting the GbtServ** (run `pkill -9 GbtServ` then `GbtServ &`).
+        restarting the GbtServ** (run `pkill -9 GbtServ`; note: don't run
+        `GbtServ &`, as was done at UMD, since here the necessary processes
+        are started automatically) **and possibly try restarting the project**
+        (I believe you can just close out the ssh sessions and restart, but Mark
+        may know a better way...).
 
 
 4. Wait for it the test to finish.
@@ -155,14 +159,22 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
     2. If there's red, document the corresponding DCB as bad.
     3. All test results are also saved in a log file.
 
+Once finished QAing, you can power everything off. Be sure that you don't leave
+the optical fibers disconnected and without their plastic caps attached, though,
+since we have found them to get dirty quite easily (which will affect their
+performance).
+
 
 ## LVR CERN QA
 
 ### TCM QA
 
 1. Take a new TCM and set switches 1 and 3 ON
-2. Take note of the TCM serial number and insert it into the testing apparatus,
-   ensuring to be careful to not break or bend any pins when closing it
+2. Take note of the TCM serial number and insert it into the testing apparatus
+   (see image), ensuring to be careful to not break or bend any pins when closing it
+
+     ![TCM testing](./tcm_testing.jpg)
+
 3. Connect the TCM to the TCB via a Mini IO ethernet cable
 4. Turn on the power supply
 5. Get to the TCM QA panel (while connected to `lbminidaq2-17` as [for the
@@ -188,7 +200,7 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
         2. If the TCM QA fails with a message that it failed at the
            "Configuring SCA" step, you can try power cycling, playing with the
            switches on the TCM (in case they weren't properly set), and
-           restarting the GbtServ (`pkill -9 GbtServ` and `GbtServ &`). If none
+           restarting the GbtServ (`pkill -9 GbtServ`). If none
            of this works, set the TCM aside with a note.
         3. If the TCM QA fails with a message that it failed because "ADCs not
            connected" (or similar), set the TCM aside with a note
@@ -297,19 +309,63 @@ the panel.
 8. Assuming the board passes, turn the power off and disconnect everything,
    keeping the TCM and CCMs installed on the LVR
 
-    !!! warning "QA Failure because of high `Vis`"
+    !!! info "QA Failure because of high `Vis`"
 
-        TODO include instructions from Phoebe...
+        We have found that a handful boards seemingly "fail" because of an
+        unanticipated issue caused by the TCM reference voltage being tied to
+        GND. During the testing at UMD, the ref was tied to 1.5V, so the issue
+        was not observed. Also, I believe the expectation is that when the LVR
+        is connected to a load, regardless of whether the TCM is tied to GND,
+        the high `Vis` "issue" should go away (check this with Phoebe...).
+
+        If you find a board that fails the QA because of one (or more) channels
+        (say, channel `j`) reading out a high `Vis`, as long as you can verify
+        the anomalous readings go away when the TCM reference is tied to 1.5V,
+        you can pass the LVR. To do this, follow these steps:
+
+        1. With the LVR on and the TCM attached, just verify with a multimeter
+           that the reading from the LVR QA panel is correct. To do this, first
+           get an "unconverted" reading from the QA panel by unchecking the
+           "converted data" checkbox, and note the "`Vis`" value for the
+           problematic channel (this is now in V). Then, referencing the TCM
+           schematic below, probe (on the solder pads on the TCM) between
+           `i_SENSE_MONj` and `GND` (say, pin 2). This voltage readout should
+           match what is reported in the QA panel. Note that we "expect" (based
+           on experience) this voltage to be <60mV. If it's larger, check with
+           Phoebe before proceeding.
+        2. Next, turn the LVR off and remove the TCM. As in the initial QA at
+           UMD, turn on dip switch 1 on SW5 (on the back of LVR). Turn the LVR
+           back on. You will now connect, using a wire between LVR pin pairs
+           that connect to the TCM, pin 12 (`i_SENSE_MON_REF`) to another
+           pin and then again probe between `i_SENSE_MONj` and `GND`. First, as
+           another sanity check, connect pin 12 to `GND` (say, pin 11); probing
+           between `i_SENSE_MONj` and `GND` should return the same voltage
+           reading as above. Second, connect pin 12 to 1.5V (say, pin 35). You
+           should now see (to within a few mV) 1.5V when probing between
+           `i_SENSE_MONj` and `GND`.
+        3. If this all works correctly, you can pass the LVR, but put a note
+           in the UMD database. Also, turn off dip switch 1 on SW5 and reinstall
+           the TCM before putting away the LVR.
+
+           ![TCM schematic](./tcm_schematic.png)
+
+    !!! warning
+        There's a latch that needs to be released manually when trying to
+        unplug the Mini IO cable.
+
+        ![Mini IO cable](./mini_io_connector.jpg)
+
 
 9. In the case of an LVR with MS channels, test that the soldering was done
-   correctly using a multimeter (TODO get a picture of this, and explain in
-   more detail)
+   correctly using a multimeter. Note that the sets of 6 pins in the
+   image below should all be at the same voltage. With the multimeter, probe
+   the resistance between the indicated blue, red, and green lines. The blue
+   tests that the soldering was successful (expect a reading near 0 Ohm), the
+   red tests that the soldering didn't damage anything (expect a reading near
+   80 Ohm), and the green tests that the LVR power and chassis GND are
+   still isolated (expect a reading >=25 kOhm).
 
-!!! warning
-    There's a latch that needs to be released manually when trying to
-    unplug the Mini IO cable.
-
-    ![Mini IO cable](./mini_io_connector.jpg)
+   ![LVR bridging](./lvr_bridge.png)
 
 
 ### Installing LVR to SBC
