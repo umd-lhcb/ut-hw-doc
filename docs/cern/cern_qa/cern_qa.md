@@ -373,7 +373,7 @@ the panel.
 1. Check that CCMs and TCM are properly installed and sit flat
 2. Make sure the wedgelocks are loose, and slide the LVR into the SBC
 
-3. Make sure the wedgelock is locked with specified torque of 80 cNm (7 lb-ft).
+3. Make sure the wedgelock is locked with specified torque of 80 cNm (7 inch-ft).
 
     !!! info
         - The name of the LVR wedgelock is [Birtcher wedgelock retainer (40-5-12-T)](https://schroff.nvent.com/en-gb/products/enc40-5-10-b-lf-ln-m?selectionPath=0%7C0%7C0%7C0%7C0%7C0%7C0%7C)
