@@ -3,14 +3,16 @@
 As the backplanes depopulate, for some DCBs only some GBTxs are used. The
 backplane design rules specify that when GBTxs are unused the unused GBTxs are
 always `GBTx4` and `GBTx5`.  For these boards the optical mezzanine for `GBTx4-5`
-does not need to be installed.
+does not need to be installed, in addition to (entire) DCB boards' depopulation. 
+
+<img src="https://user-images.githubusercontent.com/12600353/163211879-f23002a2-8fbf-4389-83e5-2b65f393caf1.png" width="600">
 
 !!! note
     I do not believe any special jumpers need to be installed but I will verify
     this (Will).
 
 
-## Depopulated DCB placement
+## DCB placement with depopulated VTTx
 The backplane mapping specifies which pairs of GBTxs are unused in the
 detector. They can be translated from "proto" `JD` slots to True and Mirror `JD`
 slots with the following table[^1]:
@@ -25,13 +27,13 @@ slots with the following table[^1]:
 
 
 - Full backplane: This backplane has no depopulated DCBs
-- Partially depopulated backplane: `JD` slots `1, 5, 6, 8` should be filled
-  with depopulated DCBs. This applies to both True and Mirror backplanes.
+- Partially depopulated backplane: `JD` slots `1, 5, 6, 8` should have DCBs 
+  with depopulated VTTx. This applies to both True and Mirror backplanes.
 - Depopulated backplane: In addition to `JD 1, 5, 6, 8`, slots `7, 9` should
-  also be filled with depopulated DCBs.  This applies to both True and Mirror
+  also DCBs with depopulated VTTx.  This applies to both True and Mirror
   backplanes.
 
-The total number of depopulated DCBs is 72:
+The total number of DCBs with depopulated VTTx is 72:
 ```
 12 P backplanes * 4 DCBs + 4 D backplanes * 6 DCBs
 ```
