@@ -33,12 +33,12 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
 !!! info "Open the MARATON control panel"
     1. Make sure to have a LHCb online account
     2. `ssh -Y <lb_username>@lbgw`
-    3. `ssh -Y <lb_username>@utdaqlab1`
-    4. `WCCOAui -proj UTLABHVLV -m gedi &`
+    3. `ssh -Y <lb_username>@utsurface01`
+    4. `WCCOAui -proj UTSURFACEHVLV -m gedi &`
     5. Open **JCOP Framework** -> **Device editor and navigator** -> **FSM** tab -> **UTLABMTN3**
 
 !!! note
-    We are only using the 2 DCB slots on the **bottom** Pathfinder.
+    We are only using the one DCB slot on the **bottom** Pathfinder, slot 4 (the 5th from the left).
 
 1. Turn off bottom power[^3] with the power panel on the MiniDAQ by clicking
    **Bottom OFF** (don't worry about the warning on the panel that this button is "only for
@@ -112,7 +112,7 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
 
 1. Once connected to `lbminidaq2-17`, launch the DCB CERN QA panel:
 
-        WCCOAui -proj UTSLICETEST -p objects/fwDCB/UT_DCB_CERN_QA.pnl &
+        WCCOAui -proj UTSLICETEST -p objects/fwDCB/UT_DCB_CERN_QA_v2.pnl &
 
     !!! warning "Establish a working baseline"
 
