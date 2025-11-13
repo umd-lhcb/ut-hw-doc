@@ -35,7 +35,12 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
     2. `ssh -Y <lb_username>@lbgw`
     3. `ssh -Y <lb_username>@utsurface01`
     4. `WCCOAui -proj UTSURFACEHVLV -m gedi &`
-    5. Open **JCOP Framework** -> **Device editor and navigator** -> **FSM** tab -> **UTLABMTN3**
+    5. Open **JCOP Framework** -> **Device editor and navigator** -> **FSM** tab
+    6. Navigate through the tree: **UTSURFACEHVLV** -> **UTSURFAC_LV_MTV** -> **UTLABMTN3**, then right-click and select "view"
+
+!!! warning "Before turning on the LV"
+    Make sure to turn on the chiller on the top floor before switching
+    the LV.
 
 !!! note
     We are only using the one DCB slot on the **bottom** Pathfinder, slot 4 (the 5th from the left).
@@ -97,22 +102,24 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
 
     ![DCB CERN QA panel](./dcb_cern_qa_panel.png)
 
-    The `UTSLICETEST` project lives on `lbminidaq2-17`. To connect:
+    The `UTSURFACETEST` project lives in `utsurface02`. To connect, ssh into lbgw then
 
-        ssh -Y admin@lbminidaq2-17
+        ssh -Y <username>>@utsurface02
 
 !!! info
     The log viewer can be launched from command line with:
 
-        WCCOAtoolLogViewer -proj UTSLICETEST &
+        WCCOAtoolLogViewer -proj UTSURFACETEST &
 
     The main user inteface, `gedi` can be opened with:
 
-        WCCOAui -proj UTSLICETEST -m gedi &
+        WCCOAui -proj UTSURFACETEST -m gedi &
 
-1. Once connected to `lbminidaq2-17`, launch the DCB CERN QA panel:
+    Next, open **JCOP Framework** -> **Device editor and navigator** -> **FSM** tab, then naviate through the tree: * **UTSURFACETEST** -> **UTSTAVETEST**, right-click and select "view".
 
-        WCCOAui -proj UTSLICETEST -p objects/fwDCB/UT_DCB_CERN_QA_v2.pnl &
+1. Once connected to `utsurface02`, launch the DCB CERN QA panel:
+
+        WCCOAui -proj UTSURFACETEST -p objects/fwDCB/UT_DCB_CERN_QA_v2.pnl &
 
     !!! warning "Establish a working baseline"
 

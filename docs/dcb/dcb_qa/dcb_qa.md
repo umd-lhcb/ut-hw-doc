@@ -10,7 +10,7 @@ stave through the Backplane connecter and a computer through the mezzanines.
 ![DCB Diagram](overview/dcb_diagram2.png)
 
 The PRBS test checks the DCB ability to get data from the GBTxs to the
-computer. A psuedo-random bit sequence, or PRBS, is generated in the data GBTxs
+computer. A pseudo-random bit sequence, or PRBS, is generated in the data GBTxs
 and sent to our computer via the VTTxs. This test verifies the black data lines
 on the image.
 
