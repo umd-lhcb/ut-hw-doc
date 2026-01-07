@@ -40,7 +40,11 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
 
 !!! warning "Before turning on the LV"
     Make sure to turn on the chiller on the top floor before switching
-    the LV.
+    the LV:
+     1. Check that the kill switch in the front in on.
+     2. Press and hold "enter" to turn on the chiller.
+     ![Chiller LV](./chiller_lv.jpg)
+    To turn it off, first hold "enter" and then flip the switch.
 
 !!! note
     We are only using the one DCB slot on the **bottom** Pathfinder, slot 4 (the 5th from the left).
