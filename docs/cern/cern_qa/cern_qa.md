@@ -41,12 +41,12 @@ Additionally, the TFC loopback test verifies the integrity of the TFC lines down
     6. Navigate through the tree: **UTSURFACEHVLV** -> **UTSURFAC_LV_MTN** -> **UTLABMTN3**, then right-click and select "view"
 
 !!! warning "Before turning on the LV"
+    ![Chiller LV](./chiller_lv.jpg)
     Make sure to turn on the chiller on the top floor before switching
     the LV:
-        1. Check that the kill switch in the front is in the ON position.
-        2. Press and hold ENTER to turn on the chiller.
-    ![Chiller LV](./chiller_lv.jpg)
-    To turn it off, first hold "enter" and then flip the switch.
+    1. Check that the kill switch in the front is in the ON position.
+    2. Press and hold ENTER to turn on the chiller.
+    3. To turn it off, first hold "enter" and then flip the switch.
 
 !!! note
     We are only using one DCB slot in the **bottom** Pathfinder, slot 4 (the 5th from the left).
@@ -183,26 +183,25 @@ performance).
 The following steps are required to setup the the TFC loopback test.
 
 1. Enable all available hybrids in FSM. For the current slot (B4), only S5 is connected. Without cooling, it should be safe to test one hybrid at a time, or a quarter of the stave for a brief period.
-2. Switch on DCBs and hybrid LV
+2. 
+3. Switch on DCBs and hybrid LV
 
-3. In DEN, open MiniDAQ -> TFC -> SOL40 -> utsol_01 -> Link 27 (corresponds to slot B4 in slice test; slot B0 is link 24). In subdetector type, set `Specific subtype` to 6 and `FE word test` to 0x04. This corresponds to the 8-bit word sent via TFC to the hybrid, which is then trasmitted back to the TELL40 and checked by the PRBS algorithm.
+4. In DEN, open MiniDAQ -> TFC -> SOL40 -> utsol_01 -> Link 27 (corresponds to slot B4 in slice test; slot B0 is link 24). In subdetector type, set `Specific subtype` to 6 and `FE word test` to 0x04. This corresponds to the 8-bit word sent via TFC to the hybrid, which is then trasmitted back to the TELL40 and checked by the PRBS algorithm.
 
-4. Open MiniDAQ -> TFC quick control. Check `Fast Calib A` and click **Apply**.
+5. Open MiniDAQ -> TFC quick control. Check `Fast Calib A` and click **Apply**.
 
-5. In DEN, open **UTSTAVETEST** -> **Stave5**, then right-click and select "view".
-- In "Data type", click **TFC loopback**.
-- In "Salt Scan Steps", check `ser_g_cfg`, `pll_clk_cfg` and `deser_cfg`.
-- In "Configuration sequence", click **Stop Monitoring**, **Reset all SCAs**, **Configure all SCAs**, **Reset all GPIO**, **Start Monitoring** and **Configure all GBTX**.
-- In "Data type", click **TFC loopback** again.
-- In "Scans", click **Scan all DLL/PLL**, **Scan GBTx phases** and **Scan Salt Phases**. Note: the last step fails if `FE Word test` is not set to 0x04 in the SOL40 panel.
+6. In DEN, open **UTSTAVETEST** -> **Stave5**, then right-click and select "view".
+   1. In "Data type", click **TFC loopback**.
+   2. In "Salt Scan Steps", check `ser_g_cfg`, `pll_clk_cfg` and `deser_cfg`.
+   3. In "Configuration sequence", click **Stop Monitoring**, **Reset all SCAs**, **Configure all SCAs**, **Reset all GPIO**, **Start Monitoring** and **Configure all GBTX**.
+   4. In "Data type", click **TFC loopback** again.
+   5. In "Scans", click **Scan all DLL/PLL**, **Scan GBTx phases** and **Scan Salt Phases**. Note: the last step fails if `FE Word test` is not set to 0x04 in the SOL40 panel.
 
-If everything succeeds, the hybrid will be now configured for the test. To run the test, open the SALT PRBS panel via **Stave5** -> **Commissioning stuff** -> **SALT PRBS**.
-In "Fixed pattern", set `Partition 0` and `Partition 1` to 0x04 (same as in the SOL40 panel).
-Click on **Reset Counters** and then **Start Counting**.
-The boxes on line 8 (hybrid S5) should remain green for the duration of the test, which should be at least 1 minute.
-If so, this TFC line is ok and you can proceed to the next. You should repeat this test with different test words.
-Set "FE word test" (in the SOL40 panel) and "Fixed pattern" (in SALT PRBS panel) to other values (0xAB, 0x55, 0xA3) and reset/start counters again.
-
+If everything succeeds, the hybrid will be now configured for the test. To run the test, open the SALT PRBS panel via **Stave5** -> **Commissioning stuff** -> **SALT PRBS** and then:
+1. In "Fixed pattern", set `Partition 0` and `Partition 1` to 0x04 (same as in the SOL40 panel).
+2. Click on **Reset Counters** and then **Start Counting**.
+3. The boxes on line 8 (hybrid S5) should remain green for the duration of the test, which should be at least 1 minute. If so, this TFC line is ok and you can proceed to the next.
+4. Repeat this test with different test words: Set "FE word test" (in the SOL40 panel) and "Fixed pattern" (in SALT PRBS panel) to other values (0xAB, 0x55, 0xA3) and reset/start counters again.
 
 !!! warning "RxReady panel"
     The results provided by the QA panel might still be positive if some data GBTx fails to synchronize (e.g. bad VTTx or dirty fibers).
