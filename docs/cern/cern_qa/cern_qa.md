@@ -1,9 +1,5 @@
 ## DCB CERN QA
 
-!!! note
-    All these procedures are automated by a single WinCC OA panel, please
-    refer to [this section](#use-the-dcb-qa-panel) below on how to use it.
-
 The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
 
 1. Run regular GBTx PRBS test for 2 min.
@@ -14,6 +10,12 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
    this way.
 5. Read all ADC lines that will be used in the final system.
 
+!!! note
+    All the procedures above are automated by a single WinCC OA panel, please
+    refer to [this section](#use-the-dcb-qa-panel) below on how to use it.
+
+Additionally, the TFC loopback test verifies the integrity of the TFC lines down to the hybrids.
+
 
 [^1]: Default bias current is 5 mA.
 [^2]: Some of the hybrids in the slice test Stave are not working, so we can't
@@ -23,8 +25,8 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
 ### Remove DCBs from PEPI crate
 
 !!! warning "Before you proceed"
-    To appease the accelerator god(s), wear anti-static straps at all times and
-    install caps on fibers immediately after removal.
+    To appease the accelerator god(s), wear an anti-static wrist strap at all times and
+    install caps on the fibers immediately after removal.
 
     ![Anti-static strap](./anti_static_strap-small.jpg){: align=left }
 
@@ -36,18 +38,18 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
     3. `ssh -Y <lb_username>@utsurface01`
     4. `WCCOAui -proj UTSURFACEHVLV -m gedi &`
     5. Open **JCOP Framework** -> **Device editor and navigator** -> **FSM** tab
-    6. Navigate through the tree: **UTSURFACEHVLV** -> **UTSURFAC_LV_MTV** -> **UTLABMTN3**, then right-click and select "view"
+    6. Navigate through the tree: **UTSURFACEHVLV** -> **UTSURFAC_LV_MTN** -> **UTLABMTN3**, then right-click and select "view"
 
 !!! warning "Before turning on the LV"
     Make sure to turn on the chiller on the top floor before switching
     the LV:
-     1. Check that the kill switch in the front in on.
-     2. Press and hold "enter" to turn on the chiller.
-     ![Chiller LV](./chiller_lv.jpg)
+        1. Check that the kill switch in the front is in the ON position.
+        2. Press and hold ENTER to turn on the chiller.
+    ![Chiller LV](./chiller_lv.jpg)
     To turn it off, first hold "enter" and then flip the switch.
 
 !!! note
-    We are only using the one DCB slot on the **bottom** Pathfinder, slot 4 (the 5th from the left).
+    We are only using one DCB slot in the **bottom** Pathfinder, slot 4 (the 5th from the left).
 
 1. Turn off bottom power[^3] with the power panel on the MiniDAQ by clicking
    **Bottom OFF** (don't worry about the warning on the panel that this button is "only for
@@ -111,7 +113,7 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
         ssh -Y <username>>@utsurface02
 
 !!! info
-    The log viewer can be launched from command line with:
+    The log viewer can be launched via command line from `utsurface02` with:
 
         WCCOAtoolLogViewer -proj UTSURFACETEST &
 
@@ -137,7 +139,7 @@ The DCB CERN QA will test the following aspects of 2 DCBs for a single run:
 
         ![DCB CERN QA master problem](./dcb_test_prob.png)
 
-        then turn off powers and try **reseating** the FFC! It is very likely that the FFC
+        then turn off power and try **reseating** the FFC! It is very likely that the FFC
         is not making good contact!
 
         If after reseating and swapping FFCs, the master status still can't be read,
@@ -174,6 +176,53 @@ Once finished QAing, you can power everything off. Be sure that you don't leave
 the optical fibers disconnected and without their plastic caps attached, though,
 since we have found them to get dirty quite easily (which will affect their
 performance).
+
+
+### TFC loopback test
+
+The following steps are required to setup the the TFC loopback test.
+
+1. Enable all available hybrids in FSM. For the current slot (B4), only S5 is connected. Without cooling, it should be safe to test one hybrid at a time, or a quarter of the stave for a brief period.
+2. Switch on DCBs and hybrid LV
+
+3. In DEN, open MiniDAQ -> TFC -> SOL40 -> utsol_01 -> Link 27 (corresponds to slot B4 in slice test; slot B0 is link 24). In subdetector type, set `Specific subtype` to 6 and `FE word test` to 0x04. This corresponds to the 8-bit word sent via TFC to the hybrid, which is then trasmitted back to the TELL40 and checked by the PRBS algorithm.
+
+4. Open MiniDAQ -> TFC quick control. Check `Fast Calib A` and click **Apply**.
+
+5. In DEN, open **UTSTAVETEST** -> **Stave5**, then right-click and select "view".
+- In "Data type", click **TFC loopback**.
+- In "Salt Scan Steps", check `ser_g_cfg`, `pll_clk_cfg` and `deser_cfg`.
+- In "Configuration sequence", click **Stop Monitoring**, **Reset all SCAs**, **Configure all SCAs**, **Reset all GPIO**, **Start Monitoring** and **Configure all GBTX**.
+- In "Data type", click **TFC loopback** again.
+- In "Scans", click **Scan all DLL/PLL**, **Scan GBTx phases** and **Scan Salt Phases**. Note: the last step fails if `FE Word test` is not set to 0x04 in the SOL40 panel.
+
+If everything succeeds, the hybrid will be now configured for the test. To run the test, open the SALT PRBS panel via **Stave5** -> **Commissioning stuff** -> **SALT PRBS**.
+In "Fixed pattern", set `Partition 0` and `Partition 1` to 0x04 (same as in the SOL40 panel).
+Click on **Reset Counters** and then **Start Counting**.
+The boxes on line 8 (hybrid S5) should remain green for the duration of the test, which should be at least 1 minute.
+If so, this TFC line is ok and you can proceed to the next. You should repeat this test with different test words.
+Set "FE word test" (in the SOL40 panel) and "Fixed pattern" (in SALT PRBS panel) to other values (0xAB, 0x55, 0xA3) and reset/start counters again.
+
+
+!!! warning "RxReady panel"
+    The results provided by the QA panel might still be positive if some data GBTx fails to synchronize (e.g. bad VTTx or dirty fibers).
+    For better coverage, keep the RxReady panel open during the tests above.
+    To open it, ssh into `utsurface02` and then
+    	1. Run `WCCAui -proj UTSURFACETEST -m gedi &`
+    	2. Go to **JCOP Framework** -> **Device Editor and Navigator** > **FSM**
+    	3. Right-click **MiniDAQ**, then click on "View"
+    	4. In "Other Devices", select `UTSURFACETEST:uttop_002` (this corresponds to the TELL40 used by the slice test)
+    	5. Click on **RXReady**.
+    The data GBTx's from DCB B4 correspond to links 6-11, currently.
+    To monitoring the links, click on **Reset all counters** and check that the counts in these links remain stable while the LEDs remain green.
+
+!!! info "Figuring out GBTx link numbers in RxReady panel"
+    To get the mapping between GBTx's and link number, ssh into `utsurface02` and then:
+    	1. open `WCCOApara`.
+    	2. Set `DPFilter` to `*DCB*` and hit ENTER.
+    	3. In the tree below, navigate to **UTSURFACTEST** -> **HwTypeGBTUTDCB** -> **UTSLICE_AB1_DCB4** -> **DataGBT_1** --> **tell40_link**
+    	4. In "Values", take note of `Original value` (currently 8). This means Data GTBx #1 in DCB 4 (bottom) corresponds to TELL40 link 8 (or Ch. 8 in other panels, such as the PRBS and RxReady panels).
+    	5. Repeat for the other GBTx's (and if desired, for the other DCBs).
 
 
 ## LVR CERN QA
